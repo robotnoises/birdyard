@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bebop">
+  <head>
+    <link rel="stylesheet" href="assets/style/compiled/bebop.css">
+
+  </head>
+  <body>
+
+    <div class="main">
+      <div ng-view></div>
+    </div>
+
+    <!--Library-->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <!--Application-->
+    <script src="app.js"></script>
+
+    <!--Globals-->
+    <!---->
+
+    <!--Register module dependencies-->
+    <script src="modules/dependencies.js"></script>
+    <script src="modules/nodes/directives/node-directive.js"></script>
+  </body>
+</html>

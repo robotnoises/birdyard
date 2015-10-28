@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": ""
+    "start": "grunt build-dev && http-server -a localhost -p 8000 & grunt watch"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "grunt-contrib-jshint": "^0.11.3",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "http-server": "^0.8.5"
   }
 }

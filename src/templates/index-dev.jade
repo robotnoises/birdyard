@@ -1,7 +1,7 @@
 doctype html
 html(lang='en', ng-app='bebop')
   head
-    // link(rel='stylesheet', href='assets/style/compiled/app.css.map')
+    link(rel='stylesheet', href='assets/style/compiled/bebop.css')
     = '\n'
   body
     = '\n'    
@@ -9,18 +9,15 @@ html(lang='en', ng-app='bebop')
       div(ng-view)
     = '\n'
     //Library
-    // script(src='bower_components/jquery/dist/jquery.min.js')
-        
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/angular-route/angular-route.js')
     = '\n'
     //Application
     script(src='app.js')
-    = '\n'
-    //Lib
-    //
     = '\n'
     //Globals
     //
     = '\n'
     //Register module dependencies
-    script(src='src/modules/nodes/directives/node-directive.js')
-   
+    script(src='modules/dependencies.js')
+    script(src='modules/nodes/directives/node-directive.js')
