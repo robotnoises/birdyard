@@ -10,18 +10,23 @@
       <div ng-view></div>
     </div>
 
-    <!--Library-->
+    <!-- Library-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
 
-    <!--Application-->
+    <!-- Application-->
     <script src="app.js"></script>
 
-    <!--Globals-->
+    <!-- Globals-->
     <!---->
 
-    <!--Register module dependencies-->
+    <!-- Register module dependencies-->
     <script src="modules/dependencies.js"></script>
+
+    <!-- Nodes-->
+    <script src="modules/nodes/routes.js"></script>
+    <script src="modules/nodes/controllers/node-ctrl.js"></script>
+    <script src="modules/nodes/services/node-svc.js"></script>
     <script src="modules/nodes/directives/node-directive.js"></script>
   </body>
 </html>

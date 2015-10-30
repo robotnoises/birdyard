@@ -138,16 +138,29 @@ var config = function (grunt) {
             flatten: true, 
             filter: 'isFile'
           },
-        ],
-      },
+        ]
+      }
+      // ,
+      // dev: {
+      //   files: [
+      //     // includes files within path
+      //     { 
+      //       expand: true, 
+      //       src: ['node_modules/bricks-css/dist/bricks.min.css', 'node_modules/doorman-js/dist/doorman.min.js'], 
+      //       dest: 'app/dist/assets/', 
+      //       flatten: true, 
+      //       filter: 'isFile'
+      //     },
+      //   ]
+      // }
     },
     
     // Test runner
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
-      }
-    }
+    // karma: {
+    //   unit: {
+    //     configFile: 'karma.conf.js'
+    //   }
+    // }
     
   });
   
@@ -159,7 +172,7 @@ var config = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-karma');
+  // grunt.loadNpmTasks('grunt-karma');
   
   // Register custom tasks
   grunt.registerTask('build-dev', ['sass', 'jade:dev']);

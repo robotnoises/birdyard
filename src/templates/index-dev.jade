@@ -8,16 +8,21 @@ html(lang='en', ng-app='bebop')
     div(class='main')
       div(ng-view)
     = '\n'
-    //Library
+    // Library
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-route/angular-route.js')
     = '\n'
-    //Application
+    // Application
     script(src='app.js')
     = '\n'
-    //Globals
+    // Globals
     //
     = '\n'
-    //Register module dependencies
+    // Register module dependencies
     script(src='modules/dependencies.js')
+    = '\n'
+    // Nodes
+    script(src='modules/nodes/routes.js')
+    script(src='modules/nodes/controllers/node-ctrl.js')
+    script(src='modules/nodes/services/node-svc.js')
     script(src='modules/nodes/directives/node-directive.js')
