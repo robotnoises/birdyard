@@ -13,15 +13,4 @@
 .node {
   height: 200px; }
 
-.fixed {
-  display: block;
-  position: fixed;
-  width: 100%; }
-
-.bg-purple {
-  background-color: #9b59b6; }
-
-.bg-grey {
-  background-color: #ecf0f1; }
-
-/*# sourceMappingURL=bebop.css.map */
+/*# sourceMappingURL=containers.css.map */

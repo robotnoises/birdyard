@@ -1,12 +1,13 @@
 doctype html
 html(lang='en', ng-app='bebop')
   head
+    // Style
+    link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
     link(rel='stylesheet', href='assets/style/compiled/bebop.css')
     = '\n'
   body
     = '\n'    
-    div(class='main')
-      div(ng-view)
+    div(ng-view)
     = '\n'
     // Library
     script(src='bower_components/angular/angular.js')
@@ -15,8 +16,8 @@ html(lang='en', ng-app='bebop')
     // Application
     script(src='app.js')
     = '\n'
-    // Globals
-    //
+    // Library
+    script(src='bower_components/angular-material/angular-material.js')
     = '\n'
     // Register module dependencies
     script(src='modules/dependencies.js')

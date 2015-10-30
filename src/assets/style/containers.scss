@@ -1,0 +1,22 @@
+@import 'dimensions';
+
+// Generic containers
+
+.content {
+  width: 100%;
+  max-width: $dim_standard;
+  margin: 0 auto;
+}
+
+.featured {
+  height: $dim_feature;
+  z-index: 1;
+}
+
+.featured.fixed + .non-featured {
+  padding-top: $dim_feature + $dim_spacer;
+}
+
+.node {
+  height: $dim_node;
+}
