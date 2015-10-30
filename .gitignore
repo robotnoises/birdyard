@@ -38,3 +38,6 @@ bower_components/
 # IDE
 
 .vscode/
+
+# SASS
+.sass-cache/
