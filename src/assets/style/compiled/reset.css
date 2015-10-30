@@ -33,30 +33,4 @@ body {
   margin: 0;
   padding: 0; }
 
-.content {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto; }
-
-.featured {
-  height: 300px;
-  z-index: 1; }
-
-.featured.fixed + .non-featured {
-  padding-top: 350px; }
-
-.node {
-  height: 200px; }
-
-.fixed {
-  display: block;
-  position: fixed;
-  width: 100%; }
-
-.bg-purple {
-  background-color: #9b59b6; }
-
-.bg-grey {
-  background-color: #ecf0f1; }
-
-/*# sourceMappingURL=bebop.css.map */
+/*# sourceMappingURL=reset.css.map */
