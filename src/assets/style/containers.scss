@@ -33,3 +33,7 @@
     padding: 25px;
   }
 }
+
+.star-wars {
+  transition: margin-top 400ms ease-out, opacity 400ms linear;
+}
