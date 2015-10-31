@@ -35,5 +35,8 @@
 }
 
 .star-wars {
-  transition: margin-top 400ms ease-out, opacity 400ms linear;
+  transition: margin-top 400ms ease-out;
+  .node {
+    transition: opacity 400ms linear;
+  }
 }
