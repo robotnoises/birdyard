@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,OAAQ;EACN,KAAK,ECLQ,OAAO;EDMpB,MAAM,EAAE,MAAM;;AAGhB,SAAU;EACR,MAAM,ECTM,OAAO;;ADYrB,8BAA+B;EAC7B,UAAU,EAAE,SAAiB;;AAG/B,KAAM;EACJ,MAAM,EChBG,OAAO",
-"sources": ["../container.scss","../dimensions.scss"],
-"names": [],
-"file": "container.css"
-}
