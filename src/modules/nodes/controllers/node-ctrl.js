@@ -15,7 +15,12 @@
     
     $scope.pushText = function() {
       var formatted = nodeService.format($scope.text);
-      $scope.children.$add(formatted);
+      var $obj = nodeService.push(formatted)
+      
+      $obj.$loaded(function () {
+        formatted.id = $obj.id;
+        $scope.children.$add(formatted);
+      });
     };
     
   }]);
