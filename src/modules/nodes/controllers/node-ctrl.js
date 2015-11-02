@@ -4,8 +4,15 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', function ($scope) {
-    // Todo
+  .controller('nodeController', ['$scope', 'nodeService', function ($scope, nodeService) {
+    
+    $scope.text = '';
+    
+    $scope.createNew = function() {
+      var formatted = nodeService.format($scope.text);
+      nodeService.push(formatted);
+    };
+    
   }]);
   
 })(angular);

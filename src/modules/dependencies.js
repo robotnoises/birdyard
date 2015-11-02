@@ -10,6 +10,11 @@
   ]);
   
   // Nodes
+  angular.module('bebop.utilities', [
+    'firebase'
+  ]);
+  
+  // Nodes
   angular.module('bebop.nodes', [
     'ngRoute',
     'firebase'

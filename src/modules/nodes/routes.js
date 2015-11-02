@@ -12,18 +12,12 @@
       templateUrl: 'modules/nodes/views/nodes.html'
     });
     
-    // A specific top-level node
-    $routeProvider.when('/n/:pid', {
+    // A specific node
+    $routeProvider.when('/n/:id', {
       controller: 'nodeController',
       templateUrl: 'modules/nodes/views/nodes.html'
     });
-    
-    // A child node
-    $routeProvider.when('/n/:pid/:cid', {
-      controller: 'nodeController',
-      templateUrl: 'modules/nodes/views/nodes.html'
-    });
-    
+        
   }]);
   
 })(angular);
