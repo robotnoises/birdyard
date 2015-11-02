@@ -4,9 +4,15 @@
 
   'use strict';
 
+  // Config
+  angular.module('bebop.config', [
+    'firebase'
+  ]);
+  
   // Nodes
   angular.module('bebop.nodes', [
-    'ngRoute'
+    'ngRoute',
+    'firebase'
   ]);
-
+  
 })(angular);

@@ -1,23 +1,37 @@
 doctype html
 html(lang='en', ng-app='bebop')
   head
+    // Fonts
+    link(href='//fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css')
+    = '\n'
+    // Style
+    link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
     link(rel='stylesheet', href='assets/style/compiled/bebop.css')
     = '\n'
   body
     = '\n'    
-    div(class='main')
-      div(ng-view)
+    div(ng-view)
     = '\n'
-    //Library
+    // Library
     script(src='bower_components/angular/angular.js')
     script(src='bower_components/angular-route/angular-route.js')
+    script(src='bower_components/firebase/firebase.js')
+    script(src='bower_components/angularfire/dist/angularfire.js')
     = '\n'
-    //Application
+    // Application
     script(src='app.js')
     = '\n'
-    //Globals
-    //
+    // Library
+    script(src='bower_components/angular-material/angular-material.js')
     = '\n'
-    //Register module dependencies
+    // Register module dependencies
     script(src='modules/dependencies.js')
+    = '\n'
+    //Config
+    script(src='modules/config/constants.js')
+    = '\n'
+    // Nodes
+    script(src='modules/nodes/routes.js')
+    script(src='modules/nodes/controllers/node-ctrl.js')
+    script(src='modules/nodes/services/node-svc.js')
     script(src='modules/nodes/directives/node-directive.js')
