@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,MAAO;EACL,OAAO,EAAE,KAAK;EACd,QAAQ,EAAE,KAAK;EACf,KAAK,EAAE,IAAI",
-"sources": ["../positioning.scss"],
-"names": [],
-"file": "positioning.css"
-}

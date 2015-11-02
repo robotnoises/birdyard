@@ -87,9 +87,8 @@ var config = function (grunt) {
     watch: {
       script: {
         files: [
-          'app/templates/*.jade', 
-          'app/templates/partials/*.jade', 
-          'app/assets/style/*.scss'
+          'src/templates/*.jade', 
+          'src/assets/style/*.scss'
         ],
         tasks: ['build-dev'],
         options: {

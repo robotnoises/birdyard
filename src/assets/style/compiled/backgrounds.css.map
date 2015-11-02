@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,UAAW;EACT,gBAAgB,ECAN,OAAO;;ADGnB,QAAS;EACP,gBAAgB,ECNR,OAAO",
-"sources": ["../backgrounds.scss","../colors.scss"],
-"names": [],
-"file": "backgrounds.css"
-}

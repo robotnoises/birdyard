@@ -11,6 +11,7 @@
 .featured {
   height: $dim_feature;
   z-index: 1;
+  overflow: hidden !important;
 }
 
 .featured.fixed + .non-featured {
@@ -19,4 +20,23 @@
 
 .node {
   height: $dim_node;
+}
+
+.node.parent {
+  margin-bottom: 100px;
+  padding-top: 75px;
+}
+
+.node.child {
+  p {
+    margin: 0;
+    padding: 25px;
+  }
+}
+
+.star-wars {
+  transition: margin-top 400ms ease-out;
+  .node {
+    transition: opacity 400ms linear;
+  }
 }
