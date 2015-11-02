@@ -10,11 +10,11 @@
         </p>-->
       </div>
       
-      <!--<div layout="row" class="node parent">
+      <div layout="row" class="node parent">
         <p>
-          This is a song that doesn't end... it just goes on and on, my frieeeennnddd!!!! Some people, started and singin' and not knownin' what it WAS!!!! AND BLAH BE BLAH BLAH BLAHHHHH!
+          <!--{{node.selected}}-->
         </p>
-      </div>-->
+      </div>
     </div>
   </div>
   
@@ -27,25 +27,9 @@
     
     <div layout="row" class="node child bg-grey" ng-repeat="child in children">
       <p>{{child.text}}</p>
+      <p><a ng-href="#/n/{{child.id}}">Reply</a></p>
     </div>
-    
-    <!--<div layout="row" class="node child bg-grey">
-      <p>This is a song that doesn't end... it just goes on and on, my frieeeennnddd!!!! Some people, started and singin' and not knownin' what it WAS!!!! AND BLAH BE BLAH BLAH BLAHHHHH!</p>
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>
-    <div layout="row" class="node child bg-grey">
-    </div>-->
+
   </div>
     
 </div>
