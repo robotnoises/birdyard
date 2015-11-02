@@ -22,7 +22,7 @@
     
     <div>
       <textarea ng-model="text"></textarea>
-      <button ng-click="pushText()">Post</button>
+      <button ng-click="pushText();text=''">Post</button>
     </div>
     
     <div layout="row" class="node child bg-grey" ng-repeat="child in children">
