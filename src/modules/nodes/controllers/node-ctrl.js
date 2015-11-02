@@ -4,13 +4,18 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', 'nodeService', function ($scope, nodeService) {
+  .controller('nodeController', ['$scope', '$routeParams', 'nodeService', function ($scope, $routeParams, nodeService) {
+    
+    // Scope
+    
+    $scope.node = nodeService.get($routeParams.id);
+    $scope.children = nodeService.getChildren($routeParams.id);
     
     $scope.text = '';
     
-    $scope.createNew = function() {
+    $scope.pushText = function() {
       var formatted = nodeService.format($scope.text);
-      nodeService.push(formatted);
+      $scope.children.$add(formatted);
     };
     
   }]);

@@ -17,6 +17,11 @@
       return $firebaseObject($ref);
     }
     
+    function _getChildNodes(id) {
+      var $ref = firebaseService.getRef('nodes', id, 'children');
+      return $firebaseArray($ref);
+    }
+    
     function _pushNode(data) {
       var $ref = firebaseService.getRef('nodes');
       var $newObj = $ref.push();
@@ -44,6 +49,7 @@
     }
     
     _nodeService.get = _getNode;
+    _nodeService.getChildren = _getChildNodes;
     _nodeService.push = _pushNode;
     _nodeService.format = _formatNode;
     
