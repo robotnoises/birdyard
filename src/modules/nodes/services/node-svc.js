@@ -12,16 +12,19 @@
     
     var _nodeService = {};
     
+    // Get a single node
     function _getNode(id) {
       var $ref = firebaseService.getRef('nodes', id);
       return $firebaseObject($ref);
     }
     
+    // Get a single node's children
     function _getChildNodes(id) {
       var $ref = firebaseService.getRef('nodes', id, 'children');
       return $firebaseArray($ref);
     }
     
+    // Create a node    
     function _pushNode(data) {
       var $ref = firebaseService.getRef('nodes');
       var $newObj = $ref.push();
@@ -36,13 +39,13 @@
       return $firebaseObject($newObj);
     }
     
+    // Format a node object
     function _formatNode(text, origin) {
       var node = {
         id: '',
-        origin: '',
+        origin: origin || '',
         text: text,
-        owner: 'fooBar',  // User service?
-        children: []      // Empty firebaseArray?
+        owner: 'fooBar'   // Todo: User service
       };
       
       return node;

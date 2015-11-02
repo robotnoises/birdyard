@@ -14,12 +14,21 @@
     $scope.text = '';
     
     $scope.pushText = function() {
-      var formatted = nodeService.format($scope.text);
-      var $obj = nodeService.push(formatted)
       
-      $obj.$loaded(function () {
-        formatted.id = $obj.id;
-        $scope.children.$add(formatted);
+      var formatted = nodeService.format($scope.text);
+      var $node = nodeService.push(formatted)
+      
+      $node.$loaded(function () {
+        
+        // This is a destination id, not the child pushId... may need to rename to make it a bit more obvious
+        formatted.id = $node.id;
+        
+        $scope.children.$add(formatted).then(function ($snapshot) {
+          $node.origin = $routeParams.id + '/children/' + $snapshot.key();
+          return $node.$save();
+        }).catch(function(err) {
+          console.error(err);
+        });
       });
     };
     
