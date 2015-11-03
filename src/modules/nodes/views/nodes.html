@@ -2,10 +2,15 @@
 <div layout="row">
   
   <div layout="row" class="featured bg-purple fixed">
+    
+    <div layout="row" class="level-up" ng-show="node.breadcrumb.length > 1">
+      <i class="icon icon-chevron-circle-up pointer" ng-click="goUp()"></i>
+    </div>
+    
     <div layout="row" class="content star-wars">
       
       <!-- Breadcrumb trail -->
-      <div layout="column" class="breadcrumb" ng-show="node.breadcrumb.length > 1">
+      <div layout="row" class="breadcrumb" ng-show="node.breadcrumb.length > 1">
         <div class="crumbs">
           <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>

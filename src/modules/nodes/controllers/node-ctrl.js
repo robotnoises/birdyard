@@ -8,6 +8,12 @@
   
   function ($scope, $routeParams, $location, nodeService, breadcrumbService) {
     
+    // Private
+    
+    function navigateToNode(nodeId) {
+      $location.path('n/' + nodeId);
+    }
+    
     // Scope
     
     $scope.node = nodeService.get($routeParams.id);
@@ -39,7 +45,14 @@
     
     // Navigate to a specific node
     $scope.goToNode = function (nodeId) {
-      $location.path('n/' + nodeId);
+      navigateToNode(nodeId);
+    };
+    
+    // Navigate up one level in the breadcrumb
+    $scope.goUp = function () {
+      var index = $scope.node.breadcrumb.length - 2;
+      var nodeId = $scope.node.breadcrumb[index];
+      navigateToNode(nodeId);
     };
     
   }]);
