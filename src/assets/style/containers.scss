@@ -24,7 +24,7 @@
 
 .node.parent {
   margin-bottom: 100px;
-  padding-top: 75px;
+  padding: 75px 25px 0;
 }
 
 .node.child {
@@ -38,5 +38,28 @@
   transition: margin-top 400ms ease-out;
   .node {
     transition: opacity 400ms linear;
+  }
+  .breadcrumb {
+    position: relative;
+    float: right;
+    width: 16px;
+    height: $dim_feature;
+    text-align: center;
+    .crumbs {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      i.icon {
+        display: block;
+        margin: 14px 0;
+        color: $co_white;
+        font-size: 10px;
+        opacity: 0.35;
+        transition: opacity 100ms;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

@@ -3,26 +3,33 @@
   
   <div layout="row" class="featured bg-purple fixed">
     <div layout="row" class="content star-wars">
-      <div layout="row" class="node parent">
-        <p>{{node.text}}</p>
-        <!--<p>
-          This is a statement about a thing. You can agree or disagree, but I really don't care either way. Rocky 3 was a bad Rocky. People think it was cool because of Mister T, but the fact is that it was poorly executed and doesn't stand up to the other editions.
-        </p>-->
+      
+      <!-- Breadcrumb trail -->
+      <div layout="column" class="breadcrumb" ng-show="node.breadcrumb.length > 1">
+        <div class="crumbs">
+          <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
+        </div>
       </div>
       
+      <div layout="row" class="node parent">  
+        <p>{{node.text}}</p>
+      </div>
+      
+      <!-- Holding area for to-be-displayed node -->
       <div layout="row" class="node parent">
         <p>
           <!--{{node.selected}}-->
         </p>
       </div>
     </div>
+    
   </div>
   
   <div layout="row" class="non-featured content">
     
     <div>
       <textarea ng-model="text"></textarea>
-      <button ng-click="pushText();text=''">Post</button>
+      <button ng-click="pushText(); text=''">Post</button>
     </div>
     
     <div layout="row" class="node child bg-grey" ng-repeat="child in children">

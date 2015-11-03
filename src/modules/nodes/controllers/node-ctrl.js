@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', 'nodeService', 'breadcrumbService', 
+  .controller('nodeController', ['$scope', '$routeParams', '$location', 'nodeService', 'breadcrumbService', 
   
-  function ($scope, $routeParams, nodeService, breadcrumbService) {
+  function ($scope, $routeParams, $location, nodeService, breadcrumbService) {
     
     // Scope
     
@@ -14,6 +14,7 @@
     $scope.children = nodeService.getChildren($routeParams.id);
     $scope.text = '';
     
+    // Add a comment
     $scope.pushText = function() {
       
       var formatted = nodeService.format($scope.text);
@@ -27,13 +28,18 @@
         $scope.children.$add(formatted).then(function ($snapshot) {
           
           $new.origin = $routeParams.id + '/children/' + $snapshot.key();
-          $new.breadcrumb = breadcrumbService.push($new.id, $scope.node.breadcrumb);
+          $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
           
           return $new.$save();
         }).catch(function(err) {
           console.error(err);
         });
       });
+    };
+    
+    // Navigate to a specific node
+    $scope.goToNode = function (nodeId) {
+      $location.path('n/' + nodeId);
     };
     
   }]);
