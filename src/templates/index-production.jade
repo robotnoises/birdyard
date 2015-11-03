@@ -8,6 +8,8 @@ html(lang='en', ng-app='bebop')
     link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
     link(rel='stylesheet', href='assets/style/compiled/bebop.css')
     = '\n'
+    // Font Awesome
+    script(src='//use.fonticons.com/c3b6848c.js')
   body
     = '\n'    
     div(ng-view)
@@ -32,6 +34,7 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Utilities
     script(src='modules/utilities/services/firebase.js')
+    script(src='modules/utilities/services/breadcrumb.js')
     = '\n'
     // Nodes
     script(src='modules/nodes/routes.js')
