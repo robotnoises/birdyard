@@ -13,14 +13,7 @@
   outline: none !important;
 }
 
-body, 
-html { 
-  font-size: 100%; 
-  padding: 0; 
-  margin: 0; 
-}
-
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+// Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before, 
 .clearfix:after { 
   content: " "; 
@@ -29,6 +22,10 @@ html {
 
 .clearfix:after { 
   clear: both; 
+}
+
+html {
+  overflow-y: scroll;
 }
 
 html, 
@@ -40,3 +37,27 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Highlighting selections */
+
+::selection {
+  background: rgba(0,0,0,0.1); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(0,0,0,0.1); /* Gecko Browsers */
+}
+
+// https://css-tricks.com/almanac/properties/u/user-select/
+body {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+  p {
+    -webkit-user-select: text;  /* Chrome all / Safari all */
+    -moz-user-select: text;     /* Firefox all */
+    -ms-user-select: text;      /* IE 10+ */
+    user-select: text;          /* Likely future */   
+  }
+}
+
