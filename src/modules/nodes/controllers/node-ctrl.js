@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', 'nodeService', 'breadcrumbService', 
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 
   
-  function ($scope, $routeParams, $location, nodeService, breadcrumbService) {
+  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService) {
     
     // Private
     
@@ -44,15 +44,22 @@
     };
     
     // Navigate to a specific node
-    $scope.goToNode = function (nodeId) {
-      navigateToNode(nodeId);
-    };
+    $scope.goToNode = navigateToNode;
     
     // Navigate up one level in the breadcrumb
     $scope.goUp = function () {
       var index = $scope.node.breadcrumb.length - 2;
       var nodeId = $scope.node.breadcrumb[index];
       navigateToNode(nodeId);
+    };
+    
+    // Fade all child nodes... except one.
+    $scope.selectChild = function (childId) {
+      var theChosenOne = angular.element(document.getElementById(childId));
+      theChosenOne.addClass('keep');
+      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
+      children.addClass('fade');
+      Move.y('.keep', {top: '300px'});
     };
     
   }]);

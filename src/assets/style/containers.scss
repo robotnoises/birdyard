@@ -29,6 +29,7 @@
 }
 
 .node.child {
+  transition: opacity 300ms linear;
   p {
     margin: 0;
     padding: 25px;
