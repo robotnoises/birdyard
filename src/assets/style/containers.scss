@@ -5,6 +5,7 @@
 // Generic containers
 
 .content {
+  position: relative;
   width: 100%;
   max-width: $dim_standard;
   margin: 0 auto;
@@ -16,7 +17,7 @@
   overflow: hidden !important;
   .breadcrumb {
     position: relative;
-    float: right;
+    float: left;
     width: 16px;
     height: $dim_feature;
     text-align: center;
@@ -27,9 +28,9 @@
       i.icon {
         display: block;
         margin: 14px 0;
-        padding: 0 3.5px;
+        padding: 0 5px;
         color: $co_white;
-        font-size: 10px;
+        font-size: 7px;
         opacity: 0.35;
         transition: opacity 100ms;
         &:hover {
@@ -57,7 +58,7 @@
   transition: opacity 150ms linear;
   p {
     margin: 0;
-    padding: 25px;
+    padding: 25px 35px;
   }
 }
 
