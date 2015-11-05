@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SPEED = 300;
+    var SPEED = 150;
     
     // Private
     
