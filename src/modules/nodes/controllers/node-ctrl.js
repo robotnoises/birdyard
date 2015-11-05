@@ -4,13 +4,14 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 'stashService',
   
-  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService) {
+  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService, stashService) {
     
     // Constants
     
     var SCROLL_SPEED = 150;
+    var LAST_SELECTED_NODE = 'last_selected';
     
     // Private
     
@@ -37,9 +38,32 @@
       });
     }
     
+    function setNodeFromFirebase(id) {
+      // Wait until it's loaded, then set
+      nodeService.get(id).$loaded(function (node) {
+        $scope.node = node;
+      });
+    }
+    
+    function getNode(id) {
+      
+      var lsn = stashService.get(LAST_SELECTED_NODE);
+
+      if (lsn) {
+        if (lsn.id === id) {
+          setNodeFromFirebase(id);
+          return lsn;
+        } else {
+          return nodeService.get(id);
+        }
+      } else {
+        return nodeService.get(id);
+      }
+    }
+    
     // Scope
     
-    $scope.node = nodeService.get($routeParams.id);
+    $scope.node = getNode($routeParams.id);
     $scope.children = nodeService.getChildren($routeParams.id);
     $scope.transitioning = false;
     $scope.selected = {};
@@ -82,7 +106,9 @@
     $scope.selectChild = function (child) {
       
       // Duplicated child node
-      $scope.selected = angular.copy(child);      
+      var selected = angular.copy(child);
+      $scope.selected = selected;
+      stashService.set(LAST_SELECTED_NODE, selected);
       
       // Keep the clicked one
       var theChosenOne = angular.element(document.getElementById(child.id));
