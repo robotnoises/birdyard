@@ -13,6 +13,30 @@
   height: $dim_feature;
   z-index: 1;
   overflow: hidden !important;
+  .breadcrumb {
+    position: relative;
+    float: right;
+    width: 16px;
+    height: $dim_feature;
+    text-align: center;
+    .crumbs {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      i.icon {
+        display: block;
+        margin: 14px 0;
+        padding: 0 3.5px;
+        color: $co_white;
+        font-size: 10px;
+        opacity: 0.35;
+        transition: opacity 100ms;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 .featured.fixed + .non-featured {
@@ -38,16 +62,17 @@
 
 .level-up {
   position: absolute;
-  width: 100%;
   z-index: 2;
-  text-align: center;
   color: $co_white;
   padding: 20px;
   font-size: 1.5em;
   line-height: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
   i.icon {
     opacity: 0.25;
     transition: opacity 200ms;
+    padding: 1px;
     &:hover {
       opacity: 1;
     }
@@ -58,29 +83,5 @@
   transition: margin-top 400ms ease-out;
   .node {
     transition: opacity 400ms linear;
-  }
-  .breadcrumb {
-    position: relative;
-    float: right;
-    width: 16px;
-    height: $dim_feature;
-    text-align: center;
-    .crumbs {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      i.icon {
-        display: block;
-        margin: 14px 0;
-        padding: 0 3.5px;
-        color: $co_white;
-        font-size: 10px;
-        opacity: 0.35;
-        transition: opacity 100ms;
-        &:hover {
-          opacity: 1;
-        }
-      }
-    }
   }
 }

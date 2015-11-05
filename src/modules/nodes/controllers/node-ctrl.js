@@ -8,16 +8,34 @@
   
   function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService) {
     
+    // Constants
+    
+    var SPEED = 500;
+    
     // Private
     
     function navigateToNode(nodeId) {
       $location.path('n/' + nodeId);
     }
     
+    function doTransition() {
+      
+      var scrollSpeed = SPEED + 'ms';
+      
+      Move.y('.keep', {top: '340px', speed: scrollSpeed});
+      
+      // Move the chosen one to the top
+      $timeout(function () {
+        Move.y('.keep', {top: '0px', speed: scrollSpeed});
+        Move.y('.star-wars', {top: '-300px', speed: scrollSpeed });
+      }, SPEED);
+    }
+    
     // Scope
     
     $scope.node = nodeService.get($routeParams.id);
     $scope.children = nodeService.getChildren($routeParams.id);
+    $scope.selected = {};
     $scope.text = '';
     
     // Add a comment
@@ -54,12 +72,17 @@
     };
     
     // Fade all child nodes... except one.
-    $scope.selectChild = function (childId) {
-      var theChosenOne = angular.element(document.getElementById(childId));
+    $scope.selectChild = function (child) {
+      // Duplicated child node
+      $scope.selected = angular.copy(child);      
+      // Keep the clicked one
+      var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
+      // Fade the rest
       var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
       children.addClass('fade');
-      Move.y('.keep', {top: '300px'});
+      // Move stuff
+      doTransition();
     };
     
   }]);
