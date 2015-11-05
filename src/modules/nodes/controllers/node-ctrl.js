@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SPEED = 150;
+    var SCROLL_SPEED = 150;
     
     // Private
     
@@ -18,23 +18,30 @@
       $location.path('n/' + nodeId);
     }
     
-    function doTransition() {
+    function wait(duration, callback) {
+      $timeout(callback, duration);
+    }
+    
+    function doTransition(callback) {
       
-      var scrollSpeed = SPEED + 'ms';
+      var scrollSpeed = SCROLL_SPEED + 'ms';
             
       Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true, easing: 'ease-in'});
       
-      // Move the chosen one to the top
-      $timeout(function () {
+      wait(SCROLL_SPEED, function () {
+        
         Move.y('.keep', {top: 0, speed: scrollSpeed});
         Move.y('.star-wars', {top: -300, speed: scrollSpeed });
-      }, SPEED);
+        
+        wait(SCROLL_SPEED + 100, callback);
+      });
     }
     
     // Scope
     
     $scope.node = nodeService.get($routeParams.id);
     $scope.children = nodeService.getChildren($routeParams.id);
+    $scope.transitioning = false;
     $scope.selected = {};
     $scope.text = '';
     
@@ -73,16 +80,23 @@
     
     // Fade all child nodes... except one.
     $scope.selectChild = function (child) {
+      
       // Duplicated child node
       $scope.selected = angular.copy(child);      
+      
       // Keep the clicked one
       var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
+      
       // Fade the rest
       var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
       children.addClass('fade');
+      
       // Move stuff
-      doTransition();
+      doTransition(function () {
+        // Navigate
+        navigateToNode(child.id);
+      });
     };
     
   }]);
