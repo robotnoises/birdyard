@@ -29,17 +29,10 @@
       </div>
       
     </div>
+    
+  </div>
   
   <div layout="row" class="non-featured content">
-    
-    <!--<div>
-      <textarea ng-model="text"></textarea>
-      <button ng-click="pushText(); text=''">Post</button>
-    </div>-->
-    
-    <!--<div class="loading-childnodes fade-in ghost" ng-class="{'boo': transitioning}">
-      <img src="assets/images/spinner.svg" />
-    </div>-->
     
     <div id="{{child.id}}" layout="row" class="node child bg-grey fade-in" ng-class="{'ghost': transitioning && loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
       <p>{{child.text}}</p>

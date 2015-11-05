@@ -38,7 +38,7 @@
       wait(SCROLL_SPEED, function () {
         
         Move.y('.keep', {top: 0, speed: scrollSpeed});
-        Move.y('.star-wars', {top: -300, speed: scrollSpeed });
+        Move.y('.star-wars', {top: -300, speed: scrollSpeed});
         
         wait(SCROLL_SPEED + 100, callback);
       });
