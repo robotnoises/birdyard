@@ -2,7 +2,9 @@ var Move = (function () {
   
   // Private stuff
   
+  // http://digitaldreamer.net/blog/2010/5/9/getting-browsers-scroll-position-javascript/
   function getScrollY() {
+    
     var y = 0;
     
     if (typeof window.pageYOffset == 'number') {
@@ -36,6 +38,7 @@ var Move = (function () {
   }
   
   function selectElement(_selector) {
+    
     if (_selector) {
       var chars = _selector.split('');
       var firstChar = chars[0];
@@ -54,6 +57,7 @@ var Move = (function () {
   }
   
   function prepareElement(element, options) {
+    
     var top = element.offsetTop || element.clientTop;
     
     element.style.top = top + 'px';
@@ -69,15 +73,13 @@ var Move = (function () {
   // Move parent object
   
   var Move = {
-    scrolling: false
+    // scrolling: false
   }
   
   // Move methods
   
   Move.y = function (selector, _options) {
-    
-    // this.scrolling = true;
-    
+
     var element = selectElement(selector);
     var options = getOptions(_options);
     
