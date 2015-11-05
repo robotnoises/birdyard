@@ -5,11 +5,11 @@
     
     <div layout="row" class="content">
       <!-- Go up one level -->
-      <div layout="row" class="level-up" ng-show="node.breadcrumb.length > 1">
+      <div layout="row" class="level-up fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
         <i class="icon icon-chevron-circle-up pointer" ng-click="goUp()"></i>
       </div>
       <!-- Breadcrumb trail -->
-      <div layout="row" class="breadcrumb" ng-show="node.breadcrumb.length > 1">
+      <div layout="row" class="breadcrumb fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
         <div class="crumbs">
           <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>
@@ -32,10 +32,10 @@
   
   <div layout="row" class="non-featured content">
     
-    <div>
+    <!--<div>
       <textarea ng-model="text"></textarea>
       <button ng-click="pushText(); text=''">Post</button>
-    </div>
+    </div>-->
     
     <div id="{{child.id}}" layout="row" class="node child bg-grey" ng-click="selectChild(child)" ng-repeat="child in children">
       <p>{{child.text}}</p>

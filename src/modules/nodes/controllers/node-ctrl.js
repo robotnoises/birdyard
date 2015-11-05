@@ -15,6 +15,12 @@
     
     // Private
     
+    function init() {
+      $timeout(function() {
+        $scope.transitioning = false;
+      }, 300);
+    }
+    
     function navigateToNode(nodeId) {
       $location.path('n/' + nodeId);
     }
@@ -39,6 +45,7 @@
     }
     
     function setNodeFromFirebase(id) {
+      
       // Wait until it's loaded, then set
       nodeService.get(id).$loaded(function (node) {
         $scope.node = node;
@@ -65,7 +72,7 @@
     
     $scope.node = getNode($routeParams.id);
     $scope.children = nodeService.getChildren($routeParams.id);
-    $scope.transitioning = false;
+    $scope.transitioning = true;
     $scope.selected = {};
     $scope.text = '';
     
@@ -105,6 +112,9 @@
     // Fade all child nodes... except one.
     $scope.selectChild = function (child) {
       
+      // Flag as transitioning to the next node
+      $scope.transitioning = true;
+      
       // Duplicated child node
       var selected = angular.copy(child);
       $scope.selected = selected;
@@ -124,6 +134,8 @@
         navigateToNode(child.id);
       });
     };
+    
+    init();
     
   }]);
   

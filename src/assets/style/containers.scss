@@ -1,5 +1,6 @@
 @import 'dimensions';
 @import 'colors';
+@import 'duration';
 
 // Generic containers
 
@@ -70,7 +71,7 @@
   left: 50%;
   transform: translateX(-50%);
   i.icon {
-    opacity: 0.25;
+    opacity: 0.15;
     transition: opacity 200ms;
     padding: 1px;
     &:hover {
@@ -84,4 +85,8 @@
   .node {
     transition: opacity 400ms linear;
   }
+}
+
+.fade-in {
+  transition: opacity $dur_fade;
 }
