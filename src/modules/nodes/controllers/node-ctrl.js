@@ -22,12 +22,12 @@
       
       var scrollSpeed = SPEED + 'ms';
       
-      Move.y('.keep', {top: '340px', speed: scrollSpeed});
+      Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true, easing: 'ease-in'});
       
       // Move the chosen one to the top
       $timeout(function () {
-        Move.y('.keep', {top: '0px', speed: scrollSpeed});
-        Move.y('.star-wars', {top: '-300px', speed: scrollSpeed });
+        Move.y('.keep', {top: 0, speed: scrollSpeed});
+        Move.y('.star-wars', {top: -300, speed: scrollSpeed });
       }, SPEED);
     }
     
