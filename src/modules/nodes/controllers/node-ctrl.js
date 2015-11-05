@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SPEED = 500;
+    var SPEED = 300;
     
     // Private
     
@@ -21,7 +21,7 @@
     function doTransition() {
       
       var scrollSpeed = SPEED + 'ms';
-      
+            
       Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true, easing: 'ease-in'});
       
       // Move the chosen one to the top
