@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 'stashService',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog',
   
-  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService, stashService) {
+  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService, stashService, $mdDialog) {
     
     // Constants
     
@@ -18,7 +18,7 @@
     function init() {
       $timeout(function() {
         $scope.transitioning = false;
-      }, 300);
+      }, 500);
     }
     
     function navigateToNode(nodeId) {
@@ -33,7 +33,7 @@
       
       var scrollSpeed = SCROLL_SPEED + 'ms';
             
-      Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true, easing: 'ease-in'});
+      Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true});
       
       wait(SCROLL_SPEED, function () {
         
@@ -49,7 +49,15 @@
       // Wait until it's loaded, then set
       nodeService.get(id).$loaded(function (node) {
         $scope.node = node;
-        $scope.loaded = true;
+      });
+    }
+    
+    function setNodeChildrenFromFirebase(id) {
+      nodeService.getChildren(id).$loaded(function (children) {
+        $scope.children = children;
+        $timeout(function () {
+          $scope.loaded = true;
+        }, 0);
       });
     }
     
@@ -68,15 +76,17 @@
         return nodeService.get(id);
       }
     }
-    
+
     // Scope
     
-    $scope.node = getNode($routeParams.id);
-    $scope.children = nodeService.getChildren($routeParams.id);
     $scope.transitioning = true;
     $scope.loaded = false;
     $scope.selected = {};
+    $scope.children = {};
     $scope.text = '';
+    $scope.node = getNode($routeParams.id);
+    
+    setNodeChildrenFromFirebase($routeParams.id);
     
     // Add a comment
     $scope.pushText = function() {

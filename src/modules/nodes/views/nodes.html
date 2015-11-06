@@ -1,32 +1,32 @@
 <!-- Main Content Container -->
-<div layout="row">
+<div>
   
-  <div layout="row" class="featured bg-purple fixed">
+  <div class="featured bg-purple fixed">
     
-    <div layout="row" class="content">
+    <div class="content">
       
       <!-- Add some content! -->
-      <i class="icon icon-pencil-square pointer float-right reply"></i>     
+      <i id="pencil" class="icon icon-pencil-square pointer float-right reply"></i>     
             
       <!-- Go up one level -->
-      <div layout="row" class="level-up fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
+      <div layout="column" class="level-up fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
         <i class="icon icon-chevron-circle-up pointer" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
-      <div layout="row" class="breadcrumb fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
+      <div layout="column" class="breadcrumb fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
         <div class="crumbs">
           <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>
       </div>
       
-      <div layout="row" class="star-wars">
+      <div class="star-wars">
         <!-- Currently displayed node -->
-        <div layout="row" class="node parent">  
+        <div class="node parent">  
           <p>{{node.text}}</p>
         </div>
         <!-- Holding area for to-be-displayed node -->
-        <div layout="row" class="node parent">
+        <div class="node parent">
           <p>{{selected.text}}</p>
         </div>
       </div>
@@ -35,9 +35,9 @@
     
   </div>
   
-  <div layout="row" class="non-featured content">
+  <div layout="column" class="non-featured content">
     
-    <div id="{{child.id}}" layout="row" class="node child bg-grey fade-in" ng-class="{'ghost': transitioning && !loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
+    <div id="{{child.id}}" class="node child bg-grey fade-in" ng-class="{'ghost': transitioning && !loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
       <p>{{child.text}}</p>
     </div>
 
