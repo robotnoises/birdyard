@@ -1,0 +1,16 @@
+@import 'colors';
+
+// Angular Material overrides
+
+md-input-container {
+  .md-input {
+    border-color: rgba(255,255,255,0) !important;
+    border-width: 0 !important;
+  }
+  button, input, textarea, label {
+    font-family: 'Hind', 'san-serif' !important;
+  }
+  label {
+    color: $co_grey !important;
+  }
+}
