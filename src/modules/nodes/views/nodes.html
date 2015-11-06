@@ -1,12 +1,23 @@
 <!-- Main Content Container -->
 <div>
   
+  <div class="featured bg-white fixed dialog" ng-show="showDialog">
+    
+    <!-- Add some content! -->
+    <!--<i id="pencil" class="icon icon-times-circle pointer float-right"></i>-->
+         
+    <md-input-container class="md-block content">
+      <label>Say something...</label>
+      <textarea></textarea>
+    </md-input-container>
+  </div>
+  
   <div class="featured bg-purple fixed">
     
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon icon-pencil-square pointer float-right reply"></i>     
+      <i id="pencil" class="icon icon-pencil-square pointer float-right reply" ng-click="showDialog = true"></i>     
             
       <!-- Go up one level -->
       <div layout="column" class="level-up fade-in" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">

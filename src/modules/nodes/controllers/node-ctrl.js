@@ -81,6 +81,7 @@
     
     $scope.transitioning = true;
     $scope.loaded = false;
+    $scope.showDialog = false;
     $scope.selected = {};
     $scope.children = {};
     $scope.text = '';
