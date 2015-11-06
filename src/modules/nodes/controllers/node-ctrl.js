@@ -139,7 +139,7 @@
       
       // Fade the rest
       var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      children.addClass('fade');
+      children.addClass('ghost');
       
       // Move stuff
       doTransition(function () {

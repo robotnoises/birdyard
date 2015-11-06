@@ -8,10 +8,6 @@
   opacity: 1 !important;
 }
 
-.fade {
-  opacity: 0;
-}
-
 .ghost {
   opacity: 0;
 }
@@ -29,6 +25,6 @@
   float: right;
 }
 
-.fade-in {
+.fadey {
   transition: opacity $dur_fade;
 }
