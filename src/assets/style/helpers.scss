@@ -14,10 +14,19 @@
   opacity: 0;
 }
 
+.keep {
+  opacity: 1 !important;
+  z-index: 1;
+}
+
 .float-left {
   float: left;
 }
 
 .float-right {
   float: right;
+}
+
+.fade-in {
+  transition: opacity $dur_fade;
 }

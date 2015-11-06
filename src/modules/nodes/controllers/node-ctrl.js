@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SCROLL_SPEED = 150;
+    var SCROLL_SPEED = 250;
     var LAST_SELECTED_NODE = 'last_selected';
     
     // Private
@@ -49,6 +49,7 @@
       // Wait until it's loaded, then set
       nodeService.get(id).$loaded(function (node) {
         $scope.node = node;
+        $scope.loaded = true;
       });
     }
     
@@ -73,6 +74,7 @@
     $scope.node = getNode($routeParams.id);
     $scope.children = nodeService.getChildren($routeParams.id);
     $scope.transitioning = true;
+    $scope.loaded = false;
     $scope.selected = {};
     $scope.text = '';
     

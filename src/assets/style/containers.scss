@@ -13,7 +13,7 @@
 
 .featured {
   height: $dim_feature;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden !important;
   .breadcrumb {
     position: relative;
@@ -51,11 +51,10 @@
 
 .node.parent {
   margin-bottom: 100px;
-  padding: 65px 25px 0;
+  padding: 65px 35px 0;
 }
 
 .node.child {
-  transition: opacity 150ms linear;
   p {
     margin: 0;
     padding: 25px 35px;
@@ -88,6 +87,3 @@
   }
 }
 
-.fade-in {
-  transition: opacity $dur_fade;
-}
