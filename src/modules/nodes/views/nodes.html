@@ -1,15 +1,21 @@
 <!-- Main Content Container -->
 <div>
   
-  <div class="featured bg-white fixed dialog" ng-show="showDialog">
+  <div class="featured bg-white fixed dialog fadey" ng-class="{ghost: !showDialog}">
     
     <!-- Add some content! -->
     <!--<i id="pencil" class="icon icon-times-circle pointer float-right"></i>-->
-         
-    <md-input-container class="md-block content">
-      <label>Say something...</label>
-      <textarea></textarea>
-    </md-input-container>
+    <div class="content">
+      <md-content> 
+        <md-input-container class="md-block">
+          <label>Reply to {{node.owner}}...</label>       
+          <textarea id="text-input"></textarea>
+        </md-input-container>
+      </md-content>
+      
+      <!--<md-button class="float-right">Submit</md-button>
+      <md-button class="float-right">Cancel</md-button>-->
+    </div>
   </div>
   
   <div class="featured bg-purple fixed">
@@ -17,7 +23,7 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon icon-pencil-square pointer float-right reply" ng-click="showDialog = true"></i>     
+      <i id="pencil" class="icon icon-pencil-square pointer float-right reply" ng-click="toggleDialog()"></i>     
             
       <!-- Go up one level -->
       <div layout="column" class="level-up fadey" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">

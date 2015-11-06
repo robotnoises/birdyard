@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SCROLL_SPEED = 250;
+    var SPEED = 250;
     var LAST_SELECTED_NODE = 'last_selected';
     
     // Private
@@ -18,7 +18,7 @@
     function init() {
       $timeout(function() {
         $scope.transitioning = false;
-      }, 500);
+      }, SPEED * 2);
     }
     
     function navigateToNode(nodeId) {
@@ -29,18 +29,26 @@
       $timeout(callback, duration);
     }
     
+    function focusTextInput() {
+      if ($scope.showDialog) {
+        $timeout(function () {
+          angular.element(document.getElementById('text-input')).focus();
+        }, SPEED * 2);
+      }
+    }
+    
     function doTransition(callback) {
       
-      var scrollSpeed = SCROLL_SPEED + 'ms';
-            
-      Move.y('.keep', {top: 340, speed: scrollSpeed, offset: true});
+      var scrollSpeed = SPEED + 'ms';
       
-      wait(SCROLL_SPEED, function () {
+      Move.y('.keep', {top: 200, speed: scrollSpeed, offset: true, easing: 'ease-in'});
+      
+      wait(SPEED, function () {
         
-        Move.y('.keep', {top: 0, speed: scrollSpeed});
-        Move.y('.star-wars', {top: -300, speed: scrollSpeed});
+        Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'});
+        Move.y('.star-wars', {top: -200, speed: scrollSpeed, easing: 'linear'});
         
-        wait(SCROLL_SPEED + 100, callback);
+        wait(SPEED + 100, callback);
       });
     }
     
@@ -137,16 +145,27 @@
       var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
       
-      // Fade the rest
-      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      children.addClass('ghost');
-      
       // Move stuff
       doTransition(function () {
         // Navigate
         navigateToNode(child.id);
       });
+      
+      // Fade the rest
+      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
+      children.addClass('ghost'); 
     };
+    
+    $scope.toggleDialog = function (force) {
+      if (typeof force === 'boolean') {
+        $scope.showDialog = force;
+      } else {
+        $scope.showDialog = !$scope.showDialog;
+      }
+      focusTextInput();
+    };
+    
+    // Init
     
     init();
     

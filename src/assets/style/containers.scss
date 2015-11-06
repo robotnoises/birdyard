@@ -39,6 +39,10 @@
       }
     }
   }
+  button {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 .featured.fixed + .non-featured {
@@ -46,11 +50,12 @@
 }
 
 .node {
+  position: relative;
   height: $dim_node;
 }
 
 .node.parent {
-  margin-bottom: 100px;
+  position: static;
   padding: 65px 35px 0;
 }
 
@@ -80,15 +85,7 @@
   }
 }
 
-.star-wars {
-  transition: margin-top 400ms ease-out;
-  .node {
-    transition: opacity 400ms linear;
-  }
-}
-
 .dialog {
   padding-top: 20px;
   z-index: 3;
 }
-

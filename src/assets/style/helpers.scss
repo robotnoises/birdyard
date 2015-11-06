@@ -9,6 +9,8 @@
 }
 
 .ghost {
+  position: absolute;
+  z-index: -1;
   opacity: 0;
 }
 
