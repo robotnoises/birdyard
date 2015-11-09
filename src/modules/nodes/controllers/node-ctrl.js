@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog',
   
-  function ($scope, $routeParams, $location, $timeout, nodeService, breadcrumbService, stashService, $mdDialog) {
+  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, $mdDialog) {
     
     // Constants
     
@@ -65,7 +65,10 @@
     
     function setNodeChildrenFromFirebase(id) {
       nodeService.getChildren(id).$loaded(function (children) {
+        
         $scope.children = children;
+        $scope.children.$watch(babySitter);
+        
         $timeout(function () {
           $scope.loaded = true;
         }, 0);
@@ -94,12 +97,27 @@
         $scope.text = '';  
       }, 0);
     }
+    
+    function scrollToBottom() {
+      if ($scope.autoScroll) {
+        $timeout(function () {
+          $window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);  
+        },0);
+      }
+    }
+    
+    function babySitter(snap) {
+      if (snap.event === 'child_added') {
+        scrollToBottom();
+      }
+    }
 
     // Scope
     
     $scope.transitioning = true;
     $scope.loaded = false;
     $scope.showDialog = false;
+    $scope.autoScroll = true;
     $scope.selected = {};
     $scope.children = {};
     $scope.text = '';
