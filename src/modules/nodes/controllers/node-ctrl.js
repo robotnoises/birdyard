@@ -35,6 +35,7 @@
     function init() {
       $timeout(function() {
         $scope.transitioning = false;
+        scrollToBottom();
       }, SPEED * 2);
     }
     
