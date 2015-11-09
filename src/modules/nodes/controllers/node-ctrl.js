@@ -42,12 +42,10 @@
       });
 
       angular.element($window).bind('scroll', checkBottom);
-      
-      // Fade-in various UI
+            
       $timeout(function() {
-        $scope.transitioning = false;
         scrollToBottom()
-      }, SPEED * 2);
+      }, SPEED);
     }
     
     function navigateToNode(nodeId) {
@@ -70,7 +68,7 @@
       
       var scrollSpeed = SPEED + 'ms';
       
-      Move.y('.keep', {top: 240, speed: scrollSpeed, context: Move.CONTEXT.VIEWPORT, easing: 'linear'});
+      Move.y('.keep', {top: 240, speed: scrollSpeed, context: Move.CONTEXT.VIEWPORT, easing: 'ease-in'});
       
       wait(SPEED - 10, function () {
         
@@ -99,6 +97,7 @@
         
         $timeout(function () {
           $scope.loaded = true;
+          $scope.transitioning = false;
           scrollToBottom();
         }, 0);
       });
