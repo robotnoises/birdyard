@@ -9,7 +9,7 @@
   function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, $mdDialog) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Constants //////////////////////////////////////////////////////////////////////////////////////////////////
+    // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     var SPEED = 200;
@@ -33,9 +33,19 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     function init() {
+      
+      // If the user switches autoscroll to true, scroll to the bottom
+      $scope.$watch('autoScroll', function (newValue, oldValue) {
+        if (newValue !== oldValue && newValue) {
+          scrollToBottom();
+        }
+      });
+      
+      angular.element($window).bind('scroll', checkBottom);
+      
+      // Fade-in various UI
       $timeout(function() {
         $scope.transitioning = false;
-        scrollToBottom();
       }, SPEED * 2);
     }
     
@@ -86,6 +96,8 @@
         $scope.children = children;
         $scope.children.$watch(babySitter);
         
+        scrollToBottom();
+        
         $timeout(function () {
           $scope.loaded = true;
         }, 0);
@@ -115,10 +127,33 @@
       }, 0);
     }
     
+    function checkBottom() {
+      
+      $timeout(function() {
+        
+        var height = $window.innerHeight || document.documentElement.clientHeight; 
+        var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var scrollHeight = getScrollHeight();
+        
+        // If we're at the bottom & autoScroll is not enabled...
+        if ((height + scroll) >= scrollHeight) {
+          // enable it
+          $scope.autoScroll = true;
+        } else {
+          // if we're not at the bottom & autoScroll is enabled, disable it.
+          $scope.autoScroll = false;
+        }
+      }, SPEED);
+    }
+    
+    function getScrollHeight() {
+      return document.body.scrollHeight || document.documentElement.scrollHeight;    
+    }
+    
     function scrollToBottom() {
       if ($scope.autoScroll) {
         $timeout(function () {
-          $window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);  
+          $window.scrollTo(0, getScrollHeight());  
         },0);
       }
     }

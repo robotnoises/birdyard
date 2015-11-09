@@ -30,3 +30,11 @@
 .fadey {
   transition: opacity $dur_fade;
 }
+
+.subtle {
+  opacity: 0.2;
+  transition: opacity $dur_fade;
+  &:hover {
+    opacity: 1;
+  }
+}
