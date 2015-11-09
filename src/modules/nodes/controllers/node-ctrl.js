@@ -20,9 +20,9 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     $scope.transitioning =  true;
+    $scope.autoScroll =     true;
     $scope.loaded =         false;
     $scope.showDialog =     false;
-    $scope.autoScroll =     true;
     $scope.selected =       {};
     $scope.children =       {};
     $scope.text =           '';
