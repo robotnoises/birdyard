@@ -24,8 +24,6 @@
             // evaluate whatever function was passed-in
             scope.$eval(attrs['shiftEnter']);
           });
-        } else {
-          shiftPressed = false;
         }
       });
       
