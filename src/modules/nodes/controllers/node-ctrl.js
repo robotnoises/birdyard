@@ -40,12 +40,13 @@
           scrollToBottom();
         }
       });
-      
+
       angular.element($window).bind('scroll', checkBottom);
       
       // Fade-in various UI
       $timeout(function() {
         $scope.transitioning = false;
+        scrollToBottom()
       }, SPEED * 2);
     }
     
@@ -96,10 +97,9 @@
         $scope.children = children;
         $scope.children.$watch(babySitter);
         
-        scrollToBottom();
-        
         $timeout(function () {
           $scope.loaded = true;
+          scrollToBottom();
         }, 0);
       });
     }
@@ -150,8 +150,8 @@
       return document.body.scrollHeight || document.documentElement.scrollHeight;    
     }
     
-    function scrollToBottom() {
-      if ($scope.autoScroll) {
+    function scrollToBottom(forceScroll) {
+      if ($scope.autoScroll || forceScroll) {
         $timeout(function () {
           $window.scrollTo(0, getScrollHeight());  
         },0);
