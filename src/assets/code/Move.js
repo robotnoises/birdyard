@@ -1,5 +1,12 @@
 var Move = (function () {
   
+  // Enums
+  
+  var CONTEXT = Object.freeze({
+    PAGE: 0,
+    VIEWPORT: 1
+  });
+  
   // Private stuff
   
   // http://digitaldreamer.net/blog/2010/5/9/getting-browsers-scroll-position-javascript/
@@ -10,10 +17,10 @@ var Move = (function () {
     if (typeof window.pageYOffset == 'number') {
       // Netscape
       y = window.pageYOffset;
-    } else if (document.body && (document.body.scrollLeft || document.body.scrollTop)) {
+    } else if (document.body && document.body.scrollTop) {
       // DOM
       y = document.body.scrollTop;
-    } else if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)) {
+    } else if (document.documentElement && document.documentElement.scrollTop) {
       y = document.documentElement.scrollTop;
     }
     
@@ -26,13 +33,13 @@ var Move = (function () {
       top: 0,
       speed: '300ms',
       easing: 'linear',
-      offset: false
+      context: CONTEXT.PAGE
     };
     
     options.top = _options.top || options.top;
     options.speed = _options.speed || options.speed;
     options.easing = _options.easing || options.easing;
-    options.offset = _options.offset || options.offset;
+    options.context = _options.context || options.context;
     
     return options;
   }
@@ -60,23 +67,28 @@ var Move = (function () {
     
     var top = element.offsetTop || element.clientTop;
     
+    if (options.context === CONTEXT.VIEWPORT) {
+      top = top - getScrollY();
+    }
+    
+    // Vertical 
     element.style.top = top + 'px';
     element.style.transition = 'top ' + options.speed + ' ' + options.easing;
     element.style.width = element.clientWidth + 'px';
     element.style.position = 'absolute';
-    element.style.left = '50%';
-    element.style.transform = 'translateX(-50%)';
     element.style.paddingTop = '0';
     element.style.marginTop = '0';
+    
+    // Horizontal
+    element.style.left = '50%';
+    element.style.transform = 'translateX(-50%)';
   }
   
   // Move parent object
   
-  var Move = {
-    // scrolling: false
-  }
+  var Move = {};
   
-  // Move methods
+  // Public
   
   Move.y = function (selector, _options) {
 
@@ -89,16 +101,13 @@ var Move = (function () {
       prepareElement(element, options);
       
       // Move to...
-      if (options.offset) {
-        element.style.top = options.top + getScrollY() + 'px';  
-      } else {
-        element.style.top = options.top + 'px';
-      }
-      
+      element.style.top = options.top + 'px';      
     } else {
       throw new Error('No element was selected with ' + selector);
     }
   };
+  
+  Move.CONTEXT = CONTEXT;
   
   return Object.create(Move);
  

@@ -10,7 +10,7 @@
     
     // Constants
     
-    var SPEED = 250;
+    var SPEED = 200;
     var LAST_SELECTED_NODE = 'last_selected';
     
     // Private
@@ -41,14 +41,17 @@
       
       var scrollSpeed = SPEED + 'ms';
       
-      Move.y('.keep', {top: 200, speed: scrollSpeed, offset: true, easing: 'ease-in'});
+      Move.y('.keep', {top: 240, speed: scrollSpeed, context: Move.CONTEXT.VIEWPORT, easing: 'linear'});
       
-      wait(SPEED, function () {
+      wait(SPEED - 10, function () {
         
-        Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'});
+        Move.y('.keep', {top: 65, speed: scrollSpeed, easing: 'linear'});
         Move.y('.star-wars', {top: -200, speed: scrollSpeed, easing: 'linear'});
         
-        wait(SPEED + 100, callback);
+        wait(SPEED - 10, function () {
+          Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'});
+          callback();
+        });
       });
     }
     
