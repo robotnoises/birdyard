@@ -19,7 +19,6 @@
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    $scope.transitioning =  true;
     $scope.autoScroll =     true;
     $scope.loaded =         false;
     $scope.showDialog =     false;
@@ -45,7 +44,7 @@
             
       $timeout(function() {
         scrollToBottom()
-      }, SPEED);
+      }, SPEED / 2);
     }
     
     function navigateToNode(nodeId) {
@@ -97,7 +96,6 @@
         
         $timeout(function () {
           $scope.loaded = true;
-          $scope.transitioning = false;
           scrollToBottom();
         }, 0);
       });
@@ -208,7 +206,7 @@
     $scope.selectChild = function (child) {
       
       // Flag as transitioning to the next node
-      $scope.transitioning = true;
+      $scope.loaded = false;
       
       // Duplicated child node
       var selected = angular.copy(child);

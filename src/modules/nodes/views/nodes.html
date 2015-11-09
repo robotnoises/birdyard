@@ -26,12 +26,12 @@
       <i id="pencil" class="icon icon-pencil-square pointer float-right reply" ng-click="toggleDialog()"></i>     
             
       <!-- Go up one level -->
-      <div layout="column" class="level-up fadey" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
+      <div layout="column" class="level-up fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
         <i class="icon icon-chevron-circle-up pointer" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
-      <div layout="column" class="breadcrumb fadey" ng-show="node.breadcrumb.length > 1" ng-class="{'ghost': transitioning}">
+      <div layout="column" class="breadcrumb fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
         <div class="crumbs">
           <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>
@@ -58,7 +58,7 @@
       <md-switch layout="row" layout-align="end center" ng-model="autoScroll" aria-label="Autoscroll"></md-switch>
     </div>
     
-    <div id="{{child.id}}" class="node child bg-grey fadey flat-shadow" ng-class="{'ghost': transitioning && !loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
+    <div id="{{child.id}}" class="node child bg-grey fadey ghost flat-shadow" ng-class="{'boo': loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
       <p>{{child.text}}</p>
     </div>
 

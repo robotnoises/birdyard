@@ -14,6 +14,11 @@
   opacity: 0;
 }
 
+.ghost.boo {
+  opacity: 1;
+  z-index: 1;
+}
+
 .keep {
   opacity: 1 !important;
   z-index: 1;
