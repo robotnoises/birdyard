@@ -9,7 +9,7 @@
       <md-content> 
         <md-input-container class="md-block">
           <label>Reply to {{node.owner}}...</label>       
-          <textarea id="text-input"></textarea>
+          <textarea id="text-input" shift-enter="pushText()" ng-model="text"></textarea>
         </md-input-container>
       </md-content>
       

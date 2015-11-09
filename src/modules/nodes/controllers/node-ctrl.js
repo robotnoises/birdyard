@@ -87,6 +87,13 @@
         return nodeService.get(id);
       }
     }
+    
+    function clearDialog() {
+      $timeout(function () {
+        $scope.showDialog = false;
+        $scope.text = '';  
+      }, 0);
+    }
 
     // Scope
     
@@ -115,6 +122,8 @@
           
           $new.origin = $routeParams.id + '/children/' + $snapshot.key();
           $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
+          
+          clearDialog();
           
           return $new.$save();
         }).catch(function(err) {
