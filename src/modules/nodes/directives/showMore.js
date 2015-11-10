@@ -38,8 +38,9 @@
   .directive('showMore', ['$timeout', 'CHAR_LIMIT', function ($timeout, CHAR_LIMIT) {
     
     return {
-      template: '{{truncatedText}} &nbsp;<a href ng-show="truncated" ng-click="doAction()">Show More</a>',
-      replace: false,
+      restrict: 'E',
+      template: '<p>{{truncatedText}} &nbsp;<a href ng-show="truncated" ng-click="doAction()">Show More</a></p>',
+      replace: true,
       scope: {
         text: '='
       },
@@ -60,7 +61,7 @@
         });
              
         scope.doAction = function () {
-          scope.$parent.$eval(attrs['showMore']);
+          scope.$parent.$eval(attrs['action']);
         };
       }
     }

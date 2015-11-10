@@ -40,11 +40,11 @@
       <div class="star-wars">
         <!-- Currently displayed node -->
         <div class="node parent">  
-          <p show-more="fooBar()" text="node.text"></p>
+          <show-more action="fooBar()" text="node.text"></show-more>
         </div>
         <!-- Holding area for to-be-displayed node -->
         <div class="node parent">
-          <p show-more="fooBar()" text="selected.text"></p>
+          <show-more action="fooBar()" text="selected.text"></show-more>
         </div>
       </div>
       
@@ -59,7 +59,7 @@
     </div>
     
     <div id="{{child.id}}" class="node child bg-grey fadey ghost flat-shadow" ng-class="{'boo': loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
-      <p show-more="fooBar()" text="child.text"></p>
+      <show-more action="fooBar()" text="child.text"></show-more>
     </div>
 
   </div>
