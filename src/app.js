@@ -6,6 +6,7 @@ angular.module('bebop', [
   'bebop.config',
   'bebop.utilities',
   'bebop.nodes',
+  'bebop.auth',
   
   // Third-party
   'ngMaterial'

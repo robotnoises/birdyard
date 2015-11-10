@@ -20,4 +20,10 @@
     'firebase'
   ]);
   
+  // Authentication
+  angular.module('bebop.auth', [
+    'ngRoute',
+    'firebase'
+  ])
+  
 })(angular);
