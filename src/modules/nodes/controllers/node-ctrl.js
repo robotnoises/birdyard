@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog', 'CHAR_LIMIT',
   
-  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, $mdDialog) {
+  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, $mdDialog, CHAR_LIMIT) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -25,6 +25,7 @@
     $scope.selected =       {};
     $scope.children =       {};
     $scope.text =           '';
+    $scope.charLimit =      CHAR_LIMIT;
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -237,8 +238,10 @@
       focusTextInput();
     };
     
-    $scope.fooBar = function () {
-      console.log('nice');
+    $scope.expandNode = function () {
+      $timeout(function () {
+        $scope.charLimit = null;  
+      });
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

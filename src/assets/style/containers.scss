@@ -52,6 +52,7 @@
 .node {
   position: relative;
   height: $dim_node;
+  overflow: hidden;
 }
 
 .node.parent {

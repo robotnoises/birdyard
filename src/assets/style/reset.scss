@@ -62,3 +62,16 @@ body {
   }
 }
 
+a {
+  color: $co_white;
+  text-decoration: none;
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+  &:active,
+  &:visited {
+    color: $co_white;
+  }
+}
+

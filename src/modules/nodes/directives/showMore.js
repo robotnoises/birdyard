@@ -29,42 +29,52 @@
         return truncated.slice(0, getEndOfLastWord(truncated, limit));
       }
     } else {
-      throw new TypeError('Input must be a string.')
+      throw new TypeError('Input must be a string.');
     }
   }
   
   angular.module('bebop.nodes')
   
-  .directive('showMore', ['$timeout', 'CHAR_LIMIT', function ($timeout, CHAR_LIMIT) {
+  .directive('showMore', function () {
     
     return {
       restrict: 'E',
       template: '<p>{{truncatedText}} &nbsp;<a href ng-show="truncated" ng-click="doAction()">Show More</a></p>',
       replace: true,
       scope: {
-        text: '='
+        text: '=',
+        action: '=',
+        limit: '='
       },
       link: function (scope, element, attrs) {
         
         scope.truncated = false;
         scope.truncatedText = '';
         
-        scope.$watch('text', function (text) {
+        function evalText(text) {
           if (text) {
-            if (text.length > CHAR_LIMIT) {
+            if (scope.limit && text.length > scope.limit) {
               scope.truncated = true;
-              scope.truncatedText = truncate(text, CHAR_LIMIT);  
+              scope.truncatedText = truncate(text, scope.limit);  
             } else {
               scope.truncatedText = text;
             }
           }
+        }
+        
+        scope.$watch('text', evalText);
+        
+        scope.$watch('limit', function (newLimit, oldLimit) {
+          if (newLimit !== oldLimit) {
+            evalText(scope.text);
+          }
         });
              
         scope.doAction = function () {
-          scope.$parent.$eval(attrs['action']);
+          scope.$parent.$eval(scope.action);
         };
       }
     }
-  }]);
+  });
   
 })(angular);
