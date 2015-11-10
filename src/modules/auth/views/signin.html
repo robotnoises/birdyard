@@ -1,0 +1,6 @@
+<div ng-hide="signedIn">
+  <a href ng-click="signIn('twitter')">Sign in using twitter</a>
+</div>
+<div ng-show="signedIn">
+  <a href ng-click="signOut()">Sign out</a>
+</div>

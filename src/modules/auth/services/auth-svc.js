@@ -4,13 +4,17 @@
   
   angular.module('bebop.nodes')
   
-  .factory('authService', ['$timeout', function ($timeout) {
+  .factory('authService', ['$timeout', 'firebaseService', function ($timeout, firebaseService) {
     
     // Public
     
     var _authService = {};
     
+    function _getUser() {
+      
+    }
     
+    _authService.getUser = _getUser;
     
     return _authService;
   }]);

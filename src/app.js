@@ -10,4 +10,11 @@ angular.module('bebop', [
   
   // Third-party
   'ngMaterial'
-]);
+  
+]).run(['$rootScope', 'firebaseService', function ($rootScope, firebaseService) {
+  var $ref = firebaseService.getRef();
+  
+  $ref.onAuth(function(authData) {
+    $rootScope.signedIn = !! authData;
+  });
+}]);
