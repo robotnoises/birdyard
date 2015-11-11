@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .factory('nodeService', ['firebaseService', '$firebaseObject', '$firebaseArray', '$window', 
+  .factory('nodeService', ['firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 
   
-  function (firebaseService, $firebaseObject, $firebaseArray, $window) {
+  function (firebaseService, $firebaseObject, $firebaseArray, $window, authService) {
     
     // Public
     
@@ -41,14 +41,19 @@
     
     // Format a node object
     function _formatNode(text, origin) {
-      var node = {
-        id: '',
-        origin: origin || '',
-        text: text,
-        owner: 'fooBar'   // Todo: User service
-      };
       
-      return node;
+      return authService.getUser().then(function ($user) {
+        
+        var node = {
+          id: '',
+          origin: origin || '',
+          text: text,
+          displayName: $user[$user.provider].displayName,
+          handle: $user[$user.provider].username
+        };
+      
+        return node;
+      });
     }
     
     _nodeService.get = _getNode;

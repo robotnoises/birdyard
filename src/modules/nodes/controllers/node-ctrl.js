@@ -171,25 +171,26 @@
     // Add a comment
     $scope.pushText = function() {
       
-      var formatted = nodeService.format($scope.text);
-      var $new = nodeService.push(formatted)
-      
-      $new.$loaded(function () {
+      nodeService.format($scope.text).then(function (formatted) {
         
-        // This is a destination id, not the child pushId... may need to rename to make it a bit more obvious
-        formatted.id = $new.id;
+        var $new = nodeService.push(formatted);
+        $new.$loaded(function () {
         
-        $scope.children.$add(formatted).then(function ($snapshot) {
+          // This is a destination id, not the child pushId... may need to rename to make it a bit more obvious
+          formatted.id = $new.id;
           
-          $new.origin = $routeParams.id + '/children/' + $snapshot.key();
-          $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
-          
-          clearDialog();
-          
-          return $new.$save();
-        }).catch(function(err) {
-          console.error(err);
+          $scope.children.$add(formatted).then(function ($snapshot) {
+            
+            $new.origin = $routeParams.id + '/children/' + $snapshot.key();
+            $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
+            
+            clearDialog();
+            
+            return $new.$save();
+          });
         });
+      }).catch(function(err) {
+        console.error(err);
       });
     };
     
