@@ -5,7 +5,7 @@
   angular.module('bebop.config')
     
     // Limit on # of characters a node will initially display
-    .constant('CHAR_LIMIT', 525)
+    .constant('CHAR_LIMIT', 425)
     
     // App version
     .constant('VERSION', '0.0.1')

@@ -39,12 +39,28 @@
       
       <div class="star-wars">
         <!-- Currently displayed node -->
-        <div class="node parent">  
-          <show-more action="expandNode" text="node.text" limit="charLimit"></show-more>
+        <div class="node parent">
+          
+          <div class="node-title">
+            <span class="displayName">{{node.displayName}}</span> 
+            <span class="handle small">@{{node.handle}}</span>
+          </div>
+          
+          <div class="node-text">
+            <show-more action="expandNode" text="node.text" limit="charLimit"></show-more>
+          </div>
         </div>
         <!-- Holding area for to-be-displayed node -->
         <div class="node parent">
-          <show-more action="expandNode" text="selected.text" limit="charLimit"></show-more>
+          
+          <div class="node-title">
+            <span class="displayName">{{selected.displayName}}</span> 
+            <span class="handle small">@{{selected.handle}}</span>
+          </div>
+
+          <div class="node-text">
+            <show-more action="expandNode" text="selected.text" limit="charLimit"></show-more>
+          </div>
         </div>
       </div>
       
@@ -60,8 +76,22 @@
   
   <div layout="column" class="non-featured content">
 
-    <div id="{{child.id}}" class="node child fadey ghost" ng-class="{'boo': loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
-      <show-more action="expandNode" text="child.text" limit="charLimit"></show-more>
+    <div id="{{child.id}}" class="node child fadey ghost" ng-class="{'boo': loaded}" ng-repeat="child in children">
+      
+      <div class="node-title">
+        <span class="displayName">{{child.displayName}}</span> 
+        <span class="handle small">@{{child.handle}}</span>
+      </div>
+      
+      <div class="node-text">
+        <show-more action="expandNode" text="child.text" limit="charLimit"></show-more>
+      </div>
+      
+      <div class="node-actions">
+        <i class="icon icon-reply pointer" ng-click="selectChild(child)"></i>
+        <i class="icon icon-comment pointer"></i>
+        <i class="icon icon-star-o pointer"></i>
+      </div>
     </div>
 
   </div>

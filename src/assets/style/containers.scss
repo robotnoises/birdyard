@@ -15,6 +15,14 @@
   height: $dim_feature;
   z-index: 2;
   overflow: hidden !important;
+  .node-title {
+    span {
+      color: $co_white;
+    }
+    .displayName {
+      font-weight: 700;
+    }
+  }
   .breadcrumb {
     position: absolute;
     left: 0;
@@ -52,9 +60,14 @@
 .node {
   position: relative;
   overflow: hidden;
-  p {
+  .node-text, 
+  .node-actions,
+  .node-title {
     margin: 0;
     padding: 0 25px;
+  }
+  p {
+    margin: $dim_spacer 0;
   }
 }
 
@@ -65,10 +78,28 @@
 }
 
 .node.child {
-  margin-bottom: $dim_spacer;
-  max-height: $dim_node;
   padding-top: 25px;
   padding-bottom: 25px;
+  .node-title {
+    span {
+      margin-right: 2.5px;
+    }
+    .displayName {
+      font-weight: 700;
+      color: $co_black;
+    }
+    .handle {
+      color: $co_grey;
+    }
+  }
+  .node-actions {
+    line-height: 20px;
+    i {
+      font-size: 1em;
+      color: $co_darkgrey;
+      margin-right: 10px;
+    }
+  }
 }
 
 .node.child.boo {
