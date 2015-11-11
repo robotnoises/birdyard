@@ -52,13 +52,15 @@
     
   </div>
   
-  <div layout="column" class="non-featured content">
-    
+  <div class="content">
     <div class="fixed subtle toolbar">
       <md-switch layout="row" layout-align="end center" ng-model="autoScroll" aria-label="Autoscroll"></md-switch>
     </div>
-    
-    <div id="{{child.id}}" class="node child bg-grey fadey ghost flat-shadow" ng-class="{'boo': loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
+  </div>
+  
+  <div layout="column" class="non-featured content">
+
+    <div id="{{child.id}}" class="node child fadey ghost" ng-class="{'boo': loaded}" ng-click="selectChild(child)" ng-repeat="child in children">
       <show-more action="expandNode" text="child.text" limit="charLimit"></show-more>
     </div>
 
