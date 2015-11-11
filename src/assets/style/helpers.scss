@@ -1,4 +1,5 @@
 @import 'duration';
+@import 'colors';
 
 .pointer {
   cursor: pointer;
@@ -37,9 +38,11 @@
 }
 
 .subtle {
+  background-color: transparent;
   opacity: 0.3;
   transition: opacity $dur_fade;
   &:hover {
+    background-color: $co_verylightgrey;
     opacity: 1;
   }
 }
