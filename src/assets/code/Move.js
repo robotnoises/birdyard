@@ -75,9 +75,8 @@ var Move = (function () {
     element.style.top = top + 'px';
     element.style.transition = 'top ' + options.speed + ' ' + options.easing;
     element.style.width = element.clientWidth + 'px';
+    element.style.height = element.clientHeight + 'px';
     element.style.position = 'absolute';
-    element.style.paddingTop = '0';
-    element.style.marginTop = '0';
     
     // Horizontal
     element.style.left = '50%';

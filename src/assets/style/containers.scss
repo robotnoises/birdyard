@@ -16,8 +16,8 @@
   z-index: 2;
   overflow: hidden !important;
   .breadcrumb {
-    position: relative;
-    float: left;
+    position: absolute;
+    left: 0;
     width: 16px;
     height: $dim_feature;
     text-align: center;
@@ -51,21 +51,24 @@
 
 .node {
   position: relative;
-  height: $dim_node;
   overflow: hidden;
+  p {
+    margin: 0;
+    padding: 0 25px;
+  }
 }
 
 .node.parent {
   position: static;
-  padding: 65px 35px 0;
+  height: $dim_node;
+  padding-top: 65px;
 }
 
 .node.child {
   margin-bottom: $dim_spacer;
-  p {
-    margin: 0;
-    padding: 25px 35px;
-  }
+  max-height: $dim_node;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .node.child.boo {
