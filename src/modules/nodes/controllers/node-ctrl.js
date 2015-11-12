@@ -84,7 +84,7 @@
     
     function setNodeFromFirebase(id) {
       // Wait until it's loaded, then set
-      nodeService.get(id).$loaded(function (node) {
+      nodeService.getById(id).$loaded(function (node) {
         $scope.node = node;
       });
     }
@@ -111,10 +111,10 @@
           setNodeFromFirebase(id);
           return lsn;
         } else {
-          return nodeService.get(id);
+          return nodeService.getById(id);
         }
       } else {
-        return nodeService.get(id);
+        return nodeService.getById(id);
       }
     }
     
@@ -161,6 +161,22 @@
         scrollToBottom();
       }
     }
+    
+    function updateCommentCount(operand) {
+      var operation = parseInt(operand, 10);
+      var updatedCount = angular.copy(($scope.node.commentCount + operation));
+      
+      // Update node
+      $scope.node.commentCount = updatedCount;
+      $scope.node.$save();
+      
+      if ($scope.node.origin) {
+        nodeService.getByPath($scope.node.origin).$loaded(function ($snap) {
+          $snap.commentCount = updatedCount;
+          $snap.$save();
+        });
+      }
+    };
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
@@ -174,20 +190,23 @@
       nodeService.format($scope.text).then(function (formatted) {
         
         var $new = nodeService.push(formatted);
-        $new.$loaded(function () {
+        
+        return $new.$loaded(function () {
         
           // This is a destination id, not the child pushId... may need to rename to make it a bit more obvious
           formatted.id = $new.id;
           
-          $scope.children.$add(formatted).then(function ($snapshot) {
+          return $scope.children.$add(formatted).then(function ($snapshot) {
             
-            $new.origin = $routeParams.id + '/children/' + $snapshot.key();
+            $new.origin = 'nodes/' + $routeParams.id + '/children/' + $snapshot.key();
             $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
             
             clearDialog();
             
             return $new.$save();
           });
+        }).then(function() {
+          updateCommentCount('+1');
         });
       }).catch(function(err) {
         console.error(err);

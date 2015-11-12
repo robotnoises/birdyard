@@ -12,9 +12,15 @@
     
     var _nodeService = {};
     
-    // Get a single node
-    function _getNode(id) {
+    // Get a single node by its id
+    function _getNodeById(id) {
       var $ref = firebaseService.getRef('nodes', id);
+      return $firebaseObject($ref);
+    }
+    
+    // Get a node via path
+    function _getNodeByPath(path) {
+      var $ref = firebaseService.getRef(path);
       return $firebaseObject($ref);
     }
     
@@ -58,7 +64,8 @@
       });
     }
     
-    _nodeService.get = _getNode;
+    _nodeService.getById = _getNodeById;
+    _nodeService.getByPath = _getNodeByPath;
     _nodeService.getChildren = _getChildNodes;
     _nodeService.push = _pushNode;
     _nodeService.format = _formatNode;
