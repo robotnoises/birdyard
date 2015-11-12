@@ -3,6 +3,7 @@ html(lang='en', ng-app='bebop')
   head
     // Fonts
     link(href='//fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css')
+    // link(href='../../assets/style/compiled/fonts/origicide/origicide.css' rel='stylesheet' type='text/css')
     = '\n'
     // Style
     link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
@@ -11,7 +12,8 @@ html(lang='en', ng-app='bebop')
     // Font Awesome
     script(src='//use.fonticons.com/c3b6848c.js')
   body
-    = '\n'    
+    = '\n'
+    h1(class='bebop-logo') Bebop!
     div(ng-view)
     = '\n'
     // Library

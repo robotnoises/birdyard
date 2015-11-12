@@ -18,6 +18,17 @@ h4 {
   font-size: 1.12em;
 }
 
+h1.bebop-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-family: 'JungleFever', sans-serif;
+  color: $co_white;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+}
+
 // Featured
 
 .featured {

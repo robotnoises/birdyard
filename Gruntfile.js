@@ -138,6 +138,18 @@ var config = function (grunt) {
             filter: 'isFile'
           },
         ]
+      },
+      fonts: {
+        files: [
+          // includes files within path
+          { 
+            expand: true, 
+            src: ['src/assets/style/fonts/junglefever/*'], 
+            dest: 'src/assets/style/compiled/fonts/junglefever', 
+            flatten: true, 
+            filter: 'isFile'
+          },
+        ]
       }
       // ,
       // dev: {
@@ -174,8 +186,9 @@ var config = function (grunt) {
   // grunt.loadNpmTasks('grunt-karma');
   
   // Register custom tasks
-  grunt.registerTask('build-dev', ['sass', 'jade:dev']);
-  grunt.registerTask('build-prod', ['sass', 'cssmin:production', 'jade:production', 'uglify:production', 'copy:production']);
+  grunt.registerTask('compile-sass', ['sass', 'copy:fonts'])
+  grunt.registerTask('build-dev', ['compile-sass', 'jade:dev']);
+  grunt.registerTask('build-prod', ['compile-sass', 'cssmin:production', 'jade:production', 'uglify:production', 'copy:production']);
     
 };
 
