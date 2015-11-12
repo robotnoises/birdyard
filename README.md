@@ -1,1 +1,3 @@
-# bebop
+# Bebop!
+
+Jazz on a webpage.
