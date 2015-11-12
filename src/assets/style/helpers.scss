@@ -50,3 +50,11 @@
 .small {
   font-size: 0.75em;
 }
+
+.link {
+  cursor: pointer;
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
