@@ -18,7 +18,7 @@
     </div>
   </div>
   
-  <div class="featured bg-purple fixed flat-shadow">
+  <div class="featured bg-purple fixed flat-shadow gradient-bottom">
     
     <div class="content">
       
@@ -69,11 +69,13 @@
   </div>
   
   <!-- Toolbar -->
-  <div class="toolbar subtle fixed">
-    <div class="content" layout="row">
-      <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
-      <span flex="none" class="font-purple">Autoscroll?</span>
-      <md-switch flex="none" ng-model="autoScroll" aria-label="Autoscroll?"></md-switch>
+  <div class="toolbar fixed subtle">
+    <div layout="row" class="content fadey ghost" ng-class="{'boo': loaded}">
+      
+        <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
+        <span flex="none" class="font-purple">Autoscroll?</span>
+        <md-switch flex="none" ng-model="autoScroll" aria-label="Autoscroll?"></md-switch>
+      
     </div>
   </div>
   
