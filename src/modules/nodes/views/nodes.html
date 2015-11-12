@@ -91,7 +91,7 @@
       <div class="node-actions">
         <span class="pointer" ng-click="selectChild(child)" ng-class="{ghost: !loaded}">
           <i class="icon icon-comment font-purple comment-count" ng-class="{'two-digits': (child.commentCount > 9), 'three-digits': (child.commentCount > 99)}" data-commentcount="{{child.commentCount}}"></i>
-          <span class="small link"> comment<span ng-hide="child.commentCount == 1">s</span></span>
+          <span class="small" ng-hide="child.commentCount == 0"> comment<span ng-show="child.commentCount > 1">s</span></span>
         </span>        
       </div>
     </div>

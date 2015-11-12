@@ -13,16 +13,16 @@ i.icon.comment-count:after {
   position: absolute;
   color: $co_white;
   content: attr(data-commentcount);
-  font-size: 10px;
-  left: 31px;
-  padding-top: 3px;
-  font-weight: 400;
+  font-size: 6px;
+  left: 30px;
+  padding-top: 4px;
+  font-weight: 700;
 }
 
 i.icon.two-digits.comment-count:after {
-  left: 29px;
+  left: 28px;
 }
 
 i.icon.two-digits.three-digits.comment-count:after {
-  left: 27px;
+  left: 26px;
 }
