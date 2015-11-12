@@ -9,6 +9,11 @@ i.icon.reply {
   color: $co_white;
 }
 
+i.icon.comment-count {
+  font-size: 18px;
+  color: $co_darkgrey;
+}
+
 i.icon.comment-count:after {
   position: absolute;
   color: $co_white;
@@ -19,10 +24,24 @@ i.icon.comment-count:after {
   font-weight: 400;
 }
 
-i.icon.two-digits.comment-count:after {
-  left: 29px;
+i.icon.one-digit.comment-count {
+  color: $co_purple;
 }
 
-i.icon.two-digits.three-digits.comment-count:after {
-  left: 27px;
+i.icon.one-digit.two-digits.comment-count {
+  color: $co_orange;
+  font-size: 20px;
+  &:after {
+    padding-top: 4px;
+    left: 28.5px;
+  }
+}
+
+i.icon.one-digit.two-digits.three-digits.comment-count {
+  color: $co_red;
+  font-size: 24px;
+  &:after {
+    padding-top: 7px;
+    left: 27.5px;
+  }
 }
