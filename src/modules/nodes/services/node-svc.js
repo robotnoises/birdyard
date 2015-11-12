@@ -34,7 +34,7 @@
       data.timestamp = $window.Firebase.ServerValue.TIMESTAMP;
       
       // Set the newly-create object to 
-      $newObj.set(data);
+      $newObj.setWithPriority(data, data.timestamp);
       
       return $firebaseObject($newObj);
     }
@@ -48,6 +48,7 @@
           id: '',
           origin: origin || '',
           text: text,
+          uid: $user.uid,
           displayName: $user[$user.provider].displayName,
           handle: $user[$user.provider].username
         };
