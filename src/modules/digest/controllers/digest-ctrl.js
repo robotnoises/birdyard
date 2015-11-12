@@ -8,6 +8,7 @@
   
   function ($scope, $routeParams) {
     
+    $scope.background = 'light';
     
   }]);
   

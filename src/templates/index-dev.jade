@@ -13,7 +13,7 @@ html(lang='en', ng-app='bebop')
     script(src='//use.fonticons.com/c3b6848c.js')
   body
     = '\n'
-    h1(class='bebop-logo') Bebop!
+    h1(class='bebop-logo', ng-class='background == light ? "font-purple" : "font-white"') Bebop!
     div(ng-view)
     = '\n'
     // Library
