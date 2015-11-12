@@ -8,3 +8,21 @@ i.icon.reply {
   font-size: 2em;
   color: $co_white;
 }
+
+i.icon.comment-count:after {
+  position: absolute;
+  color: $co_white;
+  content: attr(data-commentcount);
+  font-size: 6px;
+  left: 30px;
+  padding-top: 4px;
+  font-weight: 700;
+}
+
+i.icon.two-digits.comment-count:after {
+  left: 28px;
+}
+
+i.icon.two-digits.three-digits.comment-count:after {
+  left: 26px;
+}

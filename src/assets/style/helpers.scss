@@ -42,7 +42,7 @@
   opacity: 0.3;
   transition: opacity $dur_fade;
   &:hover {
-    background-color: $co_verylightgrey;
+    background-color: $co_white;
     opacity: 1;
   }
 }

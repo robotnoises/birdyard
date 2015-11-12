@@ -49,6 +49,7 @@
           origin: origin || '',
           text: text,
           uid: $user.uid,
+          commentCount: 0,
           displayName: $user[$user.provider].displayName,
           handle: $user[$user.provider].username
         };

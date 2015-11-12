@@ -28,6 +28,18 @@ h4 {
 
 // Colors
 
+.font-white {
+  color: $co_white !important;
+}
+
 .font-black {
-  color: $co_black;
+  color: $co_black !important;
+}
+
+.font-purple {
+  color: $co_purple !important;
+}
+
+.font-red {
+  color: $co_red !important;
 }
