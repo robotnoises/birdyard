@@ -100,7 +100,7 @@
           scrollToBottom();
         }, 0);
       });
-    }
+    }$scope.showDialog = false;
     
     function getNode(id) {
       
@@ -120,9 +120,8 @@
     
     function clearDialog() {
       $timeout(function () {
-        $scope.showDialog = false;
         $scope.text = '';  
-      }, 0);
+      });
     }
     
     function checkBottom() {
@@ -188,6 +187,10 @@
     $scope.pushText = function() {
       
       nodeService.format($scope.text).then(function (formatted) {
+        
+        $timeout(function () {
+          $scope.showDialog = false;  
+        });
         
         var $new = nodeService.push(formatted);
         
