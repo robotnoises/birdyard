@@ -20,6 +20,12 @@
     'firebase'
   ]);
   
+  // Digest
+  angular.module('bebop.digest', [
+    'ngRoute',
+    'firebase'
+  ]);
+  
   // Authentication
   angular.module('bebop.auth', [
     'ngRoute',

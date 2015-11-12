@@ -2,14 +2,14 @@
   
   'use strict';
   
-  angular.module('bebop.nodes')
+  angular.module('bebop.digest')
   
   .config(['$routeProvider', function ($routeProvider) {
     
     // A specific node
-    $routeProvider.when('/n/:id', {
-      controller: 'nodeController',
-      templateUrl: 'modules/nodes/views/nodes.html'
+    $routeProvider.when('/', {
+      controller: 'digestController',
+      templateUrl: 'modules/digest/views/digest.html'
     });
 
   }]);
