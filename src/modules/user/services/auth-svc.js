@@ -53,18 +53,6 @@
     
     var _authService = {};
     
-    function _getUser() {
-      return $q(function (resolve, reject) {
-        var $auth = getAuth();
-        if ($auth) {
-          var $ref = firebaseService.getRef('users', $auth.uid); 
-          $ref.on('value', function ($user) {
-            resolve(formatUserData($user.val()));
-          });
-        }
-      });
-    }
-    
     // Set user data after auth
     function _signIn(authData, callbackUrl) {
       // Todo: do something with the callback?
@@ -91,6 +79,26 @@
       $ref.unauth();
     }
     
+    function _updateUser(userData) {
+      return $q(function (resolve, reject) {
+        var $ref = firebaseService.getRef('users', userData.uid);
+        $ref.update(userData);
+        resolve();
+      });
+    }
+    
+    function _getUser() {
+      return $q(function (resolve, reject) {
+        var $auth = getAuth();
+        if ($auth) {
+          var $ref = firebaseService.getRef('users', $auth.uid); 
+          $ref.on('value', function ($user) {
+            resolve(formatUserData($user.val()));
+          });
+        }
+      });
+    }
+    
     function _getAvatar() {
       return $q(function (resolve, reject) {
         _getUser().then(function($user) {
@@ -102,6 +110,7 @@
     
     _authService.signIn = _signIn;
     _authService.signOut = _signOut;
+    _authService.updateUser = _updateUser;
     _authService.getUser = _getUser;
     _authService.getAvatar = _getAvatar;
     

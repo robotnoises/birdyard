@@ -57,9 +57,8 @@
           uid: $user.uid,
           commentCount: 0,
           language: $user.language,
-          handle: $user.providerData.handle,
-          name: $user.name,
-          avatar: $user.avatar
+          handle: $user.handle,
+          name: $user.name
         };
       
         return node;

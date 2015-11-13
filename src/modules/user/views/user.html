@@ -15,6 +15,7 @@
           <input class="borders jumbo" ng-model="user.name" type="text">
         </md-input-container>
         
+        <!-- Todo: Lets do something with this inline style -->
         <div flex="none" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;"></div>         
           
       </div>
@@ -29,6 +30,10 @@
       <!-- Accent Color -->
       <!-- Display my Twitter handle? -->
       <!-- Delete Account -->
+      
+      <div layout="row"  layout-align="end center">
+        <md-button ng-disabled="!modified" ng-click="saveUser()">Save Changes</md-button>
+      </div>
       
     </md-content>
     
