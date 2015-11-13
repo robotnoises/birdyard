@@ -15,7 +15,7 @@
 
     <!-- Bebop Logo-->
     <h1 ng-controller="logoController" ng-class="getLogoColor()" ng-click="goHome()" class="bebop-logo pointer">Bebop!</h1>
-    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}"></span>
+    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}"></span>
 
     <div ng-view></div>
 
@@ -55,9 +55,10 @@
     <script src="modules/nodes/services/node-svc.js"></script>
     <script src="modules/nodes/directives/showMore.js"></script>
 
-    <!-- Auth-->
+    <!-- User-->
     <script src="modules/user/routes.js"></script>
     <script src="modules/user/controllers/auth-ctrl.js"></script>
+    <script src="modules/user/controllers/user-ctrl.js"></script>
     <script src="modules/user/services/auth-svc.js"></script>
 
     <!-- Digest-->

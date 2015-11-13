@@ -4,9 +4,9 @@
   
   angular.module('bebop.auth')
   
-  .controller('authController', ['$scope', 'firebaseService', 'authService', 
+  .controller('authController', ['$scope', '$location', 'firebaseService', 'authService', 
   
-  function ($scope, firebaseService, authService) {
+  function ($scope, $location, firebaseService, authService) {
     
     // Private
     
@@ -35,6 +35,10 @@
     $scope.signOut = function () {
       var $ref = firebaseService.getRef();
       $ref.unauth();
+    };
+    
+    $scope.goToProfile = function () {
+      $location.path('/user')
     };
     
     init();

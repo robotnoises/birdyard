@@ -15,7 +15,7 @@ html(lang='en', ng-app='bebop')
     // Bebop Logo
     h1(class='bebop-logo pointer', ng-controller="logoController", ng-class="getLogoColor()", ng-click="goHome()") Bebop!
     // User Avatar
-    span(class='bebop-avatar pointer', ng-controller="authController", ng-if="signedIn")
+    span(class='bebop-avatar pointer', ng-controller="authController", ng-if="signedIn", ng-click="goToProfile()")
       img(ng-src="{{avatarUrl}}")
     = '\n'
     div(ng-view)
@@ -56,9 +56,10 @@ html(lang='en', ng-app='bebop')
     script(src='modules/nodes/services/node-svc.js')
     script(src='modules/nodes/directives/showMore.js')
     = '\n'
-    // Auth
+    // User
     script(src='modules/user/routes.js')
     script(src='modules/user/controllers/auth-ctrl.js')
+    script(src='modules/user/controllers/user-ctrl.js')
     script(src='modules/user/services/auth-svc.js')
     = '\n'
     // Digest
