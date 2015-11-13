@@ -14,7 +14,7 @@
     $scope.loaded = false;
     
     authService.getUser().then(function ($user) {
-      $scope.user = $user[$user.provider];
+      $scope.user = $user;
       $scope.loaded = true;
     }).catch(function (err) {
       console.log(err);

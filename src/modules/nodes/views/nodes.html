@@ -8,7 +8,7 @@
     <div class="content">
       <md-content> 
         <md-input-container class="md-block">
-          <label>Reply to {{node.displayName}}...</label>       
+          <label>Reply to {{node.name}}...</label>       
           <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="text"></textarea>
         </md-input-container>
       </md-content>
@@ -42,7 +42,7 @@
         <div class="node parent">
           
           <div class="node-title">
-            <span class="displayName">{{node.displayName}}</span> 
+            <span class="displayName">{{node.name}}</span> 
             <span class="handle small">@{{node.handle}}</span>
           </div>
           
@@ -54,7 +54,7 @@
         <div class="node parent">
           
           <div class="node-title">
-            <span class="displayName">{{selected.displayName}}</span> 
+            <span class="displayName">{{selected.name}}</span> 
             <span class="handle small">@{{selected.handle}}</span>
           </div>
 

@@ -20,21 +20,20 @@
     // Public
     
     $scope.signIn = function (provider) {
-      
+
       var $ref = firebaseService.getRef();
-      
+
       $ref.authWithOAuthPopup(provider, function(error, authData) { 
         if (error) {
           console.error(error);
         } else {
-          $ref.child('users').child(authData.uid).set(authData);
+          authService.signIn(authData);
         }
       });
     };
     
     $scope.signOut = function () {
-      var $ref = firebaseService.getRef();
-      $ref.unauth();
+      authService.signOut();
     };
     
     $scope.goToProfile = function () {

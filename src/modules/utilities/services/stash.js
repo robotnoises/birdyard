@@ -4,7 +4,7 @@
   
   angular.module('bebop.utilities')
   
-  .factory('stashService', function () {
+  .factory('stashService', ['$window', function ($window) {
     
     // Private
     
@@ -38,7 +38,7 @@
         if (isObject(value)) {
           value = JSON.stringify(value);
         }
-        window.sessionStorage.setItem(key, value);
+        $window.sessionStorage.setItem(key, value);
       } else {
         throw new Error('A Key and Value must be provided.');
       }
@@ -46,7 +46,7 @@
     
     function _get(key) {
       if (key) {
-        var value = window.sessionStorage.getItem(key);
+        var value = $window.sessionStorage.getItem(key);
         if (isSerializedObject(value)) {
           return JSON.parse(value);
         } else {
@@ -59,18 +59,30 @@
     
     function _exists(key) {
       if (key) {
-        return !!window.getItem(key);  
+        return !!$window.getItem(key);  
       } else {
         throw new Error('A Key must be provided.');
       }
     }
     
+    function _setLongTerm(key, value) {
+      if (key && value) {
+        if (isObject(value)) {
+          value = JSON.stringify(value);
+        }
+        $window.localStorage.setItem(key, value);
+      } else {
+        throw new Error('A Key and Value must be provided.');
+      }
+    }
+    
     _stashService.set = _set;
+    _stashService.setLongTerm = _setLongTerm;
     _stashService.get = _get;
     _stashService.exists = _get;
         
     return _stashService;
     
-  });
+  }]);
   
 })(angular);

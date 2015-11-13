@@ -56,8 +56,10 @@
           text: text,
           uid: $user.uid,
           commentCount: 0,
-          displayName: $user[$user.provider].displayName,
-          handle: $user[$user.provider].username
+          language: $user.language,
+          handle: $user.providerData.handle,
+          name: $user.name,
+          avatar: $user.avatar
         };
       
         return node;

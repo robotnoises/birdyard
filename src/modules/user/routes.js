@@ -7,7 +7,7 @@
   .config(['$routeProvider', function ($routeProvider) {
     
     // Current User's profile
-    $routeProvider.when('/user', {
+    $routeProvider.when('/user/', {
       controller: 'userController',
       templateUrl: 'modules/user/views/user.html'
     });
@@ -19,7 +19,7 @@
     });
     
     // A sign-in page
-    $routeProvider.when('/user/signin', {
+    $routeProvider.when('/auth', {
       controller: 'authController',
       templateUrl: 'modules/user/views/signin.html'
     });
