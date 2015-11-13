@@ -9,6 +9,11 @@
   opacity: 1 !important;
 }
 
+// For when we're sliding...
+.node.child.ghost:not(.boo) {
+  position: absolute;
+}
+
 .ghost {
   z-index: -1;
   opacity: 0;
