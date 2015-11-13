@@ -3,17 +3,24 @@
 // Angular Material overrides
 
 md-input-container {
-  .md-input {
+  .md-input.jumbo {
+    font-size: 1.5em;
+    color: $co_black;
+  }
+  .md-input:not(.borders) {
     border-color: rgba(255,255,255,0) !important;
     border-width: 0 !important;
+  }
+  .md-input.borders {
+    border-color: $co_purple !important;
   }
   button, input, textarea, label {
     font-family: 'Hind', 'san-serif' !important;
     color: $co_black !important;
   }
   label {
-    color: $co_grey !important;
-    font-weight: 400 !important;
+    color: $co_darkgrey;
+    font-weight: 400;
   }
 }
 
@@ -24,4 +31,8 @@ md-switch {
   .md-container {
     margin-right: 0px !important;
   }
+}
+
+.layout-padding {
+  padding: 16px;
 }

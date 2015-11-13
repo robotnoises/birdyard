@@ -1,5 +1,36 @@
-<div class="content">
-  <div class="user-profile bg-white shadow-flat">
-    &nbsp;
+<div class="content user-profile">
+  
+  <h1 class="font-purple">Profile</h1>
+  
+  <div class="bg-white shadow-flat">
+    
+    <md-content layout-padding class="autoScroll">
+      
+      <div layout="row" layout-align="start start">
+        
+        <!-- Display Name -->
+        <md-input-container flex="grow" class="md-block">
+          <!-- Use floating label instead of placeholder -->
+          <label>Display Name</label>
+          <input class="borders jumbo" ng-model="user.displayName" type="text">
+        </md-input-container>
+        
+        <div flex="none" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;"></div>         
+          
+      </div>
+
+      <!-- Display Name -->
+      <md-input-container class="md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Twitter Handle</label>
+        <input class="borders jumbo" ng-model="user.username" type="text" disabled>
+      </md-input-container>
+      
+      <!-- Accent Color -->
+      <!-- Display my Twitter handle? -->
+      <!-- Delete Account -->
+      
+    </md-content>
+    
   </div>
 </div>

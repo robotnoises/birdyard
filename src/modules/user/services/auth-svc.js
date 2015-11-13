@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', 
+  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', '$firebaseObject',
 
-  function ($rootScope, $timeout, $q, firebaseService, $firebaseAuth) {
+  function ($rootScope, $timeout, $q, firebaseService, $firebaseAuth, $firebaseObject) {
     
     // Private
     

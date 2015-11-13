@@ -17,7 +17,7 @@ angular.module('bebop', [
   var $ref = firebaseService.getRef();
   
   $ref.onAuth(function(authData) {
-    $rootScope.signedIn = !! authData;
+    $rootScope.signedIn = !!authData;
   });
   
 }]);
