@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', '$mdDialog', 'CHAR_LIMIT',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', 'CHAR_LIMIT',
   
-  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, $mdDialog, CHAR_LIMIT) {
+  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, CHAR_LIMIT) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -33,6 +33,8 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     function init() {
+      
+      uiService.setBackgroundValue(uiService.VALUE.DARK);
       
       // If the user switches autoscroll to true, scroll to the bottom
       $scope.$watch('autoScroll', function (newValue, oldValue) {

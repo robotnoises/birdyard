@@ -7,7 +7,7 @@
   .config(['$routeProvider', function ($routeProvider) {
     
     // A specific node
-    $routeProvider.when('/d', {
+    $routeProvider.when('/d/all', {
       controller: 'digestController',
       templateUrl: 'modules/digest/views/digest.html'
     });
@@ -20,7 +20,7 @@
     
     // A specific node
     $routeProvider.when('/', {
-      redirectTo: '/d'
+      redirectTo: '/d/all/'
     });
 
   }]);

@@ -3,7 +3,6 @@ html(lang='en', ng-app='bebop')
   head
     // Fonts
     link(href='//fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css')
-    // link(href='../../assets/style/compiled/fonts/origicide/origicide.css' rel='stylesheet' type='text/css')
     = '\n'
     // Style
     link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
@@ -13,7 +12,7 @@ html(lang='en', ng-app='bebop')
     script(src='//use.fonticons.com/c3b6848c.js')
   body
     = '\n'
-    h1(class='bebop-logo', ng-class='background == light ? "font-purple" : "font-white"') Bebop!
+    h1(class='bebop-logo', ng-controller="logoController", ng-class="getLogoColor()") Bebop!
     div(ng-view)
     = '\n'
     // Library
@@ -38,9 +37,11 @@ html(lang='en', ng-app='bebop')
     script(src='modules/config/constants.js')
     = '\n'
     // Utilities
+    script(src='modules/utilities/controllers/logo-ctrl.js')
     script(src='modules/utilities/services/firebase.js')
     script(src='modules/utilities/services/breadcrumb.js')
     script(src='modules/utilities/services/stash.js')
+    script(src='modules/utilities/services/ui.js')
     script(src='modules/utilities/directives/shiftEnter.js')
     script(src='modules/utilities/directives/escape.js')
     = '\n'

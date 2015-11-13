@@ -3,7 +3,6 @@
   <head>
     <!-- Fonts-->
     <link href="//fonts.googleapis.com/css?family=Hind:300,500,700" rel="stylesheet" type="text/css">
-    <!-- link(href='../../assets/style/compiled/fonts/origicide/origicide.css' rel='stylesheet' type='text/css')-->
 
     <!-- Style-->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
@@ -14,7 +13,7 @@
   </head>
   <body>
 
-    <h1 ng-class="background == light ? &quot;font-purple&quot; : &quot;font-white&quot;" class="bebop-logo">Bebop!</h1>
+    <h1 ng-controller="logoController" ng-class="getLogoColor()" class="bebop-logo">Bebop!</h1>
     <div ng-view></div>
 
     <!-- Library-->
@@ -39,9 +38,11 @@
     <script src="modules/config/constants.js"></script>
 
     <!-- Utilities-->
+    <script src="modules/utilities/controllers/logo-ctrl.js"></script>
     <script src="modules/utilities/services/firebase.js"></script>
     <script src="modules/utilities/services/breadcrumb.js"></script>
     <script src="modules/utilities/services/stash.js"></script>
+    <script src="modules/utilities/services/ui.js"></script>
     <script src="modules/utilities/directives/shiftEnter.js"></script>
     <script src="modules/utilities/directives/escape.js"></script>
 

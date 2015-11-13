@@ -1,15 +1,19 @@
-(function (angular, Move) {
+(function (angular) {
   
   'use strict';
   
   angular.module('bebop.digest')
   
-  .controller('digestController', ['$scope', '$routeParams',
+  .controller('digestController', ['$scope', '$routeParams', 'uiService',
   
-  function ($scope, $routeParams) {
+  function ($scope, $routeParams, uiService) {
     
-    $scope.background = 'light';
+    function init() {
+      uiService.setBackgroundValue(uiService.VALUE.LIGHT);
+    }
+    
+    init();
     
   }]);
   
-})(angular, Move);
+})(angular);
