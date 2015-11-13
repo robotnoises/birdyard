@@ -7,9 +7,9 @@
   .config(['$routeProvider', function ($routeProvider) {
     
     // A sign-in page
-    $routeProvider.when('/signin', {
+    $routeProvider.when('/user/signin', {
       controller: 'authController',
-      templateUrl: 'modules/auth/views/signin.html'
+      templateUrl: 'modules/user/views/signin.html'
     });
         
   }]);
