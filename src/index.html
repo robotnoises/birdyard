@@ -13,7 +13,10 @@
   </head>
   <body>
 
-    <h1 ng-controller="logoController" ng-class="getLogoColor()" class="bebop-logo">Bebop!</h1>
+    <!-- Bebop Logo-->
+    <h1 ng-controller="logoController" ng-class="getLogoColor()" ng-click="goHome()" class="bebop-logo pointer">Bebop!</h1>
+    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}"></span>
+
     <div ng-view></div>
 
     <!-- Library-->

@@ -39,7 +39,16 @@
       });
     }
     
+    function _getAvatar() {
+      return $q(function (resolve, reject) {
+        _getUser().then(function($user) {
+          resolve($user[$user.provider].profileImageURL);
+        });
+      });
+    }
+    
     _authService.getUser = _getUser;
+    _authService.getAvatar = _getAvatar;
     
     return _authService;
   }]);

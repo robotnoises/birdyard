@@ -12,7 +12,12 @@ html(lang='en', ng-app='bebop')
     script(src='//use.fonticons.com/c3b6848c.js')
   body
     = '\n'
-    h1(class='bebop-logo', ng-controller="logoController", ng-class="getLogoColor()") Bebop!
+    // Bebop Logo
+    h1(class='bebop-logo pointer', ng-controller="logoController", ng-class="getLogoColor()", ng-click="goHome()") Bebop!
+    // User Avatar
+    span(class='bebop-avatar pointer', ng-controller="authController", ng-if="signedIn")
+      img(ng-src="{{avatarUrl}}")
+    = '\n'
     div(ng-view)
     = '\n'
     // Library

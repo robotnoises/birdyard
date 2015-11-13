@@ -4,7 +4,20 @@
   
   angular.module('bebop.auth')
   
-  .controller('authController', ['$scope', 'firebaseService', function ($scope, firebaseService) {
+  .controller('authController', ['$scope', 'firebaseService', 'authService', 
+  
+  function ($scope, firebaseService, authService) {
+    
+    // Private
+    
+    function init() {
+      // Set immediately
+      authService.getAvatar().then(function(url) {
+        $scope.avatarUrl = url;
+      });
+    }
+    
+    // Public
     
     $scope.signIn = function (provider) {
       
@@ -17,13 +30,14 @@
           $ref.child('users').child(authData.uid).set(authData);
         }
       });
-      
     };
     
     $scope.signOut = function () {
       var $ref = firebaseService.getRef();
       $ref.unauth();
     };
+    
+    init();
     
   }]);
   
