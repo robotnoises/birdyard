@@ -6,21 +6,23 @@
   
   .config(['$routeProvider', function ($routeProvider) {
     
-    // A specific node
-    $routeProvider.when('/d/all', {
+    $routeProvider.when('/rooms/c/all', {
+      controller: 'roomsController',
+      templateUrl: 'modules/rooms/views/rooms.html'
+    });
+
+    $routeProvider.when('/rooms/c/:category', {
       controller: 'roomsController',
       templateUrl: 'modules/rooms/views/rooms.html'
     });
     
-    // A specific node
-    $routeProvider.when('/d/:category', {
-      controller: 'roomsController',
-      templateUrl: 'modules/rooms/views/rooms.html'
-    });
+    $routeProvider.when('/rooms/new', {
+      controller: 'newroomController',
+      templateUrl: 'modules/rooms/views/newroom.html'
+    })
     
-    // A specific node
     $routeProvider.when('/', {
-      redirectTo: '/d/all/'
+      redirectTo: '/rooms/c/all'
     });
 
   }]);

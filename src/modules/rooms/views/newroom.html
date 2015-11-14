@@ -1,0 +1,23 @@
+<div class="content top">
+  <div class="heading">Room!</div>
+  <div class="bg-white shadow-flat">
+    
+    <md-content layout-padding class="autoScroll">
+      
+      
+      <md-input-container class="md-block">
+        <label>Title</label>
+        <input class="borders jumbo" ng-model="room.title" type="text">
+      </md-input-container>
+        
+      <md-input-container class="md-block">
+        <label>Message</label>
+        <textarea class="borders" ng-model="room.text"></textarea>
+      </md-input-container>
+      
+      <div layout="row" layout-align="end center">
+        <md-button ng-click="newRoom()">Create Room</md-button>
+      </div>
+    </md-content>
+  </div>
+</div>
