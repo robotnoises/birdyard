@@ -7,7 +7,7 @@ angular.module('bebop', [
   'bebop.utilities',
   'bebop.nodes',
   'bebop.auth',
-  'bebop.digest',
+  'bebop.rooms',
   
   // Third-party
   'ngMaterial'

@@ -2,20 +2,20 @@
   
   'use strict';
   
-  angular.module('bebop.digest')
+  angular.module('bebop.rooms')
   
   .config(['$routeProvider', function ($routeProvider) {
     
     // A specific node
     $routeProvider.when('/d/all', {
-      controller: 'digestController',
-      templateUrl: 'modules/digest/views/digest.html'
+      controller: 'roomsController',
+      templateUrl: 'modules/rooms/views/rooms.html'
     });
     
     // A specific node
     $routeProvider.when('/d/:category', {
-      controller: 'digestController',
-      templateUrl: 'modules/digest/views/digest.html'
+      controller: 'roomsController',
+      templateUrl: 'modules/rooms/views/rooms.html'
     });
     
     // A specific node

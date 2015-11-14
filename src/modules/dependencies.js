@@ -20,8 +20,8 @@
     'firebase'
   ]);
   
-  // Digest
-  angular.module('bebop.digest', [
+  // Rooms
+  angular.module('bebop.rooms', [
     'ngRoute',
     'firebase'
   ]);

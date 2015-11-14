@@ -2,9 +2,9 @@
   
   'use strict';
   
-  angular.module('bebop.digest')
+  angular.module('bebop.rooms')
   
-  .controller('digestController', ['$scope', '$routeParams', 'uiService',
+  .controller('roomsController', ['$scope', '$routeParams', 'uiService',
   
   function ($scope, $routeParams, uiService) {
     
