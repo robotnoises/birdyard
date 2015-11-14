@@ -30,7 +30,8 @@
       return $firebaseArray($ref);
     }
     
-    // Create a node    
+    // Create a node
+    // Todo: make async 
     function _pushNode(data) {
       var $ref = firebaseService.getRef('nodes');
       var $newObj = $ref.push();
