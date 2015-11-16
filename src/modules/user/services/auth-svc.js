@@ -87,11 +87,11 @@
       });
     }
     
-    function _getUser() {
+    function _getUser(uid) {
       return $q(function (resolve, reject) {
-        var $auth = getAuth();
-        if ($auth) {
-          var $ref = firebaseService.getRef('users', $auth.uid); 
+        var _uid = uid || getAuth().uid;
+        if (_uid) {
+          var $ref = firebaseService.getRef('users', _uid); 
           $ref.on('value', function ($user) {
             resolve(formatUserData($user.val()));
           });

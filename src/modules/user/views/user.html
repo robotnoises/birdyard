@@ -12,26 +12,33 @@
         <md-input-container flex="grow" class="md-block">
           <!-- Use floating label instead of placeholder -->
           <label>Display Name</label>
-          <input class="borders jumbo" ng-model="user.name" type="text">
+          <input class="jumbo" ng-model="user.name" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
         </md-input-container>
         
         <!-- Todo: Lets do something with this inline style -->
         <div flex="none" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;"></div>         
           
       </div>
+      
+      <!-- Say something about yourself -->
+      <md-input-container flex="grow" class="md-block">
+        <!-- Use floating label instead of placeholder -->
+        <label>Say something brief about yourself</label>
+        <input class="jumbo" ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
+      </md-input-container>
 
       <!-- Display Name -->
       <md-input-container class="md-block">
         <!-- Use floating label instead of placeholder -->
         <label>Twitter Handle</label>
-        <input class="borders jumbo" ng-model="user.handle" type="text" disabled>
+        <input class="jumbo" ng-model="user.handle" type="text" disabled>
       </md-input-container>
       
       <!-- Accent Color -->
       <!-- Display my Twitter handle? -->
       <!-- Delete Account -->
       
-      <div layout="row" layout-align="end center">
+      <div layout="row" layout-align="end center" ng-if="editable">
         <md-button ng-disabled="!modified" ng-click="saveUser()">Save Changes</md-button>
       </div>
       

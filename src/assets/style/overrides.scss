@@ -14,13 +14,20 @@ md-input-container {
   .md-input.borders {
     border-color: $co_purple !important;
   }
-  button, input, textarea, label {
+  .md-input[disabled] {
+    background-image: none !important;
+  }
+  button, 
+  input, 
+  textarea {
     font-family: 'Hind', 'san-serif' !important;
     color: $co_black !important;
+    font-weight: 400 !important;
   }
   label {
-    color: $co_darkgrey;
-    font-weight: 400;
+    font-family: 'Hind', 'san-serif' !important;
+    color: $co_darkgrey !important;
+    font-weight: 400 !important;
   }
 }
 

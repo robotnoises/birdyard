@@ -4,12 +4,13 @@
   
   angular.module('bebop.auth')
   
-  .controller('userController', ['$scope', '$timeout', 'firebaseService', 'authService', 'uiService',
+  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService',
   
-  function ($scope, $timeout, firebaseService, authService, uiService) {
+  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService) {
     
     // Globals
     
+    var _userId = $routeParams.userid;
     var _user = {};
     
     // Scope
@@ -17,11 +18,14 @@
     $scope.user = {};
     $scope.loaded = false;
     $scope.modified = false;
+    $scope.editable = typeof _userId === 'undefined';
     
-    authService.getUser().then(function ($user) {
-      $scope.user = $user;
-      $scope.loaded = true;
+    authService.getUser(_userId).then(function ($user) {
       _user = angular.copy($user);
+      $timeout(function () {
+        $scope.user = $user;
+        $scope.loaded = true;  
+      });
     }).catch(function (err) {
       console.log(err);
     });
@@ -34,13 +38,19 @@
     
     init();
     
-    // Watch to see if the user object gets modified
+    // Watchers
+    
+    // Watch to see if the user's display name gets modified
     $scope.$watch('user.name', function(name) {
-      
-      if (!name) return;
-      
       $timeout(function () {
-        $scope.modified = (name !== _user.name);
+        $scope.modified = (name && name !== _user.name);
+      });
+    });
+    
+    // Watch to see if the user's description gets modified
+    $scope.$watch('user.description', function(description) {
+      $timeout(function () {
+        $scope.modified = (description !== _user.description);  
       });
     });
     
