@@ -10,7 +10,8 @@ angular.module('bebop', [
   'bebop.rooms',
   
   // Third-party
-  'ngMaterial'
+  'ngMaterial',
+  'btford.markdown'
   
 ]).run(['$rootScope', 'firebaseService', function ($rootScope, firebaseService) {
 
