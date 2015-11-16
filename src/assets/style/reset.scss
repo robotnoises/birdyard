@@ -63,15 +63,16 @@ body {
 }
 
 a {
-  color: $co_white;
+  color: $co_purple;
   text-decoration: none;
+  font-weight: 700;
   &:hover,
   &:active {
     text-decoration: underline;
   }
   &:active,
   &:visited {
-    color: $co_white;
+    color: $co_purple;
   }
 }
 

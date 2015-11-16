@@ -51,6 +51,13 @@
     position: absolute;
     bottom: 0;
   }
+  a {
+    color: $co_white;
+    &:active,
+    &:visited {
+      color: $co_white;
+    }
+  }
 }
 
 .non-featured {
@@ -152,4 +159,9 @@
   img {
     height: 30px;
   }
+}
+
+.room {
+  padding: $dim_spacer;
+  margin-bottom: $dim_spacer;
 }

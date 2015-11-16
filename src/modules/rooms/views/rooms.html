@@ -1,6 +1,8 @@
-<div class="content">
+<div class="content top">
   <!-- Content goes here! -->  
   <div ng-repeat="room in rooms">
-    <div>{{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a></div>
+    <div class="room bg-white shadow-flat">
+      {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
+    </div>
   </div>
 </div>
