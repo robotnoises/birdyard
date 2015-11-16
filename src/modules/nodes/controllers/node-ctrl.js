@@ -14,6 +14,7 @@
     
     var SPEED = 200;
     var LAST_SELECTED_NODE = 'last_selected';
+    var wasScrolling = false;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
@@ -257,6 +258,15 @@
         $scope.showDialog = !$scope.showDialog;
       }
       focusTextInput();
+    };
+    
+    $scope.pauseAutoScroll = function (pause) {
+      if (pause) {
+        wasScrolling = angular.copy($scope.autoScroll);
+        $scope.autoScroll = false;
+      } else if (!pause && wasScrolling) {
+        $scope.autoScroll = true;
+      }
     };
     
     $scope.expandNode = function () {
