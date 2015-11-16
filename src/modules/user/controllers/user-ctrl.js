@@ -4,9 +4,9 @@
   
   angular.module('bebop.auth')
   
-  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService',
+  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService', '$mdToast',
   
-  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService) {
+  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService, $mdToast) {
     
     // Globals
     
@@ -59,9 +59,29 @@
     $scope.saveUser = function () {
       authService.updateUser($scope.user).then(function () {
         $timeout(function () {
+          
           _user = angular.copy($scope.user);
-          $scope.modified = false;  
+          $scope.modified = false;
+          
+          // Display success message
+          $mdToast.show(
+            $mdToast.simple()
+            .content('Saved!')
+            .theme('toast-success')
+            .position('bottom right')
+            .hideDelay(3000)
+          );
+          
         });
+      }).catch(function (err) {
+        // Display error message
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Something went wrong!')
+            .theme('toast-error')
+            .position('bottom right')
+            .hideDelay(3000)
+          );
       });
     };
     

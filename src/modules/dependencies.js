@@ -6,7 +6,8 @@
 
   // Config
   angular.module('bebop.config', [
-    'firebase'
+    'firebase',
+    'ngMaterial'
   ]);
   
   // Nodes
