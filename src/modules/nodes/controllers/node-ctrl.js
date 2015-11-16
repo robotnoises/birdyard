@@ -188,31 +188,27 @@
     // Add a comment
     $scope.pushText = function() {
       
+      var _formattedNode = {};
+      var _$new = {};
+      
+      $scope.showDialog = false;
+      
       nodeService.format($scope.text).then(function (formatted) {
-        
-        $timeout(function () {
-          $scope.showDialog = false;  
-        });
-        
-        var $new = nodeService.push(formatted);
-        
-        return $new.$loaded(function () {
-        
-          // This is a destination id, not the child pushId... may need to rename to make it a bit more obvious
-          formatted.id = $new.id;
-          
-          return $scope.children.$add(formatted).then(function ($snapshot) {
-            
-            $new.origin = 'nodes/' + $routeParams.id + '/children/' + $snapshot.key();
-            $new.breadcrumb = breadcrumbService.push($new.id, angular.copy($scope.node.breadcrumb));
-            
-            clearDialog();
-            
-            return $new.$save();
-          });
-        }).then(function() {
-          updateCommentCount('+1');
-        });
+        _formattedNode = formatted;
+        return nodeService.push(formatted);
+      }).then(function ($new) {
+        _$new = $new;
+        return _$new.$loaded();
+      }).then(function () {
+        _formattedNode.id = _$new.id;
+        return $scope.children.$add(_formattedNode);
+      }).then(function ($snapshot) {
+        _$new.origin = 'nodes/' + $routeParams.id + '/children/' + $snapshot.key();
+        _$new.breadcrumb = breadcrumbService.push(_$new.id, angular.copy($scope.node.breadcrumb));
+        return _$new.$save();
+      }).then(function() {
+        clearDialog();
+        updateCommentCount('+1');
       }).catch(function(err) {
         console.error(err);
       });

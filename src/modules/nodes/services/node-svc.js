@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .factory('nodeService', ['firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 
+  .factory('nodeService', ['$q', 'firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 
   
-  function (firebaseService, $firebaseObject, $firebaseArray, $window, authService) {
+  function ($q, firebaseService, $firebaseObject, $firebaseArray, $window, authService) {
     
     // Public
     
@@ -31,19 +31,20 @@
     }
     
     // Create a node
-    // Todo: make async 
     function _pushNode(data) {
-      var $ref = firebaseService.getRef('nodes');
-      var $newObj = $ref.push();
+      return $q(function (resolve, reject) {
+        var $ref = firebaseService.getRef('nodes');
+        var $newObj = $ref.push();
       
-      // Set the id as the created firebase pushId
-      data.id = $newObj.key();
-      data.timestamp = $window.Firebase.ServerValue.TIMESTAMP;
+        // Set the id as the created firebase pushId
+        data.id = $newObj.key();
+        data.timestamp = $window.Firebase.ServerValue.TIMESTAMP;
       
-      // Set the newly-create object to 
-      $newObj.setWithPriority(data, data.timestamp);
-      
-      return $firebaseObject($newObj);
+        // Set the newly-create object to 
+        $newObj.setWithPriority(data, data.timestamp);
+        
+        resolve($firebaseObject($newObj));
+      });
     }
     
     // Format a node object
