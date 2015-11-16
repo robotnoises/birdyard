@@ -4,9 +4,9 @@
   
   angular.module('bebop.rooms')
   
-  .controller('newroomController', ['$scope', 'uiService', 'roomService', 'nodeService',
+  .controller('newroomController', ['$scope', 'uiService', 'roomService', 'nodeService', 'breadcrumbService',
   
-  function ($scope, uiService, roomService, nodeService) {
+  function ($scope, uiService, roomService, nodeService, breadcrumbService) {
     
     // Scope
     
@@ -26,7 +26,10 @@
       nodeService.format($scope.room.text).then(function (formatted) {
         return nodeService.push(formatted);
       }).then(function ($node) {
-        return roomService.format($scope.room, $node.$id);
+        $node.breadcrumb = breadcrumbService.push($node.$id);
+        return $node.$save();
+      }).then(function ($node) {
+        return roomService.format($scope.room, $node.key());
       }).then(function(formatted) {
         return roomService.saveRoom(formatted);
       }).catch(function(err) {
