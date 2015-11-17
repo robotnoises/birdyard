@@ -31,7 +31,7 @@ var config = function (grunt) {
           }
         },
         files: {
-          'src/index.html': 'src/templates/index-production.jade'
+          'dist/index.html': 'src/templates/index-production.jade'
         }
       }
       
@@ -44,8 +44,8 @@ var config = function (grunt) {
 
       // Target: production
       production: {
-        src: 'app/assets/style/compiled/app.css',
-        dest: 'app/dist/app.min.css',
+        src: 'src/assets/style/compiled/bebop.css',
+        dest: 'dist/assets/style/bebop.min.css',
       }
     },
 
@@ -66,17 +66,18 @@ var config = function (grunt) {
           {
             src: [
               // main module
-              'app/app.js',
+              'src/app.js',
               // any additional lib files not managed by bower or npm
-              'app/assets/js/lib/*.js',
-              // global controllers/directives/services
-              'app/global/*.js',
-              'app/global/**/*.js',
+              'src/assets/code/*.js',
+              // config files
+              'src/config/constants-prod.js',
+              'src/config/themes.js',
               // app modules                           
-              'app/modules/*.js',           
-              'app/modules/**/*.js',
+              'src/modules/*.js',           
+              'src/modules/**/*.js',
+              'src/modules/**/**/*.js',
             ],
-            dest: 'app/dist/app.min.js'
+            dest: 'dist/bebop.min.js'
           }
         ]
       }
@@ -127,15 +128,14 @@ var config = function (grunt) {
     
     // Copy files
     copy: {
-      production: {
+      components: {
         files: [
           // includes files within path
-          { 
+          {
+            cwd: 'src/bower_components',
             expand: true, 
-            src: ['node_modules/bricks-css/dist/bricks.min.css', 'node_modules/doorman-js/dist/doorman.min.js'], 
-            dest: 'app/dist/assets/', 
-            flatten: true, 
-            filter: 'isFile'
+            src: ['**/*', ], 
+            dest: 'dist/bower_components/'
           },
         ]
       },
@@ -150,20 +150,29 @@ var config = function (grunt) {
             filter: 'isFile'
           },
         ]
+      },
+      fonts_prod: {
+        files: [
+          // includes files within path
+          { 
+            expand: true, 
+            src: ['src/assets/style/compiled/fonts/junglefever/*'], 
+            dest: 'dist/assets/style/fonts/junglefever', 
+            flatten: true
+          },
+        ]
+      },
+      images: {
+        files: [
+          // includes files within path
+          {
+            cwd: 'src/assets/images',
+            expand: true, 
+            src: ['**/*', ], 
+            dest: 'dist/assets/images'
+          },
+        ]
       }
-      // ,
-      // dev: {
-      //   files: [
-      //     // includes files within path
-      //     { 
-      //       expand: true, 
-      //       src: ['node_modules/bricks-css/dist/bricks.min.css', 'node_modules/doorman-js/dist/doorman.min.js'], 
-      //       dest: 'app/dist/assets/', 
-      //       flatten: true, 
-      //       filter: 'isFile'
-      //     },
-      //   ]
-      // }
     },
     
     // Test runner
@@ -188,7 +197,7 @@ var config = function (grunt) {
   // Register custom tasks
   grunt.registerTask('compile-sass', ['sass', 'copy:fonts'])
   grunt.registerTask('build-dev', ['compile-sass', 'jade:dev']);
-  grunt.registerTask('build-prod', ['compile-sass', 'cssmin:production', 'jade:production', 'uglify:production', 'copy:production']);
+  grunt.registerTask('build-prod', ['compile-sass', 'cssmin:production', 'jade:production', 'uglify:production', 'copy:components', 'copy:fonts_prod', 'copy:images']);
     
 };
 

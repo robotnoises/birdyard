@@ -5,8 +5,8 @@ html(lang='en', ng-app='bebop')
     link(href='//fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css')
     = '\n'
     // Style
-    link(rel='stylesheet', href='bower_components/angular-material/angular-material.css')
-    link(rel='stylesheet', href='assets/style/compiled/bebop.css')
+    link(rel='stylesheet', href='bower_components/angular-material/angular-material.min.css')
+    link(rel='stylesheet', href='assets/style/compiled/bebop.min.css')
     = '\n'
     // Font Awesome
     script(src='//use.fonticons.com/c3b6848c.js')
@@ -21,53 +21,19 @@ html(lang='en', ng-app='bebop')
     div(ng-view)
     = '\n'
     // Library
-    script(src='bower_components/angular/angular.js')
-    script(src='bower_components/angular-route/angular-route.js')
+    script(src='bower_components/angular/angular.min.js')
+    script(src='bower_components/angular-route/angular-route.min.js')
     script(src='bower_components/firebase/firebase.js')
-    script(src='bower_components/angularfire/dist/angularfire.js')
-    script(src='bower_components/angular-sanitize/angular-sanitize.js')
-    script(src='bower_components/showdown/src/showdown.js')
+    script(src='bower_components/angularfire/dist/angularfire.min.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.min.js')
+    script(src='bower_components/showdown/compressed/Showdown.min.js')
     script(src='bower_components/angular-markdown-directive/markdown.js')
-    script(src='assets/code/Move.js')
+    script(src='bower_components/angular-animate/angular-animate.min.js')
+    script(src='bower_components/angular-aria/angular-aria.min.js')
+    script(src='bower_components/angular-material/angular-material.min.js')
+    
     = '\n'
     // Application
-    script(src='app.js')
-    = '\n'
-    // Library
-    script(src='bower_components/angular-animate/angular-animate.js')
-    script(src='bower_components/angular-aria/angular-aria.js')
-    script(src='bower_components/angular-material/angular-material.js')
-    = '\n'
-    // Register module dependencies
-    script(src='modules/dependencies.js')
-    = '\n'
-    // Config
-    script(src='modules/config/constants.js')
-    script(src='modules/config/themes.js')
-    = '\n'
-    // Utilities
-    script(src='modules/utilities/controllers/logo-ctrl.js')
-    script(src='modules/utilities/services/firebase.js')
-    script(src='modules/utilities/services/breadcrumb.js')
-    script(src='modules/utilities/services/stash.js')
-    script(src='modules/utilities/services/ui.js')
-    script(src='modules/utilities/directives/shiftEnter.js')
-    script(src='modules/utilities/directives/escape.js')
-    = '\n'
-    // Nodes
-    script(src='modules/nodes/routes.js')
-    script(src='modules/nodes/controllers/node-ctrl.js')
-    script(src='modules/nodes/services/node-svc.js')
-    script(src='modules/nodes/directives/showMore.js')
-    = '\n'
-    // User
-    script(src='modules/user/routes.js')
-    script(src='modules/user/controllers/auth-ctrl.js')
-    script(src='modules/user/controllers/user-ctrl.js')
-    script(src='modules/user/services/auth-svc.js')
-    = '\n'
-    // Rooms
-    script(src='modules/rooms/routes.js')
-    script(src='modules/rooms/controllers/rooms-ctrl.js')
-    script(src='modules/rooms/controllers/newroom-ctrl.js')
-    script(src='modules/rooms/services/rooms-svc.js')
+    script(src='bebop.min.js')
+    
+    
