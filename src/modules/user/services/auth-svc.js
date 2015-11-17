@@ -89,7 +89,18 @@
     
     function _getUser(uid) {
       return $q(function (resolve, reject) {
-        var _uid = uid || getAuth().uid;
+        
+        var _uid = null;
+        
+        if (uid) {
+          _uid = uid;  
+        } else {
+          var _user = getAuth();
+          if (_user) {
+            _uid = _user.uid;
+          }
+        }
+        
         if (_uid) {
           var $ref = firebaseService.getRef('users', _uid); 
           $ref.on('value', function ($user) {

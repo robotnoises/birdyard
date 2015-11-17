@@ -3,12 +3,6 @@
 (function (angular) {
 
   'use strict';
-
-  // Config
-  angular.module('bebop.config', [
-    'firebase',
-    'ngMaterial'
-  ]);
   
   // Nodes
   angular.module('bebop.utilities', [

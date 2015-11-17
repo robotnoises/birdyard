@@ -40,10 +40,11 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Register module dependencies
     script(src='modules/dependencies.js')
+    script(src='config/dependencies.js')
     = '\n'
     // Config
-    script(src='config/constants-dev.js')
-    script(src='config/themes.js')
+    script(src='config/configs/constants-dev.js')
+    script(src='config/configs/themes.js')
     = '\n'
     // Utilities
     script(src='modules/utilities/controllers/logo-ctrl.js')

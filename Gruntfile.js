@@ -57,7 +57,7 @@ var config = function (grunt) {
       // Options
       options: {
         report: 'min',
-        mangle: true
+        mangle: false
       },
 
       // Target: production
@@ -69,9 +69,12 @@ var config = function (grunt) {
               'src/app.js',
               // any additional lib files not managed by bower or npm
               'src/assets/code/*.js',
+              // Dependencies
+              'src/config/*.js',
+              'src/modules/*.js',   
               // config files
-              'src/config/constants-prod.js',
-              'src/config/themes.js',
+              'src/config/configs/constants-prod.js',
+              'src/config/configs/themes.js',
               // app modules                           
               'src/modules/*.js',           
               'src/modules/**/*.js',
@@ -130,50 +133,61 @@ var config = function (grunt) {
     copy: {
       components: {
         files: [
-          // includes files within path
           {
             cwd: 'src/bower_components',
             expand: true, 
             src: ['**/*', ], 
             dest: 'dist/bower_components/'
-          },
+          }
         ]
       },
       fonts: {
         files: [
-          // includes files within path
           { 
             expand: true, 
             src: ['src/assets/style/fonts/junglefever/*'], 
-            dest: 'src/assets/style/compiled/fonts/junglefever', 
+            dest: 'src/assets/style/compiled/fonts/', 
             flatten: true, 
             filter: 'isFile'
-          },
+          }
         ]
       },
       fonts_prod: {
         files: [
-          // includes files within path
           { 
             expand: true, 
-            src: ['src/assets/style/compiled/fonts/junglefever/*'], 
-            dest: 'dist/assets/style/fonts/junglefever', 
+            src: ['src/assets/style/compiled/fonts/*'], 
+            dest: 'dist/assets/style/fonts/', 
             flatten: true
-          },
+          }
         ]
       },
       images: {
         files: [
-          // includes files within path
           {
             cwd: 'src/assets/images',
             expand: true, 
             src: ['**/*', ], 
             dest: 'dist/assets/images'
-          },
+          }
+        ]
+      },
+      views: {
+        files: [
+          { 
+            cwd: 'src/modules/',
+            expand: true,
+            src: ['**/views/*.html'], 
+            dest: 'dist/modules/', 
+            filter: 'isFile'
+          }
         ]
       }
     },
+    
+    clean: {
+      production: ['dist/*']
+    }
     
     // Test runner
     // karma: {
@@ -192,12 +206,26 @@ var config = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   // grunt.loadNpmTasks('grunt-karma');
   
   // Register custom tasks
+  
   grunt.registerTask('compile-sass', ['sass', 'copy:fonts'])
+  
   grunt.registerTask('build-dev', ['compile-sass', 'jade:dev']);
-  grunt.registerTask('build-prod', ['compile-sass', 'cssmin:production', 'jade:production', 'uglify:production', 'copy:components', 'copy:fonts_prod', 'copy:images']);
+  
+  grunt.registerTask('build-prod', [
+    'clean:production',
+    'compile-sass', 
+    'cssmin:production', 
+    'jade:production', 
+    'uglify:production', 
+    'copy:components', 
+    'copy:fonts_prod', 
+    'copy:images',
+    'copy:views']
+  );
     
 };
 
