@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', 'CHAR_LIMIT', '$mdToast',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', '$mdToast',
   
-  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, CHAR_LIMIT, $mdToast) {
+  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, $mdToast) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@
     $scope.selected =       {};
     $scope.children =       {};
     $scope.text =           '';
-    $scope.charLimit =      CHAR_LIMIT;
+    $scope.charLimit =      400;
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
