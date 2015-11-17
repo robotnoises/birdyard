@@ -18,13 +18,15 @@
   // Nodes
   angular.module('bebop.nodes', [
     'ngRoute',
-    'firebase'
+    'firebase',
+    'ngMaterial'
   ]);
   
   // Rooms
   angular.module('bebop.rooms', [
     'ngRoute',
-    'firebase'
+    'firebase',
+    'ngMaterial'
   ]);
   
   // Authentication

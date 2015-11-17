@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', 'CHAR_LIMIT',
+  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', 'CHAR_LIMIT', '$mdToast',
   
-  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, CHAR_LIMIT) {
+  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, CHAR_LIMIT, $mdToast) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -209,9 +209,28 @@
         return _$new.$save();
       }).then(function() {
         clearDialog();
-        updateCommentCount('+1');
+        return updateCommentCount('+1');
+      }).then(function () {
+        
+        // Display success message
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Posted!')
+            .theme('toast-default')
+            .position('bottom right')
+            .hideDelay(1500)
+          );
       }).catch(function(err) {
         console.error(err);
+        
+        // Display error message
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Something went wrong, please try again.')
+            .theme('toast-error')
+            .position('bottom right')
+            .hideDelay(3000)
+          );
       });
     };
     
