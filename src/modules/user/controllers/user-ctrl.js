@@ -77,7 +77,7 @@
         // Display error message
         $mdToast.show(
           $mdToast.simple()
-            .content('Something went wrong!')
+            .content('Something went wrong, please try again.')
             .theme('toast-error')
             .position('bottom right')
             .hideDelay(3000)
