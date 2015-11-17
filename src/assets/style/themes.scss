@@ -2,15 +2,20 @@
 
 // Toast Notifications
 
-.md-toast-success-theme {
+md-toast {
   color: $co_white !important;
-  background-color: $co_green !important;
-  font-weight: 700;
+  font-weight: 700 !important;
   background-image: linear-gradient(rgba(255,255,255,0.0), rgba(0,0,0,0.15));
 }
+
+.md-toast-default-theme {
+  background-color: $co_purple !important;
+}
+
+.md-toast-success-theme {
+  background-color: $co_green !important;
+}
+
 .md-toast-error-theme {
-  color: $co_white !important;
   background-color: $co_red !important;
-  font-weight: 700;
-  background-image: linear-gradient(rgba(255,255,255,0.0), rgba(0,0,0,0.15));
 }
