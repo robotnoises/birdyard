@@ -4,9 +4,9 @@
   
   angular.module('bebop.nodes')
   
-  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', '$firebaseObject',
+  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', '$firebaseObject', 'colorService',
 
-  function ($rootScope, $timeout, $q, firebaseService, $firebaseAuth, $firebaseObject) {
+  function ($rootScope, $timeout, $q, firebaseService, $firebaseAuth, $firebaseObject, colorService) {
     
     // Private
     
@@ -31,13 +31,20 @@
         expires:  authData.expires,
         provider: authData.provider,
         language: authData[authData.provider].cachedUserProfile.lang || 'en',
-        handle:   authData[authData.provider].username,
+        handle:   '@' + authData[authData.provider].username,
         providerData: {
           // These represent defaults to the user's customizable fields...
           name:     authData[authData.provider].displayName,
           avatar:   authData[authData.provider].profileImageURL  
         },
       };
+    }
+    
+    // Pre configure some properties for new users
+    function formatNewUser(authData) {
+      authData.accent = colorService.random();
+      authData.social = false;
+      return authData;
     }
     
     // Sub-in provider data props if user has not chosen their own... 
@@ -63,10 +70,12 @@
           if ($users.child(authData.uid).exists()) {
             // Update as to not overwrite existing properties
             var $user = $ref.child(authData.uid);
-            $user.update(formatted)
-            resolve(false); // Not a new user
+            $user.update(formatted);
+            resolve(false); // Not a new user!
           } else {
-            $ref.child(authData.uid).set(formatted);
+            // Give the user a random color if they haven't chosen one
+            var formattedNewUser = formatNewUser(formatted);
+            $ref.child(authData.uid).set(formattedNewUser);
             resolve(true);  // New user!
           }
         });

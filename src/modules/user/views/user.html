@@ -10,31 +10,46 @@
         
         <!-- Display Name -->
         <md-input-container flex="grow" class="md-block">
-          <!-- Use floating label instead of placeholder -->
           <label>Display Name</label>
           <input class="jumbo" ng-model="user.name" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
         </md-input-container>
         
         <!-- Todo: Lets do something with this inline style -->
-        <div flex="none" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;"></div>         
+        <div flex="none" class="border-accent-avatar" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;" ng-style="{'border-color': user.accent}"></div>         
           
       </div>
       
       <!-- Say something about yourself -->
-      <md-input-container flex="grow" class="md-block">
-        <!-- Use floating label instead of placeholder -->
-        <label>Say something brief about yourself</label>
-        <input class="jumbo" ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
+      <md-input-container flex="grow" class="md-block" ng-if="editable || user.description">
+        <label ng-if="editable && user.description">Say something brief about yourself</label>
+        <input ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
       </md-input-container>
 
-      <!-- Display Name -->
-      <md-input-container class="md-block">
-        <!-- Use floating label instead of placeholder -->
-        <label>Twitter Handle</label>
-        <input class="jumbo" ng-model="user.handle" type="text" disabled>
-      </md-input-container>
+      <div layout="row" layout-align="start end" layout-wrap>
+        
+        <!-- Twitter Handle -->
+        <md-input-container flex="20" class="md-block" ng-if="editable || user.social">
+          <label>Twitter Handle</label>
+          <input ng-model="user.handle" type="text" disabled>
+        </md-input-container>
+        
+        <md-input-container flex="80" class="md-block" ng-if="editable">
+          <md-checkbox ng-model="user.social">
+            Make public?
+          </md-checkbox>
+        </md-input-container>
+        
+      </div>
       
       <!-- Accent Color -->
+      <md-input-container class="md-block" ng-if="editable" style="width: 200px">
+        <label>Accent Color</label>
+        <md-select ng-model="user.accent" ng-style="{'background-color': user.accent}">
+          <md-option ng-repeat="color in accentColors" value="{{color}}" ng-style="{'background-color': color}">
+          </md-option>
+        </md-select>
+      </md-input-container>
+      
       <!-- Display my Twitter handle? -->
       <!-- Delete Account -->
       

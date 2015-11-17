@@ -1,3 +1,13 @@
+@import 'colors';
+
 .shadow-flat {
   box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.border-accent {
+  border-top: 2px solid $co_purple;
+}
+
+.border-accent-avatar {
+  border: 2px solid $co_purple;
 }

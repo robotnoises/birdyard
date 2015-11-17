@@ -4,9 +4,9 @@
   
   angular.module('bebop.auth')
   
-  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService', '$mdToast',
+  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService', 'colorService', '$mdToast',
   
-  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService, $mdToast) {
+  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService, colorService, $mdToast) {
     
     // Globals
     
@@ -19,7 +19,8 @@
     $scope.loaded = false;
     $scope.modified = false;
     $scope.editable = typeof _userId === 'undefined';
-    
+    $scope.accentColors = colorService.list;
+
     authService.getUser(_userId).then(function ($user) {
       _user = angular.copy($user);
       $timeout(function () {
@@ -51,6 +52,22 @@
     $scope.$watch('user.description', function(description) {
       $timeout(function () {
         $scope.modified = (description !== _user.description);  
+      });
+    });
+    
+    // Watch accent color
+    $scope.$watch('user.accent', function(accent) {
+      $timeout(function () {
+        $scope.modified = (accent !== _user.accent);  
+      });
+    });
+    
+    // Watch public social media handle
+    
+    // Watch accent color
+    $scope.$watch('user.social', function(social) {
+      $timeout(function () {
+        $scope.modified = (social !== _user.social);  
       });
     });
     
