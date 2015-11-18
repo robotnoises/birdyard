@@ -39,7 +39,7 @@
       
       <div class="star-wars">
         <!-- Currently displayed node -->
-        <div class="node parent">
+        <div id="featured" class="node parent">
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 
@@ -75,8 +75,8 @@
     <div layout="row" class="content fadey ghost" ng-class="{'boo': loaded}">
       
         <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
-        <span flex="none" class="font-purple">Autoscroll?</span>
-        <md-switch flex="none" ng-model="autoScroll" aria-label="Autoscroll?"></md-switch>
+        <!--<span flex="none">Autoscroll</span>-->
+        <md-switch flex="none" ng-model="autoScroll" aria-label="autoscroll"></md-switch>
       
     </div>
   </div>

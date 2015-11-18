@@ -82,7 +82,10 @@
         
         Move.y('.keep', keepOptions);
         Move.y('.star-wars', starWarsOptions, function () {
-          Move.y('.keep', {top: 0, speed: SPEED, easing: 'linear'}, callback);
+          var $keeper = angular.element(document.getElementsByClassName('keep'));
+          $keeper[0].style.setProperty('opacity', 0, 'important');
+          callback();
+          // Move.y('.keep', {top: 0, speed: SPEED, easing: 'linear'}, callback);
         });
       });
     }
