@@ -71,11 +71,9 @@ var Move = (function () {
       top = top - getScrollY();
     }
     
-    // Rate should be roughly 1 pixel per millisecond
-    var distance = Math.abs(parseInt(top, 10) - options.top);     
+    // Adjust speed based on distance to target
+    var distance = Math.abs(parseInt(top, 10) - options.top);
     options.speed = Math.floor((distance / options.speed) * options.speed); 
-    
-    console.log('Speed: ', options.speed);
     
     // Vertical 
     element.style.top = top + 'px';
