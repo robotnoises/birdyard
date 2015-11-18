@@ -31,7 +31,7 @@ var Move = (function () {
     
     var options = {
       top: 0,
-      speed: '300ms',
+      speed: 300,
       easing: 'linear',
       context: CONTEXT.PAGE
     };
@@ -71,9 +71,13 @@ var Move = (function () {
       top = top - getScrollY();
     }
     
+    // Adjust speed based on distance to target
+    var distance = Math.abs(parseInt(top, 10) - options.top);
+    options.speed = Math.floor((distance / options.speed) * options.speed); 
+    
     // Vertical 
     element.style.top = top + 'px';
-    element.style.transition = 'top ' + options.speed + ' ' + options.easing;
+    element.style.transition = 'top ' + options.speed + 'ms ' + options.easing;
     element.style.width = element.clientWidth + 'px';
     element.style.height = element.clientHeight + 'px';
     element.style.position = 'absolute';
@@ -83,7 +87,7 @@ var Move = (function () {
     element.style.transform = 'translateX(-50%)';
   }
   
-  /* From Modernizr */
+  // Inspired by Modernizr
   function whichTransitionEvent(element) {
     
     var transitions = {

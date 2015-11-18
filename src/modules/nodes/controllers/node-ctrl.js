@@ -12,7 +12,7 @@
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    var SPEED = 300;
+    var SPEED = 200;
     var LAST_SELECTED_NODE = 'last_selected';
     var wasScrolling = false;
     
@@ -67,11 +67,9 @@
     
     function doTransition(callback) {
       
-      var scrollSpeed = SPEED + 'ms';
-      
       var options = {
         top: 300, 
-        speed: scrollSpeed, 
+        speed: SPEED, 
         context: Move.CONTEXT.VIEWPORT, 
         easing: 'ease-in'
       };
@@ -79,12 +77,12 @@
       // Callback hell!
       Move.y('.keep', options, function () {
         
-        var keepOptions = {top: 30, speed: scrollSpeed, easing: 'linear'};
-        var starWarsOptions = {top: -270, speed: scrollSpeed, easing: 'linear'};
+        var keepOptions = {top: 30, speed: SPEED, easing: 'linear'};
+        var starWarsOptions = {top: -270, speed: SPEED, easing: 'linear'};
         
         Move.y('.keep', keepOptions);
         Move.y('.star-wars', starWarsOptions, function () {
-          Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'}, callback);
+          Move.y('.keep', {top: 0, speed: SPEED, easing: 'linear'}, callback);
         });
       });
     }
