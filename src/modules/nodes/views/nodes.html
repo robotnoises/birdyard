@@ -43,7 +43,7 @@
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 
-            <span class="handle small">@{{node.handle}}</span>
+            <span class="handle small">{{node.handle}}</span>
           </div>
           
           <div class="node-text">
@@ -52,11 +52,11 @@
           </div>
         </div>
         <!-- Holding area for to-be-displayed node -->
-        <div class="node parent">
+        <div class="node parent" style="padding-top: 25px;">
           
           <div class="node-title">
             <span class="displayName">{{selected.name}}</span> 
-            <span class="handle small">@{{selected.handle}}</span>
+            <span class="handle small">{{selected.handle}}</span>
           </div>
 
           <div class="node-text">
@@ -87,7 +87,7 @@
       
       <div class="node-title">
         <span class="displayName">{{child.name}}</span> 
-        <span class="handle small">@{{child.handle}}</span>
+        <span class="handle small">{{child.handle}}</span>
         <i class="icon icon-star-o pointer" ng-class="{ghost: !loaded}"></i>
       </div>
       

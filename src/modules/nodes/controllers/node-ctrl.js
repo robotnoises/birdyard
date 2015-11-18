@@ -12,7 +12,7 @@
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    var SPEED = 200;
+    var SPEED = 300;
     var LAST_SELECTED_NODE = 'last_selected';
     var wasScrolling = false;
     
@@ -26,7 +26,6 @@
     $scope.selected =       {};
     $scope.children =       {};
     $scope.text =           '';
-    $scope.charLimit =      400;
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,11 +51,9 @@
     }
     
     function navigateToNode(nodeId) {
-      $location.path('n/' + nodeId);
-    }
-    
-    function wait(duration, callback) {
-      $timeout(callback, duration);
+      $timeout(function() {
+        $location.path('n/' + nodeId);  
+      });
     }
     
     function focusTextInput() {
@@ -71,16 +68,22 @@
       
       var scrollSpeed = SPEED + 'ms';
       
-      Move.y('.keep', {top: 240, speed: scrollSpeed, context: Move.CONTEXT.VIEWPORT, easing: 'ease-in'});
+      var options = {
+        top: 300, 
+        speed: scrollSpeed, 
+        context: Move.CONTEXT.VIEWPORT, 
+        easing: 'ease-in'
+      };
       
-      wait(SPEED - 10, function () {
+      // Callback hell!
+      Move.y('.keep', options, function () {
         
-        Move.y('.keep', {top: 65, speed: scrollSpeed, easing: 'linear'});
-        Move.y('.star-wars', {top: -200, speed: scrollSpeed, easing: 'linear'});
+        var keepOptions = {top: 30, speed: scrollSpeed, easing: 'linear'};
+        var starWarsOptions = {top: -270, speed: scrollSpeed, easing: 'linear'};
         
-        wait(SPEED - 10, function () {
-          Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'});
-          callback();
+        Move.y('.keep', keepOptions);
+        Move.y('.star-wars', starWarsOptions, function () {
+          Move.y('.keep', {top: 0, speed: scrollSpeed, easing: 'linear'}, callback);
         });
       });
     }

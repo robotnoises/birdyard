@@ -81,7 +81,8 @@
 .node.parent {
   position: static;
   height: $dim_node;
-  padding-top: 65px;
+  padding-top: 55px;
+  padding-bottom: 10px;
 }
 
 .node.child {
@@ -137,7 +138,7 @@
 }
 
 .toolbar {
-  top: 190px;
+  top: 250px;
   z-index: 3;
   height: 50px;
   line-height: 50px;

@@ -83,24 +83,53 @@ var Move = (function () {
     element.style.transform = 'translateX(-50%)';
   }
   
+  /* From Modernizr */
+  function whichTransitionEvent(element) {
+    
+    var transitions = {
+      'transition':'transitionend',
+      'OTransition':'oTransitionEnd',
+      'MozTransition':'transitionend',
+      'WebkitTransition':'webkitTransitionEnd'
+    }
+  
+    for (var t in transitions) {
+      if (element.style[t] !== undefined) {
+        return transitions[t];
+      }
+    }
+  }
+
   // Move parent object
   
   var Move = {};
   
   // Public
   
-  Move.y = function (selector, _options) {
+  Move.y = function (selector, _options, callback) {
 
     var element = selectElement(selector);
     var options = getOptions(_options);
     
     if (element) {
       
+      // Set-up a callback when the transition ends
+      if (callback) {
+        
+        function handler(cb) {
+          element.removeEventListener(transitionEvent, handler);
+          callback();
+        }
+        
+        var transitionEvent = whichTransitionEvent(element);
+        transitionEvent && element.addEventListener(transitionEvent, handler);
+      }
+        
       // Clean it up in preparation for the move
       prepareElement(element, options);
       
       // Move to...
-      element.style.top = options.top + 'px';      
+      element.style.top = options.top + 'px';
     } else {
       throw new Error('No element was selected with ' + selector);
     }
