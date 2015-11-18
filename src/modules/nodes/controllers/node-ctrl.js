@@ -35,6 +35,7 @@
     function init() {
       
       uiService.setBackgroundValue(uiService.VALUE.DARK);
+      uiService.setBackgroundClass('');
       
       // If the user switches autoscroll to true, scroll to the bottom
       $scope.$watch('autoScroll', function (newValue, oldValue) {

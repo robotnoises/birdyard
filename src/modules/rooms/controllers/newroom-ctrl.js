@@ -16,6 +16,7 @@
     
     function init() {
       uiService.setBackgroundValue(uiService.VALUE.LIGHT);
+      uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
     }
     
     init();

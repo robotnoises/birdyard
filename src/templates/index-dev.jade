@@ -10,13 +10,13 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Font Awesome
     script(src='//use.fonticons.com/c3b6848c.js')
-  body
+  body(ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Bebop Logo
-    h1(class='bebop-logo pointer', ng-controller="logoController", ng-class="getLogoColor()", ng-click="goHome()") Bebop!
+    h1(class='bebop-logo pointer', ng-controller='uiController', ng-class='getLogoColor()', ng-click='goHome()') Bebop!
     // User Avatar
-    span(class='bebop-avatar pointer', ng-controller="authController", ng-if="signedIn", ng-click="goToProfile()")
-      img(ng-src="{{avatarUrl}}")
+    span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
+      img(ng-src='{{avatarUrl}}')
     = '\n'
     div(ng-view)
     = '\n'
@@ -47,7 +47,7 @@ html(lang='en', ng-app='bebop')
     script(src='config/configs/themes.js')
     = '\n'
     // Utilities
-    script(src='modules/utilities/controllers/logo-ctrl.js')
+    script(src='modules/utilities/controllers/ui-ctrl.js')
     script(src='modules/utilities/services/firebase.js')
     script(src='modules/utilities/services/breadcrumb.js')
     script(src='modules/utilities/services/stash.js')

@@ -4,9 +4,9 @@
   
   angular.module('bebop.auth')
   
-  .controller('authController', ['$scope', '$location', 'firebaseService', 'authService', 
+  .controller('authController', ['$scope', '$location', 'firebaseService', 'authService', 'uiService',
   
-  function ($scope, $location, firebaseService, authService) {
+  function ($scope, $location, firebaseService, authService, uiService) {
     
     // Private
     
@@ -15,6 +15,8 @@
       authService.getAvatar().then(function(url) {
         $scope.avatarUrl = url;
       });
+      
+      uiService.setBackgroundValue(uiService.VALUE.LIGHT);
     }
     
     // Public

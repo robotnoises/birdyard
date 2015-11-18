@@ -12,6 +12,12 @@
   background-color: $co_white;
 }
 
+.bg-geometry {
+  background-image: url(../images/geometry2.png);
+  background-size: 200px;
+}
+
 .gradient {
   background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1) 75%);
 }
+

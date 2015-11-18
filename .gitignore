@@ -43,3 +43,6 @@ bower_components/
 # SASS
 .sass-cache/
 src/assets/style/compiled/
+
+# OSX
+.DS_Store

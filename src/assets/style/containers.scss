@@ -166,3 +166,11 @@
   padding: $dim_spacer;
   margin-bottom: $dim_spacer;
 }
+
+.jumbotron {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 200px;
+}

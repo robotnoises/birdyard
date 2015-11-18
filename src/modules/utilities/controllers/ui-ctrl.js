@@ -4,7 +4,7 @@
   
   angular.module('bebop.utilities')
   
-  .controller('logoController', ['$scope', '$routeParams', '$location', 'uiService',
+  .controller('uiController', ['$scope', '$routeParams', '$location', 'uiService',
   
   function ($scope, $routeParams, $location, uiService) {
     
@@ -16,6 +16,10 @@
         return 'font-white';
       }
       
+    };
+    
+    $scope.getBackgroundClass = function () {
+      return uiService.getBackgroundClass();
     };
     
     $scope.goHome = function () {

@@ -168,6 +168,16 @@ var config = function (grunt) {
             cwd: 'src/assets/images',
             expand: true, 
             src: ['**/*', ], 
+            dest: 'src/assets/style/images'
+          }
+        ]
+      },
+      images_prod: {
+        files: [
+          {
+            cwd: 'src/assets/images',
+            expand: true, 
+            src: ['**/*', ], 
             dest: 'dist/assets/images'
           }
         ]
@@ -213,7 +223,7 @@ var config = function (grunt) {
   
   grunt.registerTask('compile-sass', ['sass', 'copy:fonts'])
   
-  grunt.registerTask('build-dev', ['compile-sass', 'jade:dev']);
+  grunt.registerTask('build-dev', ['compile-sass', 'jade:dev', 'copy:images']);
   
   grunt.registerTask('build-prod', [
     'clean:production',
@@ -223,7 +233,7 @@ var config = function (grunt) {
     'uglify:production', 
     'copy:components', 
     'copy:fonts_prod', 
-    'copy:images',
+    'copy:images_prod',
     'copy:views']
   );
     
