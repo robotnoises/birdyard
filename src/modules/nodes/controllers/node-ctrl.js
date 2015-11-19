@@ -15,7 +15,9 @@
     'breadcrumbService', 
     'stashService', 
     'uiService',
-    'activityService', 
+    'activityService',
+    'notificationService',
+    'authService',
     '$mdDialog', 
     '$mdToast',
   
@@ -30,7 +32,9 @@
     breadcrumbService, 
     stashService, 
     uiService,
-    activityService, 
+    activityService,
+    notificationService,
+    authService,
     $mdDialog, 
     $mdToast) {
     
@@ -217,7 +221,7 @@
         });
       }
     };
-
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -249,6 +253,13 @@
         clearDialog();
         return updateCommentCount('+1');
       }).then(function () {
+        // Notify the user
+        return notificationService.notify(
+          notificationService.TYPE.REPLY, 
+          angular.copy($scope.node.uid), 
+          angular.copy($scope.node.id)
+        );
+      }).then(function () {
         
         // Display success message
         $mdToast.show(
@@ -258,6 +269,7 @@
             .position('bottom right')
             .hideDelay(1500)
           );
+          
       }).catch(function(err) {
         
         var msg = 'Something went wrong, please try again.';
