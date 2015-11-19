@@ -155,9 +155,9 @@ var config = function (grunt) {
       fonts_prod: {
         files: [
           { 
-            expand: true, 
-            src: ['src/assets/style/compiled/fonts/*'], 
-            dest: 'dist/assets/style/fonts/', 
+            expand: true,
+            src: ['src/assets/style/fonts/junglefever/*'], 
+            dest: 'dist/assets/style/fonts/',
             flatten: true
           }
         ]
