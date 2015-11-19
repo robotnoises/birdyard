@@ -4,9 +4,11 @@
 
 <div class="content top">
   <div class="heading" style="padding-left: 16px;">Rooms!</div>
-  <div ng-repeat="room in rooms">
-    <div class="room bg-white shadow-flat">
-      {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
+  <div class="fadey ghost" ng-class="{'boo': loaded}">
+    <div ng-repeat="room in rooms">
+      <div class="room bg-white shadow-flat">
+        {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
+      </div>
     </div>
   </div>
 </div>

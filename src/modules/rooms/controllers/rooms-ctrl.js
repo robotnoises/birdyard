@@ -4,9 +4,9 @@
   
   angular.module('bebop.rooms')
   
-  .controller('roomsController', ['$scope', '$routeParams', 'uiService', 'roomService',
+  .controller('roomsController', ['$scope', '$routeParams', '$timeout', 'uiService', 'roomService',
   
-  function ($scope, $routeParams, uiService, roomService) {
+  function ($scope, $routeParams, $timeout, uiService, roomService) {
     
     // Scope
     
@@ -15,7 +15,11 @@
     
     roomService.getRooms($routeParams.category).then(function ($rooms) {
       $scope.rooms = $rooms;
-      $scope.loaded = true;
+      $scope.rooms.$loaded(function () {
+        $timeout(function () {
+          $scope.loaded = true;  
+        });
+      });
     });
     
     // Private
