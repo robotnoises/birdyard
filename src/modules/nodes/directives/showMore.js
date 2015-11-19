@@ -26,19 +26,20 @@
       },
       link: function (scope, element, attrs) {
         
+        var el = createShowMoreElement();
+                
         scope.$watch('loaded', function (loaded) {
           if (loaded == 'false') return;
           if (textOverflow(element[0])) {
-            var el = createShowMoreElement();
             el.attr('ng-click', 'doAction()');
             el.attr('ng-class', '{"boo": loaded}');
-            el.attr('ng-show', '!expand')
             element.append($compile(el)(scope));
           }
         });
         
         scope.doAction = function () {
           scope.$parent.$eval(attrs['showMore']);
+          el.addClass('hide');
         };
       }
     }

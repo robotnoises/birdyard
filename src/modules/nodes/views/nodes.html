@@ -2,8 +2,6 @@
 <div>
   
   <div class="featured bg-white fixed dialog fadey shadow-flat" ng-class="{ghost: !showDialog}">
-    
-    <!-- Add some content! -->
     <div class="content">
       <md-content> 
         <md-input-container class="md-block">
@@ -11,7 +9,6 @@
           <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="text"></textarea>
         </md-input-container>
       </md-content>
-      
       <!--<md-button class="float-right">Submit</md-button>
       <md-button class="float-right">Cancel</md-button>-->
     </div>
@@ -19,7 +16,7 @@
   
   <div class="featured bg-purple fixed shadow-flat gradient-bottom">
     
-    <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded}"></div>
+    <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
     
     <div class="content">
       
