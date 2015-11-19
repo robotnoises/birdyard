@@ -4,7 +4,6 @@
   <div class="featured bg-white fixed dialog fadey shadow-flat" ng-class="{ghost: !showDialog}">
     
     <!-- Add some content! -->
-    <!--<i id="pencil" class="icon icon-times-circle pointer float-right"></i>-->
     <div class="content">
       <md-content> 
         <md-input-container class="md-block">
@@ -41,7 +40,7 @@
       
       <div class="star-wars">
         <!-- Currently displayed node -->
-        <div id="featured" class="node parent">
+        <div id="featured" class="node parent" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 

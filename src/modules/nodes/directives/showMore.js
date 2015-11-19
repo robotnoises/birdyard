@@ -4,77 +4,44 @@
   
   // Private
   
-  function getEndOfLastWord(str, limit) {
-    var chars = str.split('');
-    for (var i = limit - 1; i--;) {
-      if (chars[i] === ' ') return i;
-    }
+  function textOverflow(element) {
+    return element.clientHeight < element.scrollHeight;
   }
   
-  function truncate(str, limit) {
-    
-    if (typeof str === 'string') {
-      
-      if (str.length <= limit) {
-        return str;
-      }
-      
-      // find the last character allowed by the limit
-      var truncated = str.slice(0, limit);
-      var lastChar = truncated.slice(limit - 1);
-      
-      if (lastChar === ' ') {
-        return truncated;
-      } else {
-        return truncated.slice(0, getEndOfLastWord(truncated, limit));
-      }
-    } else {
-      throw new TypeError('Input must be a string.');
-    }
+  function createShowMoreElement() {
+    var el = angular.element('<i/>');
+    el.addClass('icon icon-ellipsis-h show-more ghost fadey boo');
+    return el;
   }
   
   angular.module('bebop.nodes')
   
-  .directive('showMore', function () {
+  .directive('showMore', ['$timeout', '$compile', function ($timeout, $compile) {
     
     return {
-      restrict: 'E',
-      template: '<p>{{truncatedText}} &nbsp;<a href ng-show="truncated" ng-click="doAction()">Show More</a></p>',
-      replace: true,
+      restrict: 'A',
+      replace: false,
       scope: {
-        text: '=',
-        action: '=',
-        limit: '='
+        loaded: '@'
       },
       link: function (scope, element, attrs) {
         
-        scope.truncated = false;
-        scope.truncatedText = '';
-        
-        function evalText(text) {
-          if (text) {
-            if (scope.limit && text.length > scope.limit) {
-              scope.truncated = true;
-              scope.truncatedText = truncate(text, scope.limit);  
-            } else {
-              scope.truncatedText = text;
-            }
-          }
-        }
-        
-        scope.$watch('text', evalText);
-        
-        scope.$watch('limit', function (newLimit, oldLimit) {
-          if (newLimit !== oldLimit) {
-            evalText(scope.text);
+        scope.$watch('loaded', function (loaded) {
+          if (loaded == 'false') return;
+          if (textOverflow(element[0])) {
+            var el = createShowMoreElement();
+            el.attr('ng-click', 'doAction()');
+            el.attr('ng-class', '{"boo": loaded}');
+            el.attr('ng-show', '!expand')
+            element.append($compile(el)(scope));
           }
         });
-             
+        
         scope.doAction = function () {
-          scope.$parent.$eval(scope.action);
+          scope.$parent.$eval(attrs['showMore']);
         };
       }
     }
-  });
+  }]);
   
 })(angular);

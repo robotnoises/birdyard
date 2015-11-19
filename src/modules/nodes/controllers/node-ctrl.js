@@ -23,6 +23,7 @@
     $scope.autoScroll =     true;
     $scope.loaded =         false;
     $scope.showDialog =     false;
+    $scope.expand =         false;
     $scope.selected =       {};
     $scope.children =       {};
     $scope.text =           '';
@@ -108,7 +109,7 @@
           scrollToBottom();
         }, 0);
       });
-    }$scope.showDialog = false;
+    }
     
     function getNode(id) {
       
@@ -293,9 +294,11 @@
       }
     };
     
-    $scope.expandNode = function () {
+    $scope.expandFeature = function ($element) {
       $timeout(function () {
-        $scope.charLimit = null;  
+        $timeout(function () {
+          $scope.expand = true;
+        });  
       });
     };
     

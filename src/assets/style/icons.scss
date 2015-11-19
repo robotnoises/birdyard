@@ -45,3 +45,13 @@ i.icon.one-digit.two-digits.three-digits.comment-count {
     left: 27.5px;
   }
 }
+
+i.show-more {
+  position: absolute;
+  top: 275px;
+  right: 0px;
+  z-index: 2;
+  font-size: 1.5em;
+  color: $co_white;
+  cursor: pointer;
+}
