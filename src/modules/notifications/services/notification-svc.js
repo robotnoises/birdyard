@@ -30,6 +30,16 @@
       });
     }
     
+    function updateCount(userId) {
+      return $q(function (resolve, reject) {
+        var $ref = firebaseService.getRef('notifications', userId);
+        // $ref.on('value', function ($snap) {
+        //   var count = $snap.numChildren();
+          
+        // });
+      });
+    }
+    
     init();
     
     // Public
@@ -53,10 +63,8 @@
           'id': id
         });
         
-        $items.on('child_added', function ($snap) {
-          // Todo update count?
-          // $notifications.update({count: $snap.numChildren()});
-          resolve();
+        return $items.on('child_added', function ($snap) {
+          return updateCount(userId); 
         });
 
       });
