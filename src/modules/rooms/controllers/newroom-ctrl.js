@@ -4,19 +4,23 @@
   
   angular.module('bebop.rooms')
   
-  .controller('newroomController', ['$scope', 'uiService', 'roomService', 'nodeService', 'breadcrumbService', '$mdToast',
+  .controller('newroomController', ['$scope', '$timeout', 'uiService', 'roomService', 'nodeService', 'breadcrumbService', '$mdToast',
   
-  function ($scope, uiService, roomService, nodeService, breadcrumbService, $mdToast) {
+  function ($scope, $timeout, uiService, roomService, nodeService, breadcrumbService, $mdToast) {
     
     // Scope
     
     $scope.room = {};
+    $scope.loaded = false;
     
     // Private
     
     function init() {
       uiService.setBackgroundValue(uiService.VALUE.LIGHT);
       uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
+      $timeout(function () {
+        $scope.loaded = true;
+      });
     }
     
     init();
@@ -34,6 +38,7 @@
       }).then(function(formatted) {
         return roomService.saveRoom(formatted);
       }).then(function () {
+        
         // Display success message
         $mdToast.show(
           $mdToast.simple()
