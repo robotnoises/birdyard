@@ -21,7 +21,7 @@
       
       <!-- Say something about yourself -->
       <md-input-container flex="grow" class="md-block" ng-if="editable || user.description">
-        <label ng-if="editable && user.description">Say something brief about yourself</label>
+        <label ng-if="editable || (!editable && user.description)">Say something brief about yourself</label>
         <input ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
       </md-input-container>
 
