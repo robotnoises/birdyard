@@ -259,12 +259,19 @@
             .hideDelay(1500)
           );
       }).catch(function(err) {
+        
+        var msg = 'Something went wrong, please try again.';
+        
         console.error(err);
+                
+        if (err.code.indexOf('PERMISSION_DENIED') > -1) {
+          msg = 'Slow down. You\'re doing that too much.';
+        }
         
         // Display error message
         $mdToast.show(
           $mdToast.simple()
-            .content('Something went wrong, please try again.')
+            .content(msg)
             .theme('toast-error')
             .position('bottom right')
             .hideDelay(3000)
