@@ -4,9 +4,23 @@
   
   angular.module('bebop.nodes')
   
-  .factory('nodeService', ['$q', 'firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 
+  .factory('nodeService', ['$q', 'firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 'activityService',
   
-  function ($q, firebaseService, $firebaseObject, $firebaseArray, $window, authService) {
+  function ($q, firebaseService, $firebaseObject, $firebaseArray, $window, authService, activityService) {
+    
+    // Private
+    
+    var _$activity = {};
+    
+    function init() {
+      activityService.get().then(function ($activity) {
+        _$activity = $activity;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+    
+    init();
     
     // Public
     
@@ -60,8 +74,12 @@
           commentCount: 0,
           language: $user.language,
           handle: $user.handle,
-          name: $user.name
+          name: $user.name,
+          lastActivity: _$activity.lastActivity || $user.activity.lastActivity
         };
+        
+        _$activity.lastActivity = $window.Firebase.ServerValue.TIMESTAMP;
+        _$activity.$save();
       
         return node;
       });

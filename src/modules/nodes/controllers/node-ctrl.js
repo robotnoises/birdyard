@@ -4,9 +4,35 @@
   
   angular.module('bebop.nodes')
   
-  .controller('nodeController', ['$scope', '$routeParams', '$location', '$timeout', '$anchorScroll', '$window', 'nodeService', 'breadcrumbService', 'stashService', 'uiService', '$mdDialog', '$mdToast',
+  .controller('nodeController', [
+    '$scope', 
+    '$routeParams', 
+    '$location', 
+    '$timeout', 
+    '$anchorScroll', 
+    '$window', 
+    'nodeService', 
+    'breadcrumbService', 
+    'stashService', 
+    'uiService',
+    'activityService', 
+    '$mdDialog', 
+    '$mdToast',
   
-  function ($scope, $routeParams, $location, $timeout, $anchorScroll, $window, nodeService, breadcrumbService, stashService, uiService, $mdDialog, $mdToast) {
+  function (
+    $scope, 
+    $routeParams, 
+    $location, 
+    $timeout, 
+    $anchorScroll, 
+    $window, 
+    nodeService, 
+    breadcrumbService, 
+    stashService, 
+    uiService,
+    activityService, 
+    $mdDialog, 
+    $mdToast) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +51,8 @@
     $scope.showDialog =     false;
     $scope.expand =         false;
     $scope.selected =       {};
-    $scope.children =       {};
+    $scope.$children =      {};
+    $scope.$activity =      {};
     $scope.text =           '';
     $scope.node =           getNode($routeParams.id);
     
@@ -46,7 +73,13 @@
       });
 
       angular.element($window).bind('scroll', checkBottom);
-            
+      
+      activityService.get().then(function ($activity) {
+        $scope.$activity = $activity;
+      }).catch(function (err) {
+        console.error(err);
+      });
+      
       $timeout(function() {
         scrollToBottom()
       }, SPEED / 2);
@@ -86,7 +119,6 @@
           var $keeper = angular.element(document.getElementsByClassName('keep'));
           $keeper[0].style.setProperty('opacity', 0, 'important');
           callback();
-          // Move.y('.keep', {top: 0, speed: SPEED, easing: 'linear'}, callback);
         });
       });
     }
@@ -101,8 +133,8 @@
     function setNodeChildrenFromFirebase(id) {
       nodeService.getChildren(id).$loaded(function (children) {
         
-        $scope.children = children;
-        $scope.children.$watch(babySitter);
+        $scope.$children = children;
+        $scope.$children.$watch(babySitter);
         
         $timeout(function () {
           $scope.loaded = true;
@@ -208,7 +240,7 @@
         return _$new.$loaded();
       }).then(function () {
         _formattedNode.id = _$new.id;
-        return $scope.children.$add(_formattedNode);
+        return $scope.$children.$add(_formattedNode);
       }).then(function ($snapshot) {
         _$new.origin = 'nodes/' + $routeParams.id + '/children/' + $snapshot.key();
         _$new.breadcrumb = breadcrumbService.push(_$new.id, angular.copy($scope.node.breadcrumb));
