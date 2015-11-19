@@ -8,6 +8,7 @@ angular.module('bebop', [
   'bebop.nodes',
   'bebop.auth',
   'bebop.rooms',
+  'bebop.notifications',
   
   // Third-party
   'ngMaterial',

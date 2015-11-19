@@ -27,6 +27,12 @@
   angular.module('bebop.auth', [
     'ngRoute',
     'firebase'
-  ])
+  ]);
+  
+  // Notifications
+  angular.module('bebop.notifications', [
+    'firebase',
+    'ngMaterial'
+  ]);
   
 })(angular);
