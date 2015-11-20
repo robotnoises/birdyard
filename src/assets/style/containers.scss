@@ -177,7 +177,15 @@
 
 .notifications-fab {
   position: fixed;
-  top: 75px;
-  right: 25px;
+  top: 20px;
+  right: 80px;
   z-index: 5;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  i {
+    color: $co_emerald;
+    font-size: 30px;
+  }
 }

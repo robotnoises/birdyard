@@ -43,3 +43,10 @@ md-switch {
 .layout-padding {
   padding: 16px;
 }
+.notifications-fab {
+  .md-button.md-icon-button {
+    margin: 0;
+    height: auto;
+    width: auto;
+  }
+}
