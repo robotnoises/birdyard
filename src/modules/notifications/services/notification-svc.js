@@ -10,7 +10,7 @@
     
     // Private
     
-    var $notifications = [];
+    var $notifications = {};
     
     var _TYPE = Object.freeze({
       REPLY: 0,
@@ -84,10 +84,18 @@
       });
     }
     
+    // Synchronous
+    function _get() {
+      return authService.getUser().then(function ($user) {
+        var $ref = firebaseService.getRef('notifications', $user.uid, 'items');
+        return $firebaseArray($ref);
+      });
+    }
+    
     _notificationService.TYPE = _TYPE;
     _notificationService.notify = _notify;
     _notificationService.read = _markRead;
-    _notificationService.get = $notifications;
+    _notificationService.get = _get;
     
     return _notificationService;
     

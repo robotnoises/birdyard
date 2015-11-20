@@ -1,0 +1,31 @@
+<!--<md-menu class="notifications-fab" ng-controller="notificationController">
+  
+  <md-button aria-label="Notifications" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+    <i class="icon icon-bell"></i>
+  </md-button>
+  
+  <md-menu-content width="4">
+    
+    <md-menu-item ng-repeat="item in notifications">
+      <md-button ng-click="go(item.id)">
+        {{item.where}}...
+      </md-button>
+    </md-menu-item>
+  
+  </md-menu-content>
+</md-menu>-->
+
+
+
+
+
+<md-menu ng-controller="notificationController" class="notifications-fab">
+  <md-button aria-label="Notifications" ng-click="openMenu($mdOpenMenu, $event)" class="md-icon-button"><i class="icon icon-bell"></i></md-button>
+  <md-menu-content width="4">
+    <md-menu-item ng-repeat="item in notifications">
+      <md-button ng-click="go(item.id)">
+        {{item.where}}...
+      </md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

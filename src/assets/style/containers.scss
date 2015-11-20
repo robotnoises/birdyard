@@ -174,3 +174,10 @@
   left: 0;
   height: 200px;
 }
+
+.notifications-fab {
+  position: fixed;
+  top: 75px;
+  right: 25px;
+  z-index: 5;
+}

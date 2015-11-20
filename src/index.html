@@ -15,7 +15,8 @@
 
     <!-- Bebop Logo-->
     <h1 ng-controller="uiController" ng-class="getLogoColor()" ng-click="goHome()" class="bebop-logo pointer">Bebop!</h1>
-    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}"></span>
+    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}">
+      <!-- notifications--></span>
 
     <div ng-view ng-controller="uiController" ng-class="getBackgroundClass()"></div>
 
@@ -75,5 +76,6 @@
     <script src="modules/rooms/services/rooms-svc.js"></script>
     <!-- Notifications-->
     <script src="modules/notifications/services/notification-svc.js"></script>
+    <script src="modules/notifications/controllers/notification-ctrl.js"></script>
   </body>
 </html>

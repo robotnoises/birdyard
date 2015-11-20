@@ -17,6 +17,7 @@ html(lang='en', ng-app='bebop')
     // User Avatar
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')
+      // notifications
     = '\n'
     div(ng-view, ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
@@ -76,3 +77,4 @@ html(lang='en', ng-app='bebop')
     script(src='modules/rooms/services/rooms-svc.js')
     // Notifications
     script(src='modules/notifications/services/notification-svc.js')
+    script(src='modules/notifications/controllers/notification-ctrl.js')

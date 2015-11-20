@@ -234,9 +234,8 @@ var config = function (grunt) {
     'copy:components', 
     'copy:fonts_prod', 
     'copy:images_prod',
-    'copy:views']
-  );
-    
+    'copy:views'
+  ]);
 };
 
 module.exports = config;
