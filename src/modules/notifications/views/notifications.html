@@ -1,22 +1,24 @@
 <div>
   
-  <div ng-class="{'boo': notifications.length > 0}" ng-click="openNav()" class="notifications-fab ghost fadey">
-    <i class="icon icon-bell"></i>
+  <div ng-class="{'boo': count > 0}" ng-click="openNav()" class="notifications-fab ghost fadey">
+    <i class="icon icon-bell ding" data-count="{{count}}"></i>
   </div>
 
-  <md-sidenav md-component-id="foo" class="md-sidenav-right md-whiteframe-z2">
+  <md-sidenav md-component-id="notifications-nav" class="md-sidenav-right md-whiteframe-z2" layout="column">
     
     <md-toolbar class="md-theme-indigo">
       <h1 class="md-toolbar-tools">Notifications</h1>
     </md-toolbar>
     
-    <md-content layout-padding>
-      <md-button ng-click="dismissAll()" class="md-primary">Dismiss all notifications</md-button>
-    </md-content>
-    
-    <!--<md-content layout-padding>
+    <!--<md-content>
       <md-button ng-click="dismissAll()" class="md-primary">Dismiss all notifications</md-button>
     </md-content>-->
+    
+    <md-content layout="column" flex>
+      <md-button ng-repeat="n in notifications" ng-click="go(n.id)" class="md-primary">
+        {{n.where}}
+      </md-button>
+    </md-content>
     
   </md-sidenav>
 

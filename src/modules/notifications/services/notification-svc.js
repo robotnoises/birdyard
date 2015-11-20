@@ -70,16 +70,22 @@
     }
     
     // Effectively deletes a notification
-    function _markRead(userId, id) {
+    function _markRead(id) {
       return $q(function (resolve, reject) {
-
-        // Get a handle on the user to be notified
-        var $ref = firebaseService.getRef('notifications', userId, 'items', id);
-        
-        $ref.remove();
-        
-        $ref.on('child_removed', function () {
-          resolve();
+        return authService.getUser().then(function ($user) {
+          // Get a handle on the user to be notified
+          var $ref = firebaseService.getRef('notifications', $user.uid, 'items', id);
+          $ref.remove();
+        });
+      });
+    }
+    
+    function _readAll() {
+      return $q(function (resolve, reject) {
+        return authService.getUser().then(function ($user) {
+          // Get a handle on the user to be notified
+          var $ref = firebaseService.getRef('notifications', $user.uid);
+          $ref.remove();
         });
       });
     }
@@ -94,6 +100,7 @@
     _notificationService.TYPE = _TYPE;
     _notificationService.notify = _notify;
     _notificationService.read = _markRead;
+    _notificationService.readAll = _readAll;
     _notificationService.get = _get;
     
     return _notificationService;

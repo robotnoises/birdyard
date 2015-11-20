@@ -55,3 +55,29 @@ i.show-more {
   color: $co_white;
   cursor: pointer;
 }
+
+.notifications {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  z-index: 5;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  i {
+    color: $co_darkpurple;
+    font-size: 30px;
+    &:after {
+      position: absolute;
+      color: $co_white;
+      content: attr(data-count);
+      font-size: 12px;
+      left: 11px;
+      padding-top: 3px;
+      font-weight: 700;
+      top: 6px;
+    }
+  }
+}

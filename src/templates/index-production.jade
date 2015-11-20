@@ -18,6 +18,9 @@ html(lang='en', ng-app='bebop')
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')
     = '\n'
+    // Notifications
+    notifications
+    = '\n'
     div(ng-view, ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Library

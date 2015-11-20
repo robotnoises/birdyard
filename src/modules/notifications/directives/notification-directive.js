@@ -15,13 +15,13 @@
       function ($scope, $location, $timeout, notificationService, $mdSidenav) {
         
         $scope.notifications = {};
-        // $scope.count = 0;
+        $scope.count = 0;
         
         notificationService.get().then(function ($notifications) {
           return $notifications.$loaded(function ($loaded) {
             $scope.notifications = $loaded;
-            // $scope.count = angular.copy($loaded.length);
-            // watch();
+            $scope.count = angular.copy($loaded.length);
+            watch();
           })
         }).catch(function (err) {
           console.log(err);
@@ -29,26 +29,48 @@
         
         // Private
         
-        // function watch() {
-        //   $scope.notifications.$watch(function ($event) {
-        //     if ($event) {
-        //       console.log($event);
-        //     }
-        //   });
-        // }
+        function toggle() {
+          $mdSidenav('notifications-nav').toggle();
+        }
+        
+        function watch() {
+          $scope.notifications.$watch(function ($event) {
+            if ($event) {
+              $scope.count = angular.copy($scope.notifications.length);
+            }
+          });
+        }
+        
+        function dismiss(id) {
+          notificationService.read(id).catch(function (err) {
+            console.error(err);
+          });
+        }
 
         // Public
         
         $scope.openNav = function () {
-          $mdSidenav('foo').toggle();
+          toggle();
         };
         
         $scope.go = function (id) {
-          // todo mark read
+          dismiss(id);
+          toggle();
           $timeout(function () {
             $location.path('/n/' + id);
+          }, 300);
+          
+        };
+        
+        $scope.dismiss = dismiss;
+        
+        $scope.dismissAll = function (id) {
+          toggle();
+          notificationService.readAll().catch(function (err) {
+            console.log(err);
           });
         };
+        
       }]
     }
   });
