@@ -17,6 +17,17 @@
       TROPHY: 1
     });
     
+    function updateCount($event) {
+      if ($event) {
+        authService.getUser().then(function ($user) {
+          var $ref = firebaseService.getRef('notifications', $user.uid);
+          $ref.update({count: $notifications.length});
+        }).catch(function(err) {
+          console.error(err);
+        });
+      }
+    }
+    
     function init() {
       // Load-up notifications immediately
       authService.getUser().then(function ($user) {
@@ -25,18 +36,9 @@
         return $firebaseArray($ref);
       }).then(function ($userNotifications) {
         $notifications = $userNotifications;
+        $notifications.$watch(updateCount);
       }).catch(function(err) {
         console.error(err);
-      });
-    }
-    
-    function updateCount(userId) {
-      return $q(function (resolve, reject) {
-        var $ref = firebaseService.getRef('notifications', userId);
-        // $ref.on('value', function ($snap) {
-        //   var count = $snap.numChildren();
-          
-        // });
       });
     }
     
@@ -49,13 +51,9 @@
     function _notify(notificationType, userId, id) {
       
       return $q(function (resolve, reject) {
-        // Todo lodash this beast, check for duplicates
         // Todo check if this is the same user
-        
         // Get a handle on the user to be notified
-        // var $notifications = firebaseService.getRef('notifications', userId);
         var $items = firebaseService.getRef('notifications', userId, 'items');
-        // var $item = firebaseService.getRef('notifications', userId, 'items', id)
         
         // Note: this will always overwrite existing notifications (we want that)
         $items.child(id).set({
@@ -64,7 +62,7 @@
         });
         
         return $items.on('child_added', function ($snap) {
-          return updateCount(userId); 
+          resolve();
         });
 
       });
