@@ -10,7 +10,7 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Font Awesome
     script(src='//use.fonticons.com/c3b6848c.js')
-  body(ng-controller='uiController', ng-class='getBackgroundClass()')
+  body
     = '\n'
     // Bebop Logo
     h1(class='bebop-logo pointer', ng-controller='uiController', ng-class='getLogoColor()', ng-click='goHome()') Bebop!
@@ -18,7 +18,7 @@ html(lang='en', ng-app='bebop')
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')
     = '\n'
-    div(ng-view)
+    div(ng-view, ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Library
     script(src='bower_components/angular/angular.js')

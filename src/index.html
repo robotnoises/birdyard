@@ -11,13 +11,13 @@
     <!-- Font Awesome-->
     <script src="//use.fonticons.com/c3b6848c.js"></script>
   </head>
-  <body ng-controller="uiController" ng-class="getBackgroundClass()">
+  <body>
 
     <!-- Bebop Logo-->
     <h1 ng-controller="uiController" ng-class="getLogoColor()" ng-click="goHome()" class="bebop-logo pointer">Bebop!</h1>
     <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}"></span>
 
-    <div ng-view></div>
+    <div ng-view ng-controller="uiController" ng-class="getBackgroundClass()"></div>
 
     <!-- Library-->
     <script src="bower_components/angular/angular.js"></script>
