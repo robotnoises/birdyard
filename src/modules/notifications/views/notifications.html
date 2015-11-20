@@ -1,10 +1,27 @@
-<md-menu class="notifications-fab ghost fadey" ng-class="{'boo': notifications.length > 0}">
-  <md-button aria-label="Notifications" ng-click="openMenu($mdOpenMenu, $event)" class="md-icon-button"><i class="icon icon-bell"></i></md-button>
-  <md-menu-content width="6">
-    <md-menu-item ng-repeat="item in notifications">
-      <md-button ng-click="go(item.id)">
-        {{item.where}}...
-      </md-button>
-    </md-menu-item>
-  </md-menu-content>
-</md-menu>
+<div>
+  
+  <div ng-class="{'boo': notifications.length > 0}" ng-click="openNav()" class="notifications-fab ghost fadey">
+    <i class="icon icon-bell"></i>
+  </div>
+
+  <md-sidenav md-component-id="foo" class="md-sidenav-right md-whiteframe-z2">
+    
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Notifications</h1>
+    </md-toolbar>
+    
+    <md-content layout-padding>
+      <md-button ng-click="dismissAll()" class="md-primary">Dismiss all notifications</md-button>
+    </md-content>
+    
+    <!--<md-content layout-padding>
+      <md-button ng-click="dismissAll()" class="md-primary">Dismiss all notifications</md-button>
+    </md-content>-->
+    
+  </md-sidenav>
+
+</div>
+  
+
+
+

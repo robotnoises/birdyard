@@ -10,36 +10,37 @@
       restrict: 'E',
       replace: true,
       templateUrl: 'modules/notifications/views/notifications.html',
-      controller: ['$scope', '$location', '$timeout', 'notificationService', '$mdDialog', 
+      controller: ['$scope', '$location', '$timeout', 'notificationService', '$mdSidenav', 
       
-      function ($scope, $location, $timeout, notificationService, $mdDialog) {
-        
-        var $originatorEvent;
+      function ($scope, $location, $timeout, notificationService, $mdSidenav) {
         
         $scope.notifications = {};
-        $scope.count = 0;
-        
-        function watch() {
-          $scope.notifications.$watch(function ($event) {
-            if ($event) {
-              console.log($event);
-            }
-          });
-        }
+        // $scope.count = 0;
         
         notificationService.get().then(function ($notifications) {
           return $notifications.$loaded(function ($loaded) {
             $scope.notifications = $loaded;
-            $scope.count = angular.copy($loaded.length);
-            watch();
+            // $scope.count = angular.copy($loaded.length);
+            // watch();
           })
         }).catch(function (err) {
           console.log(err);
         });
         
-        $scope.openMenu = function ($mdOpenMenu, $event) {
-          $originatorEvent = $event;
-          $mdOpenMenu($event);
+        // Private
+        
+        // function watch() {
+        //   $scope.notifications.$watch(function ($event) {
+        //     if ($event) {
+        //       console.log($event);
+        //     }
+        //   });
+        // }
+
+        // Public
+        
+        $scope.openNav = function () {
+          $mdSidenav('foo').toggle();
         };
         
         $scope.go = function (id) {

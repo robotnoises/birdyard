@@ -4,9 +4,9 @@
   
   angular.module('bebop.notifications')
   
-  .factory('notificationService', ['$q', 'authService', 'firebaseService', '$firebaseArray', 
+  .factory('notificationService', ['$q', 'authService', 'firebaseService', '$firebaseArray', '$firebaseObject',
   
-  function ($q, authService, firebaseService, $firebaseArray) {
+  function ($q, authService, firebaseService, $firebaseArray, $firebaseObject) {
     
     // Private
     
@@ -84,7 +84,6 @@
       });
     }
     
-    // Synchronous
     function _get() {
       return authService.getUser().then(function ($user) {
         var $ref = firebaseService.getRef('notifications', $user.uid, 'items');
