@@ -4,9 +4,9 @@
   
   angular.module('bebop.notifications')
   
-  .factory('notificationService', ['$q', 'authService', 'firebaseService', '$firebaseArray', '$firebaseObject',
+  .factory('notificationService', ['$q', '$window', 'authService', 'firebaseService', '$firebaseArray', '$firebaseObject',
   
-  function ($q, authService, firebaseService, $firebaseArray, $firebaseObject) {
+  function ($q, $window, authService, firebaseService, $firebaseArray, $firebaseObject) {
     
     // Private
     
@@ -54,13 +54,14 @@
         // Todo check if this is the same user
         // Get a handle on the user to be notified
         var $items = firebaseService.getRef('notifications', userId, 'items');
-        
+        var now = $window.Firebase.ServerValue.TIMESTAMP;
         // Note: this will always overwrite existing notifications (we want that)
-        $items.child(id).set({
+        $items.child(id).setWithPriority({
           'where': where,
           'type': notificationType,
-          'id': id
-        });
+          'id': id,
+          'timestamp': now
+        }, (0 - Date.now()));
         
         return $items.on('child_added', function ($snap) {
           resolve();
