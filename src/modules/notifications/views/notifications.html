@@ -1,7 +1,7 @@
 <div>
   
   <div ng-class="{'boo': count > 0}" ng-click="openNav()" class="notifications ghost fadey">
-    <i class="icon icon-bell ding" data-count="{{count}}"></i>
+    <i class="icon icon-bell ding" data-count="{{count}}" ng-class="{'ring': ring}"></i>
   </div>
 
   <md-sidenav md-component-id="notifications-nav" class="md-sidenav-right md-whiteframe-z2" layout="column">

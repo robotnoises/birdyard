@@ -16,6 +16,7 @@
         
         $scope.notifications = {};
         $scope.count = 0;
+        $scope.ring = false;
         
         notificationService.get().then(function ($notifications) {
           return $notifications.$loaded(function ($loaded) {
@@ -36,6 +37,16 @@
         function watch() {
           $scope.notifications.$watch(function ($event) {
             if ($event) {
+              var newCount = angular.copy($scope.notifications.length);
+              if (newCount === $scope.count) return;
+              
+              if (newCount > $scope.count) {
+                // Ring the bell!
+                $scope.ring = true;
+                $timeout(function () {
+                  $scope.ring = false;
+                }, 5000);
+              }
               $scope.count = angular.copy($scope.notifications.length);
             }
           });
