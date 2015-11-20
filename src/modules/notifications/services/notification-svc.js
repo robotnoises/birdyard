@@ -48,7 +48,7 @@
     
     var _notificationService = {};
     
-    function _notify(notificationType, userId, id) {
+    function _notify(notificationType, where, userId, id) {
       
       return $q(function (resolve, reject) {
         // Todo check if this is the same user
@@ -57,6 +57,7 @@
         
         // Note: this will always overwrite existing notifications (we want that)
         $items.child(id).set({
+          'where': where,
           'type': notificationType,
           'id': id
         });
@@ -73,7 +74,7 @@
       return $q(function (resolve, reject) {
 
         // Get a handle on the user to be notified
-        var $ref = firebaseService.getRef('notifications', userId, id);
+        var $ref = firebaseService.getRef('notifications', userId, 'items', id);
         
         $ref.remove();
         
