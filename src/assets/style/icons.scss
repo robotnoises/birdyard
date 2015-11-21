@@ -81,4 +81,10 @@ i.show-more {
       top: 6px;
     }
   }
+  i.two-digits {
+    &:after {
+      font-size: 10px;
+      left: 8px;
+    }
+  }
 }

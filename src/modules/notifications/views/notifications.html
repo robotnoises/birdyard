@@ -1,22 +1,26 @@
 <div>
   
   <div ng-class="{'boo': count > 0}" ng-click="openNav()" class="notifications ghost fadey">
-    <i class="icon icon-bell ding" data-count="{{count}}" ng-class="{'ring': ring}"></i>
+    <i class="icon icon-bell ding" data-count="{{count}}" ng-class="{'ring': ring, 'two-digits': count > 9}"></i>
   </div>
 
-  <md-sidenav md-component-id="notifications-nav" class="md-sidenav-right md-whiteframe-z2" layout="column">
+  <md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1" layout="column" flex>
     
-    <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Notifications</h1>
-    </md-toolbar>
-    
-    <!--<md-content>
-      <md-button ng-click="dismissAll()" class="md-primary">Dismiss all notifications</md-button>
-    </md-content>-->
+    <md-content layout="column">
+      <div class="sidenav-header">
+        <span class="float-left">Notifications</span>
+        <span class="float-right pointer">
+          <i class="icon icon-bomb" ng-click="dismissAll()"></i>
+        </span>
+      </div>
+    </md-content>
     
     <md-content layout="column" flex>
-      <md-button ng-repeat="n in notifications" ng-click="go(n.id)" class="md-primary">
-        {{n.where}}
+      <md-button ng-repeat="n in notifications" ng-click="go(n.id)">
+        <div class="timestamp" my-time="{{n.timestamp}}"></div>
+        <!-- Todo icon -->
+        <span ng-show="n.type == 0">There are new replies to your comment <span>"{{n.where}}"</span>.</span>
+        <span ng-show="n.type == 1">Foo</span>
       </md-button>
     </md-content>
     

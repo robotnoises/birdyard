@@ -9,6 +9,10 @@
   opacity: 1 !important;
 }
 
+.strong {
+  font-weight: 700;
+}
+
 // For when we're sliding...
 .node.child.ghost:not(.boo) {
   position: absolute;

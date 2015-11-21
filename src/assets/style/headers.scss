@@ -1,0 +1,11 @@
+@import 'colors';
+
+.sidenav-header {
+  line-height: 2em;
+  padding: 6px 10px;
+  background-color: $co_verylightgrey;
+  color: #333;
+  i {
+    // color: $co_purple;
+  }
+}
