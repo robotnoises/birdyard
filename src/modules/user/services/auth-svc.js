@@ -83,9 +83,12 @@
     }
     
     function _signOut() {
-      $auth = null;
-      var $ref = firebaseService.getRef();
-      $ref.unauth();
+      return $q(function (resolve, reject) {
+        $auth = null;
+        var $ref = firebaseService.getRef();
+        $ref.unauth();
+        resolve();
+      });
     }
     
     function _updateUser(userData) {

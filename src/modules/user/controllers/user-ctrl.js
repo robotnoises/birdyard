@@ -4,9 +4,9 @@
   
   angular.module('bebop.auth')
   
-  .controller('userController', ['$scope', '$timeout', '$routeParams', 'firebaseService', 'authService', 'uiService', 'colorService', '$mdToast',
+  .controller('userController', ['$scope', '$timeout', '$routeParams', '$location', 'firebaseService', 'authService', 'uiService', 'colorService', '$mdToast',
   
-  function ($scope, $timeout, $routeParams, firebaseService, authService, uiService, colorService, $mdToast) {
+  function ($scope, $timeout, $routeParams, $location, firebaseService, authService, uiService, colorService, $mdToast) {
     
     // Globals
     
@@ -100,6 +100,14 @@
             .position('bottom right')
             .hideDelay(3000)
           );
+      });
+    };
+    
+    $scope.signOutUser = function () {
+      authService.signOut().then(function () {
+        $timeout(function () {
+          $location.path('/');
+        });
       });
     };
     

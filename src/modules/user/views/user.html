@@ -1,6 +1,9 @@
 <div class="content user-profile top">
   
-  <div class="heading font-black" style="padding-left: 16px;">Profile!</div>
+  <div layout="row" layout-align="start end">
+    <div class="heading font-black" style="padding-left: 16px;" flex="grow">Profile!</div>
+    <md-button flex="none" ng-click="signOutUser()">Sign Out</md-button>
+  </div>
   
   <div class="bg-white shadow-flat ghost fadey" ng-class="{'boo': loaded}">
     
@@ -22,7 +25,7 @@
       <!-- Say something about yourself -->
       <md-input-container flex="grow" class="md-block" ng-if="editable || user.description">
         <label ng-if="editable || (!editable && user.description)">Say something brief about yourself</label>
-        <input ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
+        <input ng-model="user.description" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50" aria-label="Say something brief about yourself">
       </md-input-container>
 
       <div layout="row" layout-align="start end" layout-wrap>
@@ -49,15 +52,17 @@
           </md-option>
         </md-select>
       </md-input-container>
-      
-      <!-- Display my Twitter handle? -->
-      <!-- Delete Account -->
-      
-      <div layout="row" layout-align="end center" ng-if="editable">
+
+      <div layout="row" layout-align="start center" ng-if="editable">
         <md-button ng-disabled="!modified" ng-click="saveUser()">Save Changes</md-button>
       </div>
       
     </md-content>
     
   </div>
+  
+  <!--<div layout="row" class="ghost fadey" ng-class="{'boo': loaded}" layout-align="end center" ng-if="editable">
+    <md-button class="md-warn" ng-click="killUser()">Delete Account?</md-button>
+  </div>  -->
+  
 </div>
