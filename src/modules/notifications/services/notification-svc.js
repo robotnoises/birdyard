@@ -74,22 +74,18 @@
     
     // Effectively deletes a notification
     function _markRead(id) {
-      return $q(function (resolve, reject) {
-        return authService.getUser().then(function ($user) {
-          // Get a handle on the user to be notified
-          var $ref = firebaseService.getRef('notifications', $user.uid, 'items', id);
-          $ref.remove();
-        });
-      });
+      return authService.getUser().then(function ($user) {
+        // Get a handle on the user to be notified
+        var $ref = firebaseService.getRef('notifications', $user.uid, 'items', id);
+        $ref.remove();
+      });     
     }
     
     function _readAll() {
-      return $q(function (resolve, reject) {
-        return authService.getUser().then(function ($user) {
-          // Get a handle on the user to be notified
-          var $ref = firebaseService.getRef('notifications', $user.uid);
-          $ref.remove();
-        });
+      return authService.getUser().then(function ($user) {
+        // Get a handle on the user to be notified
+        var $ref = firebaseService.getRef('notifications', $user.uid);
+        $ref.remove();
       });
     }
     
