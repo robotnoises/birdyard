@@ -51,7 +51,7 @@
 
     function _getAuth() {
       if (!$rootScope.signedIn) {
-        return null;
+        return $firebaseAuth(firebaseService.getRef());
       } else if ($auth) {
        return $auth;
       } else {
