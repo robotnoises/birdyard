@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.nodes')
+  angular.module('bebop.auth')
   
   .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', '$firebaseObject', 'colorService',
 
@@ -11,17 +11,6 @@
     // Private
     
     var $auth = null; 
-    
-    function getAuth() {
-      if (!$rootScope.signedIn) {
-        return null;
-      } else if ($auth) {
-       return $auth;
-      } else {
-        $auth = $firebaseAuth(firebaseService.getRef()).$getAuth();
-        return $auth;
-      }
-    }
     
     // Scrub-away any extra or sensitive data, store only what we need
     function formatAuthData(authData) {
@@ -59,6 +48,17 @@
     // Public
     
     var _authService = {};
+
+    function _getAuth() {
+      if (!$rootScope.signedIn) {
+        return null;
+      } else if ($auth) {
+       return $auth;
+      } else {
+        $auth = $firebaseAuth(firebaseService.getRef()).$getAuth();
+        return $auth;
+      }
+    }
     
     // Set user data after auth
     function _signIn(authData, callbackUrl) {
@@ -107,7 +107,7 @@
         if (uid) {
           _uid = uid;  
         } else {
-          var _user = getAuth();
+          var _user = _getAuth();
           if (_user) {
             _uid = _user.uid;
           }
@@ -135,6 +135,7 @@
     _authService.signOut = _signOut;
     _authService.updateUser = _updateUser;
     _authService.getUser = _getUser;
+    _authService.getAuth = _getAuth;
     _authService.getAvatar = _getAvatar;
     
     return _authService;
