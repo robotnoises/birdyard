@@ -105,9 +105,17 @@
     
     $scope.signOutUser = function () {
       authService.signOut().then(function () {
-        $timeout(function () {
+        return $timeout(function () {
           $location.path('/');
         });
+      }).then(function () {
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Signed out!')
+            .theme('toast-default')
+            .position('bottom right')
+            .hideDelay(3000)
+          );
       });
     };
     
