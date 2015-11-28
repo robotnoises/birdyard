@@ -6,6 +6,7 @@
 
   // Config
   angular.module('bebop.config', [
+    'ngRoute',
     'firebase',
     'ngMaterial'
   ]);

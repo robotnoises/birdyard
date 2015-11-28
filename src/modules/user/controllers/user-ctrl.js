@@ -104,11 +104,13 @@
     };
     
     $scope.signOutUser = function () {
-      authService.signOut().then(function () {
-        return $timeout(function () {
-          $location.path('/');
-        });
-      }).then(function () {
+      authService.signOut()
+      // .then(function () {
+      //   return $timeout(function () {
+      //     $location.path('/');
+      //   });
+      // })
+      .then(function () {
         $mdToast.show(
           $mdToast.simple()
             .content('Signed out!')
