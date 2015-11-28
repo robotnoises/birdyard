@@ -4,13 +4,24 @@
   
   angular.module('bebop.auth')
   
-  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$firebaseAuth', '$firebaseObject', 'colorService',
+  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService',
 
-  function ($rootScope, $timeout, $q, firebaseService, $firebaseAuth, $firebaseObject, colorService) {
+  function ($rootScope, $timeout, $q, firebaseService, $Auth, $firebaseObject, colorService) {
     
     // Private
     
-    var $auth = null; 
+    var $user = null;
+    
+    function getUser() {
+      if (!$rootScope.signedIn) {
+        return $Auth;
+      } else if ($user) {
+       return $user;
+      } else {
+        $user = $Auth.$getAuth();
+        return $user;
+      }
+    }
     
     // Scrub-away any extra or sensitive data, store only what we need
     function formatAuthData(authData) {
@@ -48,17 +59,6 @@
     // Public
     
     var _authService = {};
-
-    function _getAuth() {
-      if (!$rootScope.signedIn) {
-        return $firebaseAuth(firebaseService.getRef());
-      } else if ($auth) {
-       return $auth;
-      } else {
-        $auth = $firebaseAuth(firebaseService.getRef()).$getAuth();
-        return $auth;
-      }
-    }
     
     // Set user data after auth
     function _signIn(authData, callbackUrl) {
@@ -84,7 +84,7 @@
     
     function _signOut() {
       return $q(function (resolve, reject) {
-        $auth = null;
+        $user = null;
         var $ref = firebaseService.getRef();
         $ref.unauth();
         resolve();
@@ -107,7 +107,7 @@
         if (uid) {
           _uid = uid;  
         } else {
-          var _user = _getAuth();
+          var _user = getUser();
           if (_user) {
             _uid = _user.uid;
           }
@@ -135,7 +135,6 @@
     _authService.signOut = _signOut;
     _authService.updateUser = _updateUser;
     _authService.getUser = _getUser;
-    _authService.getAuth = _getAuth;
     _authService.getAvatar = _getAvatar;
     
     return _authService;

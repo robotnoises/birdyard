@@ -33,8 +33,8 @@
         securedRoutes.push(path); // store all secured routes for use with authRequired() below
         route.resolve = route.resolve || {};
         
-        route.resolve.user = function ($auth) {
-          return $auth.$requireAuth();  
+        route.resolve.user = function ($Auth) {
+          return $Auth.$requireAuth();  
         };
         
         $routeProvider.when(path, route);
@@ -49,7 +49,7 @@
    * for changes in auth status which might require us to navigate away from a path
    * that we can no longer view.
    */
-    .run(['$rootScope', '$location', 'authService', function ($rootScope, $location, authService) {
+    .run(['$rootScope', '$location', '$Auth', function ($rootScope, $location, $Auth) {
 
         // some of our routes may reject resolve promises with the special {authRequired: true} error
         // this redirects to the signin page whenever that is encountered
@@ -66,7 +66,7 @@
           if (!user && authRequired($location.path())) {
             // // clear-out any in-memory auth data
             // authService.reset(); ?
-            console.log('check failed for user', user, $location.path());
+            // console.log('check failed for user', user, $location.path());
             $location.path('/');
           } 
         }
@@ -76,8 +76,7 @@
         }
         
         // watch for signin status changes and redirect if appropriate
-        var $auth = authService.getAuth();
-        $auth.$onAuth(check);
+        $Auth.$onAuth(check);
       }
     ]);
 
