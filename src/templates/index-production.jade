@@ -24,9 +24,10 @@ html(lang='en', ng-app='bebop')
     // User Avatar
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')
+      md-tooltip(md-direction='left') View/edit your profile
     = '\n'
     // Notifications
-    notifications
+    notifications(ng-if='signedIn', md-delay="1250")
     = '\n'
     div(ng-view, ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'

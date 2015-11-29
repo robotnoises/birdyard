@@ -13,9 +13,7 @@
     var $user = null;
     
     function getUser() {
-      if (!$rootScope.signedIn) {
-        return $Auth;
-      } else if ($user) {
+      if ($user) {
        return $user;
       } else {
         $user = $Auth.$getAuth();

@@ -21,7 +21,9 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon icon-pencil-square pointer float-right reply fadey ghost" ng-click="toggleDialog()" ng-class="{'boo': loaded}"></i>     
+      <i id="pencil" class="icon icon-pencil-square pointer float-right reply fadey ghost" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
+        <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
+      </i>     
             
       <!-- Go up one level -->
       <div layout="column" class="level-up fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
@@ -73,8 +75,13 @@
     <div layout="row" class="content fadey ghost" ng-class="{'boo': loaded}">
       
         <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
-        <!--<span flex="none">Autoscroll</span>-->
-        <md-switch flex="none" ng-model="autoScroll" aria-label="autoscroll"></md-switch>
+        <span>
+          <md-tooltip md-direction="left" md-delay="1250">
+            Toggle autoscroll
+          </md-tooltip>
+          <md-switch flex="none" ng-model="autoScroll" aria-label="autoscroll"></md-switch>
+        </span>
+        
       
     </div>
   </div>
@@ -86,7 +93,11 @@
       <div class="node-title">
         <span class="displayName">{{child.name}}</span> 
         <span class="handle small">{{child.handle}}</span>
-        <i class="icon icon-star-o pointer" ng-class="{ghost: !loaded}"></i>
+        <i class="icon icon-star-o pointer" ng-class="{ghost: !loaded}">
+          <md-tooltip md-delay="1250">
+            Favorite
+          </md-tooltip>
+        </i>
       </div>
       
       <div class="node-text">

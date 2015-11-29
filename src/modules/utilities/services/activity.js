@@ -27,7 +27,7 @@
     // returns a synchronized object
     function _get() {
       return authService.getUser().then(function ($user) {
-        var $ref = firebaseService.getRef('users', $user.uid, "activity");
+        var $ref = firebaseService.getRef('users', $user.uid, 'activity');
         var $activity = $firebaseObject($ref);
         init($activity);
         return $activity;
