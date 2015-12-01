@@ -1,4 +1,4 @@
-
+sudo: false
 language: node_js
 node_js:
   - 0.10
@@ -9,6 +9,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm start > /dev/null &
   - npm run update-webdriver
+  - npm install -g bower
+  - bower install
   - sleep 1 # give server time to start
 
 script:
