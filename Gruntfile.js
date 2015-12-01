@@ -197,14 +197,14 @@ var config = function (grunt) {
     
     clean: {
       production: ['dist/*']
-    }
+    },
     
     // Test runner
-    // karma: {
-    //   unit: {
-    //     configFile: 'karma.conf.js'
-    //   }
-    // }
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
+    }
     
   });
   
@@ -217,7 +217,7 @@ var config = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  // grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-karma');
   
   // Register custom tasks
   
