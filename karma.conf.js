@@ -22,7 +22,7 @@ module.exports = function (config) {
       'bower_components/showdown/compressed/Showdown.js',
       
       // Test lib
-      'tests/lib/*.js',
+      // 'tests/lib/*.js',
       
       // Assets
       'assets/code/Move.js',
