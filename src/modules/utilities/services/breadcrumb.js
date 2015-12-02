@@ -15,10 +15,14 @@
       if (angular.isArray(breadcrumb) && id) {
         breadcrumb.push(id);
         return breadcrumb;
-      } else if (id) {
+      } else if (id && !breadcrumb) {
         return [id];
       } else {
-        throw new Error('You must provide a valid id.');
+        if (breadcrumb) {
+          throw new Error('Breadcrumb must be an Array.');
+        } else {
+          throw new Error('You must provide a valid id.');  
+        }
       }
     }
     
