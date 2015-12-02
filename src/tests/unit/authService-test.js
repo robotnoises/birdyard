@@ -18,7 +18,7 @@ describe('bebop.users', function () {
     });    
   }
   
-  beforeEach(init);  
+  beforeEach(init);
   beforeEach(inject);
     
   describe('Auth service', function () {
