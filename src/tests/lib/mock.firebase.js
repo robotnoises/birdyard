@@ -1,5 +1,3 @@
-
-//todo-mock
 MockFirebase.prototype.orderByKey = function() { return this; };
 MockFirebase.prototype.orderByPriority = function() { return this; };
 MockFirebase.prototype.orderByValue = function() { return this; };
