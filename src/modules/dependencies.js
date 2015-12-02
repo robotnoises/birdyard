@@ -24,7 +24,7 @@
   ]);
   
   // Authentication
-  angular.module('bebop.auth', [
+  angular.module('bebop.users', [
     'ngRoute',
     'firebase'
   ]);

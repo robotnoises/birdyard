@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.auth')
+  angular.module('bebop.users')
   
   .controller('authController', ['$scope', '$location', 'firebaseService', 'authService', 'uiService',
   

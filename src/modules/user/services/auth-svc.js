@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.auth')
+  angular.module('bebop.users')
   
   .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService',
 

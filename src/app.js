@@ -4,7 +4,7 @@ angular.module('bebop', [
   
   // Bebop!
   'bebop.config',
-  'bebop.auth',
+  'bebop.users',
   'bebop.utilities',
   'bebop.nodes',
   'bebop.rooms',
@@ -15,13 +15,3 @@ angular.module('bebop', [
   'btford.markdown'
   
 ]);
-
-// .run(['$rootScope', 'firebaseService', function ($rootScope, firebaseService) {
-
-//   var $ref = firebaseService.getRef();
-  
-//   $ref.onAuth(function(authData) {
-//     $rootScope.signedIn = !!authData;
-//   });
-  
-// }]);
