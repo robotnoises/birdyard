@@ -1,22 +1,42 @@
 'use strict'
 
 describe('bebop.users', function () {
-  
-  beforeEach(function () {
+
+  var _$rootScope;
+  var _service;
+    
+  function init() {
+    MockFirebase.override();
     module('bebop');
     module('bebop.users');
-  });
+  }
+  
+  function inject() {
+    return angular.mock.inject(function($rootScope, authService) {
+      _$rootScope = $rootScope;
+      _service = authService;
+    });    
+  }
+  
+  beforeEach(init);  
+  beforeEach(inject);
     
   describe('Auth service', function () {
     
-    var _service;
-
-    beforeEach(function () {
-      inject(function(authService) {
-        _service = authService;
-      }); 
-    });
-    
+    var _fakeUser = {
+      uid: 'abc123',        
+      expires: 99999999999999,
+      provider: 'twitter',
+      twitter: {
+        cachedUserProfile: {
+          lang: 'en'
+        },
+        username: 'twitter_guy',
+        displayName: 'Twitter Guy',
+        profileImageURL: 'http://cdn.junk.com/avatar.png'
+      }
+    };
+                
     // Signin
     
     it('should return $firebaseAuth instance', function () {
@@ -27,5 +47,8 @@ describe('bebop.users', function () {
       });
     });
     
+    it('should define signIn method.', function () {
+      expect(_service.signIn).toBeDefined();
+    });
   });
 });

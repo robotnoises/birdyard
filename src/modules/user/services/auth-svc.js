@@ -59,7 +59,7 @@
     var _authService = {};
     
     // Set user data after auth
-    function _signIn(authData, callbackUrl) {
+    function _signIn(authData) {
       // Todo: do something with the callback?
       return $q(function (resolve, reject) {
         var formatted = formatAuthData(authData);
