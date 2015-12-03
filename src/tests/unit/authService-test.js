@@ -12,7 +12,7 @@ describe('bebop.users', function () {
   }
   
   function inject() {
-    return angular.mock.inject(function($rootScope, authService) {
+    return inject(function($rootScope, authService) {
       _$rootScope = $rootScope;
       _service = authService;
     });    
@@ -24,7 +24,7 @@ describe('bebop.users', function () {
   describe('Auth service', function () {
     
     var _fakeUser = {
-      uid: 'abc123',        
+      uid: 'abc123',
       expires: 99999999999999,
       provider: 'twitter',
       twitter: {
@@ -50,5 +50,20 @@ describe('bebop.users', function () {
     it('should define signIn method.', function () {
       expect(_service.signIn).toBeDefined();
     });
+    
+    // it('should sign in a new user.', function () {
+    //   _service.signIn(_fakeUser).then(function (result) {
+    //     expect(result).toBeDefined();
+    //   });
+    // });
+    
+    // Avatar
+    
+    // it('should return an empty avatar url string, if user is not logged-in.', function (done) {
+    //   _service.getAvatar().then(function (avatarUrl) {
+    //     expect(avatarUrl).toBe(foo);
+    //     done();
+    //   });
+    // });
   });
 });

@@ -60,7 +60,6 @@
     
     // Set user data after auth
     function _signIn(authData) {
-      // Todo: do something with the callback?
       return $q(function (resolve, reject) {
         var formatted = formatAuthData(authData);
         var $ref = firebaseService.getRef('users');
@@ -123,8 +122,12 @@
     function _getAvatar() {
       return $q(function (resolve, reject) {
         _getUser().then(function($user) {
-          var avatar = $user.avatar || $user.providerData.avatar;
-          resolve(avatar);
+          if ($user.avatar) {
+            var avatar = $user.avatar || $user.providerData.avatar;
+            resolve(avatar);  
+          } else {
+            resolve('');
+          }
         });
       });
     }
