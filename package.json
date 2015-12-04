@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "grunt build-dev && http-server -a localhost -p 8000 & grunt watch"
+    "start": "grunt build-dev && http-server -a localhost -p 8000 & grunt watch",
+    "stage": "grunt build-prod && http-server -a localhost -p 8000"
   },
   "repository": {
     "type": "git",

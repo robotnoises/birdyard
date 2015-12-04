@@ -75,8 +75,8 @@ var config = function (grunt) {
               // config files
               'src/config/configs/constants-prod.js',
               'src/config/configs/themes.js',
-              // app modules                           
-              'src/modules/*.js',           
+              'src/config/configs/routes.js',
+              // app modules         
               'src/modules/**/*.js',
               'src/modules/**/**/*.js',
             ],
