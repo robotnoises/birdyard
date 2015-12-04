@@ -12,7 +12,7 @@ describe('bebop.users', function () {
   }
   
   function inject() {
-    return inject(function($rootScope, authService) {
+    return angular.mock.inject(function($rootScope, authService) {
       _$rootScope = $rootScope;
       _service = authService;
     });    
