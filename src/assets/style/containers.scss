@@ -82,23 +82,9 @@
       background-color: transparent;
       img {
         max-width: 100px;
-        padding: 1px;
+        padding: 0px;
         border: 1px solid $co_white;
         cursor: pointer;
-        transition: background $dur_fade;
-        &:hover {
-          background-color: $co_white;
-        }
-        &:after {
-          position: absolute;
-          top: 5px;
-          right: 5px;
-          z-index: 1;
-          color: $co_white;
-          font-size: 16px;
-          font-family: 'Fonticons';
-          content: '\f029';
-        }
       }
     }
   }
@@ -204,4 +190,21 @@
 .timestamp {
   display: block;
   margin-bottom: 5px;
+}
+
+.thumbnail {
+  max-width: 100px;
+  // &:after {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%,-50%);
+  //   z-index: 1;
+  //   color: $co_white;
+  //   font-size: 20px;
+  //   opacity: 0.25;
+  //   cursor: pointer;
+  //   font-family: 'Fonticons';
+  //   content: '\f029';
+  // }
 }
