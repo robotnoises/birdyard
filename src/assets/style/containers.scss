@@ -81,7 +81,7 @@
       position: relative;
       background-color: transparent;
       img {
-        max-width: 100px;
+        max-width: 200px;
         padding: 0px;
         border: 1px solid $co_white;
         cursor: pointer;
@@ -193,7 +193,7 @@
 }
 
 .thumbnail {
-  max-width: 100px;
+  max-width: 200px;
   // &:after {
   //   position: absolute;
   //   top: 50%;
