@@ -10,8 +10,11 @@
       replace: false,
       link: function (scope, element, attrs) {
         
-        function launch() {
-          window.open(this.src);
+        function launch(e) {
+          e.preventDefault();
+          var parentElement = angular.element(this).parent();
+          var uri = parentElement[0].href || this.src;
+          window.open(uri);
         }
         
         $timeout(function () {
