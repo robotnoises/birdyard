@@ -4,6 +4,10 @@
   box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 }
 
+.shadow-inset-large {
+  box-shadow: 0 0 40px rgba(0,0,0,0.4) inset;
+}
+
 .border-accent {
   border-top: 2px solid $co_purple;
 }
