@@ -21,7 +21,7 @@
       <md-button ng-repeat="n in notifications" ng-click="go(n.id)">
         <div class="timestamp" my-time="{{n.timestamp}}"></div>
         <!-- Todo icon -->
-        <span ng-show="n.type == 0" markdown-filter>There are new replies to your comment <span>"{{n.where}}"</span>.</span>
+        <span ng-show="n.type == 0" markdown-filter="100">There are new replies to your comment <span>"{{n.where}}..."</span></span>
         <span ng-show="n.type == 1">Foo</span>
       </md-button>
     </md-content>
