@@ -19,9 +19,9 @@
         $scope.ring = false;
         
         notificationService.get().then(function ($notifications) {
-          return $notifications.$loaded(function ($loaded) {
-            $scope.notifications = $loaded;
-            $scope.count = angular.copy($loaded.length);
+          return $notifications.$loaded(function ($snap) {
+            $scope.notifications = $snap;
+            $scope.count = angular.copy($snap.length);
             watch();
           })
         }).catch(function (err) {

@@ -256,7 +256,7 @@
         // Notify the user
         return notificationService.notify(
           notificationService.TYPE.REPLY, 
-          angular.copy($scope.node.text).slice(0,50),
+          angular.copy($scope.node.text).slice(0,150),
           angular.copy($scope.node.uid), 
           angular.copy($scope.node.id)
         );
