@@ -64,11 +64,11 @@ body {
 
 a {
   color: $co_purple;
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 700;
   &:hover,
   &:active {
-    text-decoration: underline;
+    text-decoration: none;
   }
   &:active,
   &:visited {
