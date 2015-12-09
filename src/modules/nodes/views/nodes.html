@@ -38,6 +38,7 @@
       </div>
       
       <div class="star-wars">
+        
         <!-- Currently displayed node -->
         <div id="featured" class="node parent" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
           
@@ -47,10 +48,10 @@
           </div>
           
           <div class="node-text">
-            <!--<show-more action="expandNode" text="node.text" limit="charLimit"></show-more>-->
             <p btf-markdown="node.text" thumbnail></p>
           </div>
         </div>
+        
         <!-- Holding area for to-be-displayed node -->
         <div class="node parent" style="padding-top: 25px;">
           
@@ -60,7 +61,6 @@
           </div>
 
           <div class="node-text">
-            <!--<show-more action="expandNode" text="selected.text" limit="charLimit"></show-more>-->
             <p btf-markdown="selected.text" thumbnail></p>
           </div>
         </div>

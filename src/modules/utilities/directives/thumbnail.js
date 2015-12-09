@@ -21,7 +21,7 @@
           var imgs = angular.element(element[0]).find('img');
           angular.forEach(imgs, function (i) {
             var img = angular.element(i);
-            img.parent().addClass('thumbnail');
+            // img.parent().addClass('thumbnail');
             img.on('click', launch);
           });
         });

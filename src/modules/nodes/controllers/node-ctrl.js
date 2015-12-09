@@ -310,8 +310,11 @@
       
       // Duplicated child node
       var selected = angular.copy(child);
-      $scope.selected = selected;
       stashService.set(LAST_SELECTED_NODE, selected);
+      
+      $timeout(function () {
+        $scope.selected = selected;  
+      });
       
       // Keep the clicked one
       var theChosenOne = angular.element(document.getElementById(child.id));
