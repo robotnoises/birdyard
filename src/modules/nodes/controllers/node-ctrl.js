@@ -231,6 +231,9 @@
     // Add a comment
     $scope.pushText = function() {
       
+      // Do not proceed if the user has not entered text
+      if (!$scope.node) return;
+      
       var _formattedNode = {};
       var _$new = {};
       

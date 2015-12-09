@@ -10,13 +10,42 @@
     
     // Private
     
-    var _$activity = {};
+    var _$activity = null;
     
-    function init() {
-      activityService.get().then(function ($activity) {
-        _$activity = $activity;
+    function _getActivity() {
+      return activityService.get().then(function ($activity) {
+        return $activity;
       }).catch(function (err) {
         console.log(err);
+      });
+    }
+    
+    function init() {
+      _getActivity().then(function ($activity) {
+        _$activity = $activity;
+      });
+    }
+    
+    function _format(text, origin) {
+
+      return authService.getUser().then(function ($user) {
+        
+        var node = {
+          id: '',
+          origin: origin || '',
+          text: text,
+          uid: $user.uid,
+          commentCount: 0,
+          language: $user.language,
+          handle: $user.handle,
+          name: $user.name,
+          lastActivity: _$activity.lastActivity || $user.activity.lastActivity
+        };
+        
+        _$activity.lastActivity = $window.Firebase.ServerValue.TIMESTAMP;
+        _$activity.$save();
+      
+        return node;
       });
     }
     
@@ -64,25 +93,15 @@
     // Format a node object
     function _formatNode(text, origin) {
       
-      return authService.getUser().then(function ($user) {
-        
-        var node = {
-          id: '',
-          origin: origin || '',
-          text: text,
-          uid: $user.uid,
-          commentCount: 0,
-          language: $user.language,
-          handle: $user.handle,
-          name: $user.name,
-          lastActivity: _$activity.lastActivity || $user.activity.lastActivity
-        };
-        
-        _$activity.lastActivity = $window.Firebase.ServerValue.TIMESTAMP;
-        _$activity.$save();
-      
-        return node;
-      });
+      // If the user just auth'ed
+      if (!_$activity) {
+        return _getActivity().then(function ($activity) {
+          _$activity = $activity;
+          return _format(text, origin)
+        });
+      } else {
+        return _format(text, origin);
+      }
     }
     
     _nodeService.getById = _getNodeById;

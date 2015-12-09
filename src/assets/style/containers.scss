@@ -195,4 +195,19 @@
   margin-bottom: 5px;
 }
 
-
+.quick-auth {
+  p, i, h2 {
+    color: $co_black;
+    display: block;
+    text-align: center;
+  }
+  i {
+    margin-top: 35px;
+    color: $co_black;
+    font-size: 4em;
+    cursor: pointer;
+    &:hover, &:active {
+      color: $co_purple;
+    }
+  }
+}

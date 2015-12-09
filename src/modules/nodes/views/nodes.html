@@ -2,7 +2,8 @@
 <div>
   
   <div class="featured bg-white fixed dialog fadey shadow-flat" ng-class="{ghost: !showDialog}">
-    <div class="content">
+    
+    <div class="content" ng-show="signedIn">
       <md-content> 
         <md-input-container class="md-block">
           <label>Reply to {{node.name}}...</label>       
@@ -12,6 +13,8 @@
       <!--<md-button class="float-right">Submit</md-button>
       <md-button class="float-right">Cancel</md-button>-->
     </div>
+    
+    <auth-user ng-show="!signedIn"></auth-user>
   </div>
   
   <div class="featured bg-purple fixed shadow-flat gradient-bottom shadow-inset-large">

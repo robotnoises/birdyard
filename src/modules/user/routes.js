@@ -23,12 +23,6 @@
       controller: 'userController',
       templateUrl: 'modules/user/views/user.html'
     });
-    
-    // A sign-in page
-    $routeProvider.when('/auth', {
-      controller: 'authController',
-      templateUrl: 'modules/user/views/signin.html'
-    });
         
   }]);
   

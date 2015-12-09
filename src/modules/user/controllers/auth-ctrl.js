@@ -21,19 +21,6 @@
     
     // Public
     
-    $scope.signIn = function (provider) {
-
-      var $ref = firebaseService.getRef();
-
-      $ref.authWithOAuthPopup(provider, function(error, authData) { 
-        if (error) {
-          console.error(error);
-        } else {
-          authService.signIn(authData);
-        }
-      });
-    };
-    
     $scope.signOut = function () {
       authService.signOut();
     };
