@@ -19,7 +19,7 @@ i.icon.comment-count:after {
   color: $co_white;
   content: attr(data-commentcount);
   font-size: 10px;
-  left: 31px;
+  left: 6px;
   padding-top: 3px;
   font-weight: 400;
 }
@@ -33,7 +33,7 @@ i.icon.one-digit.two-digits.comment-count {
   font-size: 20px;
   &:after {
     padding-top: 4px;
-    left: 28.5px;
+    left: 3.5px;
   }
 }
 
@@ -42,7 +42,7 @@ i.icon.one-digit.two-digits.three-digits.comment-count {
   font-size: 24px;
   &:after {
     padding-top: 7px;
-    left: 27.5px;
+    left: 2.5px;
   }
 }
 
@@ -85,6 +85,33 @@ i.show-more {
     &:after {
       font-size: 10px;
       left: 8px;
+    }
+  }
+}
+
+// Markdown
+
+.featured {
+  .markdown-reply {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 280px;
+    width: 100%;
+    padding: 0 25px;
+    .markdown-icon {
+      position: absolute;
+      z-index: 4;
+      bottom: 0;
+      right: 25px;
+      color: $co_lightgrey;
+      display: block;
+      width: 24px;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
     }
   }
 }

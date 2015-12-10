@@ -47,6 +47,9 @@
       }
     }
   }
+  .content {
+    padding: 0 25px;
+  }
   button {
     position: absolute;
     bottom: 0;
@@ -61,17 +64,17 @@
 }
 
 .non-featured {
+  padding: 0 25px;
   padding-top: $dim_feature + $dim_spacer;
 }
 
 .node {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   .node-text, 
   .node-actions,
   .node-title {
     margin: 0;
-    padding: 0 25px;
   }
   p {
     margin: $dim_spacer 0;
@@ -97,6 +100,7 @@
   height: $dim_node;
   padding-top: 55px;
   padding-bottom: 10px;
+  margin-right: -25px; // for the scrollbar
 }
 
 .node.child {
