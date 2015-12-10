@@ -84,7 +84,7 @@
         display: block;
         clear: both;
         margin: $dim_spacer 0;
-        max-width: 300px;
+        max-width: $dim_thumbnail;
         padding: 0px;
         border: 1px solid $co_white;
         cursor: pointer;
@@ -209,5 +209,28 @@
     &:hover, &:active {
       color: $co_purple;
     }
+  }
+}
+
+.thumbnail {
+  display: block;
+  position: relative;
+  max-width: $dim_thumbnail;
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: $co_white;
+    opacity: 0.5;
+    font-size: 48px;
+    font-family: 'Fonticons';
+    content: '\f031';
+    cursor: pointer;
+    pointer-events: none !important;
+  }
+  &:hover:after {
+    opacity: 1;
   }
 }

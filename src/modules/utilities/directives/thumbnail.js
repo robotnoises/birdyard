@@ -9,10 +9,10 @@
       restrict: 'A',
       replace: false,
       link: function (scope, element, attrs) {
-        
+
         function launch(e) {
           e.preventDefault();
-          var parentElement = angular.element(this).parent();
+          var parentElement = angular.element(this).parent().parent();
           var uri = parentElement[0].href || this.src;
           window.open(uri);
         }
@@ -21,7 +21,7 @@
           var imgs = angular.element(element[0]).find('img');
           angular.forEach(imgs, function (i) {
             var img = angular.element(i);
-            // img.parent().addClass('thumbnail');
+            img.wrap('<div class="thumbnail"></div>');
             img.on('click', launch);
           });
         });
