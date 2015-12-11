@@ -335,12 +335,16 @@
     };
     
     $scope.toggleDialog = function (force) {
+
       if (typeof force === 'boolean') {
         $scope.showDialog = force;
       } else {
         $scope.showDialog = !$scope.showDialog;
       }
-      focusTextInput();
+      
+      if ($scope.showDialog) {
+        focusTextInput();  
+      }
     };
     
     $scope.pauseAutoScroll = function (pause) {

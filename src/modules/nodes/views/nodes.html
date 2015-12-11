@@ -7,17 +7,20 @@
       
       <markdown-icon class="markdown-reply"></markdown-icon>
       
-      <md-content> 
+      <!-- Add some content! -->
+      <i id="close" class="icon icon-times-circle pointer float-right reply" ng-click="toggleDialog()"></i> 
+      
+      <md-content class="padding-top"> 
         <md-input-container class="md-block">
           <label>Reply to {{node.name}}...</label>       
           <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="text"></textarea>
         </md-input-container>
       </md-content>
-      <!--<md-button class="float-right">Submit</md-button>
-      <md-button class="float-right">Cancel</md-button>-->
+
     </div>
     
     <auth-user ng-show="!signedIn"></auth-user>
+    
   </div>
   
   <div class="featured bg-purple fixed shadow-flat shadow-bottom gradient-bottom shadow-inset-large">
@@ -46,7 +49,7 @@
       <div class="star-wars">
         
         <!-- Currently displayed node -->
-        <div id="featured" class="node parent" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
+        <div id="featured" class="node parent padding-top" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 
@@ -59,7 +62,7 @@
         </div>
         
         <!-- Holding area for to-be-displayed node -->
-        <div ng-if="selected.text" class="node parent" style="padding-top: 25px;">
+        <div ng-if="selected.text" class="node parent padding-top">
           
           <div class="node-title">
             <span class="displayName">{{selected.name}}</span> 

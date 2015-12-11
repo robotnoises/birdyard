@@ -100,8 +100,19 @@
   z-index: 4;
   height: 40px;
   background: linear-gradient(to bottom, rgba(135,77,158,0.1) 0%,rgba(131,75,154,1) 100%);
+  pointer-events: none !important;
+}
+
+.truncate-featured.top {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, $co_purple 100%);
+  top: 0;
+  bottom: initial;
 }
 
 .scroll {
   overflow-y: scroll;
+}
+
+.padding-top {
+  padding-top: 55px;
 }

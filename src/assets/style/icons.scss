@@ -9,6 +9,10 @@ i.icon.reply {
   color: $co_white;
 }
 
+i.icon.icon-times-circle {
+  color: $co_grey;
+}
+
 i.icon.comment-count {
   font-size: 18px;
   color: $co_darkgrey;
@@ -93,18 +97,17 @@ i.show-more {
 
 .featured {
   .markdown-reply {
-    position: absolute;
+    position: fixed;
     display: block;
     top: 0;
     left: 0;
-    height: 280px;
+    height: 300px;
     width: 100%;
-    padding: 0 25px;
     .markdown-icon {
       position: absolute;
       z-index: 4;
-      bottom: 0;
-      right: 25px;
+      bottom: 5px;
+      right: 5px;
       color: $co_lightgrey;
       display: block;
       width: 24px;

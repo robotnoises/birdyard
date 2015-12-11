@@ -48,7 +48,8 @@
     }
   }
   .content {
-    padding: 0 25px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   button {
     position: absolute;
@@ -98,7 +99,6 @@
 .node.parent {
   position: static;
   height: $dim_node;
-  padding-top: 55px;
   padding-bottom: 10px;
   margin-right: -25px; // for the scrollbar
 }
@@ -151,7 +151,6 @@
 }
 
 .dialog {
-  padding-top: 20px;
   z-index: 4;
 }
 
