@@ -18,7 +18,7 @@
     <!-- Font Awesome-->
     <script src="//use.fonticons.com/c3b6848c.js"></script>
   </head>
-  <body>
+  <body ng-controller="uiController" ng-class="getBackgroundClass()">
 
     <!-- Bebop Logo-->
     <h1 ng-controller="uiController" ng-class="getLogoColor()" ng-click="goHome()" class="bebop-logo pointer">Bebop!</h1>
@@ -28,7 +28,7 @@
     <!-- Notifications-->
     <notifications ng-if="signedIn" md-delay="1250"></notifications>
 
-    <div ng-view ng-controller="uiController" ng-class="getBackgroundClass()"></div>
+    <div ng-view></div>
 
     <!-- Library-->
     <script src="bower_components/angular/angular.js"></script>
