@@ -5,6 +5,7 @@ angular.module('bebop', [
   // Bebop!
   'bebop.config',
   'bebop.users',
+  'bebop.search',
   'bebop.utilities',
   'bebop.nodes',
   'bebop.rooms',

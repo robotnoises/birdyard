@@ -9,6 +9,12 @@
     'firebase'
   ]);
   
+  // Search
+  angular.module('bebop.search', [
+    'firebase',
+    'ngMaterial'
+  ]);
+  
   // Nodes
   angular.module('bebop.nodes', [
     'ngRoute',
