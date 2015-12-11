@@ -19,7 +19,7 @@ md-input-container {
   }
   .md-input:not(.borders) {
     border-color: rgba(255,255,255,0) !important;
-    border-width: 0 !important;
+    // border-width: 0 !important;
   }
   .md-input.borders {
     border-color: $co_purple !important;
@@ -43,6 +43,11 @@ md-input-container {
   }
   label:not(.md-no-float) {
     padding-left: 0;
+  }
+  .md-icon-float { 
+    label {
+      margin-left: 0;
+    }
   }
 }
 

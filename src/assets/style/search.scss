@@ -1,0 +1,15 @@
+@import 'colors';
+
+.searchbar {
+  display: block;
+  margin: 25px 0;
+  padding: 0 10px;
+  background-color: $co_white;
+    
+  md-input-container {
+    padding-bottom: 0;
+    input {
+      line-height: 48px;
+    }
+  }
+}
