@@ -59,7 +59,7 @@
     
     function _exists(key) {
       if (key) {
-        return !!$window.getItem(key);  
+        return !!$window.localStorage.getItem(key);  
       } else {
         throw new Error('A Key must be provided.');
       }
