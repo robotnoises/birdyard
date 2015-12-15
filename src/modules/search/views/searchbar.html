@@ -1,5 +1,19 @@
-<div class="searchbar">
-  <md-input-container class="md-block">
-    <input ng-model="search" aria-label="Search for rooms"></input>
-  </md-input-container>
+<div class="searchbar md-whiteframe-4dp">
+  <md-content>
+    
+    <md-input-container class="md-block">
+      <input ng-model="search" aria-label="Search for rooms"></input>
+    </md-input-container>
+    
+    <!-- Search Results here -->
+    <div ng-if="results">
+      <md-divider></md-divider>
+      <md-list>
+        <md-list-item ng-repeat="result in results" ng-click="goTo(result._source.nodeId, $event)">
+          <p>{{result._source.title}}</p>
+        </md-list-item>
+      </md-list>
+    </div>
+    
+  </md-content>
 </div>

@@ -19,7 +19,7 @@
     
     // Private
     
-    var _backgroundValue = _VALUE.LIGHT;
+    var _backgroundValue = _VALUE.DARK;
     var _backgroundClass = '';
     
     // Public

@@ -17,11 +17,16 @@
 
       var $ref = firebaseService.getRef('search');
       var $key = $ref.child('request').push({ index: ELASTIC_INDEX, type: type, query: query }).key();
-      
-      $ref.child('response/'+ $key).on('value', function ($snap) {
-        console.log($snap.val());
+      var $response = $ref.child('response/'+ $key);
+        
+      return $q(function (resolve, reject) {  
+        $response.on('value', function ($snap) {
+          var $results = $snap.val();
+          if ($results) {
+            resolve($results);
+          }
+        });
       });
-   
     }
     
     _searchService.search = _search;
