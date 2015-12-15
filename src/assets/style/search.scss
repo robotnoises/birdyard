@@ -2,11 +2,12 @@
 
 .searchbar {
   display: block;
-  margin: 25px 0;
+  margin: 200px 0;
   background-color: $co_white;
     
   md-input-container {
     padding-bottom: 0;
+    border-bottom: 1px solid $co_white;
     input {
       padding: 0 16px;
       line-height: 48px;

@@ -184,12 +184,17 @@
   margin-bottom: $dim_spacer;
 }
 
+.roomlist {
+  padding-top: 300px;
+}
+
 .jumbotron {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  height: 200px;
+  height: $dim_feature;
+  z-index: 1;
 }
 
 .timestamp {
