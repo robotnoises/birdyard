@@ -3,8 +3,7 @@
   'use strict';
   
   var ELASTIC_INDEX = 'bebop';
-  
-  
+    
   angular.module('bebop.search')
     
   .factory('searchService', ['$q', 'firebaseService', 
