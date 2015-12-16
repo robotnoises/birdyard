@@ -5,9 +5,9 @@
   angular.module('bebop.rooms')
   
   // Pun
-  .factory('roomService', ['$q', 'firebaseService', '$firebaseArray', 'authService',
+  .factory('roomService', ['$q', 'firebaseService', '$firebaseArray', 'authService', 'scrollable',
   
-  function ($q, firebaseService, $firebaseArray, authService) {
+  function ($q, firebaseService, $firebaseArray, authService, scrollable) {
     
     // Private
     
@@ -30,7 +30,7 @@
           firebaseService.getRef('rooms').startAt(category).endAt(category) :
           firebaseService.getRef('rooms');
           
-        resolve($firebaseArray($ref));
+        resolve(scrollable($ref, 'score'));
       });
     }
     
