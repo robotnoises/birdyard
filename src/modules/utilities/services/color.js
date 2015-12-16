@@ -19,6 +19,7 @@
       '#2c3e50', // 'Midnight' 
       '#9b59b6', // 'Violet'
       '#8e44ad', // 'Plum'
+      '#AA076B', // 'Wine'
       '#c0392b', // 'Cherry'
       '#e74c3c', // 'Rose'
       '#d35400', // 'Umber' 

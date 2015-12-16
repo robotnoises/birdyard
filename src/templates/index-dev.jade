@@ -20,7 +20,7 @@ html(lang='en', ng-app='bebop')
   body(ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Bebop Logo
-    h1(class='bebop-logo pointer', ng-controller='uiController', ng-class='getLogoColor()', ng-click='goHome()') Bebop!
+    h1(class='bebop-logo pointer logo-white', ng-controller='uiController', ng-click='goHome()') Bebop!
     // User Avatar
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')

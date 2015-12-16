@@ -25,7 +25,7 @@
     // Private
     
     function init() {
-      uiService.setBackgroundValue(uiService.VALUE.LIGHT);
+      uiService.setBackgroundValue(uiService.VALUE.DARK);
       uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
     }
     

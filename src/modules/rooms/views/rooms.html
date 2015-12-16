@@ -1,9 +1,10 @@
-<div class="jumbotron bg-purple"></div>
+<div class="jumbotron gradient">
+  <div class="content">
+    <search-bar></search-bar>
+  </div>
+</div>
 
-<div class="content padding-top">
-  <!--<div class="heading" style="padding-left: 16px;">Rooms!</div>-->
-  
-  <search-bar></search-bar>
+<div class="content roomlist">
   
   <div class="fadey ghost" ng-class="{'boo': loaded}">
     <div ng-repeat="room in rooms">

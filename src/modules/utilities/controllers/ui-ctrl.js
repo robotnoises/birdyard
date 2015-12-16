@@ -15,7 +15,6 @@
       } else {
         return 'font-white';
       }
-      
     };
     
     $scope.getBackgroundClass = function () {
