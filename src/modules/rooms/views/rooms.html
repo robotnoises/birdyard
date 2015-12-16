@@ -12,7 +12,7 @@
         {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
       </div>
     </div>
-    <div>
+    <div ng-show="rooms.scroll.hasNext()">
       <button ng-click="loadMore(50)">Load more</button>
     </div>
   </div>
