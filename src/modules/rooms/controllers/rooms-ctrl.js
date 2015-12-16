@@ -35,6 +35,7 @@
     
     $scope.rooms = {};
     $scope.loaded = false;
+    $scope.category = $routeParams.category;
     
     $scope.loadMore = function (amount) {
       if ($scope.rooms.scroll) {
