@@ -97,6 +97,11 @@
   
   <div layout="column" class="non-featured content">
 
+     <!-- Progress indicator for initial load -->
+    <div class="loading" ng-show="!loaded">
+      <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
+    </div>
+    
     <div id="{{child.id}}" class="node child fadey ghost" ng-class="{'boo': loaded}" ng-repeat="child in $children">
       
       <div class="node-title">

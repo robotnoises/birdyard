@@ -13,14 +13,28 @@
 
 <div class="content roomlist">
   
+  <!-- Progress indicator for initial load -->
+  <div class="loading" ng-show="!loaded">
+    <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
+  </div>
+  
   <div class="fadey ghost" ng-class="{'boo': loaded}">
     <div ng-repeat="room in rooms">
       <div class="room bg-white shadow-flat">
         {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
       </div>
     </div>
+    
+    <!-- Progress indicator for loading more rooms -->
+    <div class="loading" ng-show="loading">
+      <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
+    </div>
+    
+    <!-- Show More -->
     <div ng-show="rooms.scroll.hasNext()">
       <button ng-click="loadMore(50)">Load more</button>
     </div>
+    
   </div>
+  
 </div>
