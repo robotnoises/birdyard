@@ -42,7 +42,7 @@
       <!-- Breadcrumb trail -->
       <div layout="column" class="breadcrumb fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
         <div class="crumbs">
-          <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-thin pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
+          <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-o pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>
       </div>
       

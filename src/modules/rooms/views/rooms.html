@@ -1,5 +1,12 @@
 <div class="jumbotron gradient">
   <div class="content">
+    
+    <h1 class="rooms-header">People are talking about <span>Everything</span></h1>
+    
+    <div class="searchbar-placeholder">
+      <i class="icon icon-search"></i> <span>Search Everything</span>
+    </div>
+    
     <search-bar></search-bar>
   </div>
 </div>
@@ -11,6 +18,9 @@
       <div class="room bg-white shadow-flat">
         {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
       </div>
+    </div>
+    <div ng-show="rooms.scroll.hasNext()">
+      <button ng-click="loadMore(50)">Load more</button>
     </div>
   </div>
 </div>

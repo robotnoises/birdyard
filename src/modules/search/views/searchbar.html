@@ -1,4 +1,4 @@
-<div class="searchbar md-whiteframe-4dp">
+<div class="searchbar">
   <md-content>
     
     <md-input-container class="md-block">
@@ -6,7 +6,7 @@
     </md-input-container>
     
     <!-- Search Results here -->
-    <div ng-if="results">
+    <div ng-if="results" class="results md-whiteframe-4dp">
       <md-divider></md-divider>
       <md-list>
         <md-list-item ng-repeat="result in results" ng-click="goTo(result._source.nodeId, $event)">
