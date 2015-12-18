@@ -20,7 +20,7 @@
           searchService.search(scope.search, 'room').then(function($results) {
             scope.searching = false;
             if ($results) {
-              scope.results = $results.hits; 
+              scope.results = $results.hits || []; 
             }
           }).catch(function (error) {
             console.error(error);
