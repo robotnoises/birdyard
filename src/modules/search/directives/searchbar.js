@@ -36,6 +36,7 @@
           // Don't preceed unless there is a search, it's new, and it's at least 3 chars
           if (!value || value === lastValue || value.length <= 2) {
             scope.searching = false;
+            scope.results = [];
             return;
           }
           
