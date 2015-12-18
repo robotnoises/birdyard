@@ -10,7 +10,7 @@
     
     // Private
     
-    var ROOMS_TO_LOAD = 2;
+    var ROOMS_TO_LOAD = 50;
     var roomCount = 0;
     
     function init() {
