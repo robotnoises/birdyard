@@ -247,3 +247,45 @@
     opacity: 1;
   }
 }
+
+// Ruler
+.load-more {
+  display: block;
+  position: relative;
+  height: 2px;
+  width: 100%;
+  margin: 75px 0;
+  background-color: $co_purple;
+  overflow: visible;
+  // Circle
+  div {
+    position: absolute;
+    background-color: $co_verylightgrey;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    border: 3px solid $co_purple;
+    color: $co_purple;
+    border-radius: 50%;
+    transition: border $dur_fade, color $dur_fade, background $dur_fade;
+    &:hover {
+      cursor: pointer;
+      border-color: $co_wine;
+      color: $co_wine;
+      background-color: $co_white;
+    }
+    // Text
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.85em;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+}
