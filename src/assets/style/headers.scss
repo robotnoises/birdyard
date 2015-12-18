@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'duration';
 
 .sidenav-header {
   line-height: 2em;
@@ -9,9 +10,32 @@
 
 .rooms-header {
   position: absolute;
-  top: -75px;
+  top: -100px;
   color: $co_white;
   font-weight: 300;
   font-size: 2.5em;
   z-index: 2;
+  md-input-container {
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+  md-select {
+    display: inline-block;
+    margin-left: 7px;
+    width: 100%;
+    min-width: 232px;
+  }
+  .md-select-icon {
+    display: none;
+  }
+  .md-select-value {
+    // opacity: 0.75;
+   color: $co_white !important;
+    // border-width: 1px !important;
+    border-color: $co_white !important;
+    transition: color $dur_fade;
+    // &:hover {
+    //   color: $co_white !important;
+    // }
+  }
 }

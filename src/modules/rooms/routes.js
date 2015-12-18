@@ -6,7 +6,7 @@
   
   .config(['$routeProvider', function ($routeProvider) {
     
-    $routeProvider.when('/rooms/c/all', {
+    $routeProvider.when('/rooms/c/everything', {
       controller: 'roomsController',
       templateUrl: 'modules/rooms/views/rooms.html'
     });
@@ -22,7 +22,7 @@
     })
     
     $routeProvider.when('/', {
-      redirectTo: '/rooms/c/all'
+      redirectTo: '/rooms/c/everything'
     });
 
   }]);

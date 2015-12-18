@@ -14,9 +14,10 @@
     var _CATEGORY = Object.freeze({
       ALL: 0,
       NEWS: 1,
-      SPORTS: 2,
-      ENTERTAINMENT: 3,
-      GAMES: 4
+      ENTERTAINMENT: 2,
+      SPORTS: 3,
+      GAMES: 4,
+      WHATEVER: 5
     });
     
     // Public
@@ -25,11 +26,7 @@
     
     function _getRooms(category) {
       return $q(function (resolve, reject) {
-
-        var $ref = (category) ? 
-          firebaseService.getRef('rooms').startAt(category).endAt(category) :
-          firebaseService.getRef('rooms');
-          
+        var $ref = firebaseService.getRef('rooms');  
         resolve(scrollable($ref, 'score'));
       });
     }

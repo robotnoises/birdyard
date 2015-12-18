@@ -1,10 +1,26 @@
 <div class="jumbotron gradient">
   <div class="content">
     
-    <h1 class="rooms-header">People are talking about <span>Everything</span></h1>
+    <h1 layout="row" layout-align="start center" class="rooms-header">
+      
+      <div>People are talking about</div>
+      
+      <md-input-container>
+        <!--<label>Everything</label>-->
+        <md-select ng-model="category" selected="selected" aria-label="Select a category">
+          <md-option ng-value="0" ng-selected="category == 0">Everything</md-option>
+          <md-option ng-value="1" ng-selected="category == 1">News</md-option>
+          <md-option ng-value="2" ng-selected="category == 2">Entertainment</md-option>
+          <md-option ng-value="3" ng-selected="category == 3">Sports</md-option>
+          <md-option ng-value="4" ng-selected="category == 4">Games</md-option>
+          <md-option ng-value="5" ng-selected="category == 5">Whatever</md-option>
+        </md-select>
+      </md-input-container>
+      
+    </h1>
     
     <div class="searchbar-placeholder">
-      <i class="icon icon-search"></i> <span>Search Everything</span>
+      <i class="icon icon-search"></i> <span>Search {{categoryReadable}}</span>
     </div>
     
     <search-bar></search-bar>
