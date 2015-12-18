@@ -2,7 +2,11 @@
   <md-content>
     
     <md-input-container class="md-block">
-      <input ng-model="search" aria-label="Search for rooms"></input>
+      <input ng-model="search" aria-label="Search for rooms" ng-class="{'solid': searching || results.length > 0}"></input>
+      <!-- Display progress when searching -->      
+      <div class="loading-search" ng-show="searching">
+        <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
+      </div>
     </md-input-container>
     
     <!-- Search Results here -->
