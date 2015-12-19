@@ -10,7 +10,7 @@
     
     // Private
     
-    var ROOMS_TO_LOAD = 50;
+    var ROOMS_TO_LOAD = 1;
     var roomCount = 0;
     
     function init() {
@@ -33,57 +33,6 @@
       });
     }
     
-    function getCategory(value) {
-      var v = parseInt(value, 10);
-      switch(v) {
-        case 0:
-          return 'everything';
-          break;
-        case 1:
-          return 'news';
-          break;
-        case 2:
-          return 'entertainment';
-          break;
-        case 3:
-          return 'sports';
-          break;
-        case 4:
-          return 'games';
-          break;
-        case 5:
-          return 'whatever';
-          break;
-        default:
-          return 'everything';
-      }
-    }
-    
-    function getCategoryValue(category) {
-      switch(category) {
-        case 'everything':
-          return 0;
-          break;
-        case 'news':
-          return 1;
-          break;
-        case 'entertainment':
-          return 2;
-          break;
-        case 'sports':
-          return 3;
-          break;
-        case 'games':
-          return 4;
-          break;
-        case 'whatever':
-          return 5;
-          break;
-        default:
-          return 0;
-      }
-    }
-    
     function capitalize (input) {
       return input.replace(/(^[a-z])/,function (i) { return i.toUpperCase(); });
     }
@@ -103,7 +52,7 @@
     
     function categoryWatcher(category, oldCategory) {
       if (category !== oldCategory) {
-        $location.path('rooms/c/' + getCategory(category));  
+        $location.path('rooms/c/' + roomService.getCategory(category));  
       }
     }
     
@@ -111,11 +60,13 @@
     
     $scope.rooms =    {};
     
+    $scope.roomsToLoad = ROOMS_TO_LOAD;
+    
     $scope.loaded =   false;  // Initial load
     $scope.loading =  false;  // Loading more rooms
     
-    $scope.category = getCategoryValue($routeParams.category) || 0;
-    $scope.categoryReadable = capitalize(getCategory($scope.category));    
+    $scope.category = roomService.getCategoryValue($routeParams.category) || 0;
+    $scope.categoryReadable = capitalize(roomService.getCategory($scope.category));    
     
     // Load more rooms
     $scope.loadMore = function (amount) {

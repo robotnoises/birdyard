@@ -11,14 +11,15 @@
     
     // Private
     
-    var _CATEGORY = Object.freeze({
-      ALL: 0,
-      NEWS: 1,
-      ENTERTAINMENT: 2,
-      SPORTS: 3,
-      GAMES: 4,
-      WHATEVER: 5
-    });
+    function save(data, location) {
+      return $q(function (resolve, reject) {
+        var $ref = firebaseService.getRef('rooms/' + location);
+        var $room = $ref.push();
+        data.id = $room.key();
+        $room.setWithPriority(data, data.score);
+        resolve();  
+      });
+    }
     
     // Public
     
@@ -26,18 +27,19 @@
     
     function _getRooms(category) {
       return $q(function (resolve, reject) {
-        var $ref = firebaseService.getRef('rooms');  
+        var c = category || 'everything';
+        var $ref = firebaseService.getRef('rooms', c);  
         resolve(scrollable($ref, 'score'));
       });
     }
     
     function _saveRoom(roomData) {
       return $q(function (resolve, reject) {
-        var $ref = firebaseService.getRef('rooms');
-        var $room = $ref.push();
-        roomData.id = $room.key();
-        $room.setWithPriority(roomData, roomData.category);
-        resolve();
+        return save(roomData, _getCategory(roomData.category)).then(function () {
+          return save(roomData, 'everything');
+        }).then(function () {
+          resolve();
+        });
       });
     }
     
@@ -50,9 +52,7 @@
           uid: $user.uid,
           nodeId: nodeId,
           score: 0,
-          category: 0,
-          language: $user.language,
-          handle: $user.handle,
+          category: 1, // todo: user needs to supply this
           name: $user.name
         };
         
@@ -60,10 +60,62 @@
       });
     }
     
-    _roomService.CATEGORY = _CATEGORY;
+    function _getCategory(value) {
+      var v = parseInt(value, 10);
+      switch(v) {
+        case 0:
+          return 'everything';
+          break;
+        case 1:
+          return 'news';
+          break;
+        case 2:
+          return 'entertainment';
+          break;
+        case 3:
+          return 'sports';
+          break;
+        case 4:
+          return 'games';
+          break;
+        case 5:
+          return 'whatever';
+          break;
+        default:
+          return 'everything';
+      }
+    }
+    
+    function _getCategoryValue(category) {
+      switch(category) {
+        case 'everything':
+          return 0;
+          break;
+        case 'news':
+          return 1;
+          break;
+        case 'entertainment':
+          return 2;
+          break;
+        case 'sports':
+          return 3;
+          break;
+        case 'games':
+          return 4;
+          break;
+        case 'whatever':
+          return 5;
+          break;
+        default:
+          return 0;
+      }
+    }
+    
     _roomService.getRooms = _getRooms;
     _roomService.format = _formatRoom;
     _roomService.saveRoom = _saveRoom;
+    _roomService.getCategory = _getCategory;
+    _roomService.getCategoryValue = _getCategoryValue;
     
     return _roomService;
     

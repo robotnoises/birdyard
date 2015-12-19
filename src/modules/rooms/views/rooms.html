@@ -47,8 +47,8 @@
     </div>
     
     <!-- Show More -->
-    <div ng-show="rooms.scroll.hasNext()">
-      <div class="load-more gradient" ng-click="loadMore(50)">
+    <div ng-show="rooms.scroll.hasNext() && !loading">
+      <div class="load-more gradient" ng-click="loadMore(roomsToLoad)">
         <div>
           <span>Load More?</span>
         </div>
