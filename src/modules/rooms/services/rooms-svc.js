@@ -5,9 +5,9 @@
   angular.module('bebop.rooms')
   
   // Pun
-  .factory('roomService', ['$q', 'firebaseService', '$firebaseArray', 'authService', 'scrollable',
+  .factory('roomService', ['$q', '$window', 'firebaseService', '$firebaseArray', 'authService', 'scrollable',
   
-  function ($q, firebaseService, $firebaseArray, authService, scrollable) {
+  function ($q, $window, firebaseService, $firebaseArray, authService, scrollable) {
     
     // Private
     
@@ -53,6 +53,7 @@
           nodeId: nodeId,
           score: 0,
           category: 1, // todo: user needs to supply this
+          timestamp: $window.Firebase.ServerValue.TIMESTAMP,
           name: $user.name
         };
         
