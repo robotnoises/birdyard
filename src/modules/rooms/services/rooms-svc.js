@@ -17,7 +17,7 @@
         var $room = $ref.push();
         data.id = $room.key();
         $room.setWithPriority(data, data.score);
-        resolve();  
+        resolve($room);  
       });
     }
     
@@ -35,7 +35,8 @@
     
     function _saveRoom(roomData) {
       return $q(function (resolve, reject) {
-        return save(roomData, _getCategory(roomData.category)).then(function () {
+        return save(roomData, _getCategory(roomData.category)).then(function ($room) {
+          roomData.categoryId = $room.key();
           return save(roomData, 'everything');
         }).then(function () {
           resolve();
