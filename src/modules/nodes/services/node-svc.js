@@ -37,7 +37,8 @@
           uid: $user.uid,
           commentCount: 0,
           language: $user.language,
-          handle: $user.handle,
+          avatar: $user.avatar,
+          description: $user.description,
           name: $user.name,
           lastActivity: _$activity.lastActivity || $user.activity.lastActivity
         };
