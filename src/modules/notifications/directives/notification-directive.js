@@ -38,9 +38,9 @@
           $scope.notifications.$watch(function ($event) {
             if ($event) {
               var newCount = angular.copy($scope.notifications.length);
-              if (newCount === $scope.count) return;
-              
-              if (newCount > $scope.count) {
+              if (newCount === $scope.count) {
+                return;
+              } else if (newCount > $scope.count) {
                 // Ring the bell!
                 $scope.ring = true;
                 $timeout(function () {

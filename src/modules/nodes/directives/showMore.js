@@ -29,8 +29,9 @@
         var el = createShowMoreElement();
                 
         scope.$watch('loaded', function (loaded) {
-          if (loaded == 'false') return;
-          if (textOverflow(element[0])) {
+          if (loaded === 'false') { 
+            return;
+          } else if (textOverflow(element[0])) {
             el.attr('ng-click', 'doAction()');
             el.attr('ng-class', '{"boo": loaded}');
             element.append($compile(el)(scope));

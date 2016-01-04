@@ -31,7 +31,9 @@
         scope.$watch('search', function (value, lastValue) {
           
           // If there's a previous timeout, cancel it
-          if ($t) $timeout.cancel($t);
+          if ($t) {
+            $timeout.cancel($t);
+          }
           
           // Don't preceed unless there is a search, it's new, and it's at least 3 chars
           if (!value || value === lastValue || value.length <= 2) {
