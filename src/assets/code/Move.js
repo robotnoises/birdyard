@@ -14,7 +14,7 @@ var Move = (function () {
     
     var y = 0;
     
-    if (typeof window.pageYOffset == 'number') {
+    if (typeof window.pageYOffset === 'number') {
       // Netscape
       y = window.pageYOffset;
     } else if (document.body && document.body.scrollTop) {

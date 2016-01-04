@@ -14,7 +14,7 @@
         var key = e.keyCode || e.charCode;
         
         // If the key is escape     
-        if (key == 27) {
+        if (key === 27) {
           scope.$apply(function () {
             // evaluate whatever function was passed-in
             scope.$eval(attrs['escape']);

@@ -31,7 +31,7 @@
     }
     
     function _setBackgroundValue(value) {
-      if (value == _VALUE.LIGHT || value == _VALUE.DARK) {
+      if (value === _VALUE.LIGHT || value === _VALUE.DARK) {
         _backgroundValue = value;  
       } else {
         throw new TypeError('The parameter was not a valid value.');

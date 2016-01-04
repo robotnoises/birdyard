@@ -14,9 +14,9 @@
       element.bind('keydown', function (e) {
         
         var key = e.keyCode || e.charCode;
-        
+                
         // If the key is shift     
-        if (key == 16) {
+        if (key === 16) {
           shiftPressed = true;
         } else if (key === 13 && shiftPressed) {
           // If the key is enter, and the last key was shift
