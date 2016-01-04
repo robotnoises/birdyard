@@ -21,6 +21,10 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Bebop Logo
     h1(class='bebop-logo pointer logo-white', ng-controller='uiController', ng-click='goHome()') Bebop!
+    // New room
+    md-button(class='bebop-action', ng-controller='authController', ng-click='goToNewRoom()')
+      span(ng-if='signedIn') Make a room
+      span(ng-if='!signedIn') Sign in with Twitter
     // User Avatar
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')

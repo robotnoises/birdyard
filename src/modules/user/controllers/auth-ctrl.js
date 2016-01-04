@@ -4,9 +4,9 @@
   
   angular.module('bebop.users')
   
-  .controller('authController', ['$scope', '$location', 'firebaseService', 'authService', 'uiService',
+  .controller('authController', ['$scope', '$location', '$rootScope', 'firebaseService', 'authService', 'uiService',
   
-  function ($scope, $location, firebaseService, authService, uiService) {
+  function ($scope, $location, $rootScope, firebaseService, authService, uiService) {
     
     // Private
     
@@ -19,6 +19,22 @@
       uiService.setBackgroundValue(uiService.VALUE.LIGHT);
     }
     
+    function signIn() {
+      var $ref = firebaseService.getRef();
+
+      $ref.authWithOAuthPopup('twitter', function(error, authData) { 
+        if (error) {
+          console.error(error);
+        } else {
+          authService.signIn(authData).then(function () {
+          angular.element(document.getElementById('text-input')).focus();
+          }).catch(function (error) {
+            console.error(error);
+          });
+        }
+      });
+    }
+    
     // Public
     
     $scope.signOut = function () {
@@ -27,6 +43,14 @@
     
     $scope.goToProfile = function () {
       $location.path('/user')
+    };
+    
+    $scope.goToNewRoom = function () {
+      if ($rootScope.signedIn) {
+        $location.path('/rooms/new');
+      } else {
+        signIn();
+      }
     };
     
     init();

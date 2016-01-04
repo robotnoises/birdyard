@@ -22,6 +22,8 @@
 
     <!-- Bebop Logo-->
     <h1 ng-controller="uiController" ng-click="goHome()" class="bebop-logo pointer logo-white">Bebop!</h1>
+    <!-- New room-->
+    <md-button ng-controller="authController" ng-click="goToNewRoom()" class="bebop-action"><span ng-if="signedIn">Make a room</span><span ng-if="!signedIn">Sign in with Twitter</span></md-button>
     <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bebop-avatar pointer"><img ng-src="{{avatarUrl}}">
       <md-tooltip md-direction="left">View/edit your profile</md-tooltip></span>
 

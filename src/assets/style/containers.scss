@@ -172,11 +172,22 @@
   border-radius: 50%;
   overflow: hidden;
   z-index: 4;
-  // border: 1px solid rgba(255,255,255,0.9);
-  // box-shadow: 0px 0px 1px rgba(0,0,0,0.25);
   img {
     height: 30px;
   }
+}
+
+.bebop-action {
+  position: fixed;
+  display: block;
+  top: 14px;
+  right: 65px;
+  height: 30px;
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 4;
+  color: $co_white;
+  border: 1px solid $co_white;
 }
 
 .room {
