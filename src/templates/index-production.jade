@@ -21,13 +21,18 @@ html(lang='en', ng-app='bebop')
     = '\n'
     // Bebop Logo
     h1(class='bebop-logo pointer font-white', ng-controller='uiController', ng-click='goHome()') Bebop!
+    = '\n'
+    // New room
+    md-button(class='bebop-action', ng-controller='authController', ng-click='goToNewRoom()')
+      span(ng-if='signedIn') Make a room
+      span(ng-if='!signedIn') Sign in with Twitter
     // User Avatar
     span(class='bebop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
       img(ng-src='{{avatarUrl}}')
       md-tooltip(md-direction='left') View/edit your profile
     = '\n'
     // Notifications
-    notifications(ng-if='signedIn', md-delay="1250")
+    notifications(ng-if='signedIn', md-delay='1250')
     = '\n'
     div(ng-view)
     = '\n'
