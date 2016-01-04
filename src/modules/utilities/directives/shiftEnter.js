@@ -33,7 +33,7 @@
         var key = e.keyCode || e.charCode;
         
         // If the released key is shift     
-        if (key == 16) {
+        if (key === 16) {
           shiftPressed = false;
         } 
       });
