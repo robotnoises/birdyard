@@ -48,7 +48,7 @@
           $scope.loading = false;
         }
       }
-    };
+    }
     
     function categoryWatcher(category, oldCategory) {
       if (category !== oldCategory) {

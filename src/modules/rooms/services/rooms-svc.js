@@ -63,29 +63,34 @@
     }
     
     function _getCategory(value) {
+      
       var v = parseInt(value, 10);
+      var category = '';
+      
       switch(v) {
         case 0:
-          return 'everything';
+          category = 'everything';
           break;
         case 1:
-          return 'news';
+          category = 'news';
           break;
         case 2:
-          return 'entertainment';
+          category = 'entertainment';
           break;
         case 3:
-          return 'sports';
+          category = 'sports';
           break;
         case 4:
-          return 'games';
+          category = 'games';
           break;
         case 5:
-          return 'whatever';
+          category = 'whatever';
           break;
         default:
-          return 'everything';
+          category = 'everything';
       }
+      
+      return category;
     }
     
     function _getCategoryValue(category) {
