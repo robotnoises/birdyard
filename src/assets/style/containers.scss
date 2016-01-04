@@ -1,6 +1,7 @@
 @import 'dimensions';
 @import 'colors';
 @import 'duration';
+@import 'borders-shadows';
 
 // Generic containers
 
@@ -65,8 +66,14 @@
 }
 
 .non-featured {
-  padding: 0 25px;
   padding-top: $dim_feature + $dim_spacer;
+  .node {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 25px;
+    background: $co_white;
+    @include border(1px);
+  }
 }
 
 .node {
@@ -155,7 +162,7 @@
 }
 
 .toolbar {
-  top: $dim_feature;
+  top: 225px;
   z-index: 3;
   height: 50px;
   line-height: 50px;

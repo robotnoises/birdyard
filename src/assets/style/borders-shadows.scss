@@ -4,13 +4,9 @@
   box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 }
 
-// .shadow-inset-large {
-//   box-shadow: 0 0 40px rgba(0,0,0,0.4) inset;
-// }
-
 .shadow-bottom {
-  border-bottom: 1px solid rgba(0,0,0, 0.45);
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25), 0 1px 0 0 rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.35), 0 1px 0 0 rgba(0, 0, 0, 0.35);
 }
 
 .border-accent {
@@ -19,4 +15,11 @@
 
 .border-accent-avatar {
   border: 2px solid $co_purple;
+}
+
+@mixin border($width) {
+  border-width: $width;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: rgba(0,0,0,0.12);
 }

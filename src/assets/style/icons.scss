@@ -23,7 +23,7 @@ i.icon.comment-count:after {
   color: $co_white;
   content: attr(data-commentcount);
   font-size: 10px;
-  left: 6px;
+  left: 31px;
   padding-top: 3px;
   font-weight: 400;
 }
@@ -37,7 +37,7 @@ i.icon.one-digit.two-digits.comment-count {
   font-size: 20px;
   &:after {
     padding-top: 4px;
-    left: 3.5px;
+    left: 28.5px;
   }
 }
 
@@ -46,7 +46,7 @@ i.icon.one-digit.two-digits.three-digits.comment-count {
   font-size: 24px;
   &:after {
     padding-top: 7px;
-    left: 2.5px;
+    left: 27.5px;
   }
 }
 
