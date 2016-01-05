@@ -2,9 +2,10 @@
   
   'use strict';
   
+  // Todo: move to config
   var CHEATSHEET_URL = 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet';
   
-  angular.module('bebop.utilities')
+  angular.module('bbop.utilities')
   
   .directive('markdownIcon', ['$window', function ($window) {
     return {

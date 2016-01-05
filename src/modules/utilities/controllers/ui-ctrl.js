@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.utilities')
+  angular.module('bbop.utilities')
   
   .controller('uiController', ['$scope', '$routeParams', '$location', 'uiService',
   

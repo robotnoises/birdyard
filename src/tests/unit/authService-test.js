@@ -1,14 +1,14 @@
 'use strict'
 
-describe('bebop.users', function () {
+describe('bbop.users', function () {
 
   var _$rootScope;
   var _service;
     
   function init() {
     MockFirebase.override();
-    module('bebop');
-    module('bebop.users');
+    module('bbop');
+    module('bbop.users');
   }
   
   function inject() {

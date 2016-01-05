@@ -4,7 +4,7 @@
   
   var shiftPressed = false;
   
-  angular.module('bebop.utilities')
+  angular.module('bbop.utilities')
   
   .directive('shiftEnter', function () {
     

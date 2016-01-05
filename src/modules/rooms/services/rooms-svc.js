@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.rooms')
+  angular.module('bbop.rooms')
   
   // Pun
   .factory('roomService', ['$q', '$window', 'firebaseService', '$firebaseArray', 'authService', 'scrollable',

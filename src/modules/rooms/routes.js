@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.rooms')
+  angular.module('bbop.rooms')
   
   .config(['$routeProvider', function ($routeProvider) {
     

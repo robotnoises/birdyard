@@ -6,7 +6,7 @@
   // to be used by authRequired() in the services below
   var securedRoutes = [];
 
-  angular.module('bebop.config')
+  angular.module('bbop.config')
 
     .config(['$routeProvider', function ($routeProvider) {
       // routes which are not in our map are redirected to /

@@ -1,5 +1,5 @@
 {
-  "name": "bebop",
+  "name": "bbop",
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robotnoises/bebop.git"
+    "url": "https://github.com/bbop-chat/bbop.git"
   },
   "author": "David Nichols",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/robotnoises/bebop/issues"
+    "url": "https://github.com/bbop-chat/bbop/issues"
   },
-  "homepage": "https://github.com/robotnoises/bebop",
+  "homepage": "https://github.com/bbop-chat/bbop",
   "devDependencies": {
     "bower": "^1.6.5",
     "grunt": "^0.4.5",

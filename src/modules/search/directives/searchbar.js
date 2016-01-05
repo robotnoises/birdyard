@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.search')
+  angular.module('bbop.search')
   
   .directive('searchBar', ['$timeout', '$location', 'searchService', 
     

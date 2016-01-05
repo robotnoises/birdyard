@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.rooms')
+  angular.module('bbop.rooms')
   
   .controller('roomsController', ['$scope', '$location', '$routeParams', '$timeout', 'uiService', 'roomService',
   

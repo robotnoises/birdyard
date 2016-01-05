@@ -14,7 +14,7 @@
     return el;
   }
   
-  angular.module('bebop.nodes')
+  angular.module('bbop.nodes')
   
   .directive('showMore', ['$timeout', '$compile', function ($timeout, $compile) {
     

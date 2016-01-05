@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.nodes')
+  angular.module('bbop.nodes')
   
   .controller('nodeController', [
     '$scope', 
@@ -106,7 +106,7 @@
     function doTransition(callback) {
       
       var options = {
-        top: 300, 
+        top: 285, 
         speed: SPEED, 
         context: Move.CONTEXT.VIEWPORT, 
         easing: 'ease-in'

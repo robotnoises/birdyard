@@ -1,10 +1,10 @@
 'use strict'
 
-describe('bebop.utilities', function () {
+describe('bbop.utilities', function () {
   
   beforeEach(function () {
-    module('bebop');
-    module('bebop.utilities');
+    module('bbop');
+    module('bbop.utilities');
   });
     
   describe('Breadcrumb service', function () {

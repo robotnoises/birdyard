@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.users')
+  angular.module('bbop.users')
   
   .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService',
 
@@ -23,7 +23,7 @@
     
     // Scrub-away any extra or sensitive data, store only what we need
     function formatAuthData(authData) {
-      // Their Bebop-custom properties (name and avatar) will be set later-on
+      // Their Bbop-custom properties (name and avatar) will be set later-on
       return {
         uid:      authData.uid,        
         expires:  authData.expires,
@@ -42,16 +42,21 @@
     function formatNewUser(authData) {
       authData.accent = colorService.random();
       authData.social = false;
+      authData.description = '';
       return authData;
     }
     
     // Sub-in provider data props if user has not chosen their own... 
-    // E.g. A Bebop user can have a different display name than their display name in Twitter,
+    // E.g. A Bbop user can have a different display name than their display name in Twitter,
     // but if they choose not to, it will default to the twitter displayName.
     function formatUserData(userData) {
-      userData.name = userData.name || userData.providerData.name;
-      userData.avatar = userData.avatar || userData.providerData.avatar;
-      return userData;
+      if (userData) {
+        userData.name = userData.name || userData.providerData.name;
+        userData.avatar = userData.avatar || userData.providerData.avatar;
+        return userData;  
+      } else {
+        return null;
+      }
     }
     
     // Public
@@ -68,12 +73,12 @@
             // Update as to not overwrite existing properties
             var $user = $ref.child(authData.uid);
             $user.update(formatted);
-            resolve(false); // Not a new user!
+            resolve(formatted); // Not a new user!
           } else {
             // Give the user a random color if they haven't chosen one
             var formattedNewUser = formatNewUser(formatted);
             $ref.child(authData.uid).set(formattedNewUser);
-            resolve(true);  // New user!
+            resolve(formattedNewUser);  // New user!
           }
         });
       });
@@ -113,7 +118,10 @@
         if (_uid) {
           var $ref = firebaseService.getRef('users', _uid); 
           $ref.on('value', function ($user) {
-            resolve(formatUserData($user.val()));
+            var user = $user.val();
+            if (user) {
+              resolve(formatUserData(user));  
+            }
           });
         }
       });

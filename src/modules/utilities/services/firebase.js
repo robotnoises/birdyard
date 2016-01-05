@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.utilities')
+  angular.module('bbop.utilities')
   
   .factory('firebaseService', ['FIREBASE', '$window', function (FIREBASE, $window) {
     

@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.config')
+  angular.module('bbop.config')
   
   .config(['$mdThemingProvider', function ($mdThemingProvider) {
     

@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.nodes')
+  angular.module('bbop.nodes')
   
   .factory('nodeService', ['$q', 'firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 'activityService',
   

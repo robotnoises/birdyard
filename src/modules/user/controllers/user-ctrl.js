@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.users')
+  angular.module('bbop.users')
   
   .controller('userController', ['$scope', '$timeout', '$routeParams', '$location', 'firebaseService', 'authService', 'uiService', 'colorService', '$mdToast',
   
@@ -104,8 +104,8 @@
     };
     
     $scope.signOutUser = function () {
-      authService.signOut().then(function () {
-        $mdToast.show(
+      return authService.signOut().then(function () {
+        return $mdToast.show(
           $mdToast.simple()
             .content('Signed out!')
             .theme('toast-default')

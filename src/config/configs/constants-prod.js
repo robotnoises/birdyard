@@ -2,12 +2,12 @@
   
   'use strict';
   
-  angular.module('bebop.config')
+  angular.module('bbop.config')
     
     // App version
     .constant('VERSION', '0.0.1')
     
     // The configured Firebase
-    .constant('FIREBASE', 'https://bebop.firebaseio.com/');
+    .constant('FIREBASE', 'https://bbop.firebaseio.com/');
   
 })(angular);

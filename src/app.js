@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('bebop', [
+angular.module('bbop', [
   
-  // Bebop!
-  'bebop.config',
-  'bebop.users',
-  'bebop.search',
-  'bebop.utilities',
-  'bebop.nodes',
-  'bebop.rooms',
-  'bebop.notifications',
+  // Bbop!
+  'bbop.config',
+  'bbop.users',
+  'bbop.search',
+  'bbop.utilities',
+  'bbop.nodes',
+  'bbop.rooms',
+  'bbop.notifications',
   
   // Third-party
   'ngMaterial',

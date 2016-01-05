@@ -1,7 +1,7 @@
 {
-  "name": "bebop",
+  "name": "bbop",
   "version": "0.0.1",
-  "homepage": "https://github.com/robotnoises/bebop",
+  "homepage": "https://github.com/bbop-chat/bbop",
   "main": "app.js",
   "moduleType": [
     "node"

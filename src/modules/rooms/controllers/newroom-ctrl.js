@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.rooms')
+  angular.module('bbop.rooms')
   
   .controller('newroomController', ['$scope', '$timeout', 'uiService', 'roomService', 'nodeService', 'breadcrumbService', '$mdToast',
   
@@ -53,7 +53,7 @@
         
         console.error(err);
                 
-        if (err.code.indexOf('PERMISSION_DENIED') > -1) {
+        if (err.code && err.code.indexOf('PERMISSION_DENIED') > -1) {
           msg = 'Slow down. You\'re doing that too much.';
         }
         

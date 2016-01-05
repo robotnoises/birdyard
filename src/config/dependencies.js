@@ -5,7 +5,7 @@
   'use strict';
 
   // Config
-  angular.module('bebop.config', [
+  angular.module('bbop.config', [
     'ngRoute',
     'firebase',
     'ngMaterial'

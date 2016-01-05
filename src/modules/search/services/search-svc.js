@@ -2,9 +2,10 @@
   
   'use strict';
   
-  var ELASTIC_INDEX = 'bebop';
+  // Todo: move to config
+  var ELASTIC_INDEX = 'bbop';
     
-  angular.module('bebop.search')
+  angular.module('bbop.search')
     
   .factory('searchService', ['$q', 'firebaseService', 
   

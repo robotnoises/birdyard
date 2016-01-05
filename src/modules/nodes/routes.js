@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.nodes')
+  angular.module('bbop.nodes')
   
   .config(['$routeProvider', function ($routeProvider) {
     

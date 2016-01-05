@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.utilities')
+  angular.module('bbop.utilities')
   
   .directive('markdownFilter', ['$timeout', function($timeout) {
         

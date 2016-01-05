@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.notifications')
+  angular.module('bbop.notifications')
   
   .directive('notifications', function () {
     

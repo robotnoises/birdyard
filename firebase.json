@@ -1,5 +1,5 @@
 {
-  "firebase": "bebop",
+  "firebase": "bbop",
   "public": "dist",
   "ignore": [
     "firebase.json",

@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.notifications')
+  angular.module('bbop.notifications')
   
   .factory('notificationService', ['$q', '$window', 'authService', 'firebaseService', '$firebaseArray', '$firebaseObject',
   

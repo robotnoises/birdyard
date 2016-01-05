@@ -5,38 +5,38 @@
   'use strict';
   
   // Nodes
-  angular.module('bebop.utilities', [
+  angular.module('bbop.utilities', [
     'firebase'
   ]);
   
   // Search
-  angular.module('bebop.search', [
+  angular.module('bbop.search', [
     'firebase',
     'ngMaterial'
   ]);
   
   // Nodes
-  angular.module('bebop.nodes', [
+  angular.module('bbop.nodes', [
     'ngRoute',
     'firebase',
     'ngMaterial'
   ]);
   
   // Rooms
-  angular.module('bebop.rooms', [
+  angular.module('bbop.rooms', [
     'ngRoute',
     'firebase',
     'ngMaterial'
   ]);
   
   // Authentication
-  angular.module('bebop.users', [
+  angular.module('bbop.users', [
     'ngRoute',
     'firebase'
   ]);
   
   // Notifications
-  angular.module('bebop.notifications', [
+  angular.module('bbop.notifications', [
     'firebase',
     'ngMaterial'
   ]);

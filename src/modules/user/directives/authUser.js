@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bebop.users')
+  angular.module('bbop.users')
   
   .directive('authUser', ['$location', 'firebaseService', 'authService', 'uiService', function ($location, firebaseService, authService, uiService) {
     return {

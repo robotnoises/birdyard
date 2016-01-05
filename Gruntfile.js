@@ -44,8 +44,8 @@ var config = function (grunt) {
 
       // Target: production
       production: {
-        src: 'src/assets/style/compiled/bebop.css',
-        dest: 'dist/assets/style/bebop.min.css',
+        src: 'src/assets/style/compiled/bbop.css',
+        dest: 'dist/assets/style/bbop.min.css',
       }
     },
 
@@ -80,7 +80,7 @@ var config = function (grunt) {
               'src/modules/**/*.js',
               'src/modules/**/**/*.js',
             ],
-            dest: 'dist/bebop.min.js'
+            dest: 'dist/bbop.min.js'
           }
         ]
       }
