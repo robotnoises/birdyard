@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/bbop-chat/bbop.png?label=ready&title=Ready)](https://waffle.io/bbop-chat/bbop)
 # Bbop!
 
 (pronounced: bee-bop)
