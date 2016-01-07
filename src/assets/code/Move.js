@@ -36,9 +36,9 @@ var Move = (function () {
       context: CONTEXT.PAGE
     };
     
-    options.top = _options.top || options.top;
-    options.speed = _options.speed || options.speed;
-    options.easing = _options.easing || options.easing;
+    options.top =     _options.top || options.top;
+    options.speed =   _options.speed || options.speed;
+    options.easing =  _options.easing || options.easing;
     options.context = _options.context || options.context;
     
     return options;
@@ -76,15 +76,15 @@ var Move = (function () {
     options.speed = Math.floor((distance / options.speed) * options.speed); 
     
     // Vertical 
-    element.style.top = top + 'px';
-    element.style.transition = 'top ' + options.speed + 'ms ' + options.easing;
-    element.style.width = element.clientWidth + 'px';
-    element.style.height = element.clientHeight + 'px';
-    element.style.position = 'absolute';
+    element.style.transition =  'top ' + options.speed + 'ms ' + options.easing;
+    element.style.top =         top + 'px';
+    element.style.width =       element.clientWidth + 'px';
+    element.style.height =      element.clientHeight + 'px';
+    element.style.position =    'absolute';
     
     // Horizontal
-    element.style.left = '50%';
-    element.style.transform = 'translateX(-50%)';
+    element.style.left =        '50%';
+    element.style.transform =   'translateX(-50%)';
   }
   
   // Inspired by Modernizr

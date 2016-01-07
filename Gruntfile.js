@@ -36,9 +36,37 @@ var config = function (grunt) {
       }
       
     },
-
+    
+    // Concatenate Stuff
+    // Ex: grunt concat
+    
+    concat: {
+      production: {
+        options: {
+          block: true,
+          line: true
+        }, 
+        files: {
+          'dist/lib.min.js': [
+            'src/bower_components/angular/angular.min.js',
+            'src/bower_components/angular-route/angular-route.min.js',
+            'src/bower_components/firebase/firebase.js',
+            'src/bower_components/angularfire/dist/angularfire.min.js',
+            'src/bower_components/angular-sanitize/angular-sanitize.min.js',
+            'src/bower_components/showdown/compressed/Showdown.min.js',
+            'src/bower_components/moment/min/moment.min.js',
+            'src/bower_components/angular-markdown-directive/markdown.js',
+            'src/bower_components/angular-animate/angular-animate.min.js',
+            'src/bower_components/angular-aria/angular-aria.min.js',
+            'src/bower_components/angular-material/angular-material.min.js',
+            'src/bower_components/firebase-util/dist/firebase-util-paginate.min.js'
+          ]
+        }
+      }
+    },
+    
     // Minify CSS
-    //Ex: grunt cssmin
+    // Ex: grunt cssmin
     
     cssmin: {
 
@@ -48,7 +76,7 @@ var config = function (grunt) {
         dest: 'dist/assets/style/bbop.min.css',
       }
     },
-
+    
     // Minify JS
     // Ex: grunt uglify
     
@@ -217,6 +245,7 @@ var config = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-karma');
   
   // Register custom tasks
@@ -229,7 +258,8 @@ var config = function (grunt) {
     'clean:production',
     'compile-sass', 
     'cssmin:production', 
-    'jade:production', 
+    'jade:production',
+    'concat:production',
     'uglify:production', 
     'copy:components', 
     'copy:fonts_prod', 
