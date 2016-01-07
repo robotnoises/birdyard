@@ -164,8 +164,8 @@ var config = function (grunt) {
           {
             cwd: 'src/bower_components',
             expand: true, 
-            src: ['**/*', ], 
-            dest: 'dist/bower_components/'
+            src: ['angular-material/angular-material.min.css'], 
+            dest: 'dist/assets/style/lib/'
           }
         ]
       },
