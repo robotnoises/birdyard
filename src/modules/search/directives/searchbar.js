@@ -4,20 +4,23 @@
   
   angular.module('bbop.search')
   
-  .directive('searchBar', ['$timeout', '$location', 'searchService', 
+  .directive('searchBar', ['$timeout', '$location', '$routeParams', 'searchService', 
     
-    function ($timeout, $location, searchService) {
+    function ($timeout, $location, $routeParams, searchService) {
     
     return {
       restrict: 'E',
       replace: true,
+      scope: {
+        category: '@'
+      },
       templateUrl: 'modules/search/views/searchbar.html',
       link: function (scope, element, attrs) {
         
         var $t;
         
         function doSearch() {
-          searchService.search(scope.search, 'room').then(function($results) {
+          searchService.search(scope.search, 'room', scope.category).then(function($results) {
             scope.searching = false;
             if ($results) {
               scope.results = $results.hits || []; 
