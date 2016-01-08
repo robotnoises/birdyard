@@ -22,7 +22,7 @@ html(lang='en', ng-app='bbop')
     // Bbop Logo
     h1(class='bbop-logo pointer logo-white', ng-controller='uiController', ng-click='goHome()') Bbop!
     // New room
-    md-button(class='bbop-action', ng-controller='authController', ng-click='goToNewRoom()')
+    md-button(class='bbop-action', ng-controller='authController', aria-label='Bbop Menu', ng-click='goToNewRoom()')
       span(ng-if='signedIn') Make a room
       span(ng-if='!signedIn') Sign in with Twitter
     // User Avatar

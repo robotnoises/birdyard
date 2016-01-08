@@ -23,7 +23,7 @@
     <!-- Bbop Logo-->
     <h1 ng-controller="uiController" ng-click="goHome()" class="bbop-logo pointer logo-white">Bbop!</h1>
     <!-- New room-->
-    <md-button ng-controller="authController" ng-click="goToNewRoom()" class="bbop-action"><span ng-if="signedIn">Make a room</span><span ng-if="!signedIn">Sign in with Twitter</span></md-button>
+    <md-button ng-controller="authController" aria-label="Bbop Menu" ng-click="goToNewRoom()" class="bbop-action"><span ng-if="signedIn">Make a room</span><span ng-if="!signedIn">Sign in with Twitter</span></md-button>
     <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bbop-avatar pointer"><img ng-src="{{avatarUrl}}">
       <md-tooltip md-direction="left">View/edit your profile</md-tooltip></span>
 
