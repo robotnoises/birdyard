@@ -5,7 +5,7 @@ node_js:
 
 notifications:
   email:
-    yo@bbop.chat
+    - yo@bbop.chat
     
 before_script:
   - export CHROME_BIN=chromium-browser
