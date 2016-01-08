@@ -39,6 +39,7 @@
           language: $user.language,
           description: $user.description,
           name: $user.name,
+          accent: $user.accent,
           lastActivity: _$activity.lastActivity || $user.activity.lastActivity
         };
         
