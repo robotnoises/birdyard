@@ -52,7 +52,9 @@
     function formatUserData(userData) {
       if (userData) {
         userData.name = userData.name || userData.providerData.name;
-        userData.avatar = userData.avatar || userData.providerData.avatar;
+        // Note: for now let's just stick with the Twitter avatar
+        // userData.avatar = userData.avatar || userData.providerData.avatar;
+        userData.avatar = userData.providerData.avatar;
         return userData;  
       } else {
         return null;
