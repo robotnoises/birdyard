@@ -6,7 +6,6 @@
       <div>People are talking about</div>
       
       <md-input-container>
-        <!--<label>Everything</label>-->
         <md-select ng-model="category" selected="selected" aria-label="Select a category">
           <md-option ng-value="0" ng-selected="category == 0">Everything</md-option>
           <md-option ng-value="1" ng-selected="category == 1">News</md-option>
@@ -21,7 +20,6 @@
     
     <div class="searchbar-placeholder">
       <i class="icon fa fa-search"></i> <span>Search {{categoryReadable}}</span>
-      <!--<img src="assets/images/icons/search.svg" class="" /> <span>Search {{categoryReadable}}</span>-->
     </div>
     
     <search-bar category="{{category}}"></search-bar>

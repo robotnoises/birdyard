@@ -30,10 +30,14 @@
   }
   .md-select-value {
     // opacity: 0.75;
-   color: $co_white !important;
+    display: inherit;
+    color: $co_white !important;
     // border-width: 1px !important;
-    border-color: $co_white !important;
+    border-color: transparent !important;
     transition: color $dur_fade;
+    span:not(.md-select-icon) {
+      border-bottom: 2px solid $co_yellow !important;
+    }
     // &:hover {
     //   color: $co_white !important;
     // }
