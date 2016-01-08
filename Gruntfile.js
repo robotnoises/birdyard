@@ -173,7 +173,7 @@ var config = function (grunt) {
         files: [
           { 
             expand: true, 
-            src: ['src/assets/style/fonts/junglefever/*'], 
+            src: ['src/assets/style/fonts/**/*'], 
             dest: 'src/assets/style/compiled/fonts/', 
             flatten: true, 
             filter: 'isFile'
@@ -184,9 +184,10 @@ var config = function (grunt) {
         files: [
           { 
             expand: true,
-            src: ['src/assets/style/fonts/junglefever/*'], 
+            src: ['src/assets/style/fonts/**/*'], 
             dest: 'dist/assets/style/fonts/',
-            flatten: true
+            flatten: true,
+            filter: 'isFile'
           }
         ]
       },

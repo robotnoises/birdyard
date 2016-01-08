@@ -15,21 +15,13 @@ html(lang='en', ng-app='bbop')
     link(rel='stylesheet', href='assets/style/lib/angular-material/angular-material.min.css')
     link(rel='stylesheet', href='assets/style/bbop.min.css')
     = '\n'
-    // Font Awesome
-    script(src='//use.fonticons.com/c3b6848c.js')
   body(ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Bbop Logo
     h1(class='bbop-logo pointer font-white', ng-controller='uiController', ng-click='goHome()') Bbop!
     = '\n'
-    // New room
-    md-button(class='bbop-action', ng-controller='authController', aria-label='Bbop Menu', ng-click='goToNewRoom()')
-      span(ng-if='signedIn') Make a room
-      span(ng-if='!signedIn') Sign in with Twitter
-    // User Avatar
-    span(class='bbop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')
-      img(ng-src='{{avatarUrl}}')
-      md-tooltip(md-direction='left') View/edit your profile
+    // Menu
+    menu
     = '\n'
     // Notifications
     notifications(ng-if='signedIn', md-delay='1250')
