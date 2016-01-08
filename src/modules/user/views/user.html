@@ -17,8 +17,9 @@
           <input class="jumbo" ng-model="user.name" type="text" ng-class="{'borders': editable}" ng-disabled="!editable" maxlength="50">
         </md-input-container>
         
-        <!-- Todo: Lets do something with this inline style -->
-        <div flex="none" class="border-accent-avatar" style="width: 45px; height: 45px; margin: 18px 5px 0 16px; background: #000; border-radius: 50%;" ng-style="{'border-color': user.accent}"></div>         
+        <div flex="none" class="border-accent-avatar bbop-avatar-lg" ng-style="{'border-color': user.accent}">
+          <img ng-src='{{user.avatar}}' />
+        </div>         
           
       </div>
       

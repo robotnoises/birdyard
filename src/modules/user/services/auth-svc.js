@@ -21,6 +21,21 @@
       }
     }
     
+    // Strip-out *_normal*
+    function getLargeAvatarURL(url) {
+      
+      var start, end;
+      
+      start = url.indexOf('_normal.');
+      end =  start + '_normal'.length;
+      
+      if (start > -1) {
+        return url.substring(0, start) + url.substring(end); 
+      } else {
+        return url;
+      } 
+    }
+    
     // Scrub-away any extra or sensitive data, store only what we need
     function formatAuthData(authData) {
       // Their Bbop-custom properties (name and avatar) will be set later-on
@@ -33,7 +48,8 @@
         providerData: {
           // These represent defaults to the user's customizable fields...
           name:     authData[authData.provider].displayName,
-          avatar:   authData[authData.provider].profileImageURL  
+          avatar:   authData[authData.provider].profileImageURL,
+          avatar_lg: getLargeAvatarURL(authData[authData.provider].profileImageURL)
         },
       };
     }
@@ -55,6 +71,7 @@
         // Note: for now let's just stick with the Twitter avatar
         // userData.avatar = userData.avatar || userData.providerData.avatar;
         userData.avatar = userData.providerData.avatar;
+        userData.avatar_lg = userData.providerData.avatar_lg || userData.providerData.avatar;
         return userData;  
       } else {
         return null;
