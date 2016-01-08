@@ -13,7 +13,7 @@
           '<h2>Whoa there, partner!</h2>' +
           '<p>You need to be signed-in to do that.</p>' +
           '<p>Click the icon below to sign-in with Twitter:</p>' +
-          '<i class="icon fa-twitter-square pointer" ng-click="signIn(\'twitter\')"></i>' +
+          '<i class="icon fa fa-twitter-square pointer" ng-click="signIn(\'twitter\')"></i>' +
         '</div>',
       link: function (scope, element, attrs) {
                 
