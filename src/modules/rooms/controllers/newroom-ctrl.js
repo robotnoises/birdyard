@@ -17,7 +17,7 @@
     
     function init() {
       uiService.setBackgroundValue(uiService.VALUE.LIGHT);
-      uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
+      // uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
       $timeout(function () {
         $scope.loaded = true;
       });
