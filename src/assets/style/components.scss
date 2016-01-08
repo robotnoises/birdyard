@@ -1,3 +1,8 @@
+@import 'borders-shadows';
+@import 'duration';
+
+// Avatar
+
 .bbop-avatar-lg {
   width: 45px;
   height: 45px;
@@ -7,5 +12,41 @@
   overflow: hidden;
   img {
     height: 100%;
+  }
+}
+
+// Lightbox
+
+.lightbox-wrapper {
+  display: block;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.35);
+  z-index: -1;
+  
+  transition: opacity $dur_fade;
+  
+  &.show {
+    opacity: 1;
+    z-index: 9999999;
+  }
+  
+  .lightbox {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 150px auto 0;
+    width: 400px;
+    padding: 5px;
+    background-color: $co_white;
+    @include border(1px);
+    
+    img {
+      width: 100%;
+    }
   }
 }

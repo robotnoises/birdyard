@@ -20,7 +20,8 @@
     $scope.modified = false;
     $scope.editable = typeof _userId === 'undefined';
     $scope.accentColors = colorService.list;
-
+    $scope.showLightbox = false;
+    
     authService.getUser(_userId).then(function ($user) {
       _user = angular.copy($user);
       $timeout(function () {
