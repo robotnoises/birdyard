@@ -37,7 +37,6 @@
           uid: $user.uid,
           commentCount: 0,
           language: $user.language,
-          avatar: $user.avatar,
           description: $user.description,
           name: $user.name,
           lastActivity: _$activity.lastActivity || $user.activity.lastActivity

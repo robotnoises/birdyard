@@ -12,7 +12,7 @@
     
     var $user = null;
     
-    function getUser() {
+    function getCurrentUser() {
       if ($user) {
        return $user;
       } else {
@@ -128,7 +128,7 @@
         if (uid) {
           _uid = uid;  
         } else {
-          var _user = getUser();
+          var _user = getCurrentUser();
           if (_user) {
             _uid = _user.uid;
           }
@@ -146,9 +146,9 @@
       });
     }
     
-    function _getAvatar() {
+    function _getAvatar(uid) {
       return $q(function (resolve, reject) {
-        _getUser().then(function($user) {
+        _getUser(uid).then(function($user) {
           if ($user.avatar) {
             var avatar = $user.avatar || $user.providerData.avatar;
             resolve(avatar);  
