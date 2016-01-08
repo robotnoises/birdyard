@@ -111,7 +111,7 @@
             .content('Signed out!')
             .theme('toast-default')
             .position('bottom right')
-            .hideDelay(3000)
+            .hideDelay(1000)
           );
       });
     };

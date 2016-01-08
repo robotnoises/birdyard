@@ -2,6 +2,7 @@
 @import 'colors';
 @import 'duration';
 @import 'borders-shadows';
+@import 'mixins';
 
 // Generic containers
 
@@ -210,24 +211,6 @@
   img {
     height: 30px;
   }
-}
-
-.bbop-action {
-  position: fixed;
-  display: block;
-  top: 14px;
-  right: 65px;
-  height: 30px;
-  border-radius: 2px;
-  overflow: hidden;
-  z-index: 4;
-  color: $co_white;
-  border: 1px solid $co_white;
-}
-
-.room {
-  padding: $dim_spacer;
-  margin-bottom: $dim_spacer;
 }
 
 .roomlist {

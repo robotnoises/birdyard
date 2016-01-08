@@ -16,10 +16,3 @@
 .border-accent-avatar {
   border: 2px solid $co_purple;
 }
-
-@mixin border($width) {
-  border-width: $width;
-  border-style: solid;
-  border-radius: 2px;
-  border-color: rgba(0,0,0,0.12);
-}

@@ -23,9 +23,14 @@
     <!-- Bbop Logo-->
     <h1 ng-controller="uiController" ng-click="goHome()" class="bbop-logo pointer logo-white">Bbop!</h1>
     <!-- New room-->
-    <md-button ng-controller="authController" aria-label="Bbop Menu" ng-click="goToNewRoom()" class="bbop-action"><span ng-if="signedIn">Make a room</span><span ng-if="!signedIn">Sign in with Twitter</span></md-button>
-    <!-- User Avatar--><span ng-controller="authController" ng-if="signedIn" ng-click="goToProfile()" class="bbop-avatar pointer"><img ng-src="{{avatarUrl}}">
-      <md-tooltip md-direction="left">View/edit your profile</md-tooltip></span>
+    <!-- md-button(class='bbop-action', ng-controller='authController', aria-label='Bbop Menu', ng-click='goToNewRoom()')-->
+    <!--   span(ng-if='signedIn') Make a room-->
+    <!--   span(ng-if='!signedIn') Sign in with Twitter-->
+    <menu></menu>
+    <!-- User Avatar-->
+    <!-- span(class='bbop-avatar pointer', ng-controller='authController', ng-if='signedIn', ng-click='goToProfile()')-->
+    <!--   img(ng-src='{{avatarUrl}}')-->
+    <!--   md-tooltip(md-direction='left') View/edit your profile-->
 
     <!-- Notifications-->
     <notifications ng-if="signedIn" md-delay="1250"></notifications>
@@ -76,6 +81,7 @@
     <script src="modules/utilities/directives/markdownFilter.js"></script>
     <script src="modules/utilities/directives/markdownIcon.js"></script>
     <script src="modules/utilities/directives/lightbox.js"></script>
+    <script src="modules/utilities/directives/menu.js"></script>
 
     <!-- Search-->
     <script src="modules/search/services/search-svc.js"></script>

@@ -1,7 +1,65 @@
 @import 'borders-shadows';
 @import 'duration';
+@import 'mixins';
+
+// Menu
+
+.bbop-menu-wrapper {
+  position: fixed;
+  display: block;
+  top: 14px;
+  right: 25px;
+  overflow: visible;
+  z-index: 4;
+  
+  .bbop-menu-btn {
+    height: 36px;
+    border-radius: 2px;
+    color: $co_white;
+    border: 1px solid $co_white;
+    
+    .bbop-avatar-sm {
+      display: inline-block;
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  .bbop-menu {
+    position: fixed;
+    right: 25px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity $dur_fade;
+    min-height: 200px;
+    width: 200px;
+    @include card();
+      
+    &.show {
+      opacity: 1;
+      z-index: 99999;
+    }
+      
+    .bbop-menu-item {
+      
+    }
+  }
+}
+
+
 
 // Avatar
+
+.bbop-avatar-sm {
+  display: block;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    height: 25px;
+  }
+}
 
 .bbop-avatar-lg {
   width: 45px;
@@ -49,4 +107,11 @@
       width: 100%;
     }
   }
+}
+
+// Rooms
+
+.bbop-room {
+  @include card();
+  margin-bottom: $dim_spacer;
 }
