@@ -8,7 +8,7 @@
       <markdown-icon class="markdown-reply"></markdown-icon>
       
       <!-- Add some content! -->
-      <i id="close" class="icon icon-times-circle pointer float-right reply" ng-click="toggleDialog()"></i> 
+      <i id="close" class="icon fa fa-times-circle pointer float-right reply" ng-click="toggleDialog()"></i> 
       
       <md-content class="padding-top"> 
         <md-input-container class="md-block">
@@ -31,19 +31,19 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon icon-pencil-square pointer float-right reply fadey ghost" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
+      <i id="pencil" class="icon fa fa-pencil-square pointer float-right reply fadey ghost" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
         <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
       </i>     
             
       <!-- Go up one level -->
       <div layout="column" class="level-up fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
-        <i class="icon icon-chevron-circle-up pointer" ng-click="goUp()"></i>
+        <i class="icon fa fa-chevron-circle-up pointer" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
       <div layout="column" class="breadcrumb fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
         <div class="crumbs">
-          <i class="icon" ng-class="nodeId != node.id ? 'icon-circle-o pointer' : 'icon-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
+          <i class="icon" ng-class="nodeId != node.id ? 'fa fa-circle-o pointer' : 'fa fa-circle solid'" ng-repeat="nodeId in node.breadcrumb" ng-click="goToNode(nodeId)"></i>
         </div>
       </div>
       
@@ -112,7 +112,7 @@
       <div class="node-title">
         <span class="displayName">{{child.name}}</span> 
         <!--<span class="handle small">{{child.handle}}</span>-->
-        <!--<i class="icon icon-star-o pointer" ng-class="{ghost: !loaded}">
+        <!--<i class="icon fa fa-star-o pointer" ng-class="{ghost: !loaded}">
           <md-tooltip md-delay="1250">
             Favorite
           </md-tooltip>
@@ -125,7 +125,7 @@
       
       <div class="node-actions">
         <span class="pointer" ng-click="selectChild(child)" ng-class="{ghost: !loaded}" ng-mouseenter="pauseAutoScroll(true)" ng-mouseleave="pauseAutoScroll(false)">
-          <i class="icon icon-comment comment-count" ng-class="{'one-digit': (child.commentCount > 0), 'two-digits': (child.commentCount > 9), 'three-digits': (child.commentCount > 99)}" data-commentcount="{{child.commentCount}}"></i>
+          <i class="icon fa fa-comment comment-count" ng-class="{'one-digit': (child.commentCount > 0), 'two-digits': (child.commentCount > 9), 'three-digits': (child.commentCount > 99)}" data-commentcount="{{child.commentCount}}"></i>
           <span class="small link"> comment<span ng-hide="child.commentCount == 1">s</span></span>
         </span>        
       </div>
