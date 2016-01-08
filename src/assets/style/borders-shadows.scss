@@ -3,6 +3,9 @@
 .shadow-flat {
   box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 }
+.shadow-soft {
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
 
 .shadow-bottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

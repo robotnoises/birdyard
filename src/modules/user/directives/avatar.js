@@ -4,7 +4,7 @@
   
   angular.module('bbop.users')
   
-  .directive('avatar', ['authService', function (authService) {
+  .directive('avatar', ['$timeout', 'authService', function ($timeout, authService) {
     return {
       restrict: 'E',
       replace: true,
@@ -16,7 +16,11 @@
       link: function (scope, element, attrs) {
         scope.avatarUrl = '';
         authService.getAvatar(scope.uid).then(function (avatarUrl) {
-          scope.avatarUrl = avatarUrl;
+          if (avatarUrl) {
+            $timeout(function () {
+              scope.avatarUrl = avatarUrl;
+            });
+          }
         }).catch(function (err) {
           console.error(err);
         })

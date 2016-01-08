@@ -1,6 +1,7 @@
 @import 'borders-shadows';
 @import 'duration';
 @import 'mixins';
+@import 'dimensions';
 
 // Menu
 
@@ -17,12 +18,6 @@
     border-radius: 2px;
     color: $co_white;
     border: 1px solid $co_white;
-    
-    .bbop-avatar-sm {
-      display: inline-block;
-      margin-top: 5px;
-      margin-right: 5px;
-    }
   }
 
   .bbop-menu {
@@ -31,33 +26,53 @@
     opacity: 0;
     z-index: -1;
     transition: opacity $dur_fade;
-    min-height: 200px;
     width: 200px;
-    @include card();
-      
+    background: $co_white;
+    border-radius: 2px;
+    margin-top: 10px;
+    
+    &:before {
+      content: ' ';
+      position: fixed;
+      top: 47px;
+      right: 32px;
+      width: 0; 
+	    height: 0;
+	    border-left: 9px solid transparent;
+	    border-right: 9px solid transparent;
+	    border-bottom: 9px solid $co_white;;
+    }
+     
     &.show {
       opacity: 1;
       z-index: 99999;
     }
       
     .bbop-menu-item {
-      
+      cursor: pointer;
+      padding: 5px 10px;
+      line-height: 24px;
     }
   }
 }
-
-
 
 // Avatar
 
 .bbop-avatar-sm {
   display: block;
-  height: 26px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid $co_white;
   border-radius: 50%;
   overflow: hidden;
+  transition: border $dur_fade;
+  
+  &:hover {
+    border: 1px solid $co_yellow;
+  }
+  
   img {
-    height: 25px;
+    height: 100%;
   }
 }
 

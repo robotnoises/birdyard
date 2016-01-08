@@ -24,13 +24,14 @@
       replace: true,
       template: 
       '<div class="bbop-menu-wrapper" ng-click="toggleMenu()">' +
-        '<md-button class="bbop-menu-btn">' + 
-          '<span ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</span>' + 
-          '<span ng-if="signedIn" class="bbop-avatar-sm"><avatar></avatar></span>' +
-          '<span ng-if="signedIn">Foo Barson</span>' +
-        '</md-button>' +
-        '<div class="bbop-menu" ng-class="{show: showing}">' +
-          '<div class="bbop-menu-header" ng-click="goTo(\'/user\')">Profile</div>' +
+        '<md-button class="bbop-menu-btn" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</md-button>' + 
+        
+        '<div ng-if="signedIn" class="bbop-avatar-sm pointer">' + 
+          '<avatar></avatar>' + 
+        '</div>' +
+
+        '<div class="bbop-menu shadow-soft" ng-class="{show: showing}">' +
+          '<div class="bbop-menu-item" ng-click="goTo(\'/user\')">Profile</div>' +
           '<div class="bbop-menu-item">Hello World</div>' +
           '<div class="bbop-menu-item">Butts butts butts</div>' +
           '<div class="bbop-menu-item">aaaaaaaaaa</div>' +
