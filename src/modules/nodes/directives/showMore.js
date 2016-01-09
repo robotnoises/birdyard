@@ -10,7 +10,7 @@
   
   function createShowMoreElement() {
     var el = angular.element('<i/>');
-    el.addClass('icon icon-ellipsis-v show-more ghost fadey boo');
+    el.addClass('icon fa fa-ellipsis-v show-more ghost fadey boo');
     return el;
   }
   

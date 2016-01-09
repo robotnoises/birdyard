@@ -23,14 +23,15 @@
       restrict: 'E',
       replace: true,
       template: 
-      '<div class="bbop-menu-wrapper" ng-click="toggleMenu()">' +
+      '<div class="bbop-menu-wrapper">' +
+        
         '<md-button class="bbop-menu-btn" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</md-button>' + 
         
-        '<div ng-if="signedIn" class="bbop-avatar-sm pointer">' + 
+        '<div ng-if="signedIn" class="bbop-avatar-sm pointer" ng-click="toggleMenu()">' + 
           '<avatar></avatar>' + 
         '</div>' +
 
-        '<div class="bbop-menu shadow-soft" ng-class="{show: showing}">' +
+        '<div class="bbop-menu shadow-soft" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
           '<div class="bbop-menu-item" ng-click="goTo(\'/user\')">Profile</div>' +
           '<div class="bbop-menu-item">Hello World</div>' +
           '<div class="bbop-menu-item">Butts butts butts</div>' +
@@ -48,8 +49,16 @@
           }
         };
         
+        scope.close = function () {
+          if (scope.showing) {
+            scope.showing = false;
+          }
+        }
+        
         scope.goTo = function (loc) {
-          $location.path(loc);
+          if (scope.showing) {
+            $location.path(loc);  
+          }
         };
         
         scope.signIn = function () {
@@ -70,6 +79,9 @@
         };
         
         scope.signOut = function () {
+          
+          if (!scope.showing) return;
+          
           return authService.signOut().then(function () {
             return $mdToast.show(
               $mdToast.simple()
