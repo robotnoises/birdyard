@@ -87,6 +87,8 @@
   }
   p {
     margin: $dim_spacer 0;
+    overflow: hidden;
+    word-break: break-all;
   }
   .node-avatar {
     position: absolute;
@@ -190,6 +192,10 @@
   z-index: 4;
 }
 
+.reply-container {
+  height: $dim_feature;
+}
+
 .toolbar {
   top: 225px;
   z-index: 3;
@@ -248,6 +254,32 @@
   }
 }
 
+.icon-reply-container {
+  
+  position: absolute;
+  bottom: 13px;
+  right: 25px;
+  padding-right: 7px;
+  border-radius: 2px;
+  background-color: $co_verylightgrey;
+  
+  i.icon {
+    float: right;
+    font-size: 1.5em;
+    color: $co_black;
+    padding-left: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+.reply-textarea {
+  position: fixed;
+  width: 100%;
+  max-width: $dim_standard;
+  padding-right: 50px;
+}
+
 .thumbnail {
   display: block;
   clear: both;
@@ -270,7 +302,7 @@
     content: '\f144';
     cursor: pointer;
     pointer-events: none !important;
-    text-shadow: 0px 0px 5px rgba(0,0,0,0.95);
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.95);
   }
   &:hover:after {
     opacity: 1;

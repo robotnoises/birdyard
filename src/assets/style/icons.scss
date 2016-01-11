@@ -7,10 +7,11 @@ i.icon.reply {
   z-index: 2;
   font-size: 2em;
   color: $co_white;
+  padding-left: 1px;
 }
 
 i.icon.fa-times-circle {
-  color: $co_grey;
+  color: $co_black;
 }
 
 i.icon.comment-count {
