@@ -20,6 +20,7 @@
     'authService',
     '$mdDialog', 
     '$mdToast',
+    'selectText',
   
   function (
     $scope, 
@@ -36,7 +37,8 @@
     notificationService,
     authService,
     $mdDialog, 
-    $mdToast) {
+    $mdToast,
+    selectText) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -372,7 +374,11 @@
       } else {
         $scope.text = linkText;
       }
-      
+      selectText(
+        document.getElementById('text-input'), 
+        $scope.text.length - 27, 
+        $scope.text.length - 1
+      );
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
