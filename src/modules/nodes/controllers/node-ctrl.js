@@ -84,9 +84,7 @@
         console.error(err);
       });
       
-      $timeout(function() {
-        scrollToBottom()
-      }, SPEED / 2);
+      $timeout(scrollToBottom, SPEED / 2);
     }
     
     function navigateToNode(nodeId) {
@@ -169,6 +167,18 @@
       });
     }
     
+    function getScrollHeight() {
+      return document.body.scrollHeight || document.documentElement.scrollHeight;    
+    }
+    
+    function scrollToBottom(forceScroll) {
+      if ($scope.autoScroll || forceScroll) {
+        $timeout(function () {
+          $window.scrollTo(0, getScrollHeight());  
+        }, 100);
+      }
+    }
+    
     function checkBottom() {
       
       $timeout(function() {
@@ -186,18 +196,6 @@
           $scope.autoScroll = false;
         }
       }, SPEED);
-    }
-    
-    function getScrollHeight() {
-      return document.body.scrollHeight || document.documentElement.scrollHeight;    
-    }
-    
-    function scrollToBottom(forceScroll) {
-      if ($scope.autoScroll || forceScroll) {
-        $timeout(function () {
-          $window.scrollTo(0, getScrollHeight());  
-        },0);
-      }
     }
     
     function babySitter(snap) {
