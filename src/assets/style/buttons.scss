@@ -1,0 +1,10 @@
+@import 'colors'; 
+
+.bbop-btn {
+  background-color: $co_verylightgrey;
+  color: $co_black;
+  font-weight: 700;
+  &:hover {
+    background-color: $co_grey;
+  }
+}

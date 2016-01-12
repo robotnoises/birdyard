@@ -55,7 +55,8 @@
   }
   button {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
+    right: 0;
   }
   a {
     color: $co_white;
@@ -257,17 +258,16 @@
 .icon-reply-container {
   
   position: absolute;
-  bottom: 13px;
-  right: 25px;
-  padding-right: 7px;
+  top: 20px;
+  left: 25px;
+  padding-left: 7px;
   border-radius: 2px;
   background-color: $co_verylightgrey;
   
   i.icon {
-    float: right;
     font-size: 1.5em;
     color: $co_black;
-    padding-left: 7px;
+    padding-right: 7px;
     padding-top: 4px;
     padding-bottom: 4px;
   }

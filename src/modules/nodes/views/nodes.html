@@ -1,7 +1,7 @@
 <!-- Main Content Container -->
 <div>
   
-  <div class="featured bg-white fixed dialog fadey shadow-soft" ng-class="{ghost: !showDialog}">
+  <div class="featured bg-white fixed dialog fadey shadow-flat" ng-class="{ghost: !showDialog}">
     
     <div class="reply-container content" ng-show="signedIn">
       
@@ -9,7 +9,7 @@
       
       <i id="close" class="icon fa fa-times-circle pointer float-right reply" ng-click="toggleDialog()"></i>  
       
-      <md-content class="reply-textarea padding-top"> 
+      <md-content class="reply-textarea" style="padding-top: 75px"> 
         <md-input-container class="md-block">
           <label></label>
           <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="text" placeholder="Reply to {{node.name}}..."></textarea>
@@ -20,6 +20,9 @@
         <i id="insert-image" class="icon fa fa-image pointer" ng-click="insertMediaLink()"></i>
         <i id="insert-image" class="icon fa fa-link pointer" ng-click="insertLink()"></i>
       </div>
+
+      <md-button class="bbop-btn shadow-flat" ng-click="pushText()">Reply</md-button>
+      
     </div>
     
     <auth-user ng-show="!signedIn"></auth-user>

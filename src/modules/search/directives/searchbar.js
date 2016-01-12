@@ -4,9 +4,9 @@
   
   angular.module('bbop.search')
   
-  .directive('searchBar', ['$timeout', '$location', '$routeParams', 'searchService', 
+  .directive('searchBar', ['$timeout', '$location', '$routeParams', 'searchService', 'roomService',
     
-    function ($timeout, $location, $routeParams, searchService) {
+    function ($timeout, $location, $routeParams, searchService, roomService) {
     
     return {
       restrict: 'E',
@@ -56,6 +56,7 @@
         
         scope.results = [];
         scope.searching = false;
+        scope.categoryReadable = roomService.getCategory(scope.category);
         
         scope.goTo = function (nodeId) {
           $timeout(function () {
