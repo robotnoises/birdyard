@@ -1,47 +1,54 @@
 @import '_variables';
 
 .searchbar {
+  position: absolute;
   display: block;
-  margin: 200px 0;
+  width: 100%;
+  bottom: 0;
+
   md-content {
     background-color: transparent;
     overflow: visible;
   }
+  
   md-input-container {
     padding-bottom: 0;
+    
     input {
       font-size: 1.5em;
-      padding: 2px 16px 0;
+      padding-left: calc((100% - #{$dim_content}) / 2);
+      padding-right: calc((100% - #{$dim_content}) / 2);
       line-height: 48px;
       border-width: 0 !important;
       background-color: $co_white;
       opacity: 0;
       transition: opacity $dur_fade;
+      
       &:focus {
         opacity: 1;
       }
     }
   }
+  
   md-list {
     padding: 0;
   }
+  
   .results {
     background-color: $co_white;
   }
 }
 
 .searchbar-placeholder {
+  position: absolute;
   display: block;
   width: 100%;
-  position: absolute;
   z-index: 0;
+  bottom: 0px;
   color: $co_extradarkblack;
   font-size: 1.5em;
-  margin-top: 11px;
-  margin-bottom: 11px;
   font-weight: 400;
   padding-bottom: 7px;
-  border-bottom: 1px solid $co_white;
   i, span {
     opacity: 0.4;
   }

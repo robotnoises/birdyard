@@ -5,7 +5,7 @@
 .content {
   position: relative;
   width: 100%;
-  max-width: $dim_standard;
+  max-width: $dim_content;
   margin: 0 auto;
 }
 
@@ -217,14 +217,13 @@
 }
 
 .roomlist {
-  padding-top: 300px;
+  padding-top: 25px;
 }
 
 .jumbotron {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+  position: relative;
+  display: block;
+  overflow: hidden;
   height: $dim_feature;
   z-index: 1;
 }
@@ -284,7 +283,7 @@
 .reply-textarea {
   position: fixed;
   width: 100%;
-  max-width: $dim_standard;
+  max-width: $dim_content;
   padding-right: 50px;
 }
 

@@ -8,18 +8,18 @@
 }
 
 .rooms-header {
-  position: absolute;
-  top: -100px;
+  position: relative;
+  padding-top: 100px;
+  margin: 0;
   color: $co_white;
   font-weight: 400;
   font-size: 2.5em;
   z-index: 2;
-  
   text-shadow: 2px 2px 0px rgba(0,0,0,0.25);
   
   md-input-container {
     padding-top: 0;
-    padding-bottom: 4px;
+    padding-bottom: 0;
   }
   md-select {
     display: inline-block;
@@ -35,8 +35,16 @@
     color: $co_white !important;
     border-color: transparent !important;
     transition: color $dur_fade;
+        
     span:not(.md-select-icon) {
-      border-bottom: 2px solid $co_white !important;
+      background-color: $co_verylightgrey;
+      color: $co_black;
+      font-weight: 700;
+      text-shadow: none !important;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 2px;
+      @include raised(3px);
     }
   }
 }
