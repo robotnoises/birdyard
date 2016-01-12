@@ -1,7 +1,4 @@
 @import 'borders-shadows';
-@import 'duration';
-@import 'mixins';
-@import 'dimensions';
 
 // Menu
 
@@ -29,12 +26,12 @@
     width: 200px;
     background: $co_white;
     border-radius: 2px;
-    margin-top: 10px;
+    top: 65px;
     
     &:before {
       content: ' ';
       position: fixed;
-      top: 47px;
+      top: 58px;
       right: 32px;
       width: 0; 
 	    height: 0;
@@ -61,6 +58,7 @@
   display: block;
   height: 30px;
   width: 30px;
+  background-color: $co_white;
   border: 3px solid $co_white;
   border-radius: 50%;
   overflow: hidden;
