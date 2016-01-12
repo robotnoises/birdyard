@@ -69,7 +69,6 @@
     function init() {
       
       uiService.setBackgroundValue(uiService.VALUE.DARK);
-      uiService.setBackgroundClass('');
       
       // If the user switches autoscroll to true, scroll to the bottom
       $scope.$watch('autoScroll', function (newValue, oldValue) {
@@ -221,6 +220,14 @@
         });
       }
     }
+    
+    function insertMarkdown(input) {
+      if ($scope.text) {
+        $scope.text = $scope.text + '\n\n' + input;  
+      } else {
+        $scope.text = input;
+      }
+    }
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
@@ -366,19 +373,29 @@
       });
     };
     
-    $scope.insertMediaLink = function () {
+    $scope.insertMedia = function () {
+      
       var linkText = '![](http://link-to-image-here/)';
       
-      if ($scope.text) {
-        $scope.text = $scope.text + '\n\n' + linkText;  
-      } else {
-        $scope.text = linkText;
-      }
+      insertMarkdown(linkText);
+      
       selectText(
         document.getElementById('text-input'), 
         $scope.text.length - 27, 
         $scope.text.length - 1
       );
+    };
+    
+    $scope.insertFormatting = function (_type) {
+      
+      var bold = '**your-bold-text-here**';
+      var italics = '*your-italicized-text-here*';
+      
+      if (_type === 'bold') {
+        insertMarkdown(bold);
+      } else if (_type === 'italic') {
+        insertMarkdown(italics);
+      }
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

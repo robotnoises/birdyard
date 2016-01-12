@@ -261,11 +261,19 @@
   background-color: $co_verylightgrey;
   
   i.icon {
-    font-size: 1.5em;
+    font-size: 1.25em;
     color: $co_black;
     padding-right: 7px;
     padding-top: 4px;
     padding-bottom: 4px;
+  }
+  
+  span.separator {
+    width: 4px;
+    padding: 2px 0;
+    margin: 0 2px;
+    background-color: transparent;
+    display: inline-block;
   }
 }
 
