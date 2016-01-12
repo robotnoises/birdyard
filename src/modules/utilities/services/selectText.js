@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .factory('selectText', function() {
     return function (field, start, end) {

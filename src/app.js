@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('bbop', [
+angular.module('birdyard', [
   
-  // Bbop!
-  'bbop.config',
-  'bbop.users',
-  'bbop.search',
-  'bbop.utilities',
-  'bbop.nodes',
-  'bbop.rooms',
-  'bbop.notifications',
+  // birdyard!
+  'birdyard.config',
+  'birdyard.users',
+  'birdyard.search',
+  'birdyard.utilities',
+  'birdyard.nodes',
+  'birdyard.rooms',
+  'birdyard.notifications',
   
   // Third-party
   'ngMaterial',

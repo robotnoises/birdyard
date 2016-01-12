@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .controller('uiController', ['$scope', '$routeParams', '$location', 'uiService',
   

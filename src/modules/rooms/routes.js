@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.rooms')
+  angular.module('birdyard.rooms')
   
   .config(['$routeProvider', function ($routeProvider) {
     

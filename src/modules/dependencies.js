@@ -5,38 +5,38 @@
   'use strict';
   
   // Nodes
-  angular.module('bbop.utilities', [
+  angular.module('birdyard.utilities', [
     'firebase'
   ]);
   
   // Search
-  angular.module('bbop.search', [
+  angular.module('birdyard.search', [
     'firebase',
     'ngMaterial'
   ]);
   
   // Nodes
-  angular.module('bbop.nodes', [
+  angular.module('birdyard.nodes', [
     'ngRoute',
     'firebase',
     'ngMaterial'
   ]);
   
   // Rooms
-  angular.module('bbop.rooms', [
+  angular.module('birdyard.rooms', [
     'ngRoute',
     'firebase',
     'ngMaterial'
   ]);
   
   // Authentication
-  angular.module('bbop.users', [
+  angular.module('birdyard.users', [
     'ngRoute',
     'firebase'
   ]);
   
   // Notifications
-  angular.module('bbop.notifications', [
+  angular.module('birdyard.notifications', [
     'firebase',
     'ngMaterial'
   ]);

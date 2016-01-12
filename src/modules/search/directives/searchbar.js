@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.search')
+  angular.module('birdyard.search')
   
   .directive('searchBar', ['$timeout', '$location', '$routeParams', 'searchService', 'roomService',
     

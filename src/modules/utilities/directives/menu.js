@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .directive('menu', [
     '$rootScope', 
@@ -23,20 +23,20 @@
       restrict: 'E',
       replace: true,
       template: 
-      '<div class="bbop-menu-wrapper">' +
+      '<div class="birdyard-menu-wrapper">' +
         
-        '<md-button class="bbop-menu-btn" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</md-button>' + 
+        '<md-button class="birdyard-menu-btn" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</md-button>' + 
         
-        '<div ng-if="signedIn" class="bbop-avatar-sm pointer" ng-click="toggleMenu()">' + 
+        '<div ng-if="signedIn" class="birdyard-avatar-sm pointer" ng-click="toggleMenu()">' + 
           '<avatar></avatar>' + 
         '</div>' +
 
-        '<div class="bbop-menu shadow-soft" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
-          '<div class="bbop-menu-item" ng-click="goTo(\'/user\')">Profile</div>' +
-          '<div class="bbop-menu-item">Hello World</div>' +
-          '<div class="bbop-menu-item">Butts butts butts</div>' +
-          '<div class="bbop-menu-item">aaaaaaaaaa</div>' +
-          '<div class="bbop-menu-item" ng-click="signOut()">Sign Out</div>' +
+        '<div class="birdyard-menu shadow-soft" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
+          '<div class="birdyard-menu-item" ng-click="goTo(\'/user\')">Profile</div>' +
+          '<div class="birdyard-menu-item">Hello World</div>' +
+          '<div class="birdyard-menu-item">Butts butts butts</div>' +
+          '<div class="birdyard-menu-item">aaaaaaaaaa</div>' +
+          '<div class="birdyard-menu-item" ng-click="signOut()">Sign Out</div>' +
         '</div>' +
       '</div>',
       link: function (scope, element, attrs) {

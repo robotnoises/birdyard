@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .directive('markdownFilter', ['$timeout', function($timeout) {
         

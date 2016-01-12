@@ -3,9 +3,9 @@
   'use strict';
   
   // Todo: move to config
-  var ELASTIC_INDEX = 'bbop';
+  var ELASTIC_INDEX = 'birdyard';
     
-  angular.module('bbop.search')
+  angular.module('birdyard.search')
     
   .factory('searchService', ['$q', 'firebaseService', 
   

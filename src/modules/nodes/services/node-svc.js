@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.nodes')
+  angular.module('birdyard.nodes')
   
   .factory('nodeService', ['$q', 'firebaseService', '$firebaseObject', '$firebaseArray', '$window', 'authService', 'activityService',
   

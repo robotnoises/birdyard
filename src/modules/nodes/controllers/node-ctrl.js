@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.nodes')
+  angular.module('birdyard.nodes')
   
   .controller('nodeController', [
     '$scope', 

@@ -4,7 +4,7 @@
   
   var shiftPressed = false;
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .directive('shiftEnter', function () {
     

@@ -5,7 +5,7 @@
 
 // Menu
 
-.bbop-menu-wrapper {
+.birdyard-menu-wrapper {
   position: fixed;
   display: block;
   top: 20px;
@@ -13,14 +13,14 @@
   overflow: visible;
   z-index: 4;
   
-  .bbop-menu-btn {
+  .birdyard-menu-btn {
     height: 36px;
     border-radius: 2px;
     color: $co_white;
     border: 1px solid $co_white;
   }
 
-  .bbop-menu {
+  .birdyard-menu {
     position: fixed;
     right: 25px;
     opacity: 0;
@@ -48,7 +48,7 @@
       z-index: 99999;
     }
       
-    .bbop-menu-item {
+    .birdyard-menu-item {
       padding: 5px 10px;
       line-height: 24px;
     }
@@ -57,7 +57,7 @@
 
 // Avatar
 
-.bbop-avatar-sm {
+.birdyard-avatar-sm {
   display: block;
   height: 30px;
   width: 30px;
@@ -75,7 +75,7 @@
   }
 }
 
-.bbop-avatar-lg {
+.birdyard-avatar-lg {
   width: 45px;
   height: 45px;
   margin: 18px 5px 0 16px;
@@ -125,7 +125,7 @@
 
 // Rooms
 
-.bbop-room {
+.birdyard-room {
   @include card();
   margin-bottom: $dim_spacer;
 }

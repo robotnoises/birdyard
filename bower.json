@@ -1,7 +1,7 @@
 {
-  "name": "bbop",
+  "name": "birdyard",
   "version": "0.0.1",
-  "homepage": "https://github.com/bbop-chat/bbop",
+  "homepage": "https://github.com/birdyard/birdyard",
   "main": "app.js",
   "moduleType": [
     "node"

@@ -5,7 +5,7 @@
   'use strict';
 
   // Config
-  angular.module('bbop.config', [
+  angular.module('birdyard.config', [
     'ngRoute',
     'firebase',
     'ngMaterial'

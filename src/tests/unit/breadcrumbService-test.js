@@ -1,10 +1,10 @@
 'use strict'
 
-describe('bbop.utilities', function () {
+describe('birdyard.utilities', function () {
   
   beforeEach(function () {
-    module('bbop');
-    module('bbop.utilities');
+    module('birdyard');
+    module('birdyard.utilities');
   });
     
   describe('Breadcrumb service', function () {

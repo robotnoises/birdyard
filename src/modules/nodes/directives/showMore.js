@@ -14,7 +14,7 @@
     return el;
   }
   
-  angular.module('bbop.nodes')
+  angular.module('birdyard.nodes')
   
   .directive('showMore', ['$timeout', '$compile', function ($timeout, $compile) {
     

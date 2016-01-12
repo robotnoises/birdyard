@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.users')
+  angular.module('birdyard.users')
   
   .directive('avatar', ['$timeout', 'authService', function ($timeout, authService) {
     return {

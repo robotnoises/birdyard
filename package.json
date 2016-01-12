@@ -1,5 +1,5 @@
 {
-  "name": "bbop",
+  "name": "birdyard",
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bbop-chat/bbop.git"
+    "url": "https://github.com/birdyard/birdyard.git"
   },
   "author": "David Nichols",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bbop-chat/bbop/issues"
+    "url": "https://github.com/birdyard/birdyard/issues"
   },
-  "homepage": "https://github.com/bbop-chat/bbop",
+  "homepage": "https://github.com/birdyard/birdyard",
   "devDependencies": {
     "bower": "^1.6.5",
     "grunt": "^0.4.5",

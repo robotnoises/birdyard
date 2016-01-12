@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.config')
+  angular.module('birdyard.config')
   
   .config(['$mdThemingProvider', function ($mdThemingProvider) {
     

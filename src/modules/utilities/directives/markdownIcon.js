@@ -5,7 +5,7 @@
   // Todo: move to config
   var CHEATSHEET_URL = 'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .directive('markdownIcon', ['$window', function ($window) {
     return {

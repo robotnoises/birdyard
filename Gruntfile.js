@@ -72,8 +72,8 @@ var config = function (grunt) {
 
       // Target: production
       production: {
-        src: 'src/assets/style/compiled/bbop.css',
-        dest: 'dist/assets/style/bbop.min.css',
+        src: 'src/assets/style/compiled/birdyard.css',
+        dest: 'dist/assets/style/birdyard.min.css',
       }
     },
     
@@ -108,7 +108,7 @@ var config = function (grunt) {
               'src/modules/**/*.js',
               'src/modules/**/**/*.js',
             ],
-            dest: 'dist/bbop.min.js'
+            dest: 'dist/birdyard.min.js'
           }
         ]
       }

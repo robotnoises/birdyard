@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.users')
+  angular.module('birdyard.users')
   
   .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService',
 
@@ -38,7 +38,7 @@
     
     // Scrub-away any extra or sensitive data, store only what we need
     function formatAuthData(authData) {
-      // Their Bbop-custom properties (name and avatar) will be set later-on
+      // Their Birdyard-specific properties (name and avatar) will be set later-on
       return {
         uid:      authData.uid,        
         expires:  authData.expires,
@@ -63,7 +63,7 @@
     }
     
     // Sub-in provider data props if user has not chosen their own... 
-    // E.g. A Bbop user can have a different display name than their display name in Twitter,
+    // E.g. A Birdyard user can have a different display name than their display name in Twitter,
     // but if they choose not to, it will default to the twitter displayName.
     function formatUserData(userData) {
       if (userData) {

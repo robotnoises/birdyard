@@ -6,7 +6,7 @@
   // to be used by authRequired() in the services below
   var securedRoutes = [];
 
-  angular.module('bbop.config')
+  angular.module('birdyard.config')
 
     .config(['$routeProvider', function ($routeProvider) {
       // routes which are not in our map are redirected to /

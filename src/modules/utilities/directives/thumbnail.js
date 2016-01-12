@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .directive('thumbnail', ['$timeout', function ($timeout) {
     return {

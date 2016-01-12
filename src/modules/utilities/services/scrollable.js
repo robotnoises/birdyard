@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .factory('scrollable', ['$window', '$firebaseArray', function($window, $firebaseArray) {
     return function(ref, field) {

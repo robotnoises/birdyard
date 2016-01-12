@@ -2,12 +2,12 @@
   
   'use strict';
   
-  angular.module('bbop.config')
+  angular.module('birdyard.config')
     
     // App version
     .constant('VERSION', '0.0.1')
     
     // The configured Firebase
-    .constant('FIREBASE', 'https://bbop.firebaseio.com/');
+    .constant('FIREBASE', 'https://birdyard.firebaseio.com/');
   
 })(angular);

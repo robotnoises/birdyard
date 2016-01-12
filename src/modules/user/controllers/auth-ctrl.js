@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.users')
+  angular.module('birdyard.users')
   
   .controller('authController', ['$scope', '$location', '$rootScope', 'firebaseService', 'authService', 'uiService',
   

@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.utilities')
+  angular.module('birdyard.utilities')
   
   .factory('activityService', ['$window', 'authService', 'firebaseService', '$firebaseObject', 
   

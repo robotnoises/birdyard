@@ -1,14 +1,14 @@
 'use strict'
 
-describe('bbop.users', function () {
+describe('birdyard.users', function () {
 
   var _$rootScope;
   var _service;
     
   function init() {
     MockFirebase.override();
-    module('bbop');
-    module('bbop.users');
+    module('birdyard');
+    module('birdyard.users');
   }
   
   function inject() {

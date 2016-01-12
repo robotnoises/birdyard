@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.rooms')
+  angular.module('birdyard.rooms')
   
   .controller('newroomController', ['$scope', '$timeout', 'uiService', 'roomService', 'nodeService', 'breadcrumbService', '$mdToast',
   

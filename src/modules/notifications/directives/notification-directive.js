@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.notifications')
+  angular.module('birdyard.notifications')
   
   .directive('notifications', function () {
     

@@ -2,7 +2,7 @@
   
   'use strict';
   
-  angular.module('bbop.users')
+  angular.module('birdyard.users')
   
   .directive('authUser', ['$location', 'firebaseService', 'authService', 'uiService', function ($location, firebaseService, authService, uiService) {
     return {
