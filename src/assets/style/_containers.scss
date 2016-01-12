@@ -258,14 +258,18 @@
   left: 25px;
   padding-left: 7px;
   border-radius: 2px;
-  background-color: $co_verylightgrey;
+  background-color: $co_lightgrey;
   
   i.icon {
-    font-size: 1.25em;
+    font-size: 1.1em;
     color: $co_black;
     padding-right: 7px;
-    padding-top: 4px;
+    padding-top: 7px;
     padding-bottom: 4px;
+    
+    &:hover {
+      color: $co_extradarkblack;
+    }
   }
   
   span.separator {
@@ -357,12 +361,12 @@
 
 .container-logo {
   position: fixed;
-  top: 20px;
-  left: 25px;
+  top: 10px;
+  left: 10px;
   margin: 0;
   padding: 0;
   z-index: 4;
-  height: 40px;
+  height: 60px;
   
   img {
     height: 100%;

@@ -26,7 +26,7 @@ $co_red: #ef3e36;
 $co_darkorange: #d35400;
 $co_carrot: #e67e22;
 $co_orange: #f39c12;
-$co_yellow: #f1c40f;
+$co_yellow: #F8CA00;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // DIMENSIONS //////////////////////////////////////////////////////////////////////////////
@@ -55,8 +55,25 @@ $dur_fade: 300ms;
 }
 
 @mixin border($width) {
-  border-width: $width;
   border-style: solid;
   border-radius: 2px;
-  border-color: rgba(0,0,0,0.1);
+  border-top-width: $width;
+  border-right-width: $width;
+  border-bottom-width: $width;
+  border-left-width: $width;
+  border-color: rgba(0,0,0,0.18);
+}
+
+@mixin raised($thickness) {
+  border-bottom: $thickness solid rgba(0,0,0,0.25) !important;
+  &:active {
+    border-bottom: none !important;
+  }
+}
+
+@mixin raised_font($thickness) {
+  text-shadow: 0px $thickness 0px rgba(0,0,0,0.25) !important;
+  &:active {
+    text-shadow: none !important;
+  }
 }

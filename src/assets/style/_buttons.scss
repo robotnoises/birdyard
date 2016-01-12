@@ -4,6 +4,9 @@
   background-color: $co_verylightgrey;
   color: $co_black;
   font-weight: 700;
+
+  @include raised(3px);
+
   &:hover {
     background-color: $co_grey;
   }

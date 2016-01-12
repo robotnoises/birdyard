@@ -11,9 +11,12 @@
   position: absolute;
   top: -100px;
   color: $co_white;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 2.5em;
   z-index: 2;
+  
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.25);
+  
   md-input-container {
     padding-top: 0;
     padding-bottom: 4px;
@@ -28,17 +31,12 @@
     display: none;
   }
   .md-select-value {
-    // opacity: 0.75;
     display: inherit;
     color: $co_white !important;
-    // border-width: 1px !important;
     border-color: transparent !important;
     transition: color $dur_fade;
     span:not(.md-select-icon) {
-      border-bottom: 2px solid $co_yellow !important;
+      border-bottom: 2px solid $co_white !important;
     }
-    // &:hover {
-    //   color: $co_white !important;
-    // }
   }
 }

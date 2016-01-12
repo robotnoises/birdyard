@@ -1,7 +1,7 @@
 <!-- Main Content Container -->
 <div>
   
-  <div class="featured bg-white fixed dialog fadey shadow-flat" ng-class="{ghost: !showDialog}">
+  <div class="featured bg-white fixed dialog fadey shadow-flat-lg" ng-class="{ghost: !showDialog}">
     
     <div class="reply-container content" ng-show="signedIn">
       
@@ -16,7 +16,7 @@
         </md-input-container>
       </md-content>
       
-      <div class="icon-reply-container shadow-flat">
+      <div class="icon-reply-container">
         <i class="icon fa fa-bold pointer" ng-click="insertFormatting('bold')"></i>
         <i class="icon fa fa-italic pointer" ng-click="insertFormatting('italic')"></i>
         <i class="icon fa fa-link pointer" ng-click="insertLink()"></i>
@@ -30,7 +30,7 @@
     <auth-user ng-show="!signedIn"></auth-user>
   </div>
   
-  <div class="featured bg-purple fixed shadow-flat">
+  <div class="featured bg-purple fixed shadow-flat-lg">
     
     <div class="truncate-featured top fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
     <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
@@ -38,7 +38,7 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon fa fa-pencil-square pointer float-right reply fadey ghost" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
+      <i id="pencil" class="icon fa fa-pencil-square pointer float-right reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
         <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
       </i>     
             

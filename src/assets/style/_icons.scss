@@ -1,5 +1,9 @@
 @import '_variables';
 
+i.icon.btn {
+  @include raised_font(3px);
+}
+
 i.icon.reply {
   position: absolute;
   top: 20px;

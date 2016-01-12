@@ -5,8 +5,18 @@
 }
 
 .shadow-flat {
-  border-bottom: 3px solid rgba(0,0,0,0.25) !important;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: rgba(0,0,0,0.25);
 }
+
+.shadow-flat-lg {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 0px rgba(0,0,0,0.1);
+}
+
 
 .border-accent {
   border-top: 2px solid $co_purple;
