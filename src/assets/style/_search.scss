@@ -15,7 +15,7 @@
     padding-bottom: 0;
     
     input {
-      padding-left: calc((100% - #{$dim_content}) / 2);
+      padding-left: calc((100% - #{$dim_content}) / 2 + (30px));
       padding-right: calc((100% - #{$dim_content}) / 2);
       line-height: 48px;
       border-width: 0 !important;
@@ -23,9 +23,15 @@
       opacity: 0;
       transition: opacity $dur_fade;
       font-size: 2em;
-      line-height: 1.75em;
+      line-height: 2em;
       &:focus {
         opacity: 1;
+      }
+      &:after {
+        position: absolute;
+        left: 0;
+        font-family: 'FontAwesome';
+        content: '\f002';
       }
     }
   }
@@ -48,7 +54,7 @@
   color: $co_extradarkblack;
   font-weight: 400;
   font-size: 2em;
-  line-height: 1.75em;
+  line-height: 2em;
   i, span {
     opacity: 0.1;
   }
