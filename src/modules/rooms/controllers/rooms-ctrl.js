@@ -15,7 +15,6 @@
     
     function init() {
       uiService.setBackgroundValue(uiService.VALUE.DARK);
-      // uiService.setBackgroundClass(uiService.BACKGROUND.GEOMETRY);
       
       roomService.getRooms($routeParams.category).then(function ($rooms) {
         $scope.rooms = $rooms;
