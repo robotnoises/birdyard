@@ -13,10 +13,6 @@
       DARK: 1
     });
     
-    var _BACKGROUND = Object.freeze({
-      GEOMETRY: 'bg-geometry'
-    })
-    
     // Private
     
     var _backgroundValue = _VALUE.DARK;
@@ -42,21 +38,11 @@
       return _backgroundClass;
     }
     
-    function _setbackgroundClass(cls) {
-      if (cls === _BACKGROUND.GEOMETRY || !cls) { // class can be nothing
-        _backgroundClass = cls; 
-      } else {
-        throw new TypeError('The parameter was not a valid value.');
-      }
-    }
-    
     _ui.VALUE = _VALUE;
-    _ui.BACKGROUND = _BACKGROUND;
     _ui.getBackgroundValue = _getBackgroundValue;
     _ui.setBackgroundValue = _setBackgroundValue;
     _ui.getBackgroundClass = _getBackgroundClass;
-    _ui.setBackgroundClass = _setbackgroundClass;
-    
+   
     return _ui;
     
   });
