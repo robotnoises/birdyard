@@ -15,7 +15,6 @@
     padding-bottom: 0;
     
     input {
-      font-size: 1.5em;
       padding-left: calc((100% - #{$dim_content}) / 2);
       padding-right: calc((100% - #{$dim_content}) / 2);
       line-height: 48px;
@@ -23,7 +22,8 @@
       background-color: $co_white;
       opacity: 0;
       transition: opacity $dur_fade;
-      
+      font-size: 2em;
+      line-height: 1.75em;
       &:focus {
         opacity: 1;
       }
@@ -46,11 +46,11 @@
   z-index: 0;
   bottom: 0px;
   color: $co_extradarkblack;
-  font-size: 1.5em;
   font-weight: 400;
-  padding-bottom: 7px;
+  font-size: 2em;
+  line-height: 1.75em;
   i, span {
-    opacity: 0.4;
+    opacity: 0.1;
   }
 }
 

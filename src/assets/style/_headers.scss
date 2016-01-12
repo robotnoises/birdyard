@@ -1,7 +1,7 @@
 @import '_variables';
 
 .sidenav-header {
-  line-height: 2em;
+  line-height: 1em;
   padding: 6px 10px;
   background-color: $co_verylightgrey;
   color: #333;
@@ -9,12 +9,12 @@
 
 .rooms-header {
   position: relative;
-  padding-top: 100px;
+  padding-top: 60px;
   margin: 0;
   color: $co_white;
   font-weight: 400;
-  font-size: 2.5em;
-  z-index: 2;
+  font-size: 4.5em;
+  z-index: 1;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.25);
   
   md-input-container {
@@ -37,14 +37,24 @@
     transition: color $dur_fade;
         
     span:not(.md-select-icon) {
-      background-color: $co_verylightgrey;
+      // background-color: $co_verylightgrey;
       color: $co_black;
-      font-weight: 700;
+      // font-weight: 700;
       text-shadow: none !important;
-      text-transform: uppercase;
-      padding: 3px 12px;
-      border-radius: 2px;
-      @include raised(3px);
+      // text-transform: uppercase;
+      // padding: 3px 12px;
+      // border-radius: 2px;
+      // @include raised(3px);
     }
   }
+}
+
+.rooms-subheader {
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 0;
+  color: $co_white;
+  font-weight: 400;
+  font-size: 1.5em;
+  z-index: 1;
 }

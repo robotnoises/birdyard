@@ -17,6 +17,9 @@
   box-shadow: 0px 4px 0px rgba(0,0,0,0.1);
 }
 
+.border {
+  @include border(1px);
+}
 
 .border-accent {
   border-top: 2px solid $co_purple;

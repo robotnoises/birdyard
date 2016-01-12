@@ -2,9 +2,9 @@
   
   <div class="content stretch-y">
     
-    <h1 layout="row" layout-align="start center" class="rooms-header">
+    <h1 layout="row" layout-align="center center" class="rooms-header">
       
-      <div>People are talking about</div>
+      <div>Talk about</div>
       
       <md-input-container>
         <md-select ng-model="category" selected="selected" aria-label="Select a category">
@@ -16,16 +16,21 @@
           <md-option ng-value="5" ng-selected="category == 5">Whatever</md-option>
         </md-select>
       </md-input-container>
-      
+
     </h1>
     
+    <h2 layout="row" layout-align="center center" class="rooms-subheader">
+      There are 7,642 people talking about all kinds of stuff right now. Join in?
+    </h2>
+    
     <div class="searchbar-placeholder">
-      <i class="icon fa fa-search"></i> <span>Search {{categoryReadable}}</span>
+      <i class="icon fa fa-search"></i> <span>Click here to search for {{categoryReadable}}...</span>
     </div>
 
   </div>
   
   <search-bar category="{{category}}"></search-bar>
+  
 </div>
 
 <div class="content roomlist">
