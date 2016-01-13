@@ -59,7 +59,7 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
-    $scope.recentLinks =    {'1': {foo: 'bar'}, '2': {foo: 'baz'}, '3': {foo: 'butt'}};
+    // $scope.recentLinks =    {};
     $scope.text =           '';
     $scope.node =           getNode($routeParams.id);
     
@@ -77,14 +77,21 @@
           scrollToBottom();
         }
       });
-
-      angular.element($window).bind('scroll', checkBottom);
+      
+      // Watch for the node load...
+      $scope.$watch('node', function (value) {
+        if (value) {
+          value.$loaded(addRecentNode);
+        }
+      });
       
       activityService.get().then(function ($activity) {
         $scope.$activity = $activity;
       }).catch(function (err) {
         console.error(err);
       });
+      
+      angular.element($window).bind('scroll', checkBottom);
       
       $timeout(scrollToBottom, SPEED / 2);
     }
@@ -100,6 +107,20 @@
         $timeout(function () {
           angular.element(document.getElementById('text-input')).focus();
         }, SPEED * 2);
+      }
+    }
+    
+    function addRecentNode() {
+      var prefix = '___recentNode_' + $scope.node.id;
+      var key = prefix + $scope.node.id;
+      
+      if (!stashService.exists(key)) {
+        stashService.set(key, {
+          id: $scope.node.id,
+          text: $scope.node.text,
+          name: $scope.node.name,
+          timestamp: new Date().getTime()
+        });
       }
     }
     
