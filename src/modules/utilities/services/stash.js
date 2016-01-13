@@ -59,7 +59,7 @@
     
     function _exists(key) {
       if (key) {
-        return !!$window.localStorage.getItem(key);  
+        return !!$window.localStorage.getItem(key) || !!$window.sessionStorage.getItem(key);  
       } else {
         throw new Error('A Key must be provided.');
       }
@@ -85,7 +85,7 @@
     _stashService.setLongTerm = _setLongTerm;
     _stashService.get = _get;
     _stashService.getLongTerm = _getLongTerm;
-    _stashService.exists = _get;
+    _stashService.exists = _exists;
         
     return _stashService;
     
