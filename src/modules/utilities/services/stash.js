@@ -29,17 +29,48 @@
       }
     }
     
-    function get(key, storageType) {
-      if (key) {
-        var value = $window[storageType].getItem(key);
+    function getPattern(keyPattern, storageType) {
+      
+      var items = $window[storageType];
+      var keys = Object.keys(items);
+      var matched = {};
+      
+      for (var i = 0, max = keys.length; i < max; i++) {
+        var k = keys[i];
+        var value = items[k];
+        
         if (isSerializedObject(value)) {
-          return JSON.parse(value);
+          value = JSON.parse(value);
+        }
+        
+        if (k.match(keyPattern)) {
+          matched[value.id] = value;
+        }
+      }
+      
+      return matched;
+    }
+    
+    function get(key, storageType) {
+      
+      var value;
+      
+      if (key) {
+        // If it's a RegExp...
+        if (typeof key === 'object') {
+          value = getPattern(key, storageType);
         } else {
-          return value;
-        } 
+          // Maybe it's a string? (Todo)
+          value = $window[storageType].getItem(key);
+          if (isSerializedObject(value)) {
+            value = JSON.parse(value);
+          }
+        }
       } else {
         throw new Error('A Key must be provided.');
       }
+      
+      return value;
     }
 
     function set(key, value, storageType) {

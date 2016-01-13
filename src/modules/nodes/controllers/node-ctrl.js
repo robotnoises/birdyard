@@ -46,6 +46,7 @@
     
     var SPEED = 200;
     var LAST_SELECTED_NODE = 'last_selected';
+    var RECENT_NODES_PREFIX = '___recentNode_';
     var wasScrolling = false;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,8 +60,8 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
-    // $scope.recentLinks =    {};
     $scope.text =           '';
+    $scope.recentNodes =    getRecentNodes();
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,7 +112,7 @@
     }
     
     function addRecentNode() {
-      var prefix = '___recentNode_' + $scope.node.id;
+      var prefix = RECENT_NODES_PREFIX + $scope.node.id;
       var key = prefix + $scope.node.id;
       
       if (!stashService.exists(key)) {
@@ -122,6 +123,11 @@
           timestamp: new Date().getTime()
         });
       }
+    }
+    
+    function getRecentNodes() {
+      var recentNodes = stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
+      console.log(recentNodes);
     }
     
     function doTransition(callback) {
