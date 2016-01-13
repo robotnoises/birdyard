@@ -59,6 +59,7 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
+    $scope.recentLinks =    {'1': {foo: 'bar'}, '2': {foo: 'baz'}, '3': {foo: 'butt'}};
     $scope.text =           '';
     $scope.node =           getNode($routeParams.id);
     
@@ -395,7 +396,19 @@
         insertMarkdown(bold);
       } else if (_type === 'italic') {
         insertMarkdown(italics);
+      } else if (_type === 'header1') {
+        insertMarkdown('# YOUR HEADING');  
+      } else if (_type === 'header2') {
+        insertMarkdown('## YOUR HEADING');
+      } else if (_type === 'header3') {
+        insertMarkdown('### YOUR HEADING');
+      } else if (_type === 'header4') {
+        insertMarkdown('#### YOUR HEADING');
+      } else if (_type === 'header5') {
+        insertMarkdown('##### YOUR HEADING');
       }
+      
+      $scope.headerIconHovering = $scope.linkIconHovering = false;
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

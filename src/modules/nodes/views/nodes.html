@@ -1,4 +1,3 @@
-<!-- Main Content Container -->
 <div>
   
   <div class="featured bg-white fixed dialog fadey shadow-flat-lg" ng-class="{ghost: !showDialog}">
@@ -17,10 +16,31 @@
       </md-content>
       
       <div class="icon-reply-container">
+        <i class="icon fa fa-header pointer" ng-click="insertFormatting('header1')" ng-mouseenter="headerIconHovering = true" ng-mouseleave="headerIconHovering = false"></i>
         <i class="icon fa fa-bold pointer" ng-click="insertFormatting('bold')"></i>
         <i class="icon fa fa-italic pointer" ng-click="insertFormatting('italic')"></i>
-        <i class="icon fa fa-link pointer" ng-click="insertLink()"></i>
+        <i class="icon fa fa-link pointer" ng-click="linkIconClicked = !linkIconClicked"></i>
         <i class="icon fa fa-image pointer" ng-click="insertMedia()"></i>
+        
+        <div id="reply-headers" class="icon-reply-menu" ng-show="headerIconHovering" ng-mouseenter="headerIconHovering = true" ng-mouseleave="headerIconHovering = false">
+          <div class="icon-reply-menu-item" ng-click="insertFormatting('header1')">H1</div>
+          <div class="icon-reply-menu-item" ng-click="insertFormatting('header2')">H2</div>
+          <div class="icon-reply-menu-item" ng-click="insertFormatting('header3')">H3</div>
+          <div class="icon-reply-menu-item" ng-click="insertFormatting('header4')">H4</div>
+          <div class="icon-reply-menu-item" ng-click="insertFormatting('header5')">H5</div>
+        </div>
+        
+        <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked">
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
+          <!--<div ng-repeat="links in recentLinks" ng-click="linkIconClicked = !linkIconClicked">
+            {{foo}}
+          </div> -->
+        </div>
       </div>
 
       <md-button class="birdyard-btn shadow-flat" ng-click="pushText()">Reply</md-button>

@@ -278,6 +278,30 @@
     background-color: transparent;
     display: inline-block;
   }
+  
+  .icon-reply-menu {
+    position: absolute;
+    display: block;
+    top: 26px;
+    background-color: $co_lightgrey;
+    border-radius: 2px;
+    font-weight: 700;
+    
+    @include raised(3px);
+    
+    .icon-reply-menu-item {
+      padding: 2px 8px;
+      cursor: pointer;
+    }
+  }
+  
+  #reply-headers {
+    left: 0px;
+  }
+  
+  #reply-recentLinks {
+    left: 75px;
+  }
 }
 
 .reply-textarea {
