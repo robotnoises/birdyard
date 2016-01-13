@@ -84,6 +84,7 @@
     _stashService.set = _set;
     _stashService.setLongTerm = _setLongTerm;
     _stashService.get = _get;
+    _stashService.getLongTerm = _getLongTerm;
     _stashService.exists = _get;
         
     return _stashService;
