@@ -381,7 +381,7 @@
       insertMarkdown(linkText);
       
       selectText(
-        document.getElementById('text-input'), 
+        'text-input', 
         $scope.text.length - 27, 
         $scope.text.length - 1
       );
