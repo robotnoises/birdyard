@@ -30,16 +30,11 @@
           <div class="icon-reply-menu-item" ng-click="insertFormatting('header5')">H5</div>
         </div>
         
-        <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked">
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <div ng-click="linkIconClicked = !linkIconClicked">This is a link</div>
-          <!--<div ng-repeat="links in recentLinks" ng-click="linkIconClicked = !linkIconClicked">
-            {{foo}}
-          </div> -->
+        <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked && recentNodes.length > 0">
+          <div class="icon-reply-menu-header">Recently visted comments</div>
+          <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="linkIconClicked = false">
+            {{node.text}}
+          </div>
         </div>
       </div>
 
@@ -50,7 +45,7 @@
     <auth-user ng-show="!signedIn"></auth-user>
   </div>
   
-  <div class="featured bg-purple fixed shadow-flat-lg">
+  <div class="featured bg-purple fixed shadow-flat-lg no-overflow">
     
     <div class="truncate-featured top fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
     <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded && !expand}"></div>

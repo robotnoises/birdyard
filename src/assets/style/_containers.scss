@@ -12,7 +12,7 @@
 .featured {
   height: $dim_feature;
   z-index: 3;
-  overflow: hidden !important;
+  // overflow: hidden !important;
   .node-title {
     span {
       color: $co_white;
@@ -259,6 +259,8 @@
   border-radius: 2px;
   background-color: $co_lightgrey;
   
+  @include raised(2px);
+  
   i.icon {
     font-size: 1.1em;
     color: $co_black;
@@ -293,6 +295,15 @@
       padding: 2px 8px;
       cursor: pointer;
     }
+    
+    .icon-reply-menu-header {
+      text-transform: uppercase;
+      padding-left: 8px;
+      padding-right: 8px;
+      line-height: 36px;
+      background-color: $co_lightgrey;
+      border-bottom: 1px solid $co_grey;
+    }
   }
   
   #reply-headers {
@@ -301,6 +312,15 @@
   
   #reply-recentLinks {
     left: 75px;
+    max-width: 250px;
+    max-height: 300px;
+    overflow-y: scroll;
+    
+    div {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -308,6 +328,7 @@
   position: fixed;
   width: 100%;
   max-width: $dim_content;
+  max-height: 270px;
   padding-right: 50px;
 }
 
@@ -393,5 +414,20 @@
   
   img {
     height: 100%;
+  }
+}
+
+blockquote {
+  padding: 5px 10px;
+  background-color: $co_lightgrey;
+  border-left: 5px solid $co_grey;
+  border-radius: 2px;
+  font-style: italic;
+}
+
+.featured {
+  blockquote {
+    background-color: rgba(240, 240, 240, 0.2);
+    border-left: 5px solid rgba(240, 240, 240, 0.8);
   }
 }

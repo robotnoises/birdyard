@@ -81,7 +81,7 @@
       
       // Watch for the node load...
       $scope.$watch('node', function (value) {
-        if (value) {
+        if (value && value.$loaded) {
           value.$loaded(addRecentNode);
         }
       });
@@ -126,8 +126,7 @@
     }
     
     function getRecentNodes() {
-      var recentNodes = stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
-      console.log(recentNodes);
+      return stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
     }
     
     function doTransition(callback) {
@@ -143,7 +142,7 @@
       Move.y('.keep', options, function () {
         
         var keepOptions = {top: 30, speed: SPEED, easing: 'linear'};
-        var starWarsOptions = {top: -270, speed: SPEED, easing: 'linear'};
+        var starWarsOptions = {top: -275, speed: SPEED, easing: 'linear'};
         
         Move.y('.keep', keepOptions);
         Move.y('.star-wars', starWarsOptions, function () {

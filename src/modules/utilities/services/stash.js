@@ -33,7 +33,7 @@
       
       var items = $window[storageType];
       var keys = Object.keys(items);
-      var matched = {};
+      var matched = [];
       
       for (var i = 0, max = keys.length; i < max; i++) {
         var k = keys[i];
@@ -44,7 +44,7 @@
         }
         
         if (k.match(keyPattern)) {
-          matched[value.id] = value;
+          matched.push(value);
         }
       }
       
@@ -97,11 +97,11 @@
     }
     
     function _get(key) {
-      get(key, 'sessionStorage');
+      return get(key, 'sessionStorage');
     }
     
     function _getLongTerm(key) {
-      get(key, 'localStorage');
+      return get(key, 'localStorage');
     }
     
     function _set(key, value) {
