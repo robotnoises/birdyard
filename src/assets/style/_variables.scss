@@ -52,18 +52,18 @@ $dur_fade: 300ms;
   border-right-width: $width;
   border-bottom-width: $width;
   border-left-width: $width;
-  border-color: rgba(0,0,0,0.18);
+  border-color: rgba(0,0,0,0.1);
 }
 
 @mixin raised($thickness) {
-  border-bottom: $thickness solid rgba(0,0,0,0.25) !important;
+  border-bottom: $thickness solid rgba(0,0,0,0.3) !important;
   &:active {
     border-bottom: none !important;
   }
 }
 
 @mixin raised_font($thickness) {
-  text-shadow: 0px $thickness 0px rgba(0,0,0,0.25) !important;
+  text-shadow: 0px $thickness 0px rgba(0,0,0,0.3) !important;
   &:active {
     text-shadow: none !important;
   }

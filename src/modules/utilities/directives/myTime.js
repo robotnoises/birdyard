@@ -12,7 +12,9 @@
       link: function (scope, element, attrs) {
         var utc = parseInt(attrs['myTime'], 10);
         var date = moment(utc).local();
-        scope.date = date.format('MMM D') + ' at ' + date.format('h:mm a');
+        var fromNow = attrs['fromNow'] === 'true';
+        
+        scope.date = (fromNow) ? date.fromNow() : date.format('MMM D') + ' at ' + date.format('h:mm a');
       }
     }
   });
