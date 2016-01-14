@@ -146,6 +146,7 @@
         
         Move.y('.keep', keepOptions);
         Move.y('.star-wars', starWarsOptions, function () {
+
           var $keeper = angular.element(document.getElementsByClassName('keep'));
           $keeper[0].style.setProperty('opacity', 0, 'important');
           callback();
@@ -359,15 +360,15 @@
       var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
       
+      // Fade the rest
+      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
+      children.addClass('invisible');
+      
       // Move stuff
       doTransition(function () {
         // Navigate
         navigateToNode(child.id);
       });
-      
-      // Fade the rest
-      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      children.addClass('ghost'); 
     };
     
     $scope.toggleDialog = function (force) {
