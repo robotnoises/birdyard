@@ -11,21 +11,12 @@
     var _colorService = {};
     
     var _colorList = [
-      '#1abc9c', // 'Turquoise'
-      '#2ecc71', // 'Emerald'
-      '#27ae60', // 'Pine'
-      '#3498db', // 'Cerulean
-      '#2980b9', // 'Colbalt' 
-      '#2c3e50', // 'Midnight' 
-      '#9b59b6', // 'Violet'
-      '#8e44ad', // 'Plum'
-      '#AA076B', // 'Wine'
-      '#c0392b', // 'Cherry'
-      '#e74c3c', // 'Rose'
-      '#d35400', // 'Umber' 
-      '#e67e22', // 'Carrot' 
-      '#f39c12', // 'Citrus' 
-      '#f1c40f'  // 'Sunflower' 
+      '#ef3e36', // 'Red'
+      '#F8CA00', // 'Yellow'
+      '#169CEE', // 'Blue'
+      '#2ecc71', // 'Green'
+      '#9b59b6', // 'Purple' 
+      '#e67e22' // 'Orange' 
     ];
     
     function _getRandom() {

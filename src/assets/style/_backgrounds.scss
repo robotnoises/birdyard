@@ -22,8 +22,8 @@
 
 .gradient {
   background: $co_red; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, $co_red , $co_darkorange); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, $co_red , $co_darkorange); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to bottom, $co_red , $co_orange); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, $co_red , $co_orange); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 

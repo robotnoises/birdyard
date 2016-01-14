@@ -384,8 +384,8 @@
     transition: border $dur_fade, color $dur_fade, background $dur_fade;
     &:hover {
       cursor: pointer;
-      border-color: $co_wine;
-      color: $co_wine;
+      border-color: $co_purple;
+      color: $co_purple;
       background-color: $co_white;
     }
     // Text
