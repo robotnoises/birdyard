@@ -28,7 +28,6 @@
             roomCount = $scope.rooms.length;
           });
         });
-        
       });
     }
     
@@ -76,6 +75,13 @@
         console.log($scope.rooms);
       }
     }
+    
+    // Go to a room (node)
+    $scope.enterRoom = function (nodeId) {
+      $timeout(function() {
+        $location.path('n/' + nodeId);  
+      }, 50);
+    };
 
   }]);
   

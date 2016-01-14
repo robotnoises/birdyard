@@ -42,8 +42,24 @@
   
   <div class="fadey ghost" ng-class="{'boo': loaded}">
     <div ng-repeat="room in rooms">
-      <div class="birdyard-room">
-        {{room.title}} <a ng-href="#/n/{{room.nodeId}}">Go</a>
+      <div class="container-room pointer">
+        
+        <div class="room-content">
+          <div class="room-title">
+            {{room.title}}
+          </div>
+          <div class="room-name">
+            {{room.name}}
+          </div>
+          <div class="room-footer">
+            <span class="category-pill pointer">{{categoryReadable}}</span>
+          </div>
+        </div>
+        
+        <div class="room-enter pointer" ng-click="enterRoom(room.nodeId)">
+          <i class="icon fa fa-arrow-right"></i>
+        </div>
+        
       </div>
     </div>
     

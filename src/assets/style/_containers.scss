@@ -463,3 +463,58 @@ blockquote {
     text-shadow: 1px 1px 0px $co_black;
   }
 }
+
+.container-room {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: $co_white;
+  border-radius: 4px;
+  margin-bottom: $dim_spacer;
+  
+  border-bottom: 4px solid rgba(0,0,0,0.3);
+  
+  .room-content {
+    padding: 5px;
+  }
+  
+  .room-enter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 25%;
+    max-width: 100px;
+    // border-left: 2px solid $co_lightgrey;
+    // @include raised(4px);
+    
+    i {
+      position: absolute;
+      font-size: 2.5em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    &:hover {
+      background-color: $co_lightgrey;
+    }
+  }
+  
+  .room-title, 
+  .room-name {
+    padding: 5px 0; 
+  }
+}
+
+// Category stuff
+
+.category-pill {
+  padding: 3px 9px;
+  border-radius: 25px;
+  text-transform: lowercase;
+  background-color: $co_yellow;
+  color: $co_white;
+  font-weight: bold;
+  font-size: 0.8em;
+}

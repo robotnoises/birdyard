@@ -120,10 +120,3 @@
     }
   }
 }
-
-// Rooms
-
-.birdyard-room {
-  @include card();
-  margin-bottom: $dim_spacer;
-}
