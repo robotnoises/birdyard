@@ -32,7 +32,7 @@
         
         <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked && recentNodes.length > 0">
           <div class="icon-reply-menu-header">Recently visted comments</div>
-          <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="linkIconClicked = false">
+          <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="insertNodeLink(node)">
             {{node.text}}
           </div>
         </div>
