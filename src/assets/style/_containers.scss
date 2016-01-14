@@ -431,3 +431,35 @@ blockquote {
     border-left: 5px solid rgba(240, 240, 240, 0.8);
   }
 }
+
+.container-404 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  
+  background: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: top right;
+  back
+  
+  h1, h2 {
+    font-weight: 700;
+    color: $co_black;
+  }
+  
+  h1 {
+    font-size: 8em;
+  }
+  
+  h2 {
+    color: $co_white;
+    text-shadow: 1px 1px 0px $co_black;
+  }
+}
