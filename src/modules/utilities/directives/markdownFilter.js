@@ -13,7 +13,7 @@
         $timeout(function () {
           var limit = parseInt(attrs['markdownFilter'], 10) || 0;
           var text = element.text();
-          var filtered = text.replace(/[#*_]|[-]{3,}|[=]{3,}|[!]+(?=[\[])|[\[\]]|\(([htpw]{3,}.*?)\)/gi, '');
+          var filtered = text.replace(/[#*_>]|[-]{3,}|[=]{3,}|[!]+(?=[\[])|[\[\]]|\(([htpw]{3,}.*?)\)/gi, '');
           var limited = (limit) ? filtered.slice(0, limit) : filtered;
           element.text(limited);  
         });

@@ -439,8 +439,9 @@
     
     $scope.insertNodeLink = function (node) {
       $scope.linkIconClicked = false;
+      var stripped = node.text.split('\n').join('');
       insertMarkdown('> Posted by **' + node.name + '**:');
-      insertMarkdown('> [' + node.text + '](#/n/' + node.id + ')');
+      insertMarkdown('> [' + stripped + '](#/n/' + node.id + ')');
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
