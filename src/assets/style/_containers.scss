@@ -475,7 +475,7 @@ blockquote {
   border-bottom: 4px solid rgba(0,0,0,0.3);
   
   .room-content {
-    padding: 5px;
+    padding: 15px;
   }
   
   .room-enter {
@@ -484,9 +484,7 @@ blockquote {
     right: 0;
     bottom: 0;
     width: 25%;
-    max-width: 100px;
-    // border-left: 2px solid $co_lightgrey;
-    // @include raised(4px);
+    max-width: 125px;
     
     i {
       position: absolute;
@@ -501,15 +499,20 @@ blockquote {
     }
   }
   
-  .room-title, 
   .room-name {
-    padding: 5px 0; 
+    font-size: 0.85em;
+    padding-bottom: 10px;
+  }
+  
+  .room-title {
+    font-weight: 700;
+    font-size: 2em;
   }
 }
 
 // Category stuff
 
-.category-pill {
+.pill {
   padding: 3px 9px;
   border-radius: 25px;
   text-transform: lowercase;
@@ -517,4 +520,6 @@ blockquote {
   color: $co_white;
   font-weight: bold;
   font-size: 0.8em;
+  cursor: pointer;
+  @include raised(2px);
 }

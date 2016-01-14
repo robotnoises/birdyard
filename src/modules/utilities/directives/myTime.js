@@ -8,7 +8,7 @@
     return {
       restrict: 'A',
       replace: false,
-      template: '<span class="strong">{{date}}</span>',
+      template: '<span>{{date}}</span>',
       link: function (scope, element, attrs) {
         var utc = parseInt(attrs['myTime'], 10);
         var date = moment(utc).local();
