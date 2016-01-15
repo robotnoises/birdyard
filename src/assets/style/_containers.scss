@@ -326,13 +326,14 @@
 }
 
 .thumbnail {
-  display: inline-block;
-  clear: both;
   position: relative;
-  height: 250px;
-  background-color: $co_white;
-  @include border(1px);
-  padding: 3px;
+  display: block;
+  clear: both;
+  height: 150px;
+  width: 150px;
+  // background-color: $co_white;
+  // @include border(1px);
+  // padding: 3px;
   overflow: hidden;
   
   &:after {
@@ -348,7 +349,7 @@
     content: '\f144';
     cursor: pointer;
     pointer-events: none !important;
-    text-shadow: 0px 0px 3px rgba(0,0,0,0.95);
+    text-shadow: 0px 3px 0px rgba(0,0,0,0.75);
   }
   
   &:hover:after {
@@ -356,11 +357,16 @@
   }
   
   img {
-    display: block;
-    height: 100%;
-    padding: 0px;
-    border: 1px solid $co_white;
+    position: absolute;
+    display: inline-block;
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 150px;
+    max-height: 150px;
+    border: 3px solid $co_white;
     cursor: pointer;
+    box-shadow: 0px 3px 0px rgba(0,0,0,0.25);
   }
 }
 
