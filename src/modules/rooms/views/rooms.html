@@ -1,4 +1,4 @@
-<div class="jumbotron bg-yellow shadow-flat-lg">
+<div class="jumbotron shadow-flat-lg" ng-class="categoryColor()">
   
   <div class="content stretch-y">
     
@@ -20,11 +20,11 @@
     </h1>
     
     <h2 layout="row" layout-align="center center" class="rooms-subheader">
-      There are 7,642 people talking about {{categoryReadable}} right now. Join in?
+      There are 7,642 people talking about {{categoryReadable(category)}} right now. Join in?
     </h2>
     
     <div class="searchbar-placeholder">
-      <i class="icon fa fa-search"></i> <span>Click here to search for {{categoryReadable}}...</span>
+      <i class="icon fa fa-search"></i> <span>Click here to search for {{categoryReadable(category)}}...</span>
     </div>
 
   </div>
@@ -49,11 +49,11 @@
             {{room.title}}
           </div>
           <div class="room-name">
-            Created by <strong>{{room.name}}</strong> <span my-time="{{room.timestamp}}" from-now="true">.</span>
+            Created by <strong>{{room.name}}</strong> <span my-time="{{room.timestamp}}" from-now="true"></span>
           </div>
           <div class="room-footer">
-            <span class="pill">904 comments</span>
-            <span class="pill">{{categoryReadable}}</span>
+            <span class="pill" ng-click="enterRoom(room.nodeId)">904 comments</span>
+            <span class="pill" ng-click="changeCategory(room.category)" ng-class="categoryColor(room.category)">{{categoryReadable(room.category)}}</span>
           </div>
         </div>
         

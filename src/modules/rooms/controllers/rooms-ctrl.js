@@ -64,7 +64,43 @@
     $scope.loading =  false;  // Loading more rooms
     
     $scope.category = roomService.getCategoryValue($routeParams.category) || 0;
-    $scope.categoryReadable = capitalize(roomService.getCategory($scope.category));    
+    
+    $scope.categoryReadable = function (category) {
+      var _category = category || $scope.category;
+      return capitalize(roomService.getCategory(_category));
+    };
+    
+    $scope.categoryColor = function (category) {
+      
+      var color;
+      var _category = category || $scope.category;
+      
+      switch (_category) {
+        case 0:
+          color = 'bg-yellow';
+          break;
+        case 1:
+          color = 'bg-red';
+          break;
+        case 2:
+          color = 'bg-green';
+          break;
+        case 3:
+          color = 'bg-orange';
+          break;
+        case 4:
+          color = 'bg-blue';
+          break;
+        case 5:
+          color = 'bg-purple';
+          break;
+        default:
+          color = 'bg-yellow';
+          break;
+      }
+      
+      return color;
+    }
     
     // Load more rooms
     $scope.loadMore = function (amount) {
@@ -78,11 +114,16 @@
     
     // Go to a room (node)
     $scope.enterRoom = function (nodeId) {
-      $timeout(function() {
+      $timeout(function () {
         $location.path('n/' + nodeId);  
       }, 50);
     };
-
+    
+    $scope.changeCategory = function (category) {
+      $timeout(function () {
+        $scope.category = parseInt(category, 10);
+      });
+    };
   }]);
   
 })(angular);

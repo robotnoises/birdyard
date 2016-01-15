@@ -1,11 +1,7 @@
 @import '_variables';
 
-.bg-purple {
-  background-color: $co_purple;
-}
-
 .bg-grey {
-  background-color: $co_lightgrey;
+  background-color: $co_verylightgrey;
 }
 
 .bg-white {
@@ -16,8 +12,24 @@
   background-color: $co_red;
 }
 
+.bg-blue {
+  background-color: $co_blue;
+}
+
 .bg-yellow {
   background-color: $co_yellow;
+}
+
+.bg-green {
+  background-color: $co_green;
+}
+
+.bg-purple {
+  background-color: $co_purple;
+}
+
+.bg-orange {
+  background-color: $co_orange;
 }
 
 .gradient {

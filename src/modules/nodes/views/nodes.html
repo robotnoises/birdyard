@@ -132,13 +132,7 @@
       </div>
       
       <div class="node-title">
-        <span class="displayName">{{child.name}}</span> 
-        <!--<span class="handle small">{{child.handle}}</span>-->
-        <!--<i class="icon fa fa-star-o pointer" ng-class="{ghost: !loaded}">
-          <md-tooltip md-delay="1250">
-            Favorite
-          </md-tooltip>
-        </i>-->
+        <span class="displayName">{{child.name}}</span> replied <span my-time="{{child.timestamp}}" from-now="true"></span>
       </div>
       
       <div class="node-text">
@@ -146,9 +140,8 @@
       </div>
       
       <div class="node-actions">
-        <span class="pointer" ng-click="selectChild(child)" ng-class="{ghost: !loaded}" ng-mouseenter="pauseAutoScroll(true)" ng-mouseleave="pauseAutoScroll(false)">
-          <i class="icon fa fa-comment comment-count" ng-class="{'one-digit': (child.commentCount > 0), 'two-digits': (child.commentCount > 9), 'three-digits': (child.commentCount > 99)}" data-commentcount="{{child.commentCount}}"></i>
-          <span class="small link"> comment<span ng-hide="child.commentCount == 1">s</span></span>
+        <span class="pill pointer" ng-click="selectChild(child)" ng-class="{ghost: !loaded}" ng-mouseenter="pauseAutoScroll(true)" ng-mouseleave="pauseAutoScroll(false)">
+          <span>{{child.commentCount}}</span> comment<span ng-hide="child.commentCount == 1">s</span>
         </span>        
       </div>
     </div>

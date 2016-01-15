@@ -69,7 +69,7 @@
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 25px;
-    background: $co_white;
+    background-color: $co_white;
     border-radius: 2px;
     border-top: 1px solid rgba(0,0,0,0.05);
     border-left: 1px solid rgba(0,0,0,0.1);
@@ -132,7 +132,7 @@
   padding-bottom: 50px;
   .node-title {
     padding-bottom: 5px;
-    border-bottom: 1px solid $co_lightgrey;
+    // border-bottom: 1px solid $co_lightgrey;
     span {
       margin-right: 2.5px;
     }
@@ -159,9 +159,7 @@
     padding-left: 25px;
     padding-right: 25px;
     line-height: 42px;
-    background-color: $co_verylightgrey;
-    border-top: 1px solid $co_lightgrey;
-    height: 40px;
+    // background-color: $co_lightgrey;
   }
 }
 
@@ -473,7 +471,7 @@ blockquote {
   overflow: hidden;
   background-color: $co_white;
   border-radius: 4px;
-  margin-bottom: $dim_spacer;
+  margin-bottom: 20px;
   
   border-bottom: 4px solid rgba(0,0,0,0.3);
   
