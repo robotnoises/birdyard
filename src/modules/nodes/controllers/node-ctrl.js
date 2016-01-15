@@ -48,6 +48,7 @@
     var LAST_SELECTED_NODE = 'last_selected';
     var RECENT_NODES_PREFIX = '___recentNode_';
     var wasScrolling = false;
+    var $bottom;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +84,7 @@
       $scope.$watch('node', function (value) {
         if (value && value.$loaded) {
           value.$loaded(addRecentNode);
+          setNodeChildrenFromFirebase($routeParams.id);
         }
       });
       
@@ -169,8 +171,9 @@
         
         $timeout(function () {
           $scope.loaded = true;
-          scrollToBottom();
-        }, 0);
+        });
+        
+        scrollToBottom();
       });
     }
     
@@ -200,11 +203,24 @@
       return document.body.scrollHeight || document.documentElement.scrollHeight;    
     }
     
-    function scrollToBottom(forceScroll) {
-      if ($scope.autoScroll || forceScroll) {
+    function scrollToBottom(callback) {
+      if ($scope.autoScroll) {
         $timeout(function () {
-          $window.scrollTo(0, getScrollHeight());  
-        }, 100);
+          
+          if (!$bottom) {
+            $bottom = $window.document.getElementById('bottom');
+          }
+          
+          try {
+            $bottom.scrollIntoView({block: "end", behavior: "instant"});
+          } catch (ex) {
+            // Swallow exception
+          }
+          
+          if (callback) {
+            callback();
+          }
+         }, 100);
       }
     }
     
@@ -260,9 +276,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    setNodeChildrenFromFirebase($routeParams.id);
-    
+
     // Add a comment
     $scope.pushText = function() {
       

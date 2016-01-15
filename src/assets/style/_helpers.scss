@@ -52,6 +52,10 @@
   transition: opacity $dur_fade;
 }
 
+.fadey-slow {
+  transition: opacity $dur_fade_slow;
+}
+
 .subtle {
   color: $co_verylightgrey;
   background-color: transparent;
