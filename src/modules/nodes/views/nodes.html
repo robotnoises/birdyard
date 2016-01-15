@@ -72,7 +72,7 @@
       <div class="star-wars">
         
         <!-- Currently displayed node -->
-        <div id="featured" class="node parent padding-top" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
+        <div id="featured" class="node parent padding-top fadey" ng-class="{'invisible': !loaded}" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 
