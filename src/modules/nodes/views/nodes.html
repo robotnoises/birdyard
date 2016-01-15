@@ -119,7 +119,7 @@
   
   <div layout="column" class="non-featured content">
 
-     <!-- Progress indicator for initial load -->
+    <!-- Progress indicator for initial load -->
     <div class="loading" ng-show="!loaded">
       <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
     </div>
@@ -143,6 +143,14 @@
           <span>{{child.commentCount}}</span> comment<span ng-hide="child.commentCount == 1">s</span>
         </span>        
       </div>
+    </div>
+    
+    <!-- Show More -->
+    <div class="nothing-here fadey ghost" ng-class="{'boo': $children.length === 0 && !showDialog}">
+      <p>Nobody's said anything, yet. <!--<i class="fa fa-frown-o"></i>--></p>
+      <md-button class="birdyard-btn" ng-click="toggleDialog()">
+        SAY SOMETHING
+      </md-button>
     </div>
 
   </div>

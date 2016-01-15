@@ -154,6 +154,7 @@
 
           var $keeper = angular.element(document.getElementsByClassName('keep'));
           $keeper[0].style.setProperty('opacity', 0, 'important');
+          
           callback();
         });
       });

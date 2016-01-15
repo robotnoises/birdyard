@@ -371,13 +371,12 @@
 }
 
 // Ruler
+
 .load-more {
   display: block;
   position: relative;
-  height: 2px;
   width: 100%;
-  margin: 75px 0;
-  background-color: $co_purple;
+  margin: 100px 0;
   overflow: visible;
   // Circle
   div {
@@ -385,18 +384,20 @@
     background-color: $co_verylightgrey;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 100px;
-    width: 100px;
-    border: 3px solid $co_purple;
-    color: $co_purple;
+    height: 125px;
+    width: 125px;
+    border: 3px solid $co_black;
+    color: $co_black;
     border-radius: 50%;
     transition: border $dur_fade, color $dur_fade, background $dur_fade;
+    
     &:hover {
       cursor: pointer;
       border-color: $co_purple;
       color: $co_purple;
       background-color: $co_white;
     }
+    
     // Text
     span {
       display: block;
@@ -409,6 +410,25 @@
       font-weight: 700;
       text-align: center;
     }
+  }
+}
+
+.nothing-here {
+  margin-top: 25px;
+  text-align: center;
+  
+  p {
+    text-align: center;
+    font-size: 1.25em;
+    margin-bottom: 25px;  
+  }
+  
+  .md-button {
+    background-color: $co_white;
+    font-size: 2em;
+    padding: 8px 15px;
+    overflow: hidden;
+    line-height: 2em;
   }
 }
 
