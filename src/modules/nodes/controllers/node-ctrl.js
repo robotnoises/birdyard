@@ -58,6 +58,7 @@
     $scope.loaded =         false;
     $scope.showDialog =     false;
     $scope.expand =         false;
+    $scope.transitioning =  false;
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
@@ -140,9 +141,11 @@
         easing: 'ease-in'
       };
       
+      $scope.transitioning =  true;
+      
       // Callback hell!
       Move.y('.keep', options, function () {
-        
+          
         var keepOptions = {top: 30, speed: SPEED, easing: 'linear'};
         var starWarsOptions = {top: -275, speed: SPEED, easing: 'linear'};
         
@@ -409,10 +412,8 @@
     
     $scope.expandFeature = function ($element) {
       $timeout(function () {
-        $timeout(function () {
-          $scope.expand = true;
-        });  
-      });
+        $scope.expand = true;
+      });  
     };
     
     $scope.insertMedia = function () {

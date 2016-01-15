@@ -47,15 +47,15 @@
   
   <div class="featured bg-purple fixed shadow-flat-lg no-overflow">
     
-    <div class="truncate-featured top fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
-    <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded && !expand}"></div>
+    <!--<div class="truncate-featured top"></div>
+    <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded}"></div>-->
 
     <div class="content">
       
       <!-- Add some content! -->
       <i id="pencil" class="icon fa fa-pencil-square pointer float-right reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
         <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
-      </i>     
+      </i>
             
       <!-- Go up one level -->
       <div layout="column" class="level-up fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
@@ -72,7 +72,7 @@
       <div class="star-wars">
         
         <!-- Currently displayed node -->
-        <div id="featured" class="node parent padding-top" show-more="expandFeature()" loaded="{{loaded}}" ng-class="{'scroll': expand}">
+        <div id="featured" class="node parent padding-top fadey" ng-class="{'invisible': transitioning, 'scroll': expand && loaded}" show-more="expandFeature()" loaded="{{loaded}}">
           
           <div class="node-title">
             <span class="displayName">{{node.name}}</span> 

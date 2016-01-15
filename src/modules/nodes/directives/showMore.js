@@ -8,12 +8,6 @@
     return element.clientHeight < element.scrollHeight;
   }
   
-  function createShowMoreElement() {
-    var el = angular.element('<i/>');
-    el.addClass('icon fa fa-ellipsis-v show-more ghost fadey boo');
-    return el;
-  }
-  
   angular.module('birdyard.nodes')
   
   .directive('showMore', ['$timeout', '$compile', function ($timeout, $compile) {
@@ -25,23 +19,18 @@
         loaded: '@'
       },
       link: function (scope, element, attrs) {
-        
-        var el = createShowMoreElement();
-                
         scope.$watch('loaded', function (loaded) {
           if (loaded === 'false') { 
             return;
-          } else if (textOverflow(element[0])) {
-            el.attr('ng-click', 'doAction()');
-            el.attr('ng-class', '{"boo": loaded}');
-            element.append($compile(el)(scope));
+          } else {
+            $timeout(function () {
+              var expand = textOverflow(element[0]);
+              if (expand) {
+                scope.$parent.$eval(attrs['showMore']);
+              }  
+            }, 100);
           }
         });
-        
-        scope.doAction = function () {
-          scope.$parent.$eval(attrs['showMore']);
-          el.addClass('hide');
-        };
       }
     }
   }]);
