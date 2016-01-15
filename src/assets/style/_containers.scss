@@ -416,11 +416,12 @@
 .nothing-here {
   margin-top: 25px;
   text-align: center;
+  height: auto;
   
   p {
     text-align: center;
     font-size: 1.25em;
-    margin-bottom: 25px;  
+    margin-bottom: 25px;
   }
   
   .md-button {
@@ -430,6 +431,12 @@
     overflow: hidden;
     line-height: 2em;
   }
+}
+
+.nothing-here:not(.boo) {
+  overflow: hidden;
+  height: 0;
+  margin: 0;
 }
 
 .container-logo {
