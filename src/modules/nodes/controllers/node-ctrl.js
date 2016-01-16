@@ -149,14 +149,12 @@
         var keepOptions = {top: 30, speed: SPEED, easing: 'linear'};
         var starWarsOptions = {top: -275, speed: SPEED, easing: 'linear'};
         
-        Move.y('.keep', keepOptions);
-        Move.y('.star-wars', starWarsOptions, function () {
-
+        Move.y('.keep', keepOptions, function () {
           var $keeper = angular.element(document.getElementsByClassName('keep'));
-          $keeper[0].style.setProperty('opacity', 0, 'important');
-          
-          callback();
+          $keeper[0].style.setProperty('display', 'none', 'important');
         });
+        
+        Move.y('.star-wars', starWarsOptions, callback);
       });
     }
     
@@ -386,7 +384,6 @@
       
       // Fade the rest
       var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      // children.addClass('invis')
       children.css({'display': 'none'});
     };
     
