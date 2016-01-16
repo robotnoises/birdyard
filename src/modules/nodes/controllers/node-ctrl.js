@@ -378,15 +378,16 @@
       var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
       
-      // Fade the rest
-      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      children.addClass('invisible');
-      
       // Move stuff
       doTransition(function () {
         // Navigate
         navigateToNode(child.id);
       });
+      
+      // Fade the rest
+      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
+      // children.addClass('invis')
+      children.css({'display': 'none'});
     };
     
     $scope.toggleDialog = function (force) {
