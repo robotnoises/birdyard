@@ -55,25 +55,27 @@
         
         scope.insertFormatting = function (_type) {
           
-          var bold = '**your-bold-text**';
-          var italics = '*your-italicized-text*';
+          var bold = '**YOUR-BOLD-TEXT**';
+          var italics = '*YOUR-ITALICIZED-TEXT*';
+          var heading = ' YOUR HEADING';
+          var blockquote = '> YOUR BLOCKQUOTE';
           
           if (_type === 'bold') {
             insertMarkdown(bold);
           } else if (_type === 'italic') {
             insertMarkdown(italics);
           } else if (_type === 'blockquote') { 
-            insertMarkdown('> YOUR BLOCKQUOTE')
+            insertMarkdown(blockquote)
           } else if (_type === 'header1') {
-            insertMarkdown('# YOUR HEADING');  
+            insertMarkdown('#' + heading);  
           } else if (_type === 'header2') {
-            insertMarkdown('## YOUR HEADING');
+            insertMarkdown('##' + heading);
           } else if (_type === 'header3') {
-            insertMarkdown('### YOUR HEADING');
+            insertMarkdown('###' + heading);
           } else if (_type === 'header4') {
-            insertMarkdown('#### YOUR HEADING');
+            insertMarkdown('####' + heading);
           } else if (_type === 'header5') {
-            insertMarkdown('##### YOUR HEADING');
+            insertMarkdown('#####' + heading);
           }
           
           scope.headerIconHovering = scope.linkIconHovering = false;
