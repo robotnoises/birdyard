@@ -304,7 +304,7 @@
   }
   
   #reply-recentLinks {
-    left: 75px;
+    left: 125px;
     max-width: 250px;
     max-height: 300px;
     overflow-y: scroll;
@@ -507,8 +507,6 @@ blockquote {
   background-color: $co_white;
   border-radius: 4px;
   margin-bottom: 20px;
-  
-  // border-bottom: 4px solid rgba(0,0,0,0.3);
   
   .room-content {
     padding: 15px;
