@@ -11,44 +11,19 @@
       <md-content class="reply-textarea" style="padding-top: 75px"> 
         <md-input-container class="md-block">
           <label></label>
-          <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="text" placeholder="Reply to {{node.name}}..."></textarea>
+          <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="reply" placeholder="Reply to {{node.name}}..."></textarea>
         </md-input-container>
       </md-content>
       
-      <div class="icon-reply-container">
-        <i class="icon fa fa-header pointer" ng-click="insertFormatting('header1')" ng-mouseenter="headerIconHovering = true" ng-mouseleave="headerIconHovering = false"></i>
-        <i class="icon fa fa-bold pointer" ng-click="insertFormatting('bold')"></i>
-        <i class="icon fa fa-italic pointer" ng-click="insertFormatting('italic')"></i>
-        <i class="icon fa fa-link pointer" ng-click="linkIconClicked = !linkIconClicked"></i>
-        <i class="icon fa fa-image pointer" ng-click="insertMedia()"></i>
-        
-        <div id="reply-headers" class="icon-reply-menu" ng-show="headerIconHovering" ng-mouseenter="headerIconHovering = true" ng-mouseleave="headerIconHovering = false">
-          <div class="icon-reply-menu-item" ng-click="insertFormatting('header1')">H1</div>
-          <div class="icon-reply-menu-item" ng-click="insertFormatting('header2')">H2</div>
-          <div class="icon-reply-menu-item" ng-click="insertFormatting('header3')">H3</div>
-          <div class="icon-reply-menu-item" ng-click="insertFormatting('header4')">H4</div>
-          <div class="icon-reply-menu-item" ng-click="insertFormatting('header5')">H5</div>
-        </div>
-        
-        <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked && recentNodes.length > 0">
-          <div class="icon-reply-menu-header">Recently visited comments</div>
-          <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="insertNodeLink(node)" markdown-filter>
-            {{node.text}}
-          </div>
-        </div>
-      </div>
+      <formatting-toolbar target="reply"></formatting-toolbar>
 
       <md-button class="birdyard-btn shadow-flat" ng-click="pushText()">Reply</md-button>
-      
     </div>
     
     <auth-user ng-show="!signedIn"></auth-user>
   </div>
   
   <div class="featured bg-purple fixed shadow-flat-lg no-overflow">
-    
-    <!--<div class="truncate-featured top"></div>
-    <div class="truncate-featured fadey ghost" ng-class="{'boo': loaded}"></div>-->
 
     <div class="content">
       

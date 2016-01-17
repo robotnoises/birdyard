@@ -62,8 +62,7 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
-    $scope.text =           '';
-    $scope.recentNodes =    getRecentNodes();
+    $scope.reply =           '';
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,10 +125,6 @@
           timestamp: new Date().getTime()
         });
       }
-    }
-    
-    function getRecentNodes() {
-      return stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
     }
     
     function doTransition(callback) {
@@ -197,7 +192,7 @@
     
     function clearDialog() {
       $timeout(function () {
-        $scope.text = '';  
+        $scope.reply = '';  
       });
     }
     
@@ -268,10 +263,10 @@
     }
     
     function insertMarkdown(input) {
-      if ($scope.text) {
-        $scope.text = $scope.text + '\n\n' + input;  
+      if ($scope.reply) {
+        $scope.reply = $scope.reply + '\n\n' + input;  
       } else {
-        $scope.text = input;
+        $scope.reply = input;
       }
     }
         
@@ -292,7 +287,7 @@
       
       $scope.showDialog = false;
       
-      nodeService.format($scope.text).then(function (formatted) {
+      nodeService.format($scope.reply).then(function (formatted) {
         _formattedNode = formatted;
         return nodeService.push(formatted);
       }).then(function ($new) {
@@ -423,8 +418,8 @@
       
       selectText(
         'text-input', 
-        $scope.text.length - 27, 
-        $scope.text.length - 1
+        $scope.reply.length - 27, 
+        $scope.reply.length - 1
       );
     };
     
