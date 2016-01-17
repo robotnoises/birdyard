@@ -55,13 +55,15 @@
         
         scope.insertFormatting = function (_type) {
           
-          var bold = '**your-bold-text-here**';
-          var italics = '*your-italicized-text-here*';
+          var bold = '**your-bold-text**';
+          var italics = '*your-italicized-text*';
           
           if (_type === 'bold') {
             insertMarkdown(bold);
           } else if (_type === 'italic') {
             insertMarkdown(italics);
+          } else if (_type === 'blockquote') { 
+            insertMarkdown('> YOUR BLOCKQUOTE')
           } else if (_type === 'header1') {
             insertMarkdown('# YOUR HEADING');  
           } else if (_type === 'header2') {
