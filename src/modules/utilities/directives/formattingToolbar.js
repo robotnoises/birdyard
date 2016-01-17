@@ -20,6 +20,7 @@
         // Private
         
         var RECENT_NODES_PREFIX = '___recentNode_';
+        var TEXTAREA_ID =         'text-input';
         
         function insertMarkdown(input) {
           if (scope.target) {
@@ -27,6 +28,14 @@
           } else {
             scope.target = input;
           }
+        }
+        
+        function highlight(startFromEnd, endFromEnd) {
+          selectText(
+            TEXTAREA_ID, 
+            scope.target.length - startFromEnd, 
+            scope.target.length - endFromEnd
+          );
         }
         
         function getRecentNodes() {
@@ -45,12 +54,7 @@
           var linkText = '![](http://link-to-image-here/)';
           
           insertMarkdown(linkText);
-          
-          selectText(
-            'text-input', 
-            scope.target.length - 27, 
-            scope.target.length - 1
-          );
+          highlight(27, 1);
         };
         
         scope.insertFormatting = function (_type) {
@@ -62,20 +66,28 @@
           
           if (_type === 'bold') {
             insertMarkdown(bold);
+            highlight(16, 2);
           } else if (_type === 'italic') {
             insertMarkdown(italics);
+            highlight(21, 1);
           } else if (_type === 'blockquote') { 
             insertMarkdown(blockquote)
+            highlight(15, 0);
           } else if (_type === 'header1') {
-            insertMarkdown('#' + heading);  
+            insertMarkdown('#' + heading);
+            highlight(12, 0);
           } else if (_type === 'header2') {
             insertMarkdown('##' + heading);
+            highlight(12, 0);
           } else if (_type === 'header3') {
             insertMarkdown('###' + heading);
+            highlight(12, 0);
           } else if (_type === 'header4') {
             insertMarkdown('####' + heading);
+            highlight(12, 0);
           } else if (_type === 'header5') {
             insertMarkdown('#####' + heading);
+            highlight(12, 0);
           }
           
           scope.headerIconHovering = scope.linkIconHovering = false;
