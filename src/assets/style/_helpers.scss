@@ -52,9 +52,8 @@
 }
 
 .subtle {
-  color: $co_verylightgrey;
   background-color: transparent;
-  opacity: 0.3;
+  opacity: 0.6;
   transition: opacity $dur_fade, background $dur_fade, color $dur_fade;
   transition-delay: $dur_fade / 2;
   &:hover {

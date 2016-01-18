@@ -76,22 +76,6 @@
     
   </div>
   
-  <!-- Toolbar -->
-  <div class="toolbar fixed subtle shadow-flat">
-    <div layout="row" class="content fadey ghost" ng-class="{'boo': loaded}">
-      
-        <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
-        <span>
-          <md-tooltip md-direction="left" md-delay="1250">
-            Toggle autoscroll
-          </md-tooltip>
-          <md-switch flex="none" ng-model="autoScroll" aria-label="autoscroll"></md-switch>
-        </span>
-        
-      
-    </div>
-  </div>
-  
   <div layout="column" class="non-featured content">
 
     <!-- Progress indicator for initial load -->
@@ -127,7 +111,19 @@
         SAY SOMETHING
       </md-button>
     </div>
-
+  </div>
+  
+  <!-- Toolbar -->
+  <div class="toolbar fixed subtle">
+    <div layout="row" class="fadey ghost" ng-class="{'boo': loaded}">
+        <span flex="grow" style="padding-left: 25px;">{{node.commentCount}} comment<span ng-hide="node.commentCount == 1">s</span></span>
+        <span>
+          <md-tooltip md-direction="left" md-delay="1250">
+            Toggle autoscroll
+          </md-tooltip>
+          <md-switch flex="none" ng-model="autoScroll" aria-label="autoscroll"></md-switch>
+        </span>
+    </div>
   </div>
 
   <div id="bottom"></div>

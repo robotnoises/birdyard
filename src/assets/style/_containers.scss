@@ -65,15 +65,13 @@
 
 .non-featured {
   padding-top: $dim_feature + 25px;
+  padding-bottom: 20px;
   .node {
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 25px;
     background-color: $co_white;
     border-radius: 4px;
-    // border-top: 1px solid rgba(0,0,0,0.05);
-    // border-left: 1px solid rgba(0,0,0,0.1);
-    // border-right: 1px solid rgba(0,0,0,0.1);
   }
 }
 
@@ -187,11 +185,11 @@
 }
 
 .toolbar {
-  top: 225px;
+  bottom: 0;
   z-index: 3;
-  height: 50px;
-  line-height: 50px;
-  color: $co_white;
+  height: 40px;
+  line-height: 44px;
+  color: $co_black;
 }
 
 .birdyard-avatar {
