@@ -81,8 +81,8 @@
         
         // Get currently signed-in user
         
-        authService.getUser().then(function (_user) {
-          $scope.editable = (_user.uid === $routeParams.userid);  
+        authService.getUser().then(function (currentUser) {
+          $scope.editable = (currentUser.uid === $routeParams.userid);  
         });
       } else {
         $scope.editable = true
