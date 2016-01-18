@@ -12,9 +12,9 @@
     
     var _colorList = [
       '#ef3e36', // 'Red'
-      '#F8CA00', // 'Yellow'
-      '#169CEE', // 'Blue'
-      '#2ecc71', // 'Green'
+      '#f8ca00', // 'Yellow'
+      '#4892e7', // 'Blue'
+      '#42c76a', // 'Green'
       '#9b59b6', // 'Purple' 
       '#e67e22' // 'Orange' 
     ];

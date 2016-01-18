@@ -4,7 +4,7 @@
   line-height: 1em;
   padding: 6px 10px;
   background-color: $co_verylightgrey;
-  color: #333;
+  color: $co_darkblack;
 }
 
 .rooms-header {
@@ -37,14 +37,8 @@
     transition: color $dur_fade;
         
     span:not(.md-select-icon) {
-      // background-color: $co_verylightgrey;
-      color: $co_black;
-      // font-weight: 700;
-      text-shadow: none !important;
-      // text-transform: uppercase;
-      // padding: 3px 12px;
-      // border-radius: 2px;
-      // @include raised(3px);
+      color: $co_darkblack;
+      text-shadow: 2px 2px 0px rgba(255,255,255,0.25);
     }
   }
 }
