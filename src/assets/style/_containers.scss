@@ -296,6 +296,7 @@
       line-height: 36px;
       background-color: $co_lightgrey;
       border-bottom: 1px solid $co_grey;
+      font-size: 1em;
     }
   }
   
@@ -309,10 +310,11 @@
     max-height: 300px;
     overflow-y: scroll;
     
-    div {
+    .icon-reply-menu-item:not(.icon-reply-menu-header) {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      font-size: 0.75em;
     }
   }
 }
