@@ -62,8 +62,7 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
-    $scope.text =           '';
-    $scope.recentNodes =    getRecentNodes();
+    $scope.reply =           '';
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,10 +127,6 @@
       }
     }
     
-    function getRecentNodes() {
-      return stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
-    }
-    
     function doTransition(callback) {
       
       var options = {
@@ -149,14 +144,12 @@
         var keepOptions = {top: 30, speed: SPEED, easing: 'linear'};
         var starWarsOptions = {top: -275, speed: SPEED, easing: 'linear'};
         
-        Move.y('.keep', keepOptions);
-        Move.y('.star-wars', starWarsOptions, function () {
-
+        Move.y('.keep', keepOptions, function () {
           var $keeper = angular.element(document.getElementsByClassName('keep'));
-          $keeper[0].style.setProperty('opacity', 0, 'important');
-          
-          callback();
+          $keeper[0].style.setProperty('display', 'none', 'important');
         });
+        
+        Move.y('.star-wars', starWarsOptions, callback);
       });
     }
     
@@ -199,7 +192,7 @@
     
     function clearDialog() {
       $timeout(function () {
-        $scope.text = '';  
+        $scope.reply = '';  
       });
     }
     
@@ -270,10 +263,10 @@
     }
     
     function insertMarkdown(input) {
-      if ($scope.text) {
-        $scope.text = $scope.text + '\n\n' + input;  
+      if ($scope.reply) {
+        $scope.reply = $scope.reply + '\n\n' + input;  
       } else {
-        $scope.text = input;
+        $scope.reply = input;
       }
     }
         
@@ -294,7 +287,7 @@
       
       $scope.showDialog = false;
       
-      nodeService.format($scope.text).then(function (formatted) {
+      nodeService.format($scope.reply).then(function (formatted) {
         _formattedNode = formatted;
         return nodeService.push(formatted);
       }).then(function ($new) {
@@ -378,15 +371,15 @@
       var theChosenOne = angular.element(document.getElementById(child.id));
       theChosenOne.addClass('keep');
       
-      // Fade the rest
-      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
-      children.addClass('invisible');
-      
       // Move stuff
       doTransition(function () {
         // Navigate
         navigateToNode(child.id);
       });
+      
+      // Fade the rest
+      var children = angular.element(document.querySelectorAll('div.child:not(.keep)'));
+      children.css({'display': 'none'});
     };
     
     $scope.toggleDialog = function (force) {
@@ -425,8 +418,8 @@
       
       selectText(
         'text-input', 
-        $scope.text.length - 27, 
-        $scope.text.length - 1
+        $scope.reply.length - 27, 
+        $scope.reply.length - 1
       );
     };
     

@@ -70,10 +70,10 @@
     padding-right: 25px;
     margin-bottom: 25px;
     background-color: $co_white;
-    border-radius: 2px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    border-left: 1px solid rgba(0,0,0,0.1);
-    border-right: 1px solid rgba(0,0,0,0.1);
+    border-radius: 4px;
+    // border-top: 1px solid rgba(0,0,0,0.05);
+    // border-left: 1px solid rgba(0,0,0,0.1);
+    // border-right: 1px solid rgba(0,0,0,0.1);
   }
 }
 
@@ -508,7 +508,7 @@ blockquote {
   border-radius: 4px;
   margin-bottom: 20px;
   
-  border-bottom: 4px solid rgba(0,0,0,0.3);
+  // border-bottom: 4px solid rgba(0,0,0,0.3);
   
   .room-content {
     padding: 15px;
