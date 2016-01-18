@@ -46,13 +46,13 @@
         
         scope.$watch('headerIconClicked', function (value) {
           if (value) {
-            scope.linkIconClicked = !value;
+            scope.linkIconClicked = false;
           }
         });
         
         scope.$watch('linkIconClicked', function (value) {
           if (value) {
-            scope.headerIconClicked = !value;
+            scope.headerIconClicked = false;
           }
         });
         
@@ -69,6 +69,9 @@
           
           insertMarkdown(linkText);
           highlight(27, 1);
+          
+          scope.headerIconClicked = false;
+          scope.linkIconClicked = false;
         };
         
         scope.insertFormatting = function (_type) {
@@ -104,7 +107,8 @@
             highlight(12, 0);
           }
           
-          scope.headerIconClicked = scope.linkIconHovering = false;
+          scope.headerIconClicked = false;
+          scope.linkIconClicked = false;
         };
         
         scope.insertNodeLink = function (node) {
