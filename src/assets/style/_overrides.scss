@@ -11,21 +11,28 @@ md-input-container {
     padding-top: 4px;
     padding-left: 0;
     padding-right: 0;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
   }
   
   .md-input.jumbo {
     font-size: 1.5em;
     color: $co_black;
   }
+  
   .md-input:not(.borders) {
     border-color: rgba(255,255,255,0) !important;
   }
+  
   .md-input.borders {
-    border-color: $co_purple !important;
+    border-color: $co_darkgrey !important;
+    border-width: 0 0 2px 0;
   }
+  
   .md-input[disabled] {
     background-image: none !important;
   }
+  
   button, 
   input, 
   textarea {
@@ -33,6 +40,7 @@ md-input-container {
     color: $co_extradarkblack !important;
     font-weight: 500 !important;
   }
+  
   label {
     font-family: 'Hind', 'san-serif' !important;
     color: $co_darkgrey !important;
@@ -40,9 +48,11 @@ md-input-container {
     font-size: 17.5px;
     top: -5px;
   }
+  
   label:not(.md-no-float) {
     padding-left: 0;
   }
+  
   .md-icon-float { 
     label {
       margin-left: 0;

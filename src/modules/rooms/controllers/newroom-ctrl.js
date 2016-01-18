@@ -10,8 +10,9 @@
     
     // Scope
     
-    $scope.room = {};
-    $scope.loaded = false;
+    $scope.room =           {};
+    $scope.loaded =         false;
+    $scope.categoryChosen = false;
     
     // Private
     
@@ -66,6 +67,11 @@
             .hideDelay(3000)
           );
       });
+    };
+    
+    $scope.chooseCategory = function (_category) {
+      $scope.room.category = _category;
+      $scope.categoryChosen = true;
     };
     
   }]);

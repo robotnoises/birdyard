@@ -11,12 +11,12 @@
       <md-content class="reply-textarea" style="padding-top: 75px"> 
         <md-input-container class="md-block">
           <label></label>
-          <textarea id="text-input" shift-enter="pushText()" escape="toggleDialog()" ng-model="reply" placeholder="Reply to {{node.name}}..."></textarea>
+          <textarea id="text-input"shift-enter="pushText()" escape="toggleDialog()" ng-model="reply" placeholder="Reply to {{node.name}}..."></textarea>
         </md-input-container>
       </md-content>
       
       <div class="container-formatting">
-        <formatting-toolbar target="reply"></formatting-toolbar>
+        <formatting-toolbar target="reply" targetid="text-input"></formatting-toolbar>
       </div>
 
       <md-button class="birdyard-btn shadow-flat" ng-click="pushText()">Reply</md-button>

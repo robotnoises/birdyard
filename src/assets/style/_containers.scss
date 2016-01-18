@@ -250,7 +250,8 @@
 .icon-reply-container {
   border-radius: 4px;
   background-color: $co_lightgrey;
-  padding-left: 7px;  
+  padding-left: 7px;
+  display: inline-block;
   
   @include raised(2px);
   
@@ -571,4 +572,28 @@ blockquote {
   font-size: 0.8em;
   cursor: pointer;
   @include raised(2px);
+  
+  &.disabled {
+    background-color: $co_lightgrey;
+    color: $co_grey;
+  }
+}
+
+.container-newroom-toolbar {
+  margin-bottom: 25px;
+}
+
+.container-choosecategory {
+  padding: 5px 0;
+  margin: 10px 0 26px;
+  
+  div {
+    margin: $dim_spacer 0;
+  }
+  
+  label {
+    font-size: 1.5em;
+    color: $co_darkgrey;
+    margin-bottom: 10px;
+  }
 }

@@ -53,7 +53,7 @@
           uid: $user.uid,
           nodeId: nodeId,
           score: 0,
-          category: 1, // todo: user needs to supply this
+          category: roomData.category,
           timestamp: $window.Firebase.ServerValue.TIMESTAMP,
           name: $user.name
         };

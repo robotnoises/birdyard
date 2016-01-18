@@ -1,24 +1,39 @@
-<div class="content top">
+<div class="content top fadey ghost" ng-class="{'boo': loaded}">
   
-  <div class="heading">Room!</div>
+  <div class="heading">Create a new room</div>
   
-  <div class="bg-white border shadow-flat fadey ghost" ng-class="{'boo': loaded}">
+  <md-input-container class="md-block">
+    <label style="display: none;"></label>
+    <input class="borders jumbo" ng-model="room.title" type="text" placeholder="Give your room a title...">
+  </md-input-container>
+  
+  <div class="container-choosecategory">
+    <label>Choose a category...</label>
+    <div>
+      <span class="pill bg-red" ng-class="{'disabled': categoryChosen && room.category !== 1}" ng-click="chooseCategory(1)">News</span>
+      <span class="pill bg-green" ng-class="{'disabled': categoryChosen && room.category !== 2}" ng-click="chooseCategory(2)">Entertainment</span>
+      <span class="pill bg-orange" ng-class="{'disabled': categoryChosen && room.category !== 3}" ng-click="chooseCategory(3)">Sports</span>
+      <span class="pill bg-blue" ng-class="{'disabled': categoryChosen && room.category !== 4}" ng-click="chooseCategory(4)">Games</span>
+      <span class="pill bg-purple" ng-class="{'disabled': categoryChosen && room.category !== 5}" ng-click="chooseCategory(5)">Whatever</span>
+    </div>
+  </div>
+  
+  <div class="bg-white shadow-flat">
     
-    <md-content layout-padding class="autoScroll">
-      
-      
+    <md-content layout-padding class="autoScroll" style="overflow: visible;">
+
       <md-input-container class="md-block">
-        <label>Title</label>
-        <input class="borders jumbo" ng-model="room.title" type="text">
-      </md-input-container>
         
-      <md-input-container class="md-block">
-        <label>Message</label>
-        <textarea class="borders" ng-model="room.text"></textarea>
+        <div class="container-newroom-toolbar">
+          <formatting-toolbar target="room.text" targetid="newroom-comment"></formatting-toolbar>
+        </div>
+        
+        <label></label>
+        <textarea id="newroom-comment" class="container-newroom jumbo" ng-model="room.text" placeholder="Initial comment..."></textarea>
       </md-input-container>
       
       <div layout="row" layout-align="end center">
-        <md-button ng-click="newRoom()">Create Room</md-button>
+        <md-button class="birdyard-btn" ng-click="newRoom()">Create Room</md-button>
       </div>
     </md-content>
   </div>

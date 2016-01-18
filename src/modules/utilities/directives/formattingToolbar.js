@@ -20,7 +20,7 @@
         // Private
         
         var RECENT_NODES_PREFIX = '___recentNode_';
-        var TEXTAREA_ID =         'text-input';
+        var TEXTAREA_INPUT =      attrs['targetid'];
         
         function insertMarkdown(input) {
           if (scope.target) {
@@ -32,7 +32,7 @@
         
         function highlight(startFromEnd, endFromEnd) {
           selectText(
-            TEXTAREA_ID, 
+            TEXTAREA_INPUT, 
             scope.target.length - startFromEnd, 
             scope.target.length - endFromEnd
           );
