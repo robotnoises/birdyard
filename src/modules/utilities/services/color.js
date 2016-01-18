@@ -11,7 +11,7 @@
     var _colorService = {};
     
     var _colorList = [
-      '#de2b2b', // 'Red'
+      '#ef3e36', // 'Red'
       '#f8ca00', // 'Yellow'
       '#4892e7', // 'Blue'
       '#42c76a', // 'Green'
