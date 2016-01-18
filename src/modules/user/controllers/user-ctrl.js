@@ -18,7 +18,7 @@
     $scope.user = {};
     $scope.loaded = false;
     $scope.modified = false;
-    $scope.editable = typeof _userId === 'undefined';
+    $scope.editable = false;
     $scope.accentColors = colorService.list;
     $scope.showLightbox = false;
     
@@ -70,6 +70,23 @@
       $timeout(function () {
         $scope.modified = (social !== _user.social);  
       });
+    });
+    
+    $scope.$watch('user', function (user) {
+      
+      // For this form to be editable, the uid supplied in the route parameter must 
+      // be equal to that of the currently signed-in user.
+      
+      if (user.uid && $routeParams.userid) {
+        
+        // Get currently signed-in user
+        
+        authService.getUser().then(function (_user) {
+          $scope.editable = (_user.uid === $routeParams.userid);  
+        });
+      } else {
+        $scope.editable = true
+      }
     });
     
     // Public

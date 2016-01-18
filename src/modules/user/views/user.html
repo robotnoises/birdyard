@@ -1,11 +1,11 @@
-<div class="content user-profile top">
+<div class="content user-profile top ghost fadey" ng-class="{'boo': loaded}">
   
   <div layout="row" layout-align="start end">
-    <div class="heading font-black" style="padding-left: 16px;" flex="grow">Profile!</div>
-    <md-button flex="none" ng-click="signOutUser()">Sign Out</md-button>
+    <div class="heading font-black" style="padding-left: 16px;" flex="grow">{{user.name}}'s Profile</div>
+    <md-button flex="none" ng-if="editable" ng-click="signOutUser()">Sign Out</md-button>
   </div>
   
-  <div class="bg-white ghost fadey border shadow-flat" ng-class="{'boo': loaded}">
+  <div class="bg-white shadow-flat">
     
     <md-content layout-padding class="autoScroll">
       
