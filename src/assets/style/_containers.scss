@@ -249,7 +249,7 @@
   top: 20px;
   left: 25px;
   padding-left: 7px;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: $co_lightgrey;
   
   @include raised(2px);
@@ -279,14 +279,25 @@
     display: block;
     top: 26px;
     background-color: $co_lightgrey;
-    border-radius: 2px;
+    border-radius: 4px;
     font-weight: 700;
     
-    @include raised(3px);
+    @include raised(4px);
+    
+    .icon-reply-menu-nodes {
+      background-color: $co_verylightgrey;
+      max-height: 300px;
+      overflow-y: scroll;
+      font-weight: 400;
+    }
     
     .icon-reply-menu-item {
       padding: 2px 8px;
       cursor: pointer;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-weight: 700;
     }
     
     .icon-reply-menu-header {
@@ -295,7 +306,7 @@
       padding-right: 8px;
       line-height: 36px;
       background-color: $co_lightgrey;
-      border-bottom: 1px solid $co_grey;
+      border-bottom: 2px solid $co_grey;
     }
   }
   
@@ -305,15 +316,7 @@
   
   #reply-recentLinks {
     left: 125px;
-    max-width: 250px;
-    max-height: 300px;
-    overflow-y: scroll;
-    
-    div {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+    max-width: 300px;
   }
 }
 

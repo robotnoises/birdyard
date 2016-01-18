@@ -44,7 +44,7 @@
         
         // Scope
         
-        scope.headerIconHovering =  false;
+        scope.headerIconClicked =   false;
         scope.linkIconClicked =     false;
         scope.recentNodes =         [];
         scope.recentNodes =         getRecentNodes();
@@ -90,7 +90,7 @@
             highlight(12, 0);
           }
           
-          scope.headerIconHovering = scope.linkIconHovering = false;
+          scope.headerIconClicked = scope.linkIconHovering = false;
         };
         
         scope.insertNodeLink = function (node) {
