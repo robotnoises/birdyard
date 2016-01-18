@@ -261,14 +261,6 @@
         });
       }
     }
-    
-    function insertMarkdown(input) {
-      if ($scope.reply) {
-        $scope.reply = $scope.reply + '\n\n' + input;  
-      } else {
-        $scope.reply = input;
-      }
-    }
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
@@ -408,50 +400,6 @@
       $timeout(function () {
         $scope.expand = true;
       });  
-    };
-    
-    $scope.insertMedia = function () {
-      
-      var linkText = '![](http://link-to-image-here/)';
-      
-      insertMarkdown(linkText);
-      
-      selectText(
-        'text-input', 
-        $scope.reply.length - 27, 
-        $scope.reply.length - 1
-      );
-    };
-    
-    $scope.insertFormatting = function (_type) {
-      
-      var bold = '**your-bold-text-here**';
-      var italics = '*your-italicized-text-here*';
-      
-      if (_type === 'bold') {
-        insertMarkdown(bold);
-      } else if (_type === 'italic') {
-        insertMarkdown(italics);
-      } else if (_type === 'header1') {
-        insertMarkdown('# YOUR HEADING');  
-      } else if (_type === 'header2') {
-        insertMarkdown('## YOUR HEADING');
-      } else if (_type === 'header3') {
-        insertMarkdown('### YOUR HEADING');
-      } else if (_type === 'header4') {
-        insertMarkdown('#### YOUR HEADING');
-      } else if (_type === 'header5') {
-        insertMarkdown('##### YOUR HEADING');
-      }
-      
-      $scope.headerIconHovering = $scope.linkIconHovering = false;
-    };
-    
-    $scope.insertNodeLink = function (node) {
-      $scope.linkIconClicked = false;
-      var stripped = node.text.split('\n').join('');
-      insertMarkdown('> Posted by **' + node.name + '**:');
-      insertMarkdown('> [' + stripped + '](#/n/' + node.id + ')');
     };
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

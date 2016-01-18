@@ -114,7 +114,7 @@
         scope.insertNodeLink = function (node) {
           scope.linkIconClicked = false;
           var stripped = node.text.split('\n').join('');
-          insertMarkdown('> Posted by **' + node.name + '**:');
+          insertMarkdown('> **' + node.name + ' said:**');
           insertMarkdown('> [' + stripped + '](#/n/' + node.id + ')');
         };
       }
