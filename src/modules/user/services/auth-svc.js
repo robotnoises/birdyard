@@ -4,9 +4,9 @@
   
   angular.module('birdyard.users')
   
-  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService',
+  .factory('authService', ['$rootScope', '$timeout', '$q', 'firebaseService', '$Auth', '$firebaseObject', 'colorService', 'presenceService',
 
-  function ($rootScope, $timeout, $q, firebaseService, $Auth, $firebaseObject, colorService) {
+  function ($rootScope, $timeout, $q, firebaseService, $Auth, $firebaseObject, colorService, presenceService) {
     
     // Private
     
