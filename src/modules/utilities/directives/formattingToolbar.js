@@ -42,6 +42,20 @@
           return stashService.get(new RegExp(RECENT_NODES_PREFIX + '+'));
         }
         
+        // Watchers 
+        
+        scope.$watch('headerIconClicked', function (value) {
+          if (value) {
+            scope.linkIconClicked = !value;
+          }
+        });
+        
+        scope.$watch('linkIconClicked', function (value) {
+          if (value) {
+            scope.headerIconClicked = !value;
+          }
+        });
+        
         // Scope
         
         scope.headerIconClicked =   false;

@@ -13,7 +13,7 @@
     
     // Loaders
     $mdThemingProvider.theme('progress-default').primaryPalette('green', {
-      'default': '400',
+      'default': '500',
       'hue-1': '900'
     });
     

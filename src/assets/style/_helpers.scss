@@ -111,7 +111,7 @@
   bottom: initial;
 }
 
-.scroll {
+.hoverscroll {
   overflow-y: hidden;
   &:hover, &:active {
     overflow-y: scroll;

@@ -17,10 +17,10 @@
     </div>
         
     <div id="reply-recentLinks" class="icon-reply-menu" ng-show="linkIconClicked && recentNodes.length > 0">
-      <div class="icon-reply-menu-header">Recently visited comments</div>
-      <div class="icon-reply-menu-nodes">
-        <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="insertNodeLink(node)" markdown-filter>
-          {{node.text}}
+      <div class="icon-reply-menu-header">Recent Comments</div>
+      <div class="icon-reply-menu-nodes hoverscroll">
+        <div ng-repeat="node in recentNodes" class="icon-reply-menu-item" ng-click="insertNodeLink(node)">
+          <span class="strong">{{node.name}} said:</span> <span markdown-filter>{{node.text}}</span>
         </div>
       </div>
     </div>
