@@ -15,7 +15,9 @@
         </md-input-container>
       </md-content>
       
-      <formatting-toolbar target="reply"></formatting-toolbar>
+      <div class="container-formatting">
+        <formatting-toolbar target="reply"></formatting-toolbar>
+      </div>
 
       <md-button class="birdyard-btn shadow-flat" ng-click="pushText()">Reply</md-button>
     </div>
@@ -28,7 +30,7 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon fa fa-pencil-square pointer float-right reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
+      <i id="pencil" class="icon fa fa-pencil-square pointer reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
         <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
       </i>
             

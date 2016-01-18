@@ -4,7 +4,7 @@
   
   angular.module('birdyard.utilities')
   
-  .directive('markdownFilter', ['$timeout', function($timeout) {
+  .directive('markdownFilter', ['$timeout', 'markdownFilterService', function($timeout, markdownFilterService) {
         
     return {
       restrict: 'A',
@@ -13,7 +13,7 @@
         $timeout(function () {
           var limit = parseInt(attrs['markdownFilter'], 10) || 0;
           var text = element.text();
-          var filtered = text.replace(/[#*_>]|[-]{3,}|[=]{3,}|[!]+(?=[\[])|[\[\]]|\(([htpw]{3,}.*?)\)/gi, '');
+          var filtered = markdownFilterService.filter(text);
           var limited = (limit) ? filtered.slice(0, limit) : filtered;
           element.text(limited);  
         });

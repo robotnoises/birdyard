@@ -241,14 +241,16 @@
   }
 }
 
-.icon-reply-container {
-  
+.container-formatting {
   position: absolute;
   top: 20px;
   left: 25px;
-  padding-left: 7px;
+}
+
+.icon-reply-container {
   border-radius: 4px;
   background-color: $co_lightgrey;
+  padding-left: 7px;  
   
   @include raised(2px);
   

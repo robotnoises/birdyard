@@ -114,13 +114,14 @@
     }
     
     function addRecentNode() {
+      
       var prefix = RECENT_NODES_PREFIX + $scope.node.id;
       var key = prefix + $scope.node.id;
       
       if (!stashService.exists(key)) {
         stashService.set(key, {
           id: $scope.node.id,
-          text: $scope.node.text,
+          text: $scope.node.text.slice(0, 250) + '...',
           name: $scope.node.name,
           timestamp: new Date().getTime()
         });

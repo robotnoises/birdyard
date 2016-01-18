@@ -4,9 +4,9 @@
   
   angular.module('birdyard.utilities')
   
-  .directive('formattingToolbar', ['$timeout', 'selectText', 'stashService', 
+  .directive('formattingToolbar', ['$timeout', 'selectText', 'stashService', 'markdownFilterService',
     
-    function ($timeout, selectText, stashService) {
+    function ($timeout, selectText, stashService, markdownFilterService) {
       
     return {
       restrict: 'E',
@@ -114,8 +114,9 @@
         scope.insertNodeLink = function (node) {
           scope.linkIconClicked = false;
           var stripped = node.text.split('\n').join('');
+          var noMd = markdownFilterService.filter(stripped);
           insertMarkdown('> **' + node.name + ' said:**');
-          insertMarkdown('> [' + stripped + '](#/n/' + node.id + ')');
+          insertMarkdown('> [' + noMd + '](#/n/' + node.id + ')');
         };
       }
     }
