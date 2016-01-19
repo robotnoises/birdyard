@@ -20,7 +20,7 @@
     </h1>
     
     <h2 layout="row" layout-align="center center" class="rooms-subheader">
-      There are {{userCount}} people talking about {{categoryReadable(category)}} right now. Join in?
+      There are {{userCount}} people talking right now. Join in?
     </h2>
     
     <div class="searchbar-placeholder">
@@ -42,7 +42,7 @@
   
   <div class="fadey ghost" ng-class="{'boo': loaded}">
     <div ng-repeat="room in rooms">
-      <div class="container-room pointer shadow-flat">
+      <div class="container-room shadow-flat">
         <div class="room-content">
           <div class="room-title">
             {{room.title}}
