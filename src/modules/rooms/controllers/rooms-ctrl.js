@@ -4,9 +4,23 @@
   
   angular.module('birdyard.rooms')
   
-  .controller('roomsController', ['$scope', '$location', '$routeParams', '$timeout', 'uiService', 'roomService',
+  .controller('roomsController', [
+    '$scope', 
+    '$location', 
+    '$routeParams', 
+    '$timeout', 
+    'uiService', 
+    'roomService', 
+    'presenceService',
   
-  function ($scope, $location, $routeParams, $timeout, uiService, roomService) {
+  function (
+    $scope, 
+    $location, 
+    $routeParams, 
+    $timeout, 
+    uiService, 
+    roomService, 
+    presenceService) {
     
     // Private
     
@@ -28,6 +42,10 @@
             roomCount = $scope.rooms.length;
           });
         });
+      });
+      
+      presenceService.getUserCount().then(function(count) {
+        $scope.userCount = count;
       });
     }
     
@@ -60,8 +78,9 @@
     
     $scope.roomsToLoad = ROOMS_TO_LOAD;
     
-    $scope.loaded =   false;  // Initial load
-    $scope.loading =  false;  // Loading more rooms
+    $scope.loaded =   false;      // Initial load
+    $scope.loading =  false;      // Loading more rooms
+    $scope.userCount = 'several'; // Number of active connections
     
     $scope.category = roomService.getCategoryValue($routeParams.category) || 0;
     

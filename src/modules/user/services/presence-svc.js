@@ -11,13 +11,8 @@
     // Private
     
     var $userCountRef = firebaseService.getRef('presence/count');
-    var _userCount = 0; 
     
     function init() {
-      
-      $userCountRef.on('value', function ($snap) {
-        _userCount = $snap.val() || 0;
-      });
       
       var $ref = firebaseService.getRef('.info/connected');
       
@@ -37,7 +32,12 @@
     var _presenceService = {};
     
     function _getUserCount () {
-      return _userCount;
+      return $q(function (resolve, reject) {
+        $userCountRef.on('value', function ($snap) {
+          var foo = $snap.numChildren();
+          resolve(foo);
+        }, reject);
+      });
     }
     
     _presenceService.getUserCount = _getUserCount;
