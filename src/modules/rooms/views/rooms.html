@@ -51,7 +51,7 @@
             Created by <strong>{{room.name}}</strong> <span my-time="{{room.timestamp}}" from-now="true"></span>
           </div>
           <div class="room-footer">
-            <span class="pill" ng-click="enterRoom(room.nodeId)">904 comments</span>
+            <span class="pill" ng-click="enterRoom(room.nodeId)">{{room.commentCount}} comment<span ng-hide="room.commentCount === 1">s</span></span>
             <span class="pill" ng-click="changeCategory(room.category)" ng-class="categoryColor(room.category)">{{categoryReadable(room.category)}}</span>
           </div>
         </div>
