@@ -68,7 +68,6 @@
         return $items.on('child_added', function ($snap) {
           resolve();
         });
-
       });
     }
     

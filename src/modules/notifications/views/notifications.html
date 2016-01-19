@@ -8,21 +8,22 @@
 
   <md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1" layout="column" flex>
     
-    <md-content layout="column">
+    <md-content>
       <div class="sidenav-header">
-        <span class="float-left">Notifications</span>
+        <span class="float-left">NOTIFICATIONS</span>
         <span class="float-right pointer">
           <i class="icon fa fa-bomb" ng-click="dismissAll()"></i>
         </span>
       </div>
     </md-content>
     
-    <md-content layout="column" flex>
+    <md-content class="hoverscroll">
       <md-button ng-repeat="n in notifications" ng-click="go(n.id)">
-        <div class="timestamp" my-time="{{n.timestamp}}"></div>
-        <!-- Todo icon -->
-        <span ng-show="n.type == 0">There are new replies to your comment <span markdown-filter="100">"{{n.where}}</span>..."</span>
-        <span ng-show="n.type == 1">Foo</span>
+        <!-- Notification types -->
+        <div ng-show="n.type == 0"><strong>You have a reply to your comment:</strong> <span markdown-filter="100">"{{n.where}}</span>..."</div>
+        <div ng-show="n.type == 1">Foo</div>
+        <!-- timestamp -->
+        <div class="timestamp" my-time="{{n.timestamp}}" from-now="true"></div>
       </md-button>
     </md-content>
     

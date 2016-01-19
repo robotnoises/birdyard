@@ -1,6 +1,5 @@
 @import '_variables';
 
-
 .heading {
   font-weight: 700;
   font-size: 3em;
@@ -9,10 +8,14 @@
 }
 
 .sidenav-header {
-  line-height: 1em;
-  padding: 6px 10px;
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0px 10px;
   background-color: $co_verylightgrey;
-  color: $co_darkblack;
+  color: $co_black;
+  font-weight: 700;
+  border-bottom: 3px solid $co_lightgrey;
 }
 
 .rooms-header {

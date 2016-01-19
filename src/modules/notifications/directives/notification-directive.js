@@ -64,6 +64,10 @@
           toggle();
         };
         
+        $scope.getUserName = function (uid) {
+          
+        };
+        
         $scope.go = function (id) {
           dismiss(id);
           toggle();

@@ -79,21 +79,30 @@ md-sidenav {
 }
 
 md-sidenav {
+  border-left: 4px solid rgba(0,0,0,0.35);
   md-content {
-    background-color: #333;
+    background-color: $co_white;
+    overflow: initial;
   }
   .md-button {
+    display: block;
+    width: 100%;
     text-transform: none;
     text-align: left;
-    color: $co_white;
+    color: $co_darkblack;
     border-radius: 0;
     margin: 0;
-    padding: 14px 10px;
-    border-bottom: 1px solid #222;
+    padding: 10px;
+    border-bottom: 3px solid $co_verylightgrey;
     line-height: 1.25em;
     font-size: 0.8em;
     white-space: normal;
     word-wrap: break-word;
+    
+    &:hover, 
+    &:active {
+      background-color: $co_lightgrey;  
+    }
   }
 }
 
