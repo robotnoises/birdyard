@@ -53,6 +53,7 @@
           uid: $user.uid,
           nodeId: nodeId,
           score: 0,
+          commentCount: 0,
           category: roomData.category,
           timestamp: $window.Firebase.ServerValue.TIMESTAMP,
           name: $user.name
