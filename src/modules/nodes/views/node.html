@@ -8,7 +8,7 @@
     <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span> replied <span my-time="{{node.timestamp}}" from-now="true"></span>
     <span class="node-action">
       <span class="pill" ng-click="fav()" ng-class="{'bg-lightgrey': !favd}">
-        <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>0</strong></span>
+        <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>{{favCount}}</strong></span>
       </span>
     </span>
   </div>

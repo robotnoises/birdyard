@@ -4,7 +4,9 @@
   
   angular.module('birdyard.nodes')
   
-  .directive('node', ['$timeout', '$location', function ($timeout, $location) {
+  .directive('node', ['$timeout', '$location', '$routeParams', 'nodeService', 
+  
+  function ($timeout, $location, $routeParams, nodeService) {
     
     return {
       restrict: 'E',
@@ -17,17 +19,35 @@
       },
       link: function (scope, element, attrs) {
         
-        // Scope methods
+        var parentId = $routeParams.id;
+        
+        // Scope
+        
+        scope.favd = false;
+        scope.favCount = scope.node.favCount || 0;
+        
+        scope.fav = function () {
+          
+          scope.favCount = scope.favCount + 1;
+          scope.favd = !scope.favd;
+          
+          // Update the node
+          nodeService.update({id: scope.node.id, favCount: scope.favCount})
+            .then(function() {
+              
+              // Todo: this is clunky
+              var location = 'nodes/' + parentId + '/children/' + scope.node.$id;
+              
+              // Update the child
+              return nodeService.update({favCount: scope.favCount}, location)
+            }).catch(function(err) {
+              console.error(err);
+            });
+        };
         
         scope.goToProfile = function (uid) {
           $location.path('user/' + uid);
         };
-        
-        scope.favd = false;
-        
-        scope.fav = function () {
-          scope.favd = !scope.favd;
-        }; 
       }
     }
   }]);

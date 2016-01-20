@@ -91,6 +91,22 @@
       });
     }
     
+    function _updateNode(data, loc) {
+      return $q(function (resolve, reject) {
+        
+        var location = loc || 'nodes/' + data.id;
+        var $ref = firebaseService.getRef(location);
+        
+        return $ref.update(data, function (err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
+    
     // Format a node object
     function _formatNode(text, origin) {
       
@@ -109,6 +125,7 @@
     _nodeService.getByPath = _getNodeByPath;
     _nodeService.getChildren = _getChildNodes;
     _nodeService.push = _pushNode;
+    _nodeService.update = _updateNode;
     _nodeService.format = _formatNode;
     
     return _nodeService;
