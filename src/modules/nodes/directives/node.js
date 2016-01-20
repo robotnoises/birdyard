@@ -28,9 +28,14 @@
         
         scope.fav = function () {
           
-          scope.favCount = scope.favCount + 1;
           scope.favd = !scope.favd;
           
+          if (scope.favd) {
+            scope.favCount = scope.favCount + 1;
+          } else {
+            scope.favCount = scope.favCount - 1;
+          }
+
           // Update the node
           nodeService.update({id: scope.node.id, favCount: scope.favCount})
             .then(function() {
