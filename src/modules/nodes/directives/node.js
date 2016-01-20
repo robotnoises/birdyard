@@ -9,14 +9,16 @@
     '$routeParams', 
     'nodeService', 
     'firebaseService', 
-    'authService',
+    'authService', 
+    'favService',
   
   function (
     $location, 
     $routeParams, 
     nodeService, 
     firebaseService, 
-    authService) {
+    authService,
+    favService) {
     
     return {
       restrict: 'E',
@@ -39,14 +41,10 @@
           
           parentId =  $routeParams.id;
           
-          authService.getUser().then(function (user) {
-            var $favRef = firebaseService.getRef('favorites', user.uid, scope.node.$id);
-            $favRef.once('value', function ($snap) {
-              var favd = $snap.val();
-              if (favd) {
-                scope.favd = favd;
-              }
-            });
+          favService.isFavd(scope.node.$id).then(function (yeah) {
+            scope.favd = yeah;
+          }).catch(function (err) {
+            console.error(err);
           });
         }
         
@@ -60,33 +58,16 @@
         scope.fav = function () {
           
           scope.favd = !scope.favd;
+          scope.favCount = (scope.favd) ? scope.favCount + 1 : scope.favCount -1; 
           
-          if (scope.favd) {
-            scope.favCount = scope.favCount + 1;
-          } else {
-            scope.favCount = scope.favCount - 1;
-          }
-          
-          // Update the favorites record (indicating you have favd it)
-          authService.getUser()
-            .then(function (user) {
-              var $favRef = firebaseService.getRef('favorites', user.uid, scope.node.$id);
-              $favRef.set(scope.favd);
-            }).catch(function (err) {
-              console.error(err);
-            });  
-          
-          // Update the node favCount
-          nodeService.update({id: scope.node.id, favCount: scope.favCount})
-            .then(function() {
-              // Todo: this is clunky
-              var location = 'nodes/' + parentId + '/children/' + scope.node.$id;
-              // Update the child
-              return nodeService.update({favCount: scope.favCount}, location)
-            }).catch(function(err) {
+          // Update the favorites record (indicating you have favd/unfavd it)
+          return favService.fav(scope.node.id, parentId, scope.node.$id, scope.favd, scope.favCount)
+            .catch(function (err) {
               console.error(err);
             });
         };
+        
+        // Go to the user's profile page
         
         scope.goToProfile = function (uid) {
           $location.path('user/' + uid);

@@ -1,13 +1,13 @@
 <div id="{{node.id}}">
       
-  <div class="node-avatar">
+  <div class="node-avatar" ng-click="goToProfile(node.uid)">
     <avatar uid="node.uid"></avatar>
   </div>
   
   <div class="node-title" ng-class="{'active': hoverTitle || favd}" ng-mouseover="hoverTitle = true" ng-mouseleave="hoverTitle = false">
     <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span> replied <span my-time="{{node.timestamp}}" from-now="true"></span>
     <span class="node-action">
-      <span class="pill" ng-click="fav()" ng-class="{'bg-lightgrey': !favd}">
+      <span class="pill-mini" ng-click="fav()" ng-class="{'bg-lightgrey': !favd}">
         <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>{{favCount}}</strong></span>
       </span>
     </span>
