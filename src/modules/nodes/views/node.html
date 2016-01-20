@@ -1,0 +1,25 @@
+<div id="{{node.id}}">
+      
+  <div class="node-avatar">
+    <avatar uid="node.uid"></avatar>
+  </div>
+  
+  <div class="node-title" ng-class="{'active': hoverTitle || favd}" ng-mouseover="hoverTitle = true" ng-mouseleave="hoverTitle = false">
+    <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span> replied <span my-time="{{node.timestamp}}" from-now="true"></span>
+    <span class="node-action">
+      <span class="pill" ng-click="fav()" ng-class="{'bg-lightgrey': !favd}">
+        <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>0</strong></span>
+      </span>
+    </span>
+  </div>
+      
+  <div class="node-text">
+    <p btf-markdown="node.text" thumbnail></p>
+  </div>
+      
+  <div class="node-actions">
+    <span class="pill pointer" ng-click="select(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+      <span>{{node.commentCount}}</span> comment<span ng-hide="node.commentCount == 1">s</span>
+    </span>
+  </div>
+</div>
