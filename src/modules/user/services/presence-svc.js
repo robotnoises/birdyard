@@ -22,7 +22,9 @@
         }
       });
       
-      $userCountRef.onDisconnect().remove();
+      $userCountRef.on('value', function () {
+        $userCountRef.onDisconnect().remove(); 
+      });
     }
     
     init();
