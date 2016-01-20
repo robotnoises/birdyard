@@ -4,9 +4,19 @@
   
   angular.module('birdyard.nodes')
   
-  .directive('node', ['$timeout', '$location', '$routeParams', 'nodeService', 
+  .directive('node', [
+    '$location', 
+    '$routeParams', 
+    'nodeService', 
+    'firebaseService', 
+    'authService',
   
-  function ($timeout, $location, $routeParams, nodeService) {
+  function (
+    $location, 
+    $routeParams, 
+    nodeService, 
+    firebaseService, 
+    authService) {
     
     return {
       restrict: 'E',
@@ -19,7 +29,28 @@
       },
       link: function (scope, element, attrs) {
         
-        var parentId = $routeParams.id;
+        // Todo: fav service
+        
+        var parentId;
+        
+        // Init
+        
+        function init() {
+          
+          parentId =  $routeParams.id;
+          
+          authService.getUser().then(function (user) {
+            var $favRef = firebaseService.getRef('favorites', user.uid, scope.node.$id);
+            $favRef.once('value', function ($snap) {
+              var favd = $snap.val();
+              if (favd) {
+                scope.favd = favd;
+              }
+            });
+          });
+        }
+        
+        init();
         
         // Scope
         
@@ -35,14 +66,21 @@
           } else {
             scope.favCount = scope.favCount - 1;
           }
-
-          // Update the node
+          
+          // Update the favorites record (indicating you have favd it)
+          authService.getUser()
+            .then(function (user) {
+              var $favRef = firebaseService.getRef('favorites', user.uid, scope.node.$id);
+              $favRef.set(scope.favd);
+            }).catch(function (err) {
+              console.error(err);
+            });  
+          
+          // Update the node favCount
           nodeService.update({id: scope.node.id, favCount: scope.favCount})
             .then(function() {
-              
               // Todo: this is clunky
               var location = 'nodes/' + parentId + '/children/' + scope.node.$id;
-              
               // Update the child
               return nodeService.update({favCount: scope.favCount}, location)
             }).catch(function(err) {
