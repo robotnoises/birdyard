@@ -18,13 +18,24 @@
     </md-content>
     
     <md-content style="padding: 0 10px;">
-      <md-button class="birdyard-btn" ng-repeat="n in notifications" ng-click="go(n)">
+      <div class="birdyard-btn" ng-repeat="n in notifications" ng-click="go(n)">
+        
         <!-- Notification types -->
-        <div ng-show="n.type == 0"><strong>Someone has replied to your comment:</strong> <span markdown-filter="100">"{{n.text}}</span>..."</div>
-        <div ng-show="n.type == 1"><strong>Your comment, </strong> <span markdown-filter="100">"{{n.text}}</span>..." has been favorited {{n.count}} time(s).</div>
-        <!-- timestamp -->
-        <div class="timestamp" my-time="{{n.timestamp}}" style="font-weight: 400" from-now="true"></div>
-      </md-button>
+        
+        <!-- Reply -->
+        <div ng-show="n.type == 0">
+          <p>Someone has replied to your comment:</p> 
+          <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
+        </div>
+        <!-- Favorite -->
+        <div ng-show="n.type == 1">
+          <p>Your comment has been favorited {{n.count}} time<span ng-hide="n.count == 1">s</span>:</p> 
+          <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
+        </div>
+        
+        <!-- Timestamp -->
+        <div class="timestamp float-right" my-time="{{n.timestamp}}" style="font-weight: 400" from-now="true"></div>
+      </div>
     </md-content>
     
   </md-sidenav>
