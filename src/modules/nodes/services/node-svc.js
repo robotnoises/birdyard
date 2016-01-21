@@ -77,6 +77,7 @@
     // Create a node
     function _pushNode(data) {
       return $q(function (resolve, reject) {
+        
         var $ref = firebaseService.getRef('nodes');
         var $newObj = $ref.push();
       

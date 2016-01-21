@@ -269,7 +269,7 @@
     $scope.pushText = function() {
       
       // Do not proceed if the user has not entered text
-      if (!$scope.node) {
+      if (!$scope.reply) {
         return;
       }
       
