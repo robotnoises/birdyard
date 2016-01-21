@@ -4,11 +4,16 @@
   
   <md-input-container class="md-block">
     <label style="display: none;"></label>
-    <input class="borders jumbo" ng-model="room.title" type="text" placeholder="Give your room a title...">
+    <input class="borders jumbo" ng-model="room.title" type="text" placeholder="{{titlePlaceholder}}">
   </md-input-container>
   
   <div class="container-choosecategory">
-    <label>Choose a category...</label>
+    
+    <label ng-switch="categoryValid">
+      <span ng-switch-when="true">Choose a category</span>
+      <span ng-switch-when="false">Seriously, please choose a category.</span>
+    </label>
+    
     <div>
       <span class="pill bg-red" ng-class="{'disabled': categoryChosen && room.category !== 1}" ng-click="chooseCategory(1)">News</span>
       <span class="pill bg-green" ng-class="{'disabled': categoryChosen && room.category !== 2}" ng-click="chooseCategory(2)">Entertainment</span>
@@ -29,7 +34,7 @@
         </div>
         
         <label></label>
-        <textarea id="newroom-comment" class="container-newroom jumbo" ng-model="room.text" placeholder="Initial comment..."></textarea>
+        <textarea id="newroom-comment" class="container-newroom jumbo" ng-model="room.text" placeholder="{{textPlaceholder}}"></textarea>
       </md-input-container>
       
       <div layout="row" layout-align="end center">

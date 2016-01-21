@@ -11,9 +11,9 @@
     $scope.getLogoColor = function () {
       var value = uiService.getBackgroundValue();
       if (value === uiService.VALUE.LIGHT) {
-        return 'font-purple';
+        return 'co-purple';
       } else {
-        return 'font-white';
+        return 'co-white';
       }
     };
     

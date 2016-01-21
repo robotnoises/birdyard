@@ -39,7 +39,7 @@
           roomData.categoryId = $room.key();
           return save(roomData, 'everything');
         }).then(function () {
-          resolve();
+          resolve(roomData);
         });
       });
     }

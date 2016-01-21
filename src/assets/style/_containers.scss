@@ -582,6 +582,7 @@ blockquote {
 .pill-mini {
   padding: 2px 6px;
   border-radius: 15px;
+  @include raised(1px);
 }
 
 .container-newroom-toolbar {
