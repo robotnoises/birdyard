@@ -43,6 +43,10 @@ h1.birdyard-logo {
   color: $co_white !important;
 }
 
+.co-grey {
+  color: $co_grey !important;
+}
+
 .co-black {
   color: $co_black !important;
 }
@@ -57,4 +61,14 @@ h1.birdyard-logo {
 
 .co-seethrough {
   color: rgba(255,255,255, 0.6) !important;
+}
+
+// Font weights
+
+.weight-normal {
+  font-weight: 500 !important; 
+}
+
+.weight-bold {
+  font-weight: 700 !important;
 }

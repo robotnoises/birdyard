@@ -11,30 +11,30 @@
     <md-content>
       <div class="sidenav-header">
         <span class="float-left">NOTIFICATIONS</span>
-        <span class="float-right pointer">
-          <i class="icon fa fa-bomb" ng-click="dismissAll()"></i>
+        <span class="float-right pointer co-grey weight-normal" ng-click="dismissAll()">
+          Dismiss all
         </span>
       </div>
     </md-content>
     
     <md-content style="padding: 0 10px;">
-      <div class="birdyard-btn" ng-repeat="n in notifications" ng-click="go(n)">
+      <div class="birdyard-btn weight-normal" ng-repeat="n in notifications" ng-click="go(n)">
         
         <!-- Notification types -->
         
         <!-- Reply -->
         <div ng-show="n.type == 0">
-          <p>Someone has replied to your comment:</p> 
+          <p class="weight-bold">Someone has replied to your comment:</p> 
           <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
         </div>
         <!-- Favorite -->
         <div ng-show="n.type == 1">
-          <p>Your comment has been favorited {{n.count}} time<span ng-hide="n.count == 1">s</span>:</p> 
+          <p class="weight-bold">Your comment has been favorited {{n.count}} time<span ng-hide="n.count == 1">s</span>:</p> 
           <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
         </div>
         
         <!-- Timestamp -->
-        <div class="timestamp float-right" my-time="{{n.timestamp}}" style="font-weight: 400" from-now="true"></div>
+        <div class="timestamp float-right weight-normal" my-time="{{n.timestamp}}" from-now="true"></div>
       </div>
     </md-content>
     

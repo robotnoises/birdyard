@@ -23,10 +23,13 @@
     opacity: 0;
     z-index: -1;
     transition: opacity $dur_fade;
-    width: 200px;
+    width: 225px;
     background: $co_white;
-    border-radius: 2px;
+    border-radius: 4px;
     top: 65px;
+    overflow: hidden;
+    padding-top: 10px;
+    border-bottom: 3px solid rgba(0,0,0,0.75);
     
     &:before {
       content: ' ';
@@ -46,8 +49,19 @@
     }
       
     .birdyard-menu-item {
-      padding: 5px 10px;
+      padding: 5px 16px;
       line-height: 24px;
+      font-weight: 700;
+      font-size: 16px;
+      color: $co_black;
+    }
+    
+    .birdyard-menu-footer {
+      display: block;
+      overflow: hidden;
+      background-color: #ecf0f1;
+      margin-top: 10px;
+      padding: 6px 6px 4px;
     }
   }
 }

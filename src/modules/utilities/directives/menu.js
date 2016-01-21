@@ -31,13 +31,22 @@
           '<avatar></avatar>' + 
         '</div>' +
 
-        '<div class="birdyard-menu shadow-soft" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
-          '<div class="birdyard-menu-item" ng-click="goTo(\'/user\')">Profile</div>' +
-          '<div class="birdyard-menu-item">Hello World</div>' +
-          '<div class="birdyard-menu-item">Butts butts butts</div>' +
-          '<div class="birdyard-menu-item">aaaaaaaaaa</div>' +
-          '<div class="birdyard-menu-item" ng-click="signOut()">Sign Out</div>' +
+        '<div class="birdyard-menu" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
+          '<div class="birdyard-menu-item" ng-click="goTo(\'/user\')">View Your Profile</div>' +
+          '<div class="birdyard-menu-item">Notifications <span class="pill-mini co-black weight-bold bg-grey">&nbsp;0&nbsp;</span></div>' +
+          '<div class="birdyard-menu-item">Get Help</div>' +
+          '<div class="birdyard-menu-item">Legal Stuff</div>' +
+          
+          '<div class="birdyard-menu-footer">' +
+            // '<span">' +
+            //   '@twitter_guy' + 
+            // '</span>' +
+            '<span class="birdyard-btn float-right" ng-click="signOut()">' +
+              'SIGN OUT' + 
+            '</span>' + 
+          '</div>' +
         '</div>' +
+        
       '</div>',
       link: function (scope, element, attrs) {
         
