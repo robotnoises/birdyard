@@ -63,7 +63,7 @@
           // Update the favorites record (indicating you have favd/unfavd it)
           return favService.fav(scope.node.id, parentId, scope.node.$id, scope.favd, scope.favCount)
             .then(function () {
-              if (scope.favd) {
+              if (scope.favCount > 0) {
                 return notificationService.notify(
                   notificationService.TYPE.FAVORITE, 
                   scope.node.text, 
@@ -71,6 +71,8 @@
                   '/n/' + scope.node.id, 
                   scope.favCount
                 );
+              } else {
+                notificationService.read(scope.node.id);
               }
             }).catch(function (err) {
               console.error(err);
