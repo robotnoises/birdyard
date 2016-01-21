@@ -80,8 +80,11 @@ md-sidenav {
 
 md-sidenav {
   border-left: 4px solid rgba(0,0,0,0.35);
+  width: 90%;
+  max-width: 450px;
+  background-color: $co_white;
   md-content {
-    background-color: $co_white;
+    background-color: transparent;
     overflow: initial;
   }
   .md-button {
@@ -90,8 +93,8 @@ md-sidenav {
     text-transform: none;
     text-align: left;
     color: $co_darkblack;
-    border-radius: 0;
-    margin: 0;
+    border-radius: 4px;
+    margin-top: 10px;
     padding: 10px;
     border-bottom: 3px solid $co_verylightgrey;
     line-height: 1.25em;

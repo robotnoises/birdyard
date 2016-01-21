@@ -104,11 +104,19 @@
   bottom: initial;
 }
 
+.scroll {
+  overflow-y: scroll;  
+}
+
 .hoverscroll {
   overflow-y: hidden;
   &:hover, &:active {
     overflow-y: scroll;
   }
+}
+
+.noscroll {
+  overflow-y: hidden !important;
 }
 
 .padding-top {

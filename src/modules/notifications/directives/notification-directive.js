@@ -10,14 +10,15 @@
       restrict: 'E',
       replace: true,
       templateUrl: 'modules/notifications/views/notifications.html',
-      controller: ['$scope', '$location', '$timeout', 'notificationService', '$mdSidenav', 
+      controller: ['$rootScope', '$scope', '$location', '$timeout', 'notificationService', '$mdSidenav', 
       
-      function ($scope, $location, $timeout, notificationService, $mdSidenav) {
+      function ($rootScope, $scope, $location, $timeout, notificationService, $mdSidenav) {
         
         $scope.notifications = {};
         
         $scope.count = 0;
         $scope.ring = false;
+        $rootScope.freeze = false;
         
         $scope.TYPE = notificationService.TYPE; 
         
@@ -31,9 +32,23 @@
           console.log(err);
         });
         
-        // Private
+        // Watchers
         
+        // Keeps tabs on whether or not the sidenav is open
+        // https://github.com/angular/material/issues/3179
+        
+        $scope.$watch(
+            function() { return $mdSidenav('notifications-nav').isOpen(); },
+            function(value) {
+              var isOpen = value || false;
+              $rootScope.freeze = isOpen;
+            }
+        );
+        
+        // Private
+                
         function toggle() {
+          $rootScope.freeze = !$rootScope.freeze;
           $mdSidenav('notifications-nav').toggle();
         }
         

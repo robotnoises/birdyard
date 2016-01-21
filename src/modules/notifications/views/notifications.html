@@ -6,7 +6,7 @@
     </i>
   </div>
 
-  <md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1" layout="column" flex>
+  <md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1 scroll" layout="column" flex>
     
     <md-content>
       <div class="sidenav-header">
@@ -17,13 +17,13 @@
       </div>
     </md-content>
     
-    <md-content class="hoverscroll">
-      <md-button ng-repeat="n in notifications" ng-click="go(n)">
+    <md-content style="padding: 0 10px;">
+      <md-button class="birdyard-btn" ng-repeat="n in notifications" ng-click="go(n)">
         <!-- Notification types -->
         <div ng-show="n.type == 0"><strong>Someone has replied to your comment:</strong> <span markdown-filter="100">"{{n.text}}</span>..."</div>
         <div ng-show="n.type == 1"><strong>Your comment, </strong> <span markdown-filter="100">"{{n.text}}</span>..." has been favorited {{n.count}} time(s).</div>
         <!-- timestamp -->
-        <div class="timestamp" my-time="{{n.timestamp}}" from-now="true"></div>
+        <div class="timestamp" my-time="{{n.timestamp}}" style="font-weight: 400" from-now="true"></div>
       </md-button>
     </md-content>
     
