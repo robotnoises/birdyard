@@ -16,9 +16,15 @@
       templateUrl: 'modules/rooms/views/rooms.html'
     });
     
-    $routeProvider.when('/rooms/new', {
+    $routeProvider.whenAuthenticated('/rooms/new', {
       controller: 'newroomController',
-      templateUrl: 'modules/rooms/views/newroom.html'
+      templateUrl: 'modules/rooms/views/newroom.html',
+      resolve: {
+        user: ['$Auth', function ($Auth) {
+          var $auth = $Auth;
+          return $auth.$waitForAuth(); 
+        }]
+      }
     })
     
     $routeProvider.when('/', {
