@@ -48,25 +48,33 @@
     
     var _notificationService = {};
     
-    function _notify(notificationType, where, userId, id) {
+    function _notify(notificationType, text, id, location) {
       
       return $q(function (resolve, reject) {
+        
         // Todo check if this is the same user
-
-        // Get a handle on the user to be notified
-        var $items = firebaseService.getRef('notifications', userId, 'items');
-        var now = $window.Firebase.ServerValue.TIMESTAMP;
         
-        // Note: this will always overwrite existing notifications (we want that)
-        $items.child(id).setWithPriority({
-          'where': where,
-          'type': notificationType,
-          'id': id,
-          'timestamp': now
-        }, (0 - Date.now())); // sort descending
-        
-        return $items.on('child_added', function ($snap) {
-          resolve();
+        return authService.getUser().then(function (user) {
+          if (user) {
+            // Get a handle on the user to be notified
+            var $items = firebaseService.getRef('notifications', user.uid, 'items');
+            var now = $window.Firebase.ServerValue.TIMESTAMP;
+            
+            // Note: this will always overwrite existing notifications (we want that)
+            $items.child(id).setWithPriority({
+              'type': notificationType,
+              'text': text,
+              'id': id,
+              'location': location,
+              'timestamp': now
+            }, (0 - Date.now())); // sort descending
+            
+            return $items.on('child_added', function ($snap) {
+              resolve();
+            });
+          } else {
+            reject();
+          }
         });
       });
     }

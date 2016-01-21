@@ -68,13 +68,12 @@
           
         };
         
-        $scope.go = function (id) {
-          dismiss(id);
+        $scope.go = function (noti) {
+          dismiss(noti.id);
           toggle();
           $timeout(function () {
-            $location.path('/n/' + id);
+            $location.path(noti.location);
           }, 300);
-          
         };
         
         $scope.dismiss = dismiss;

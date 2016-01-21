@@ -8,13 +8,15 @@
     '$q',
     'authService', 
     'firebaseService', 
-    'nodeService', 
+    'nodeService',
+    'notificationService',
     
   function(
     $q, 
     authService, 
     firebaseService, 
-    nodeService) {
+    nodeService,
+    notificationService) {
     
     var _favService = {};
     

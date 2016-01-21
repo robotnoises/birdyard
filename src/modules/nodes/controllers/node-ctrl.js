@@ -295,13 +295,14 @@
         clearDialog();
         return updateCommentCount('+1');
       }).then(function () {
+
         // Notify the user
-        return notificationService.notify(
-          notificationService.TYPE.REPLY, 
-          angular.copy($scope.node.text).slice(0,150),
-          angular.copy($scope.node.uid), 
-          angular.copy($scope.node.id)
-        );
+        var text =      angular.copy($scope.node.text).slice(0,150);
+        var nodeId =    angular.copy($scope.node.id);
+        var location =  '/n/' + nodeId;
+        
+        return notificationService.notify(notificationService.TYPE.REPLY, text, nodeId, location);
+        
       }).then(function () {
         
         // Display success message

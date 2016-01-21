@@ -18,9 +18,9 @@
     </md-content>
     
     <md-content class="hoverscroll">
-      <md-button ng-repeat="n in notifications" ng-click="go(n.id)">
+      <md-button ng-repeat="n in notifications" ng-click="go(n)">
         <!-- Notification types -->
-        <div ng-show="n.type == 0"><strong>You have a reply to your comment:</strong> <span markdown-filter="100">"{{n.where}}</span>..."</div>
+        <div ng-show="n.type == 0"><strong>You have a reply to your comment:</strong> <span markdown-filter="100">"{{n.text}}</span>..."</div>
         <div ng-show="n.type == 1">Foo</div>
         <!-- timestamp -->
         <div class="timestamp" my-time="{{n.timestamp}}" from-now="true"></div>
