@@ -14,7 +14,7 @@
     
     var _TYPE = Object.freeze({
       REPLY: 0,
-      TROPHY: 1
+      FAVORITE: 1
     });
     
     function updateCount($event) {
@@ -48,7 +48,7 @@
     
     var _notificationService = {};
     
-    function _notify(notificationType, text, id, location) {
+    function _notify(notificationType, text, id, location, count) {
       
       return $q(function (resolve, reject) {
         
@@ -66,7 +66,8 @@
               'text': text,
               'id': id,
               'location': location,
-              'timestamp': now
+              'timestamp': now,
+              'count': count || 0
             }, (0 - Date.now())); // sort descending
             
             return $items.on('child_added', function ($snap) {

@@ -9,14 +9,12 @@
     'authService', 
     'firebaseService', 
     'nodeService',
-    'notificationService',
     
   function(
     $q, 
     authService, 
     firebaseService, 
-    nodeService,
-    notificationService) {
+    nodeService) {
     
     var _favService = {};
     
@@ -38,19 +36,21 @@
     }
     
     function _fav(nodeId, parentId, childId, favd, favCount) {
+      
+      // Todo: this is clunky
+      var location = 'nodes/' + parentId + '/children/' + childId;
+      
       return authService.getUser()
         .then(function (user) {
-          // Todo: node Id as well
+          // Todo: node Id as well?
           var $ref = firebaseService.getRef('favorites', user.uid, childId);
           return $ref.set(favd);
       }).then(function() {
         return nodeService.update({id: nodeId, favCount: favCount});  
       }).then(function() {
-          // Todo: this is clunky
-          var location = 'nodes/' + parentId + '/children/' + childId;
-          // Update the child
-          return nodeService.update({favCount: favCount}, location);
-        });
+        // Update the child
+        return nodeService.update({favCount: favCount}, location);
+      });
     }
     
     _favService.isFavd = _isFavd;

@@ -11,6 +11,7 @@
     'firebaseService', 
     'authService', 
     'favService',
+    'notificationService',
   
   function (
     $location, 
@@ -18,7 +19,8 @@
     nodeService, 
     firebaseService, 
     authService,
-    favService) {
+    favService,
+    notificationService) {
     
     return {
       restrict: 'E',
@@ -30,8 +32,6 @@
         pause: '='
       },
       link: function (scope, element, attrs) {
-        
-        // Todo: fav service
         
         var parentId;
         
@@ -62,7 +62,17 @@
           
           // Update the favorites record (indicating you have favd/unfavd it)
           return favService.fav(scope.node.id, parentId, scope.node.$id, scope.favd, scope.favCount)
-            .catch(function (err) {
+            .then(function () {
+              if (scope.favd) {
+                return notificationService.notify(
+                  notificationService.TYPE.FAVORITE, 
+                  scope.node.text, 
+                  scope.node.id, 
+                  '/n/' + scope.node.id, 
+                  scope.favCount
+                );
+              }
+            }).catch(function (err) {
               console.error(err);
             });
         };

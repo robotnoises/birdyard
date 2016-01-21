@@ -15,8 +15,11 @@
       function ($scope, $location, $timeout, notificationService, $mdSidenav) {
         
         $scope.notifications = {};
+        
         $scope.count = 0;
         $scope.ring = false;
+        
+        $scope.TYPE = notificationService.TYPE; 
         
         notificationService.get().then(function ($notifications) {
           return $notifications.$loaded(function ($snap) {
@@ -41,7 +44,7 @@
               if (newCount === $scope.count) {
                 return;
               } else if (newCount > $scope.count) {
-                // Ring the bell!
+                // Ring the bell!!!!!!
                 $scope.ring = true;
                 $timeout(function () {
                   $scope.ring = false;
@@ -62,10 +65,6 @@
         
         $scope.openNav = function () {
           toggle();
-        };
-        
-        $scope.getUserName = function (uid) {
-          
         };
         
         $scope.go = function (noti) {
