@@ -16,7 +16,6 @@
         
         $scope.notifications = {};
         
-        $scope.ring = false;
         $rootScope.freeze = false;
         $rootScope.notificationCount = 0;
         
@@ -53,10 +52,17 @@
         }
         
         function updateCount (count) {
+          
+          if (count > $rootScope.notificationCount) {
+            $rootScope.$emit('notification', count);
+          }
+          
           $timeout(function() {
-            $rootScope.notificationCount = count;  
+            $rootScope.notificationCount = count;
           });
         }
+        
+        $scope.ring = false;
         
         function watch() {
           $scope.notifications.$watch(function ($event) {
@@ -64,14 +70,9 @@
               var newCount = angular.copy($scope.notifications.length);
               if (newCount === $rootScope.notificationCount) {
                 return;
-              } else if (newCount > $rootScope.notificationCount) {
-                // Ring the bell!!!!!!
-                $scope.ring = true;
-                $timeout(function () {
-                  $scope.ring = false;
-                }, 5000);
+              } else {
+                updateCount(angular.copy($scope.notifications.length));  
               }
-              updateCount(angular.copy($scope.notifications.length));
             }
           });
         }
