@@ -31,9 +31,9 @@
         
         '<div class="birdyard-btn pointer" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</div>' + 
         
-        '<div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0; height: 33px; width: 33px; text-align: center;" ng-click="toggleMenu()">' + 
-          '<i class="icon fa fa-navicon menu" ng-if="notificationCount == 0" style="font-size: 18px;"></i>' + 
-          '<i class="icon fa fa-bell co-yellow menu ding" ng-if="notificationCount > 0" ng-class="{\'ring\': ring}" style="font-size: 18px; text-shadow: 0px 1px 0px rgba(0,0,0,0.5)"></i>' +
+        '<div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0; height: 33px; width: 33px; text-align: center; overflow: hidden;" ng-click="toggleMenu()">' + 
+          '<i class="icon fa fa-navicon menu" ng-if="notificationCount == 0" style="font-size: 20px;"></i>' + 
+          '<i class="icon fa fa-bell co-yellow menu ding" ng-if="notificationCount > 0" ng-class="{\'ring\': ring}" style="font-size: 20px; text-shadow: 0px 1px 0px rgba(0,0,0,0.5);"></i>' +
         '</div>' +
 
         '<div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
