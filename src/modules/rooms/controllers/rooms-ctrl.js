@@ -31,7 +31,8 @@
     
     function init() {
       
-      meta.setTitle('Talk about ' + capitalize($routeParams.category));
+      var whatWeTalkinBout = ($routeParams.category) ? capitalize($routeParams.category) : 'Everything';
+      meta.setTitle('Talk about ' + whatWeTalkinBout);
       
       roomService.getRooms($routeParams.category).then(function ($rooms) {
         $scope.rooms = $rooms;
@@ -150,6 +151,11 @@
         $scope.category = parseInt(category, 10);
       });
     };
+    
+    $scope.goTo = function (location) {
+      $location.path(location);
+    };
+    
   }]);
   
 })(angular);
