@@ -191,15 +191,10 @@
 }
 
 .birdyard-avatar {
-  position: fixed;
-  display: block;
-  top: 20px;
-  right: 25px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   overflow: hidden;
-  z-index: 4;
   img {
     height: 30px;
   }

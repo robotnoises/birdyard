@@ -30,18 +30,19 @@
         '<div class="birdyard-btn pointer" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</div>' + 
         
         '<div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0" ng-click="toggleMenu()">' + 
-          // '<avatar></avatar>' +
           '<i class="icon fa fa-navicon" style="font-size: 20px;"></i>' + 
         '</div>' +
 
         '<div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
           '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')">View Your Profile</div>' +
           '<div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-grey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
+          '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/rooms/new\')">Make a New Room</div>' +
           '<div class="birdyard-menu-item pointer">Get Help</div>' +
           '<div class="birdyard-menu-item pointer">Legal Stuff</div>' +
           
           '<div class="birdyard-menu-footer">' +
-            '<span class="birdyard-btn pointer float-right" ng-click="signOut()">' +
+            '<avatar class="birdyard-avatar"></avatar>' +
+            '<span class="birdyard-btn pointer float-right" style="border-width: 2px;" ng-click="signOut()">' +
               'SIGN OUT' + 
             '</span>' + 
           '</div>' +
