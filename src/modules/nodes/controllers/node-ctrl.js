@@ -283,7 +283,7 @@
       var _formattedNode = {};
       var _$new = {};
       
-      $scope.showDialog = false;
+      $scope.toggleDialog(false);
       
       nodeService.format($scope.reply).then(function (formatted) {
         _formattedNode = formatted;
