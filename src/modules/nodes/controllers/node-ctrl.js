@@ -21,6 +21,7 @@
     '$mdDialog', 
     '$mdToast',
     'meta',
+    'backdropService',
   
   function (
     $scope, 
@@ -38,7 +39,8 @@
     authService,
     $mdDialog, 
     $mdToast,
-    meta) {
+    meta,
+    backdropService) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -388,7 +390,11 @@
       }
       
       if ($scope.showDialog) {
-        focusTextInput();  
+        focusTextInput();
+        backdropService.set(true, 4, $scope.toggleDialog);
+      } else {
+        // Just in case they exit by hitting the escape button
+        backdropService.reset();
       }
     };
     

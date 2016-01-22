@@ -12,6 +12,7 @@
     'firebaseService',
     '$mdToast',
     '$mdSidenav',
+    'backdropService',
     
     function (
       $rootScope, 
@@ -20,8 +21,8 @@
       authService,
       firebaseService,
       $mdToast,
-      $mdSidenav
-    ) {
+      $mdSidenav,
+      backdropService) {
     
     return {
       restrict: 'E',
@@ -57,6 +58,14 @@
         scope.showing = false;
         scope.ring =    false;
         
+        // Private
+        
+        function clickToClose() {
+          backdropService.set(true, 4, scope.toggleMenu);
+        }
+        
+        // Event Listeners
+        
         $rootScope.$on('notification', function ($event, count) {
           if (count) {
             // Ring the bell!!!!!!
@@ -67,15 +76,19 @@
           }
         });
         
+        // Public
+        
         scope.toggleMenu = function () {
           if ($rootScope.signedIn) {
             scope.showing = !scope.showing;
+            clickToClose();
           }
         };
         
         scope.close = function () {
           if (scope.showing) {
             scope.showing = false;
+            backdropService.reset();
           }
         }
         

@@ -148,3 +148,21 @@
 .grow:hover { 
   transform: scale(1.1); 
 }
+
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  display: none;
+  // background-color: rgba(0,0,0,1);
+  // opacity: 0.1;
+  &.active {
+    display: block;
+  }
+}

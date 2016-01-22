@@ -2,9 +2,7 @@
   
   'use strict';
   
-  // Note: this service is global
-  
-  angular.module('birdyard')
+  angular.module('birdyard.utilities')
   
   .factory('meta', ['$rootScope', function($rootScope) {
     

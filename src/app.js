@@ -15,7 +15,9 @@ angular.module('birdyard', [
   'ngMaterial',
   'btford.markdown'
   
-]).run(['$rootScope', function ($rootScope) {
-  // This is the default page title
-  $rootScope.pageTitle = 'Talk about everything';
+]).run(['backdropService', function (backdropService) {
+  
+  // Set-up global backdrop service, used in tandem with the click-anywhere directive (both in utilities)  
+  backdropService.reset();
+
 }]);

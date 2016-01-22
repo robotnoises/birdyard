@@ -31,6 +31,9 @@
     <!-- Notifications-->
     <notifications ng-if="signedIn" md-delay="1250"></notifications>
 
+    <!-- Click-anywhere to do (something)-->
+    <click-anywhere action="backdropClick" active="backdropActive" z="backdropZIndex"></click-anywhere>
+
     <div ng-view></div>
 
     <!-- Library-->
@@ -74,6 +77,7 @@
     <script src="modules/utilities/services/markdownFilter.js"></script>
     <script src="modules/utilities/services/favService.js"></script>
     <script src="modules/utilities/services/meta.js"></script>
+    <script src="modules/utilities/services/backdrop.js"></script>
     <script src="modules/utilities/directives/shiftEnter.js"></script>
     <script src="modules/utilities/directives/escape.js"></script>
     <script src="modules/utilities/directives/myTime.js"></script>
@@ -83,6 +87,7 @@
     <script src="modules/utilities/directives/lightbox.js"></script>
     <script src="modules/utilities/directives/menu.js"></script>
     <script src="modules/utilities/directives/formattingToolbar.js"></script>
+    <script src="modules/utilities/directives/clickAnywhere.js"></script>
 
     <!-- Search-->
     <script src="modules/search/services/search-svc.js"></script>

@@ -30,6 +30,9 @@ html(lang='en', ng-app='birdyard', ng-class='{"noscroll": freeze}')
     // Notifications
     notifications(ng-if='signedIn', md-delay='1250')
     = '\n'
+    // Click-anywhere to do (something)
+    click-anywhere(action='backdropClick', active='backdropActive', z='backdropZIndex')
+    = '\n'
     div(ng-view)
     = '\n'
     // Library
