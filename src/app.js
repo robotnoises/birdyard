@@ -15,4 +15,7 @@ angular.module('birdyard', [
   'ngMaterial',
   'btford.markdown'
   
-]);
+]).run(['$rootScope', function ($rootScope) {
+  // This is the default page title
+  $rootScope.pageTitle = 'Talk about everything';
+}]);

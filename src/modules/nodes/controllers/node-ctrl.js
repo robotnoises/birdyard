@@ -20,6 +20,7 @@
     'authService',
     '$mdDialog', 
     '$mdToast',
+    'meta',
   
   function (
     $scope, 
@@ -36,7 +37,8 @@
     notificationService,
     authService,
     $mdDialog, 
-    $mdToast) {
+    $mdToast,
+    meta) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +71,7 @@
     
     function init() {
       
-      uiService.setBackgroundValue(uiService.VALUE.DARK);
+      meta.setTitle('Talking about...');
       
       // If the user switches autoscroll to true, scroll to the bottom
       $scope.$watch('autoScroll', function (newValue, oldValue) {
@@ -112,6 +114,9 @@
     }
     
     function addRecentNode() {
+      
+      // Todo: move this or rename this function?
+      meta.setTitle('Talking about ' + $scope.node.name + '\'s Comment...')
       
       var prefix = RECENT_NODES_PREFIX + $scope.node.id;
       var key = prefix + $scope.node.id;

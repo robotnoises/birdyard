@@ -4,9 +4,29 @@
   
   angular.module('birdyard.users')
   
-  .controller('userController', ['$scope', '$timeout', '$routeParams', '$location', 'firebaseService', 'authService', 'uiService', 'colorService', '$mdToast',
+  .controller('userController', [
+    '$scope', 
+    '$timeout', 
+    '$routeParams', 
+    '$location', 
+    'firebaseService', 
+    'authService', 
+    'uiService', 
+    'colorService', 
+    '$mdToast',
+    'meta',
   
-  function ($scope, $timeout, $routeParams, $location, firebaseService, authService, uiService, colorService, $mdToast) {
+  function (
+    $scope, 
+    $timeout, 
+    $routeParams, 
+    $location, 
+    firebaseService, 
+    authService, 
+    uiService, 
+    colorService, 
+    $mdToast, 
+    meta) {
     
     // Globals
     
@@ -22,24 +42,21 @@
     $scope.accentColors = colorService.list;
     $scope.showLightbox = false;
     
+    function init(user) {
+      meta.setTitle('Viewing ' + user.name + '\'s Profile');
+      $timeout(function () {
+        $scope.user = user;
+        $scope.loaded = true;
+      });
+    }
+    
     authService.getUser(_userId).then(function ($user) {
       _user = angular.copy($user);
-      $timeout(function () {
-        $scope.user = $user;
-        $scope.loaded = true;  
-      });
+      init($user);
     }).catch(function (err) {
       console.log(err);
     });
 
-    // Private 
-    
-    function init() {
-      uiService.setBackgroundValue(uiService.VALUE.LIGHT);
-    }
-    
-    init();
-    
     // Watchers
     
     // Watch to see if the user's display name gets modified

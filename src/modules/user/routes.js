@@ -18,10 +18,16 @@
       }
     });
     
-    // Any User's public profile
-    $routeProvider.when('/user/:userid', {
+    // Any User's public profile info
+    $routeProvider.whenAuthenticated('/user/:userid', {
       controller: 'userController',
-      templateUrl: 'modules/user/views/user.html'
+      templateUrl: 'modules/user/views/user.html',
+      resolve: {
+        user: ['$Auth', function ($Auth) {
+          var $auth = $Auth;
+          return $auth.$waitForAuth();
+        }]
+      }
     });
         
   }]);

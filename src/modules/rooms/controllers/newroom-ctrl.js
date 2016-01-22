@@ -14,6 +14,7 @@
     'nodeService', 
     'breadcrumbService', 
     '$mdToast',
+    'meta',
   
   function (
     $q,
@@ -24,7 +25,8 @@
     roomService, 
     nodeService, 
     breadcrumbService, 
-    $mdToast) {
+    $mdToast,
+    meta) {
     
     var titlePlaceholderValid =   'Give your room a title';
     var textPlaceholderValid =    'Write an initial comment';
@@ -47,8 +49,8 @@
     // Private
     
     function init() {
-
       $timeout(function () {
+        meta.setTitle('Make a new Room');
         $scope.loaded = true;
       });
     }

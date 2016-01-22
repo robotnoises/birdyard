@@ -5,6 +5,7 @@
   angular.module('birdyard.nodes')
   
   .directive('node', [
+    '$rootScope',
     '$location', 
     '$routeParams', 
     'nodeService', 
@@ -14,6 +15,7 @@
     'notificationService',
   
   function (
+    $rootScope,
     $location, 
     $routeParams, 
     nodeService, 
@@ -57,6 +59,10 @@
         
         scope.fav = function () {
           
+          if (!$rootScope.signedIn) {
+            return;
+          }
+          
           scope.favd = !scope.favd;
           scope.favCount = (scope.favd) ? scope.favCount + 1 : scope.favCount -1; 
           
@@ -82,7 +88,9 @@
         // Go to the user's profile page
         
         scope.goToProfile = function (uid) {
-          $location.path('user/' + uid);
+          if ($rootScope.signedIn) {
+            $location.path('user/' + uid);  
+          }
         };
       }
     }
