@@ -16,16 +16,16 @@
         
         $scope.notifications = {};
         
-        $scope.count = 0;
         $scope.ring = false;
         $rootScope.freeze = false;
+        $rootScope.notificationCount = 0;
         
         $scope.TYPE = notificationService.TYPE; 
         
         notificationService.get().then(function ($notifications) {
           return $notifications.$loaded(function ($snap) {
             $scope.notifications = $snap;
-            $scope.count = angular.copy($snap.length);
+            updateCount(angular.copy($snap.length));
             watch();
           })
         }).catch(function (err) {
@@ -52,20 +52,26 @@
           $mdSidenav('notifications-nav').toggle();
         }
         
+        function updateCount (count) {
+          $timeout(function() {
+            $rootScope.notificationCount = count;  
+          });
+        }
+        
         function watch() {
           $scope.notifications.$watch(function ($event) {
             if ($event) {
               var newCount = angular.copy($scope.notifications.length);
-              if (newCount === $scope.count) {
+              if (newCount === $rootScope.notificationCount) {
                 return;
-              } else if (newCount > $scope.count) {
+              } else if (newCount > $rootScope.notificationCount) {
                 // Ring the bell!!!!!!
                 $scope.ring = true;
                 $timeout(function () {
                   $scope.ring = false;
                 }, 5000);
               }
-              $scope.count = angular.copy($scope.notifications.length);
+              updateCount(angular.copy($scope.notifications.length));
             }
           });
         }

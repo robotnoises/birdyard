@@ -1,46 +1,39 @@
-<div>
-  
-  <div ng-class="{'boo': count > 0}" ng-click="openNav()" class="notifications ghost fadey">
-    <i class="icon fa fa-bell ding" data-count="{{count}}" ng-class="{'ring': ring, 'two-digits': count > 9}">
-      <md-tooltip>You have {{count}} unread Notifications</md-tooltip>
-    </i>
-  </div>
-
-  <md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1 scroll" layout="column" flex>
+<md-sidenav md-component-id="notifications-nav" class="bg-black md-sidenav-right md-whiteframe-z1 scroll" layout="column" flex>
     
-    <md-content>
-      <div class="sidenav-header">
-        <span class="float-left">NOTIFICATIONS</span>
-        <span class="float-right pointer co-grey weight-normal" ng-click="dismissAll()">
-          Dismiss all
-        </span>
+  <md-content>
+    <div class="sidenav-header">
+      <span class="float-left">NOTIFICATIONS</span>
+      <span class="float-right pointer co-grey weight-normal" ng-click="dismissAll()">
+        Dismiss all
+      </span>
+    </div>
+  </md-content>
+    
+  <md-content style="padding: 0 10px;">
+    <div class="birdyard-btn weight-normal" ng-repeat="n in notifications" ng-click="go(n)">
+        
+      <!-- Notification types -->
+        
+      <!-- Reply -->
+      <div ng-show="n.type == 0">
+        <p class="weight-bold">Someone has replied to your comment:</p> 
+        <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
       </div>
-    </md-content>
-    
-    <md-content style="padding: 0 10px;">
-      <div class="birdyard-btn weight-normal" ng-repeat="n in notifications" ng-click="go(n)">
-        
-        <!-- Notification types -->
-        
-        <!-- Reply -->
-        <div ng-show="n.type == 0">
-          <p class="weight-bold">Someone has replied to your comment:</p> 
-          <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
-        </div>
-        <!-- Favorite -->
-        <div ng-show="n.type == 1">
-          <p class="weight-bold">Your comment has been favorited {{n.count}} time<span ng-hide="n.count == 1">s</span>:</p> 
-          <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
-        </div>
-        
-        <!-- Timestamp -->
-        <div class="timestamp float-right weight-normal" my-time="{{n.timestamp}}" from-now="true"></div>
-      </div>
-    </md-content>
-    
-  </md-sidenav>
 
-</div>
+      <!-- Favorite -->
+      <div ng-show="n.type == 1">
+        <p class="weight-bold">Your comment has been favorited {{n.count}} time<span ng-hide="n.count == 1">s</span>:</p> 
+        <blockquote><span markdown-filter="100">"{{n.text}}</span>..."</blockquote>
+      </div>
+        
+      <!-- Timestamp -->
+      <div class="timestamp float-right weight-normal" my-time="{{n.timestamp}}" from-now="true"></div>
+    </div>
+  </md-content>
+    
+</md-sidenav>
+
+
   
 
 

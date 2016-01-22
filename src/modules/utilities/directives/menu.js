@@ -9,14 +9,16 @@
     '$location', 
     'authService',
     'firebaseService',
-    '$mdToast', 
+    '$mdToast',
+    '$mdSidenav',
     
     function (
       $rootScope, 
       $location,
       authService,
       firebaseService,
-      $mdToast
+      $mdToast,
+      $mdSidenav
     ) {
     
     return {
@@ -25,29 +27,27 @@
       template: 
       '<div class="birdyard-menu-wrapper">' +
         
-        '<md-button class="birdyard-menu-btn" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</md-button>' + 
+        '<div class="birdyard-btn pointer" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</div>' + 
         
-        '<div ng-if="signedIn" class="birdyard-avatar-sm pointer" ng-click="toggleMenu()">' + 
-          '<avatar></avatar>' + 
+        '<div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0" ng-click="toggleMenu()">' + 
+          // '<avatar></avatar>' +
+          '<i class="icon fa fa-navicon" style="font-size: 20px;"></i>' + 
         '</div>' +
 
-        '<div class="birdyard-menu" ng-class="{show: showing, pointer: showing}" ng-click="close()">' +
-          '<div class="birdyard-menu-item" ng-click="goTo(\'/user\')">View Your Profile</div>' +
-          '<div class="birdyard-menu-item">Notifications <span class="pill-mini co-black weight-bold bg-grey">&nbsp;0&nbsp;</span></div>' +
-          '<div class="birdyard-menu-item">Get Help</div>' +
-          '<div class="birdyard-menu-item">Legal Stuff</div>' +
+        '<div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
+          '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')">View Your Profile</div>' +
+          '<div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-grey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
+          '<div class="birdyard-menu-item pointer">Get Help</div>' +
+          '<div class="birdyard-menu-item pointer">Legal Stuff</div>' +
           
           '<div class="birdyard-menu-footer">' +
-            // '<span">' +
-            //   '@twitter_guy' + 
-            // '</span>' +
-            '<span class="birdyard-btn float-right" ng-click="signOut()">' +
+            '<span class="birdyard-btn pointer float-right" ng-click="signOut()">' +
               'SIGN OUT' + 
             '</span>' + 
           '</div>' +
-        '</div>' +
-        
+        '</div>' +  
       '</div>',
+      
       link: function (scope, element, attrs) {
         
         scope.showing = false;
@@ -68,6 +68,10 @@
           if (scope.showing) {
             $location.path(loc);  
           }
+        };
+        
+        scope.toggleNotifications = function () {
+          $mdSidenav('notifications-nav').toggle();
         };
         
         scope.signIn = function () {

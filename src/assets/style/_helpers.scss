@@ -138,3 +138,13 @@
 .no-overflow {
   overflow: hidden;
 }
+
+.grow {
+  height: 0px;
+  width: 0px;
+  transition: all .2s ease-in-out; 
+}
+
+.grow:hover { 
+  transform: scale(1.1); 
+}

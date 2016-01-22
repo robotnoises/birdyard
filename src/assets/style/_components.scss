@@ -20,31 +20,21 @@
   .birdyard-menu {
     position: fixed;
     right: 25px;
-    opacity: 0;
     z-index: -1;
-    transition: opacity $dur_fade;
-    width: 225px;
     background: $co_white;
     border-radius: 4px;
-    top: 65px;
+    top: 20px;
     overflow: hidden;
     padding-top: 10px;
-    border-bottom: 3px solid rgba(0,0,0,0.75);
+    border-bottom: 3px solid rgba(0,0,0,0.35);
     
-    &:before {
-      content: ' ';
-      position: fixed;
-      top: 58px;
-      right: 32px;
-      width: 0; 
-	    height: 0;
-	    border-left: 9px solid transparent;
-	    border-right: 9px solid transparent;
-	    border-bottom: 9px solid $co_white;;
-    }
+    height: 0px;
+    width: 0px;
+    transition: height .2s ease-in-out, width .2s ease-in-out;
      
     &.show {
-      opacity: 1;
+      height: 205px;
+      width: 225px;
       z-index: 99999;
     }
       
