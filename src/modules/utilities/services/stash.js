@@ -74,7 +74,7 @@
     }
 
     function set(key, value, storageType) {
-      if (key && value) {
+      if (key) {
         if (isObject(value)) {
           value = JSON.stringify(value);
         }

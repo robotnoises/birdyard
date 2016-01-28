@@ -96,9 +96,26 @@
         console.error(err);
       });
       
+      // Bind scroll events to a handler that checks to see if the user has 
+      // scrolled all the way to the bottom
       angular.element($window).bind('scroll', checkBottom);
       
-      $timeout(scrollToBottom, SPEED / 2);
+      // Scroll to the bottom, plz
+      $timeout(scrollToBottom);
+    }
+    
+    function loaded(isLoaded) {
+      
+      $scope.loaded = isLoaded; 
+      
+      var replyNow = stashService.get('replyNow') === "true";
+      
+      if (replyNow) {
+        stashService.set('replyNow', false);
+        $timeout(function () {
+          $scope.toggleDialog();
+        }, 500);
+      }
     }
     
     function navigateToNode(nodeId) {
@@ -173,7 +190,7 @@
         $scope.$children.$watch(babySitter);
         
         $timeout(function () {
-          $scope.loaded = true;
+          loaded(true);
         });
         
         scrollToBottom();

@@ -12,6 +12,7 @@
     'firebaseService', 
     'authService', 
     'favService',
+    'stashService',
     'notificationService',
   
   function (
@@ -22,6 +23,7 @@
     firebaseService, 
     authService,
     favService,
+    stashService,
     notificationService) {
     
     return {
@@ -84,6 +86,11 @@
               console.error(err);
             });
         };
+        
+        scope.replyTo = function (node) {
+          stashService.set('replyNow', true);
+          scope.select(node);
+        }
         
         // Go to the user's profile page
         
