@@ -556,6 +556,12 @@ blockquote {
     font-weight: 700;
     font-size: 2em;
   }
+  
+  .room-footer {
+    .pill {
+      margin-right: 5px;
+    }
+  }
 }
 
 // Category stuff
