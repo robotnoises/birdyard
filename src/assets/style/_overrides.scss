@@ -78,6 +78,14 @@ md-sidenav {
   position: fixed;
 }
 
+md-dialog {
+  max-width: 400px;
+}
+
+.md-dialog-container {
+  position: fixed;
+}
+
 md-sidenav {
   border-left: 4px solid rgba(0,0,0,0.35);
   width: 90%;

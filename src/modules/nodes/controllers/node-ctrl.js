@@ -18,7 +18,6 @@
     'activityService',
     'notificationService',
     'authService',
-    '$mdDialog', 
     '$mdToast',
     'meta',
     'backdropService',
@@ -37,7 +36,6 @@
     activityService,
     notificationService,
     authService,
-    $mdDialog, 
     $mdToast,
     meta,
     backdropService) {
