@@ -14,6 +14,7 @@
     'nodeService', 
     'breadcrumbService', 
     '$mdToast',
+    'meta',
   
   function (
     $q,
@@ -24,7 +25,8 @@
     roomService, 
     nodeService, 
     breadcrumbService, 
-    $mdToast) {
+    $mdToast,
+    meta) {
     
     var titlePlaceholderValid =   'Give your room a title';
     var textPlaceholderValid =    'Write an initial comment';
@@ -47,8 +49,8 @@
     // Private
     
     function init() {
-
       $timeout(function () {
+        meta.setTitle('Make a new Room');
         $scope.loaded = true;
       });
     }
@@ -78,29 +80,29 @@
     
     // Watchers
     
-    $scope.$watch('titleValid', function (valid, oldValue) {
-      if (valid) {
-        $scope.titlePlaceholder = titlePlaceholderValid;
-      } else {
-        $scope.titlePlaceholder = titlePlaceholderInvalid;
-      }
+    // $scope.$watch('titleValid', function (valid, oldValue) {
+    //   if (valid) {
+    //     $scope.titlePlaceholder = titlePlaceholderValid;
+    //   } else {
+    //     $scope.titlePlaceholder = titlePlaceholderInvalid;
+    //   }
       
-      if (valid !== oldValue) {
-        validateFields();  
-      }
-    });
+    //   if (valid !== oldValue) {
+    //     validateFields();  
+    //   }
+    // });
     
-    $scope.$watch('textValid', function (valid, oldValue) {
-      if (valid) {
-        $scope.textPlaceholder = textPlaceholderValid;
-      } else {
-        $scope.textPlaceholder = textPlaceholderInvalid;
-      }
+    // $scope.$watch('textValid', function (valid, oldValue) {
+    //   if (valid) {
+    //     $scope.textPlaceholder = textPlaceholderValid;
+    //   } else {
+    //     $scope.textPlaceholder = textPlaceholderInvalid;
+    //   }
       
-      if (valid !== oldValue) {
-        validateFields();  
-      }
-    });
+    //   if (valid !== oldValue) {
+    //     validateFields();  
+    //   }
+    // });
     
     // Public
     

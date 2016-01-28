@@ -4,7 +4,7 @@ html(lang='en', ng-app='birdyard', ng-class='{"noscroll": freeze}')
     = '\n'
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Birdyard
+    title Birdyard - {{pageTitle}}
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     = '\n'
@@ -21,14 +21,17 @@ html(lang='en', ng-app='birdyard', ng-class='{"noscroll": freeze}')
   body(ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Birdyard Logo
-    div(class='container-logo pointer')
-      img(src='assets/images/logo.svg', ng-controller='uiController', ng-click='goHome()', alt='birdyard')
+    // div(class='container-logo pointer')
+    //   img(src='assets/images/logo.svg', ng-controller='uiController', ng-click='goHome()', alt='birdyard')
     = '\n'
     // Menu
     menu
     = '\n'
     // Notifications
     notifications(ng-if='signedIn', md-delay='1250')
+    = '\n'
+    // Click-anywhere to do (something)
+    click-anywhere(action='backdropClick', active='backdropActive', z='backdropZIndex')
     = '\n'
     div(ng-view)
     = '\n'

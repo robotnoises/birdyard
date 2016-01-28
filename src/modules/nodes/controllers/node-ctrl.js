@@ -20,6 +20,8 @@
     'authService',
     '$mdDialog', 
     '$mdToast',
+    'meta',
+    'backdropService',
   
   function (
     $scope, 
@@ -36,7 +38,9 @@
     notificationService,
     authService,
     $mdDialog, 
-    $mdToast) {
+    $mdToast,
+    meta,
+    backdropService) {
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +73,7 @@
     
     function init() {
       
-      uiService.setBackgroundValue(uiService.VALUE.DARK);
+      meta.setTitle('Talking about...');
       
       // If the user switches autoscroll to true, scroll to the bottom
       $scope.$watch('autoScroll', function (newValue, oldValue) {
@@ -112,6 +116,9 @@
     }
     
     function addRecentNode() {
+      
+      // Todo: move this or rename this function?
+      meta.setTitle('Talking about ' + $scope.node.name + '\'s Comment...')
       
       var prefix = RECENT_NODES_PREFIX + $scope.node.id;
       var key = prefix + $scope.node.id;
@@ -276,7 +283,7 @@
       var _formattedNode = {};
       var _$new = {};
       
-      $scope.showDialog = false;
+      $scope.toggleDialog(false);
       
       nodeService.format($scope.reply).then(function (formatted) {
         _formattedNode = formatted;
@@ -383,7 +390,11 @@
       }
       
       if ($scope.showDialog) {
-        focusTextInput();  
+        focusTextInput();
+        backdropService.set(true, 4, $scope.toggleDialog);
+      } else {
+        // Just in case they exit by hitting the escape button
+        backdropService.reset();
       }
     };
     

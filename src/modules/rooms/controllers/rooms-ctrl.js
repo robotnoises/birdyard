@@ -12,6 +12,7 @@
     'uiService', 
     'roomService', 
     'presenceService',
+    'meta',
   
   function (
     $scope, 
@@ -20,7 +21,8 @@
     $timeout, 
     uiService, 
     roomService, 
-    presenceService) {
+    presenceService,
+    meta) {
     
     // Private
     
@@ -28,7 +30,9 @@
     var roomCount = 0;
     
     function init() {
-      uiService.setBackgroundValue(uiService.VALUE.DARK);
+      
+      var whatWeTalkinBout = ($routeParams.category) ? capitalize($routeParams.category) : 'Everything';
+      meta.setTitle('Talk about ' + whatWeTalkinBout);
       
       roomService.getRooms($routeParams.category).then(function ($rooms) {
         $scope.rooms = $rooms;
@@ -50,7 +54,11 @@
     }
     
     function capitalize (input) {
-      return input.replace(/(^[a-z])/,function (i) { return i.toUpperCase(); });
+      try {
+        return input.replace(/(^[a-z])/,function (i) { return i.toUpperCase(); });  
+      } catch(ex) {
+        return input || '';
+      }
     }
     
     init();
@@ -143,6 +151,11 @@
         $scope.category = parseInt(category, 10);
       });
     };
+    
+    $scope.goTo = function (location) {
+      $location.path(location);
+    };
+    
   }]);
   
 })(angular);

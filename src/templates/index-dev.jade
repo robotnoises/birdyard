@@ -4,7 +4,7 @@ html(lang='en', ng-app='birdyard', ng-class='{noscroll: freeze}')
     = '\n'
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Birdyard
+    title Birdyard - {{pageTitle}}
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     = '\n'
@@ -21,14 +21,17 @@ html(lang='en', ng-app='birdyard', ng-class='{noscroll: freeze}')
   body(ng-controller='uiController', ng-class='getBackgroundClass()')
     = '\n'
     // Birdyard Logo
-    div(class='container-logo pointer')
-      img(src='assets/images/logo.svg', ng-controller='uiController', ng-click='goHome()', alt='birdyard')
+    // div(class='container-logo pointer')
+    //   img(src='assets/images/logo.svg', ng-controller='uiController', ng-click='goHome()', alt='birdyard')
     = '\n'
     // Menu
     menu
     = '\n'
     // Notifications
     notifications(ng-if='signedIn', md-delay='1250')
+    = '\n'
+    // Click-anywhere to do (something)
+    click-anywhere(action='backdropClick', active='backdropActive', z='backdropZIndex')
     = '\n'
     div(ng-view)
     = '\n'
@@ -72,6 +75,8 @@ html(lang='en', ng-app='birdyard', ng-class='{noscroll: freeze}')
     script(src='modules/utilities/services/selectText.js')
     script(src='modules/utilities/services/markdownFilter.js')
     script(src='modules/utilities/services/favService.js')
+    script(src='modules/utilities/services/meta.js')
+    script(src='modules/utilities/services/backdrop.js')
     script(src='modules/utilities/directives/shiftEnter.js')
     script(src='modules/utilities/directives/escape.js')
     script(src='modules/utilities/directives/myTime.js')
@@ -81,6 +86,7 @@ html(lang='en', ng-app='birdyard', ng-class='{noscroll: freeze}')
     script(src='modules/utilities/directives/lightbox.js')
     script(src='modules/utilities/directives/menu.js')
     script(src='modules/utilities/directives/formattingToolbar.js')
+    script(src='modules/utilities/directives/clickAnywhere.js')
     = '\n'
     // Search
     script(src='modules/search/services/search-svc.js')
@@ -95,7 +101,6 @@ html(lang='en', ng-app='birdyard', ng-class='{noscroll: freeze}')
     = '\n'
     // User
     script(src='modules/user/routes.js')
-    script(src='modules/user/controllers/auth-ctrl.js')
     script(src='modules/user/controllers/user-ctrl.js')
     script(src='modules/user/directives/authUser.js')
     script(src='modules/user/directives/avatar.js')

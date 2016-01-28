@@ -15,4 +15,9 @@ angular.module('birdyard', [
   'ngMaterial',
   'btford.markdown'
   
-]);
+]).run(['backdropService', function (backdropService) {
+  
+  // Set-up global backdrop service, used in tandem with the click-anywhere directive (both in utilities)  
+  backdropService.reset();
+
+}]);

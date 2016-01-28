@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Birdyard</title>
+    <title>Birdyard - {{pageTitle}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -22,13 +22,17 @@
   <body ng-controller="uiController" ng-class="getBackgroundClass()">
 
     <!-- Birdyard Logo-->
-    <div class="container-logo pointer"><img src="assets/images/logo.svg" ng-controller="uiController" ng-click="goHome()" alt="birdyard"></div>
+    <!-- div(class='container-logo pointer')-->
+    <!--   img(src='assets/images/logo.svg', ng-controller='uiController', ng-click='goHome()', alt='birdyard')-->
 
     <!-- Menu-->
     <menu></menu>
 
     <!-- Notifications-->
     <notifications ng-if="signedIn" md-delay="1250"></notifications>
+
+    <!-- Click-anywhere to do (something)-->
+    <click-anywhere action="backdropClick" active="backdropActive" z="backdropZIndex"></click-anywhere>
 
     <div ng-view></div>
 
@@ -72,6 +76,8 @@
     <script src="modules/utilities/services/selectText.js"></script>
     <script src="modules/utilities/services/markdownFilter.js"></script>
     <script src="modules/utilities/services/favService.js"></script>
+    <script src="modules/utilities/services/meta.js"></script>
+    <script src="modules/utilities/services/backdrop.js"></script>
     <script src="modules/utilities/directives/shiftEnter.js"></script>
     <script src="modules/utilities/directives/escape.js"></script>
     <script src="modules/utilities/directives/myTime.js"></script>
@@ -81,6 +87,7 @@
     <script src="modules/utilities/directives/lightbox.js"></script>
     <script src="modules/utilities/directives/menu.js"></script>
     <script src="modules/utilities/directives/formattingToolbar.js"></script>
+    <script src="modules/utilities/directives/clickAnywhere.js"></script>
 
     <!-- Search-->
     <script src="modules/search/services/search-svc.js"></script>
@@ -95,7 +102,6 @@
 
     <!-- User-->
     <script src="modules/user/routes.js"></script>
-    <script src="modules/user/controllers/auth-ctrl.js"></script>
     <script src="modules/user/controllers/user-ctrl.js"></script>
     <script src="modules/user/directives/authUser.js"></script>
     <script src="modules/user/directives/avatar.js"></script>
