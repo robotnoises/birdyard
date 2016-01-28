@@ -7,7 +7,7 @@
   <div class="node-title" ng-class="{'active': hoverTitle || favd}" ng-mouseover="hoverTitle = true" ng-mouseleave="hoverTitle = false">
     <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span> replied <span my-time="{{node.timestamp}}" from-now="true"></span>
     <span class="node-action">
-      <span class="pill-mini" ng-click="fav()" ng-class="{'bg-lightgrey': !favd}">
+      <span class="pill-mini" ng-click="fav()" ng-class="{'bg-verylightgrey': !favd}">
         <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>{{favCount}}</strong></span>
       </span>
     </span>
@@ -17,9 +17,26 @@
     <p btf-markdown="node.text" thumbnail></p>
   </div>
       
-  <div class="node-actions">
-    <span class="pill pointer" ng-click="select(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
-      <span>{{node.commentCount}}</span> comment<span ng-hide="node.commentCount == 1">s</span>
-    </span>
+  <div class="node-actions bg-lightgrey">
+    <div style="position: relative; float: left;">
+      <!-- Comments -->
+      <span class="pill pointer" ng-click="select(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+        <span>{{node.commentCount}}</span> comment<span ng-hide="node.commentCount == 1">s</span>
+      </span>
+      </div>
+    <div>
+      <!--Reply -->
+      <span class="pill pointer bg-verylightgrey hover-white" ng-click="replyTo(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+        <i class="icon fa fa-reply"></i> Reply
+      </span>
+      <!-- Copy link -->
+      <span class="pill pointer bg-verylightgrey hover-white" ng-click="copyLinkTo(node.id)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+        <i class="icon fa fa-link"></i> Copy Link
+      </span>
+      <!-- Flag -->
+      <span class="pill pointer bg-verylightgrey hover-white" ng-click="report(node.id)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+        <i class="icon fa fa-bullhorn"></i> Report
+      </span>
+    </div>
   </div>
 </div>
