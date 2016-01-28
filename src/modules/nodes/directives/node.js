@@ -5,6 +5,7 @@
   angular.module('birdyard.nodes')
   
   .directive('node', [
+    '$window',
     '$rootScope',
     '$location', 
     '$routeParams', 
@@ -16,6 +17,7 @@
     'notificationService',
   
   function (
+    $window,
     $rootScope,
     $location, 
     $routeParams, 
@@ -58,6 +60,7 @@
         
         scope.favd = false;
         scope.favCount = scope.node.favCount || 0;
+        scope.linkToNode = 'https://birdyard.co/#/n/' + scope.node.id; // Todo: let's be smarter with this
         
         scope.fav = function () {
           

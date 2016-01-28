@@ -1,4 +1,4 @@
-(function (angular, Move) {
+(function (angular, Move, Clipboard) {
   
   'use strict';
   
@@ -51,6 +51,7 @@
     var RECENT_NODES_PREFIX = '___recentNode_';
     var wasScrolling = false;
     var $bottom;
+    var clipboard = new Clipboard('.clipboard');
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
@@ -284,6 +285,18 @@
         });
       }
     }
+    
+    clipboard.on('success', function(e) {
+      // Display success message
+      $mdToast.show(
+        $mdToast.simple()
+          .content('Copied link!')
+          .theme('toast-success')
+          .position('bottom right')
+          .hideDelay(3000)
+        );
+      e.clearSelection();
+    });
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
@@ -438,4 +451,4 @@
     
   }]);
   
-})(angular, Move);
+})(angular, Move, Clipboard);

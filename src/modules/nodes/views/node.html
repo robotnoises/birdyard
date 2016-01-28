@@ -30,7 +30,7 @@
         <i class="icon fa fa-reply"></i> Reply
       </span>
       <!-- Copy link -->
-      <span class="pill pointer bg-verylightgrey hover-white" ng-click="copyLinkTo(node.id)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+      <span class="pill pointer bg-verylightgrey hover-white clipboard" data-clipboard-text="{{linkToNode}}" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
         <i class="icon fa fa-link"></i> Copy Link
       </span>
       <!-- Flag -->
