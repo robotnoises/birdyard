@@ -1,14 +1,14 @@
 @import '_variables';
 
-.bg-grey {
-  background-color: $co_verylightgrey;
+.bg-lightgrey {
+  background-color: $co_lightgrey;
 }
 
 .bg-white {
   background-color: $co_white;
 }
 
-.bg-lightgrey {
+.bg-verylightgrey {
   background-color: $co_verylightgrey;
   color: $co_grey;
 }
@@ -41,6 +41,14 @@
   background: $co_red; /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, $co_red , $co_orange); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, $co_red , $co_orange); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.hover-white {
+  transition: background $dur_fade;
+  &:hover, 
+  &:active {
+    background-color: $co_white;
+  }
 }
 
 

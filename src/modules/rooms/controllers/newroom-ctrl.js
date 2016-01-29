@@ -80,29 +80,29 @@
     
     // Watchers
     
-    // $scope.$watch('titleValid', function (valid, oldValue) {
-    //   if (valid) {
-    //     $scope.titlePlaceholder = titlePlaceholderValid;
-    //   } else {
-    //     $scope.titlePlaceholder = titlePlaceholderInvalid;
-    //   }
+    $scope.$watch('titleValid', function (valid, oldValue) {
+      if (valid) {
+        $scope.titlePlaceholder = titlePlaceholderValid;
+      } else {
+        $scope.titlePlaceholder = titlePlaceholderInvalid;
+      }
       
-    //   if (valid !== oldValue) {
-    //     validateFields();  
-    //   }
-    // });
+      if (!valid && valid !== oldValue) {
+        validateFields();  
+      }
+    });
     
-    // $scope.$watch('textValid', function (valid, oldValue) {
-    //   if (valid) {
-    //     $scope.textPlaceholder = textPlaceholderValid;
-    //   } else {
-    //     $scope.textPlaceholder = textPlaceholderInvalid;
-    //   }
+    $scope.$watch('textValid', function (valid, oldValue) {
+      if (valid) {
+        $scope.textPlaceholder = textPlaceholderValid;
+      } else {
+        $scope.textPlaceholder = textPlaceholderInvalid;
+      }
       
-    //   if (valid !== oldValue) {
-    //     validateFields();  
-    //   }
-    // });
+      if (!valid && valid !== oldValue) {
+        validateFields();  
+      }
+    });
     
     // Public
     

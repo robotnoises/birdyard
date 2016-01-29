@@ -59,7 +59,8 @@ var config = function (grunt) {
             'src/bower_components/angular-animate/angular-animate.min.js',
             'src/bower_components/angular-aria/angular-aria.min.js',
             'src/bower_components/angular-material/angular-material.min.js',
-            'src/bower_components/firebase-util/dist/firebase-util-paginate.min.js'
+            'src/bower_components/firebase-util/dist/firebase-util-paginate.min.js',
+            'src/bower_components/clipboard/dist/clipboard.min.js'
           ]
         }
       }

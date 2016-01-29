@@ -5,6 +5,8 @@
   angular.module('birdyard.nodes')
   
   .directive('node', [
+    '$q',
+    '$window',
     '$rootScope',
     '$location', 
     '$routeParams', 
@@ -12,9 +14,14 @@
     'firebaseService', 
     'authService', 
     'favService',
+    'stashService',
     'notificationService',
+    '$mdDialog',
+    '$mdToast',
   
   function (
+    $q,
+    $window,
     $rootScope,
     $location, 
     $routeParams, 
@@ -22,7 +29,10 @@
     firebaseService, 
     authService,
     favService,
-    notificationService) {
+    stashService,
+    notificationService,
+    $mdDialog,
+    $mdToast) {
     
     return {
       restrict: 'E',
@@ -50,12 +60,33 @@
           });
         }
         
+        function report() {
+          
+          var $flaggedRef = firebaseService.getRef('flagged', scope.node.id);
+          var $reportersRef = $flaggedRef.child('reporters');
+          
+          return $q(function (resolve, reject) {
+            $flaggedRef.once('child_added', function ($snap) {
+              var $count = $flaggedRef.child('count');
+              var children = $snap.val();
+              $count.set(Object.keys(children).length);
+            });
+                
+            return authService.getUser().then(function (user) {
+              var $userRef = $reportersRef.child(user.uid);
+              $userRef.set(true);
+              resolve();
+            });  
+          });
+        };
+        
         init();
         
         // Scope
         
         scope.favd = false;
         scope.favCount = scope.node.favCount || 0;
+        scope.linkToNode = 'https://birdyard.co/#/n/' + scope.node.id; // Todo: let's be smarter with this
         
         scope.fav = function () {
           
@@ -83,6 +114,39 @@
             }).catch(function (err) {
               console.error(err);
             });
+        };
+        
+        scope.replyTo = function (node) {
+          stashService.set('replyNow', true);
+          scope.select(node);
+        }
+        
+        scope.confirmReport = function ($event) {
+          // Appending dialog to document.body to cover sidenav in docs app
+          var confirm = $mdDialog.confirm()
+            .title('Are you sure you want to report this?')
+            .textContent(
+              'By clicking REPORT, you are stating that you find this comment offensive, ' + 
+              'and/or inappropriate. Our moderators review all reported content and will ' + 
+              'take actions if deemed necessary.'
+            )
+            .ariaLabel('Report ' + scope.node.name)
+            .targetEvent($event)
+            .clickOutsideToClose(true)
+            .escapeToClose(true)
+            .ok('REPORT')
+            .cancel('CANCEL');
+          
+          $mdDialog.show(confirm).then(report).then(function () {
+            // Display success message
+            $mdToast.show(
+              $mdToast.simple()
+                .content('Reported.')
+                .theme('toast-success')
+                .position('bottom right')
+                .hideDelay(3000)
+              );
+          });
         };
         
         // Go to the user's profile page

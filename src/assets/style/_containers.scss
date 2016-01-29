@@ -91,7 +91,7 @@
     height: 36px;
     width: 36px;
     border: 3px solid $co_white;
-    box-shadow: 0px 2px 0px rgba(0,0,0,0.25);
+    // box-shadow: 0px 2px 0px rgba(0,0,0,0.25);
     cursor: pointer;
     overflow: hidden;
     border-radius: 50%;
@@ -148,6 +148,10 @@
     padding-right: 25px;
     line-height: 42px;
     // background-color: $co_lightgrey;
+    text-align: right;
+    .pill:not(:first-child) {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -552,6 +556,12 @@ blockquote {
     font-weight: 700;
     font-size: 2em;
   }
+  
+  .room-footer {
+    .pill {
+      margin-right: 5px;
+    }
+  }
 }
 
 // Category stuff
@@ -575,7 +585,7 @@ blockquote {
 }
 
 .pill-mini {
-  padding: 2px 10px 0px 9px;
+  padding: 2px 6px;
   border-radius: 12px;
   @include raised(1px);
 }

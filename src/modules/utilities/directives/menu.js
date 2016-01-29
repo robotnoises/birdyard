@@ -39,7 +39,7 @@
 
         '<div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
           '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')">View Your Profile</div>' +
-          '<div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-grey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
+          '<div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-verylightgrey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
           '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/rooms/new\')">Make a New Room</div>' +
           '<div class="birdyard-menu-item pointer">Get Help</div>' +
           '<div class="birdyard-menu-item pointer">Legal Stuff</div>' +
