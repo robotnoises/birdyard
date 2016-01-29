@@ -6,17 +6,19 @@ md-toast {
   position: fixed !important;
   color: $co_white !important;
   font-weight: 700 !important;
-  // background-image: linear-gradient(rgba(255,255,255,0.0), rgba(0,0,0,0.15)) !important;
 }
 
-// .md-toast-default-theme {
-//   background-color: $co_purple !important;
-// }
+.md-toast-default-theme {
+  background-color: $co_white !important;
+  color: $co_black !important;
+}
 
-// .md-toast-success-theme {
-//   background-color: $co_green !important;
-// }
+.md-toast-success-theme {
+  background-color: $co_white !important;
+  color: $co_green !important;
+}
 
-// .md-toast-error-theme {
-//   background-color: $co_red !important;
-// }
+.md-toast-error-theme {
+  background-color: $co_white !important;
+  color: $co_red !important;
+}

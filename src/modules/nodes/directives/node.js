@@ -125,7 +125,7 @@
           // Appending dialog to document.body to cover sidenav in docs app
           var confirm = $mdDialog.confirm()
             .title('Are you sure you want to report this?')
-            .textContent(
+            .content(
               'By clicking REPORT, you are stating that you find this comment offensive, ' + 
               'and/or inappropriate. Our moderators review all reported content and will ' + 
               'take actions if deemed necessary.'
@@ -142,7 +142,7 @@
             $mdToast.show(
               $mdToast.simple()
                 .content('Reported.')
-                .theme('toast-success')
+                .theme('toast-default')
                 .position('bottom right')
                 .hideDelay(3000)
               );
