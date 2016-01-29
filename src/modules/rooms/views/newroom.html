@@ -4,7 +4,7 @@
   
   <md-input-container class="md-block">
     <label style="display: none;"></label>
-    <input class="borders jumbo" ng-model="room.title" type="text" placeholder="{{titlePlaceholder}}">
+    <input class="borders jumbo" ng-model="room.title" type="text" placeholder="{{titlePlaceholder}}" ng-minlength="1" ng-maxlength="100" ng-required="true">
   </md-input-container>
   
   <div class="container-choosecategory">
@@ -34,7 +34,7 @@
         </div>
         
         <label></label>
-        <textarea id="newroom-comment" class="container-newroom jumbo" ng-model="room.text" placeholder="{{textPlaceholder}}"></textarea>
+        <textarea id="newroom-comment" class="container-newroom jumbo" ng-model="room.text" placeholder="{{textPlaceholder}}"  ng-minlength="1" ng-maxlength="1000" ng-required="true"></textarea>
       </md-input-container>
       
       <div layout="row" layout-align="end center">
