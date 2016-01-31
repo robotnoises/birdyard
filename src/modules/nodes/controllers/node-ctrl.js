@@ -105,7 +105,9 @@
     
     function loaded(isLoaded) {
       
-      $scope.loaded = isLoaded; 
+      $timeout(function () {
+        $scope.loaded = isLoaded;  
+      }, 500);
       
       var replyNow = stashService.get('replyNow') === "true";
       
@@ -175,12 +177,12 @@
       });
     }
     
-    function setNodeFromFirebase(id) {
-      // Wait until it's loaded, then set
-      nodeService.getById(id).$loaded(function (node) {
-        $scope.node = node;
-      });
-    }
+    // function setNodeFromFirebase(id) {
+    //   // Wait until it's loaded, then set
+    //   nodeService.getById(id).$loaded($timeout(function (node) {
+    //     $scope.node = node;
+    //   }));
+    // }
     
     function setNodeChildrenFromFirebase(id) {
       nodeService.getChildren(id).$loaded(function (children) {
@@ -188,9 +190,7 @@
         $scope.$children = children;
         $scope.$children.$watch(babySitter);
         
-        $timeout(function () {
-          loaded(true);
-        });
+        loaded(true);
         
         scrollToBottom();
       });
@@ -199,16 +199,14 @@
     function getNode(id) {
       
       var lsn = stashService.get(LAST_SELECTED_NODE);
-
-      if (lsn) {
-        if (lsn.id === id) {
-          setNodeFromFirebase(id);
-          return lsn;
-        } else {
-          return nodeService.getById(id);
-        }
-      } else {
-        return nodeService.getById(id);
+      var $node = nodeService.getById(id);
+      
+      $node.$loaded($timeout(function () {
+        $scope.node = $node;  
+      }));
+      
+      if (lsn && lsn.id === id) {
+        return lsn;
       }
     }
     

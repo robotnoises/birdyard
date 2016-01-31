@@ -89,7 +89,7 @@
     <node node="child" select="selectChild" pause="pauseAutoScroll" class="node child fadey-slow ghost shadow-flat" ng-class="{'boo': loaded}" ng-repeat="child in $children"></node>
     
     <!-- Show More -->
-    <div class="nothing-here fadey ghost" ng-class="{'boo': $children.length === 0 && !showDialog}">
+    <div class="nothing-here fadey ghost" ng-class="{'boo': $children.length === 0 && !showDialog && loaded}">
       <p>Nobody's said anything, yet. <!--<i class="fa fa-frown-o"></i>--></p>
       <md-button class="birdyard-btn" ng-click="toggleDialog()">
         SAY SOMETHING
