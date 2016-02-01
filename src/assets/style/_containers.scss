@@ -534,31 +534,44 @@ blockquote {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 10%;
   left: 0;
   display: block;
   overflow: hidden;
   width: 90%;
   margin: 0 auto;
+  color: $co_white;
   
-  background: url(../images/logo.png);
+  background: url(../images/logo.svg);
   background-repeat: no-repeat;
-  background-size: 80%;
-  background-position: top right;
-  back
+  background-size: 40%;
+  background-position: bottom right;
+  
+  a {
+    color: $co_white;
+    text-decoration: none;
+  }
+  
+  a.underline {
+    text-decoration: underline;
+  }
   
   h1, h2 {
     font-weight: 700;
-    color: $co_black;
+    line-height: 1.25em;
+    color: $co_white;
+    width: 50%;
   }
   
   h1 {
-    font-size: 8em;
+    font-size: 6em;
+    margin-bottom: 0em;
   }
   
   h2 {
+    font-size: 2em;
     color: $co_white;
-    text-shadow: 1px 1px 0px $co_black;
+    // text-shadow: 1px 1px 0px $co_black;
   }
 }
 
