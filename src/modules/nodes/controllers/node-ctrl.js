@@ -177,13 +177,6 @@
       });
     }
     
-    // function setNodeFromFirebase(id) {
-    //   // Wait until it's loaded, then set
-    //   nodeService.getById(id).$loaded($timeout(function (node) {
-    //     $scope.node = node;
-    //   }));
-    // }
-    
     function setNodeChildrenFromFirebase(id) {
       nodeService.getChildren(id).$loaded(function (children) {
         
@@ -282,16 +275,17 @@
       }
     }
     
-    clipboard.on('success', function(e) {
+    clipboard.on('success', function (e) {
+      e.clearSelection();
+      
       // Display success message
-      $mdToast.show(
+      return $mdToast.show(
         $mdToast.simple()
           .content('Copied link!')
           .theme('toast-success')
           .position('bottom right')
           .hideDelay(3000)
         );
-      e.clearSelection();
     });
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
