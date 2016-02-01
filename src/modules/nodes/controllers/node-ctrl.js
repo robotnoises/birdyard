@@ -194,9 +194,9 @@
       var lsn = stashService.get(LAST_SELECTED_NODE);
       var $node = nodeService.getById(id);
       
-      $node.$loaded($timeout(function () {
+      $node.$loaded(function () {
         $scope.node = $node;  
-      }));
+      });
       
       if (lsn && lsn.id === id) {
         return lsn;

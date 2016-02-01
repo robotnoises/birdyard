@@ -22,11 +22,7 @@
       </md-input-container>
 
     </h1>
-    
-    <h2 layout="row" layout-align="center center" class="rooms-subheader">
-      There are {{userCount}} people talking right now. Join in?
-    </h2>
-    
+
     <div class="searchbar-placeholder">
       <i class="icon fa fa-search"></i> <span>Click here to search for {{categoryReadable(category)}}...</span>
     </div>
@@ -41,10 +37,15 @@
   
   <!-- Progress indicator for initial load -->
   <div class="loading" ng-show="!loaded">
-    <md-progress-circular class="md-progress-default-theme" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
+    <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
   </div>
   
   <div class="fadey ghost" ng-class="{'boo': loaded}">
+    
+    <h2 class="rooms-subheader">
+      There <span ng-if="userCount === 1">is</span><span ng-if="userCount !== 1">are</span> {{userCount}} <span ng-if="userCount === 1">person</span><span ng-if="userCount !== 1">people</span> talking right now.
+    </h2>
+    
     <div ng-repeat="room in rooms">
       <div class="container-room shadow-flat">
         <div class="room-content">
