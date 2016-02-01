@@ -30,27 +30,24 @@
       template: 
       '<div class="birdyard-menu-wrapper">' +
         
-        '<div class="birdyard-btn pointer" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</div>' + 
+      ' <div class="birdyard-btn pointer" ng-hide="signedIn" ng-click="signIn()">Sign in with Twitter</div>' + 
         
-        '<div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0; height: 33px; width: 33px; text-align: center; overflow: hidden;" ng-click="toggleMenu()">' + 
-          '<i class="icon fa fa-navicon menu" ng-if="!notificationCount && !ring" style="font-size: 20px;"></i>' + 
-          '<i class="icon fa fa-bell co-yellow menu ding" ng-if="notificationCount" ng-class="{\'ring\': ring}" style="font-size: 20px; text-shadow: 0px 1px 0px rgba(0,0,0,0.5);"></i>' +
-        '</div>' +
+      ' <div ng-if="signedIn" class="birdyard-btn pointer" style="padding-bottom: 0; height: 33px; width: 33px; text-align: center; overflow: hidden;" ng-click="toggleMenu()">' + 
+      '   <i class="icon fa fa-navicon menu" ng-if="!notificationCount && !ring" style="font-size: 20px;"></i>' + 
+      '   <i class="icon fa fa-bell co-yellow menu ding" ng-if="notificationCount" ng-class="{\'ring\': ring}" style="font-size: 20px; text-shadow: 0px 1px 0px rgba(0,0,0,0.5);"></i>' +
+      ' </div>' +
 
-        '<div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
-          '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')">View Your Profile</div>' +
-          '<div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-verylightgrey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
-          '<div class="birdyard-menu-item pointer" ng-click="goTo(\'/rooms/new\')">Make a New Room</div>' +
-          '<div class="birdyard-menu-item pointer">Get Help</div>' +
-          '<div class="birdyard-menu-item pointer">Legal Stuff</div>' +
-          
-          '<div class="birdyard-menu-footer">' +
-            '<avatar class="birdyard-avatar"></avatar>' +
-            '<span class="birdyard-btn pointer float-right" style="border-width: 2px;" ng-click="signOut()">' +
-              'SIGN OUT' + 
-            '</span>' + 
-          '</div>' +
-        '</div>' +  
+      ' <div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/\')"><i class=\'fa fa-home co-yellow\'></i> Go Home</div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')"><i class=\'fa fa-eye co-red\'></i> View Your Profile</div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/rooms/new\')"><i class=\'fa fa-comments co-green\'></i> Start a new Conversation</div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="toggleNotifications()"><i class=\'fa fa-bell co-orange\'></i> Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-verylightgrey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
+      '   <div class="birdyard-menu-item pointer"><i class=\'fa fa-mortar-board co-blue\'></i> Get Help</div>' +
+      '   <div class="birdyard-menu-item pointer"><i class=\'fa fa-institution co-purple\'></i> Legal Stuff</div>' +
+      '   <div class="birdyard-menu-footer birdyard-btn pointer" ng-click="signOut()">' +
+      '       SIGN OUT' + 
+      '   </div>' +
+      ' </div>' +  
       '</div>',
       
       link: function (scope, element, attrs) {
