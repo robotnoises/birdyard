@@ -222,6 +222,17 @@ var config = function (grunt) {
             filter: 'isFile'
           }
         ]
+      },
+      static_pages: {
+        files: [
+          { 
+            cwd: 'src/',
+            expand: true,
+            src: ['404.html', 'upgrade.html'], 
+            dest: 'dist/', 
+            filter: 'isFile'
+          }
+        ]
       }
     },
     
@@ -266,7 +277,8 @@ var config = function (grunt) {
     'copy:components', 
     'copy:fonts_prod', 
     'copy:images_prod',
-    'copy:views'
+    'copy:views',
+    'copy:static_pages'
   ]);
 };
 
