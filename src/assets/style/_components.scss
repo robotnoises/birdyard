@@ -39,6 +39,7 @@
     }
       
     .birdyard-menu-item {
+      
       padding: 4px 12px;
       line-height: 20px;
       font-weight: 700;
@@ -46,8 +47,9 @@
       color: $co_black;
       
       .pill-mini {
-        display: inline-block;
-        font-size: 12px;
+        vertical-align: middle;
+        display: inline-flex;
+        font-size: 10px;
         height: 16px;
         line-height: 14px;
       }

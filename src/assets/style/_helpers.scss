@@ -172,3 +172,73 @@
     display: block;
   }
 }
+
+.hover-yellow {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_yellow !important;
+    color: $co_white;
+  }
+}
+
+.hover-red {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_red !important;
+    color: $co_white;
+  }
+}
+
+.hover-green {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_green !important;
+    color: $co_white;
+  }
+}
+
+.hover-orange {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_orange !important;
+    color: $co_white !important;
+  }
+}
+
+.hover-blue {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_blue !important;
+    color: $co_white;
+  }
+}
+
+.hover-purple {
+  // background: inherit;
+  // color: inherit;
+  
+  &:hover, 
+  &:active {
+    background-color: $co_purple !important;
+    color: $co_white;
+  }
+}
+
+.jumbo {
+  font-size: 16px;
+}

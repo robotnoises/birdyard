@@ -5,11 +5,14 @@
   </div>
   
   <div class="node-title" ng-class="{'active': hoverTitle || favd}" ng-mouseover="hoverTitle = true" ng-mouseleave="hoverTitle = false">
-    <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span> replied <span my-time="{{node.timestamp}}" from-now="true"></span>
+    <span class="displayName pointer" ng-click="goToProfile(node.uid)">{{node.name}}</span>
     <span class="node-action">
       <span class="pill-mini" ng-click="fav()" ng-class="{'bg-verylightgrey': !favd}">
         <i class="fa fa-star pointer" ng-class="{'co-seethrough': favd}"></i> <span><strong>{{favCount}}</strong></span>
       </span>
+    </span>
+    <span class="float-right node-timestamp">
+      <span my-time="{{node.timestamp}}"></span>
     </span>
   </div>
       
@@ -17,7 +20,7 @@
     <p btf-markdown="node.text" thumbnail></p>
   </div>
       
-  <div class="node-actions bg-lightgrey">
+  <div class="node-actions">
     <div style="position: relative; float: left;">
       <!-- Comments -->
       <span class="pill pointer" ng-click="select(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
@@ -26,15 +29,15 @@
       </div>
     <div>
       <!--Reply -->
-      <span class="pill pointer bg-verylightgrey hover-white" ng-click="replyTo(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+      <span class="pill pointer bg-verylightgrey hover-green" ng-click="replyTo(node)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
         <i class="icon fa fa-reply"></i> Reply
       </span>
       <!-- Copy link -->
-      <span class="pill pointer bg-verylightgrey hover-white clipboard" data-clipboard-text="{{linkToNode}}" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+      <span class="pill pointer bg-verylightgrey hover-purple clipboard" data-clipboard-text="{{linkToNode}}" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
         <i class="icon fa fa-link"></i> Copy Link
       </span>
       <!-- Flag -->
-      <span class="pill pointer bg-verylightgrey hover-white" ng-click="confirmReport($event)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
+      <span class="pill pointer bg-verylightgrey hover-red" ng-click="confirmReport($event)" ng-mouseenter="pause(true)" ng-mouseleave="pause(false)">
         <i class="icon fa fa-bullhorn"></i> Report
       </span>
     </div>
