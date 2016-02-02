@@ -4,18 +4,21 @@ i.icon.btn {
   @include raised_font(3px);
 }
 
-i.icon.reply {
+i.icon.reply,
+i.icon.close {
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 25px;
-  z-index: 2;
-  font-size: 2em;
+  z-index: 3;
+  font-size: 20px;
   color: $co_white;
   padding-left: 1px;
 }
 
-i.icon.fa-times-circle {
+i.icon.close {
   color: $co_black;
+  font-size: 2em;
+  top: 25px;
 }
 
 i.icon.comment-count {

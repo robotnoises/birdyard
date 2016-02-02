@@ -129,15 +129,18 @@
 }
 
 .node.parent {
-  position: static;
+  position: relative;
   height: $dim_node;
   padding-bottom: 10px;
   margin-right: -25px; // for the scrollbar
 }
 
 .node-title {
+  width: 100%;
+  max-width: $dim_content - 50;
   font-size: 16px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+  height: 34px;
 }
 
 .node-title > * {
@@ -170,7 +173,6 @@
   }
   i {
     font-size: 1em;
-    // color: $co_darkgrey;
   }
   .node-actions {
     position: absolute;
@@ -194,14 +196,18 @@
 
 .level-up {
   position: absolute;
+  left: 25px;
+  right: 25px;
   z-index: 2;
   color: $co_white;
-  padding: 20px;
-  font-size: 1.5em;
+  font-size: 20px;
   line-height: 1.5em;
-  left: 50%;
-  transform: translateX(-50%);
+  height: 55px;
+  text-align: center;
+  padding-top: 25px;
+
   i.icon {
+    display: inline-block;
     opacity: 0.15;
     transition: opacity 200ms;
     padding: 1px;

@@ -166,16 +166,13 @@
   padding: 0;
   margin: 0;
   display: none;
-  // background-color: rgba(0,0,0,1);
-  // opacity: 0.1;
+
   &.active {
     display: block;
   }
 }
 
 .hover-yellow {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -185,8 +182,6 @@
 }
 
 .hover-red {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -196,8 +191,6 @@
 }
 
 .hover-green {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -207,8 +200,6 @@
 }
 
 .hover-orange {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -218,8 +209,6 @@
 }
 
 .hover-blue {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -229,8 +218,6 @@
 }
 
 .hover-purple {
-  // background: inherit;
-  // color: inherit;
   
   &:hover, 
   &:active {
@@ -241,4 +228,8 @@
 
 .jumbo {
   font-size: 16px;
+}
+
+.fixed {
+  position: fixed;
 }

@@ -6,7 +6,7 @@
       
       <markdown-icon class="markdown-reply"></markdown-icon>
       
-      <i id="close" class="icon fa fa-times-circle pointer float-right reply" ng-click="toggleDialog()"></i>  
+      <i id="close" class="icon fa fa-times-circle pointer float-right close" ng-click="toggleDialog()"></i>  
       
       <md-content class="reply-textarea" style="padding-top: 75px"> 
         <md-input-container class="md-block">
@@ -30,13 +30,13 @@
     <div class="content">
       
       <!-- Add some content! -->
-      <i id="pencil" class="icon fa fa-pencil-square pointer reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
+      <i id="pencil" class="icon fa fa-reply pointer reply fadey ghost btn" ng-click="toggleDialog()" ng-class="{'boo': loaded}">
         <md-tooltip md-direction="left" md-delay="1250">Reply to {{node.name}}</md-tooltip>
       </i>
             
       <!-- Go up one level -->
-      <div layout="column" class="level-up fadey ghost" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
-        <i class="icon fa fa-chevron-circle-up pointer" ng-click="goUp()"></i>
+      <div layout="column" class="level-up fadey ghost bg-black" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
+        <i class="icon fa fa-arrow-up pointer" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
@@ -51,11 +51,11 @@
         <!-- Currently displayed node -->
         <div id="featured" class="node parent padding-top fadey" ng-class="{'invisible': transitioning, 'hoverscroll': expand && loaded}" show-more="expandFeature()" loaded="{{loaded}}">
           
-          <div class="node-title">
+          <div class="node-title fixed bg-black" style="z-index: 1;">
             <span class="displayName">{{node.name}}</span> 
           </div>
           
-          <div class="node-text">
+          <div class="node-text" style="padding-top: 34px;">
             <p btf-markdown="node.text" thumbnail></p>
           </div>
         </div>
