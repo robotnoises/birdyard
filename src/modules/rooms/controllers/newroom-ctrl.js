@@ -118,7 +118,7 @@
         return roomService.format($scope.room, $node.key());
       }).then(function(formatted) {
         return roomService.saveRoom(formatted);
-      }).then(function () {
+      }).then(function (newRoom) {
         
         // Display success message
         $mdToast.show(
@@ -129,9 +129,8 @@
             .hideDelay(3000)
           );
         
-        // Goto category list
-        var category = roomService.getCategory($scope.room.category);
-        $location.path('/c/' + category);
+        // Take me there!
+        $location.path('/n/' + newRoom.nodeId);
         
       }).catch(function(err) {
         
