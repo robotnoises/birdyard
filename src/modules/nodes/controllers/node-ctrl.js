@@ -106,6 +106,7 @@
       
       $timeout(function () {
         $scope.loaded = isLoaded;  
+        scrollToBottom();
       }, 500);
       
       var replyNow = stashService.get('replyNow') === "true";
@@ -183,8 +184,6 @@
         $scope.$children.$watch(babySitter);
         
         loaded(true);
-        
-        scrollToBottom();
       });
     }
     

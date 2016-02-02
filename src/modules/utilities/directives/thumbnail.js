@@ -24,7 +24,7 @@
             img.wrap('<div class="thumbnail"></div>');
             img.on('click', launch);
           });
-        });
+        }, 500);
       }
     }
   }]);
