@@ -20,4 +20,6 @@ angular.module('birdyard', [
   // Set-up global backdrop service, used in tandem with the click-anywhere directive (both in utilities)  
   backdropService.reset();
 
-}]);
+}]).config(function ($locationProvider, HTML5MODE) {
+  $locationProvider.html5Mode(HTML5MODE);
+});

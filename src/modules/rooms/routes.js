@@ -6,17 +6,17 @@
   
   .config(['$routeProvider', function ($routeProvider) {
     
-    $routeProvider.when('/rooms/c/everything', {
+    $routeProvider.when('/c/everything', {
       controller: 'roomsController',
       templateUrl: 'modules/rooms/views/rooms.html'
     });
 
-    $routeProvider.when('/rooms/c/:category', {
+    $routeProvider.when('/c/:category', {
       controller: 'roomsController',
       templateUrl: 'modules/rooms/views/rooms.html'
     });
     
-    $routeProvider.whenAuthenticated('/rooms/new', {
+    $routeProvider.whenAuthenticated('/c', {
       controller: 'newroomController',
       templateUrl: 'modules/rooms/views/newroom.html',
       resolve: {
@@ -28,7 +28,7 @@
     })
     
     $routeProvider.when('/', {
-      redirectTo: '/rooms/c/everything'
+      redirectTo: '/c/everything'
     });
 
   }]);

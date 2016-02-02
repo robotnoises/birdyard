@@ -11,5 +11,9 @@
       "key" : "Access-Control-Allow-Origin",
       "value" : "*"
     } ]
+  } ],
+  "rewrites": [ {
+    "source": "**",
+    "destination": "/index.html"
   } ]
 }

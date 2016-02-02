@@ -131,7 +131,7 @@
         
         // Goto category list
         var category = roomService.getCategory($scope.room.category);
-        $location.path('/rooms/c/' + category);
+        $location.path('/c/' + category);
         
       }).catch(function(err) {
         

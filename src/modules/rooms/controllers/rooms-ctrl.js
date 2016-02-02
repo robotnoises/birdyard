@@ -76,7 +76,7 @@
     
     function categoryWatcher(category, oldCategory) {
       if (category !== oldCategory) {
-        $location.path('rooms/c/' + roomService.getCategory(category));  
+        $location.path('/c/' + roomService.getCategory(category));  
       }
     }
     
