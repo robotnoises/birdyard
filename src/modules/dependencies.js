@@ -19,7 +19,8 @@
   angular.module('birdyard.nodes', [
     'ngRoute',
     'firebase',
-    'ngMaterial'
+    'ngMaterial',
+    'ngclipboard'
   ]);
   
   // Rooms

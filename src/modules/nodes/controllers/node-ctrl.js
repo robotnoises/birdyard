@@ -1,4 +1,4 @@
-(function (angular, Move, Clipboard) {
+(function (angular, Move) {
   
   'use strict';
   
@@ -49,8 +49,7 @@
     var RECENT_NODES_PREFIX = '___recentNode_';
     var wasScrolling = false;
     var $bottom;
-    var clipboard = new Clipboard('.clipboard');
-    
+        
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +62,7 @@
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
-    $scope.reply =           '';
+    $scope.reply =          '';
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -274,19 +273,6 @@
         });
       }
     }
-    
-    clipboard.on('success', function (e) {
-      e.clearSelection();
-      
-      // Display success message
-      return $mdToast.show(
-        $mdToast.simple()
-          .content('Copied link!')
-          .theme('toast-success')
-          .position('bottom right')
-          .hideDelay(3000)
-        );
-    });
         
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
@@ -441,4 +427,4 @@
     
   }]);
   
-})(angular, Move, Clipboard);
+})(angular, Move);

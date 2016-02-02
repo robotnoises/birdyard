@@ -21,6 +21,7 @@ module.exports = function (config) {
       'bower_components/moment/moment.js',
       'bower_components/showdown/compressed/Showdown.js',
       'bower_components/clipboard/dist/clipboard.js',
+      'bower_components/ngclipboard/dist/ngclipboard.js',
       
       // Test lib
       'tests/lib/*.js',

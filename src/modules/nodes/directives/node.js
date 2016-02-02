@@ -156,6 +156,17 @@
             $location.path('user/' + uid);  
           }
         };
+        
+        // When the user successfully copies a link to their clipboard
+        scope.clipboardSuccess = function (e) {
+          $mdToast.show(
+            $mdToast.simple()
+              .content('Copied!')
+              .theme('toast-success')
+              .position('bottom right')
+              .hideDelay(3000)
+            );
+        };
       }
     }
   }]);
