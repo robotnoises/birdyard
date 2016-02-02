@@ -48,23 +48,27 @@
     
     var _notificationService = {};
     
-    function _notify(notificationType, text, id, location, count) {
+    function _notify(notificationType, text, userToNotify, nodeId, location, count) {
       
       return $q(function (resolve, reject) {
         
         // Todo check if this is the same user
         
         return authService.getUser().then(function (user) {
-          if (user) {
+          
+          // Don't notify if the user replied to or fav'd themself
+          if (user.uid !== userToNotify) {
+            
             // Get a handle on the user to be notified
-            var $items = firebaseService.getRef('notifications', user.uid, 'items');
+            var $items = firebaseService.getRef('notifications', userToNotify, 'items');
             var now = $window.Firebase.ServerValue.TIMESTAMP;
             
             // Note: this will always overwrite existing notifications (we want that)
-            $items.child(id).setWithPriority({
+            $items.child(nodeId).setWithPriority({
               'type': notificationType,
               'text': text,
-              'id': id,
+              'userId': user.uid,
+              'id': nodeId,
               'location': location,
               'timestamp': now,
               'count': count || 0
@@ -73,8 +77,6 @@
             return $items.on('child_added', function ($snap) {
               resolve();
             });
-          } else {
-            reject();
           }
         });
       });

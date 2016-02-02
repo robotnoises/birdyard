@@ -104,7 +104,8 @@
                 return notificationService.notify(
                   notificationService.TYPE.FAVORITE, 
                   scope.node.text, 
-                  scope.node.id, 
+                  scope.node.uid,
+                  scope.node.id,
                   '/n/' + scope.node.id, 
                   scope.favCount
                 );
@@ -155,6 +156,17 @@
           if ($rootScope.signedIn) {
             $location.path('user/' + uid);  
           }
+        };
+        
+        // When the user successfully copies a link to their clipboard
+        scope.clipboardSuccess = function (e) {
+          $mdToast.show(
+            $mdToast.simple()
+              .content('Copied!')
+              .theme('toast-success')
+              .position('bottom right')
+              .hideDelay(3000)
+            );
         };
       }
     }

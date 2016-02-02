@@ -28,10 +28,10 @@
     $mdToast,
     meta) {
     
-    var titlePlaceholderValid =   'Give your room a title';
+    var titlePlaceholderValid =   'Give it a title';
     var textPlaceholderValid =    'Write an initial comment';
-    var titlePlaceholderInvalid = 'C\'mon, you really need to give your room a title!';
-    var textPlaceholderInvalid =  'You have to say something here.';
+    var titlePlaceholderInvalid = 'C\'mon, you really need to give your Conversation a title!';
+    var textPlaceholderInvalid =  'You have to say something here...';
     
     // Scope
     
@@ -157,7 +157,6 @@
     $scope.chooseCategory = function (_category) {
       $scope.room.category = _category;
       $scope.categoryChosen = true;
-      validateFields();
     };
     
   }]);
