@@ -104,7 +104,8 @@
                 return notificationService.notify(
                   notificationService.TYPE.FAVORITE, 
                   scope.node.text, 
-                  scope.node.id, 
+                  scope.node.uid,
+                  scope.node.id,
                   '/n/' + scope.node.id, 
                   scope.favCount
                 );

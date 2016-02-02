@@ -310,11 +310,13 @@
       }).then(function () {
 
         // Notify the user
-        var text =      angular.copy($scope.node.text).slice(0,150);
-        var nodeId =    angular.copy($scope.node.id);
-        var location =  '/n/' + nodeId;
+        var copiedNode =    angular.copy($scope.node);
+        var text =          copiedNode.text.slice(0,150);
+        var nodeId =        copiedNode.id;
+        var userToNotify =  copiedNode.uid;
+        var location =      '/n/' + nodeId;
         
-        return notificationService.notify(notificationService.TYPE.REPLY, text, nodeId, location);
+        return notificationService.notify(notificationService.TYPE.REPLY, text, userToNotify, nodeId, location);
         
       }).then(function () {
         
