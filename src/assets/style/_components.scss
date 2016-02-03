@@ -26,7 +26,6 @@
     top: 20px;
     overflow: hidden;
     padding-top: 10px;
-    // border-bottom: 3px solid rgba(0,0,0,0.35);
     
     height: 0px;
     width: 0px;
@@ -40,18 +39,27 @@
       
     .birdyard-menu-item {
       
+      display: inline-flex;
       padding: 4px 12px;
       line-height: 20px;
-      font-weight: 700;
       font-size: 14px;
-      color: $co_black;
+      color: $co_darkblack;
+      clear: both;
+      width: 100%;
       
       .pill-mini {
-        vertical-align: middle;
-        display: inline-flex;
-        font-size: 10px;
-        height: 16px;
-        line-height: 14px;
+        margin-left: 2px;
+        padding-bottom: 0px;
+      }
+      
+      .icon-container {
+        width: 18px;
+        text-align: center;
+        margin-right: 10px;
+      }
+      
+      span {
+        vertical-align: middle;  
       }
     }
     

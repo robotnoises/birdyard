@@ -38,12 +38,43 @@
       ' </div>' +
 
       ' <div class="birdyard-menu" ng-class="{show: showing}" ng-click="close()">' +
-      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/\')"><i class=\'fa fa-home co-yellow\'></i> Go Home</div>' +
-      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')"><i class=\'fa fa-eye co-red\'></i> View Your Profile</div>' +
-      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/c\')"><i class=\'fa fa-comments co-green\'></i> Start a new Conversation</div>' +
-      '   <div class="birdyard-menu-item pointer" ng-click="toggleNotifications()"><i class=\'fa fa-bell co-orange\'></i> Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-verylightgrey co-black\': notificationCount == 0}">{{notificationCount}}</span></div>' +
-      '   <div class="birdyard-menu-item pointer"><i class=\'fa fa-mortar-board co-blue\'></i> Get Help</div>' +
-      '   <div class="birdyard-menu-item pointer"><i class=\'fa fa-institution co-purple\'></i> Legal Stuff</div>' +
+      
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/\')">' + 
+      '     <span class="icon-container">' +
+      '       <i class=\'fa fa-home co-yellow\'></i>' + 
+      '     </span>' +
+      '     <span>Go Home</span>' +
+      '   </div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/user\')">' + 
+      '     <span class="icon-container">' + 
+      '       <i class=\'fa fa-user co-red\'></i>' +
+      '     </span>' + 
+      '     <span>View Your Profile</span>' + 
+      '   </div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="goTo(\'/c\')">' +
+      '     <span class="icon-container">' +
+      '       <i class=\'fa fa-comments co-green\'></i>' +
+      '     </span>' +
+      '     <span>Start a new Conversation</span>' +
+      '   </div>' +
+      '   <div class="birdyard-menu-item pointer" ng-click="toggleNotifications()">' +
+      '     <span class="icon-container">' +
+      '       <i class=\'fa fa-bell co-orange\'></i>' +
+      '     </span>' + 
+      '     <span>Notifications <span class="pill-mini weight-bold" ng-class="{\'bg-verylightgrey co-black\': notificationCount == 0}">{{notificationCount}}</span>' +
+      '   </div>' +
+      '   <div class="birdyard-menu-item pointer">' +
+      '     <span class="icon-container">' +
+      '       <i class=\'fa fa-mortar-board co-blue\'></i>' +
+      '     </span>' +
+      '     <span>Get Help</span>' +
+      '   </div>' +
+      '   <div class="birdyard-menu-item pointer">' +
+      '     <span class="icon-container">' +
+      '       <i class=\'fa fa-institution co-purple\'></i>' +
+      '     </span>' +
+      '     <span>Legal Stuff</span>' +
+      '   </div>' +
       '   <div class="birdyard-menu-footer birdyard-btn pointer" ng-click="signOut()">' +
       '       SIGN OUT' + 
       '   </div>' +
