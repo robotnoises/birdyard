@@ -12,14 +12,20 @@
 .featured {
   height: $dim_feature;
   z-index: 3;
+  
   .node-title {
+    
+    z-index: 2;
+    
     span {
       color: $co_white;
     }
+    
     .displayName {
       font-weight: 700;
     }
   }
+  
   .breadcrumb {
     position: absolute;
     left: 0;
@@ -221,6 +227,17 @@
 
 .reply-container {
   height: $dim_feature;
+}
+
+.edit {
+  position: absolute;
+  right: 25px;
+  bottom: 5px;
+  
+  &:hover, 
+  &active {
+    color: $co_white !important;  
+  }
 }
 
 .toolbar {

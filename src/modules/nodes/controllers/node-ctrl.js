@@ -44,12 +44,16 @@
     // GLobals & Constants ////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    var $bottom;    
     var SPEED = 200;
+    var wasScrolling = false;
     var LAST_SELECTED_NODE = 'last_selected';
     var RECENT_NODES_PREFIX = '___recentNode_';
-    var wasScrolling = false;
-    var $bottom;
-        
+    var MODE = Object.freeze({
+      REPLY: 0,
+      EDIT: 1
+    });
+            
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope properties ///////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,48 +63,17 @@
     $scope.showDialog =     false;
     $scope.expand =         false;
     $scope.transitioning =  false;
+    $scope.owned =          false;
     $scope.selected =       {};
     $scope.$children =      {};
     $scope.$activity =      {};
     $scope.reply =          '';
+    $scope.mode =           MODE.REPLY;
     $scope.node =           getNode($routeParams.id);
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Private functions //////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    function init() {
-      
-      meta.setTitle('Talking about...');
-      
-      // If the user switches autoscroll to true, scroll to the bottom
-      $scope.$watch('autoScroll', function (newValue, oldValue) {
-        if (newValue !== oldValue && newValue) {
-          scrollToBottom();
-        }
-      });
-      
-      // Watch for the node load...
-      $scope.$watch('node', function (value) {
-        if (value && value.$loaded) {
-          value.$loaded(addRecentNode);
-          setNodeChildrenFromFirebase($routeParams.id);
-        }
-      });
-      
-      activityService.get().then(function ($activity) {
-        $scope.$activity = $activity;
-      }).catch(function (err) {
-        console.error(err);
-      });
-      
-      // Bind scroll events to a handler that checks to see if the user has 
-      // scrolled all the way to the bottom
-      angular.element($window).bind('scroll', checkBottom);
-      
-      // Scroll to the bottom, plz
-      $timeout(scrollToBottom);
-    }
     
     function loaded(isLoaded) {
       
@@ -272,7 +245,67 @@
         });
       }
     }
-        
+    
+    function toggleDialog(force) {
+      
+      if (typeof force === 'boolean') {
+        $scope.showDialog = force;
+      } else {
+        $scope.showDialog = !$scope.showDialog;
+      }
+      
+      if ($scope.showDialog) {
+        focusTextInput();
+        backdropService.set(true, 4, $scope.toggleDialog);
+      } else {
+        // Just in case they exit by hitting the escape button
+        backdropService.reset();
+      }
+    }
+    
+    function checkOwner() {
+      authService.getUser().then(function (user) {
+        // Check to see if current user owns the featured comment
+        if (user.uid === $scope.node.uid) {
+          $scope.owned = true;
+        }
+      });
+    }
+    
+    function init() {
+      
+      meta.setTitle('Talking about...');
+      
+      // If the user switches autoscroll to true, scroll to the bottom
+      $scope.$watch('autoScroll', function (newValue, oldValue) {
+        if (newValue !== oldValue && newValue) {
+          scrollToBottom();
+        }
+      });
+      
+      // Watch for the node load...
+      $scope.$watch('node', function (value) {
+        if (value && value.$loaded) {
+          value.$loaded(addRecentNode);
+          setNodeChildrenFromFirebase($routeParams.id);
+          checkOwner();
+        }
+      });
+      
+      activityService.get().then(function ($activity) {
+        $scope.$activity = $activity;
+      }).catch(function (err) {
+        console.error(err);
+      });
+      
+      // Bind scroll events to a handler that checks to see if the user has 
+      // scrolled all the way to the bottom
+      angular.element($window).bind('scroll', checkBottom);
+      
+      // Scroll to the bottom, plz
+      $timeout(scrollToBottom);
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -388,22 +421,13 @@
       children.css({'display': 'none'});
     };
     
-    $scope.toggleDialog = function (force) {
-
-      if (typeof force === 'boolean') {
-        $scope.showDialog = force;
-      } else {
-        $scope.showDialog = !$scope.showDialog;
-      }
-      
-      if ($scope.showDialog) {
-        focusTextInput();
-        backdropService.set(true, 4, $scope.toggleDialog);
-      } else {
-        // Just in case they exit by hitting the escape button
-        backdropService.reset();
-      }
-    };
+    $scope.toggleDialog = toggleDialog;
+    
+    $scope.toggleEdit = function (force) {
+      $scope.mode = MODE.EDIT;
+      $scope.reply = $scope.node.text;
+      toggleDialog(force);
+    }
     
     $scope.pauseAutoScroll = function (pause) {
       if (pause) {
