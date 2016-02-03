@@ -12,22 +12,20 @@
   // Search
   angular.module('birdyard.search', [
     'firebase',
-    'ngMaterial'
   ]);
   
   // Nodes
   angular.module('birdyard.nodes', [
     'ngRoute',
     'firebase',
-    'ngMaterial',
+    'btford.markdown',
     'ngclipboard'
   ]);
   
   // Rooms
   angular.module('birdyard.rooms', [
     'ngRoute',
-    'firebase',
-    'ngMaterial'
+    'firebase'
   ]);
   
   // Authentication
@@ -39,7 +37,6 @@
   // Notifications
   angular.module('birdyard.notifications', [
     'firebase',
-    'ngMaterial'
   ]);
   
 })(angular);

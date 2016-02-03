@@ -12,8 +12,7 @@ angular.module('birdyard', [
   'birdyard.notifications',
   
   // Third-party
-  'ngMaterial',
-  'btford.markdown'
+  'ngMaterial'
   
 ]).run(['backdropService', function (backdropService) {
   
