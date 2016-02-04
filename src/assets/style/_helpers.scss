@@ -124,13 +124,17 @@
 }
 
 .loading {
-  position: fixed;
+  position: relative;
   display: block;
-  z-index: 1;
-  top: 300px;
   text-align: center;
   width: 100%;
   max-width: $dim_content;
+  
+  &.fixed {
+    position: fixed;
+    top: 300px;
+    z-index: 1;
+  }
 }
 
 .stretch-x {

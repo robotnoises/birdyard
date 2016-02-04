@@ -261,6 +261,7 @@
 
 .roomlist {
   padding-top: 275px;
+  padding-bottom: 25px;
 }
 
 .jumbotron {
@@ -444,6 +445,7 @@
     color: $co_black;
     border-radius: 50%;
     transition: border $dur_fade, color $dur_fade, background $dur_fade;
+    margin-bottom: 25px;
     
     &:hover {
       cursor: pointer;
