@@ -174,9 +174,10 @@
       }
     }
     
-    function clearDialog() {
+    function resetDialog() {
       $timeout(function () {
-        $scope.reply = '';  
+        $scope.reply = '';
+        $scope.mode = MODE.REPLY;
       });
     }
     
@@ -337,7 +338,7 @@
         _$new.breadcrumb = breadcrumbService.push(_$new.id, angular.copy($scope.node.breadcrumb));
         return _$new.$save();
       }).then(function() {
-        clearDialog();
+        resetDialog();
         return updateCommentCount('+1');
       }).then(function () {
 
