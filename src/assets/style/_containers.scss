@@ -16,6 +16,7 @@
   .node-title {
     
     z-index: 2;
+    pointer-events: none;
     
     span {
       color: $co_white;
