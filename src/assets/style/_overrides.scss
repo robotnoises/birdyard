@@ -94,7 +94,10 @@ md-sidenav {
   padding-bottom: 10px;
   md-content {
     background-color: transparent;
-    overflow: initial;
+    overflow: hidden;
+    &.scroll {
+      overflow: initial;
+    }
   }
   .birdyard-btn {
     display: block;

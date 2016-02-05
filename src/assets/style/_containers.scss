@@ -610,6 +610,9 @@ blockquote {
   .room-title {
     font-weight: 700;
     font-size: 2em;
+    width: 75%;
+    line-height: 1.15em;
+    word-wrap: break-word;
   }
   
   .room-footer {
