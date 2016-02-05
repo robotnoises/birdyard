@@ -399,6 +399,8 @@
       
       // Update the text of the existing node
       $scope.node.text = newText;
+      $scope.node.timestamp = $window.Firebase.ServerValue.TIMESTAMP;
+      $scope.node.edited = true;
       
       // Toggle the dialog
       $scope.toggleDialog(false);
@@ -410,6 +412,8 @@
           var $originRef = nodeService.getByPath(origin);
           return $originRef.$loaded(function () {
             $originRef.text = newText;
+            $originRef.timestamp = $window.Firebase.ServerValue.TIMESTAMP;
+            $originRef.edited = true;
             return $originRef.$save();  
           });
         } else {
