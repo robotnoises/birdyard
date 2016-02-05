@@ -107,11 +107,16 @@
     // Public
     
     $scope.newRoom = function () {
+      
+      var _newRoom; // Regular object
+      var _newNode; // Synchronized object
+      
       validateForm().then(function () {
         return nodeService.format($scope.room.text);
       }).then(function (formatted) {
         return nodeService.push(formatted);
       }).then(function ($node) {
+        _newNode = $node;
         $node.breadcrumb = breadcrumbService.push($node.$id);
         return $node.$save();
       }).then(function ($node) {
@@ -119,6 +124,15 @@
       }).then(function(formatted) {
         return roomService.saveRoom(formatted);
       }).then(function (newRoom) {
+
+        _newRoom = newRoom;
+        _newNode.originRoom = 'rooms/everything/' + newRoom.id;
+
+        return _newNode.$loaded(function () {
+          return _newNode.$save();
+        });
+      })
+      .then(function () {
         
         // Display success message
         $mdToast.show(
@@ -130,7 +144,7 @@
           );
         
         // Take me there!
-        $location.path('/n/' + newRoom.nodeId);
+        $location.path('/n/' + _newRoom.nodeId);
         
       }).catch(function(err) {
         

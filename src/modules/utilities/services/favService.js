@@ -37,7 +37,7 @@
     
     function _fav(nodeId, parentId, childId, favd, favCount) {
       
-      // Todo: this is clunky
+      // Todo: this is clunky, the updating of the child should happen at the service level
       var location = 'nodes/' + parentId + '/children/' + childId;
       
       return authService.getUser()

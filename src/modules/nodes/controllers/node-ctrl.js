@@ -11,7 +11,9 @@
     '$timeout', 
     '$anchorScroll', 
     '$window', 
+    'firebaseService',
     'nodeService', 
+    'roomService',
     'breadcrumbService', 
     'stashService', 
     'uiService',
@@ -29,7 +31,9 @@
     $timeout, 
     $anchorScroll, 
     $window, 
+    firebaseService,
     nodeService, 
+    roomService,
     breadcrumbService, 
     stashService, 
     uiService,
@@ -232,18 +236,36 @@
     }
     
     function updateCommentCount(operand) {
-      var operation = parseInt(operand, 10);
-      var updatedCount = angular.copy(($scope.node.commentCount + operation));
-      
-      // Update node
-      $scope.node.commentCount = updatedCount;
-      $scope.node.$save();
-      
-      if ($scope.node.origin) {
-        nodeService.getByPath($scope.node.origin).$loaded(function ($snap) {
-          $snap.commentCount = updatedCount;
-          $snap.$save();
-        });
+      try {
+        var operation = parseInt(operand, 10);
+        var updatedCount = angular.copy(($scope.node.commentCount + operation));
+        
+        // Update node
+        $scope.node.commentCount = updatedCount;
+        $scope.node.$save();
+        
+        // Update the child (origin)
+        if ($scope.node.origin) {
+          nodeService.getByPath($scope.node.origin).$loaded(function ($snap) {
+            $snap.commentCount = updatedCount;
+            $snap.$save();
+          });
+        }
+        
+        // Update the associated room
+        if ($scope.node.originRoom) {
+          
+          var $roomRef = firebaseService.getRef($scope.node.originRoom);
+          
+          $roomRef.once('value', function ($snap) {
+            var room = $snap.val();
+            var updatedRoomCount = room.commentCount + operation;
+            room.commentCount = updatedRoomCount;
+            return roomService.update(room);
+          });
+        }
+      } catch (err) {
+        console.error(err);
       }
     }
     
@@ -340,9 +362,11 @@
         return _$new.$loaded();
       }).then(function () {
         _formattedNode.id = _$new.id;
+        _formattedNode.originRoom = $scope.node.originRoom;
         return $scope.$children.$add(_formattedNode);
       }).then(function ($snapshot) {
         _$new.origin = 'nodes/' + $routeParams.id + '/children/' + $snapshot.key();
+        _$new.originRoom = $scope.node.originRoom;
         _$new.breadcrumb = breadcrumbService.push(_$new.id, angular.copy($scope.node.breadcrumb));
         return _$new.$save();
       }).then(function() {

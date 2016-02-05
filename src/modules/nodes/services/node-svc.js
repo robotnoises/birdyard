@@ -36,6 +36,7 @@
           text: text,
           uid: $user.uid,
           commentCount: 0,
+          favCount: 0,
           language: $user.language,
           description: $user.description,
           name: $user.name,
@@ -76,6 +77,7 @@
     
     // Create a node
     function _pushNode(data) {
+      
       return $q(function (resolve, reject) {
         
         var $ref = firebaseService.getRef('nodes');
@@ -93,6 +95,7 @@
     }
     
     function _updateNode(data, loc) {
+      
       return $q(function (resolve, reject) {
         
         var location = loc || 'nodes/' + data.id;

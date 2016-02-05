@@ -45,6 +45,7 @@
     }
     
     function _formatRoom(roomData, nodeId) {
+      
       return authService.getUser().then(function ($user) {
         
         var room = {
@@ -60,6 +61,33 @@
         };
         
         return room;
+      });
+    }
+    
+    function _updateRoom(data, loc) {
+      
+      return $q(function (resolve, reject) {
+        
+        var category = _getCategory(data.category);
+        var location = loc || 'rooms/everything/' + data.id;
+        var categoryLocation = 'rooms/' + category + '/' + data.categoryId;
+        
+        var $ref = firebaseService.getRef(location);
+        var $categoryRef = firebaseService.getRef(categoryLocation);
+        
+        return $ref.update(data, function (err) {
+          if (err) {
+            reject(err);
+          } else {
+            $categoryRef.update(data, function (err) {
+              if (err) {
+                reject(err);
+              } else {
+                resolve();
+              }
+            })
+          }
+        });
       });
     }
     
@@ -121,6 +149,7 @@
     
     _roomService.getRooms = _getRooms;
     _roomService.format = _formatRoom;
+    _roomService.update = _updateRoom;
     _roomService.saveRoom = _saveRoom;
     _roomService.getCategory = _getCategory;
     _roomService.getCategoryValue = _getCategoryValue;
