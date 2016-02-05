@@ -389,7 +389,7 @@
         $mdToast.show(
           $mdToast.simple()
             .content('Posted!')
-            .theme('toast-default')
+            .theme('toast-success')
             .position('bottom right')
             .hideDelay(1500)
           );
@@ -444,10 +444,32 @@
           return;
         }
       }).then(function () {
+        
         resetDialog();
-        console.log('woo!');
+        
+        // Display success message
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Edited!')
+            .theme('toast-success')
+            .position('bottom right')
+            .hideDelay(1500)
+          );
+        
       }).catch(function (err) {
+        
         console.error(err);
+        
+        resetDialog();
+        
+        // Display error message
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Something went wrong, please try again.')
+            .theme('toast-error')
+            .position('bottom right')
+            .hideDelay(3000)
+          );
       })
     };
     
