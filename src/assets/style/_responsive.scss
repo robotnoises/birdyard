@@ -1,0 +1,30 @@
+@import 'variables';
+
+@media (max-width: 849px) and (min-width: 0px) {
+  
+  // Landing page
+  
+  .rooms-header {
+    font-size: 2em;
+    margin-top: 55px;
+    padding-left: 20px;
+    
+    span:not(.md-select-icon) {
+      color: $co_black;
+      background: $co_verylightgrey;
+      border-radius: 5px;
+      padding: 5px 12px;
+      
+      @include raised(3px);
+    }
+    
+    div {
+      display: none;
+    }
+  }
+  
+  .searchbar,
+  .searchbar-placeholder {
+    display: none;
+  }
+}
