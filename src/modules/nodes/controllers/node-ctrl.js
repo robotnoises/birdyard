@@ -175,6 +175,8 @@
       
       if (lsn && lsn.id === id) {
         return lsn;
+      } else {
+        return {};
       }
     }
     
