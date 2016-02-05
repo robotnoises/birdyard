@@ -56,10 +56,12 @@
     
     // Pre configure some properties for new users
     function formatNewUser(authData) {
+      
+      authData.name = authData.providerData.name;
       authData.accent = colorService.random();
       authData.social = false;
       authData.description = '';
-      authData.name = authData[authData.provider].displayName;
+      
       return authData;
     }
     

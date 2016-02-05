@@ -12,7 +12,7 @@
       <md-content class="reply-textarea" style="padding-top: 75px"> 
         <md-input-container class="md-block">
           <label></label>
-          <textarea id="text-input"shift-enter="pushText()" class="jumbo" escape="toggleDialog()" ng-model="reply" placeholder="Reply to {{node.name}}..."></textarea>
+          <textarea id="text-input"shift-enter="handleReply()" class="jumbo" escape="toggleDialog()" ng-model="reply" placeholder="Reply to {{node.name}}..."></textarea>
         </md-input-container>
       </md-content>
       
@@ -20,7 +20,8 @@
         <formatting-toolbar target="reply" targetid="text-input"></formatting-toolbar>
       </div>
 
-      <md-button class="birdyard-btn shadow-flat" ng-click="pushText()">Reply</md-button>
+      <md-button ng-show="mode === 0" class="birdyard-btn shadow-flat" ng-click="handleReply()">Reply</md-button>
+      <md-button ng-show="mode === 1" class="birdyard-btn shadow-flat" ng-click="handleReply()">Edit</md-button>
     </div>
     
     <auth-user ng-show="!signedIn"></auth-user>

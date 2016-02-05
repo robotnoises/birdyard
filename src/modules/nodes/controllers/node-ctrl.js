@@ -310,9 +310,17 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Scope methods //////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
+    $scope.handleReply = function () {
+      if ($scope.mode === MODE.REPLY) {
+        $scope.pushText();
+      } else if ($scope.mode === MODE.EDIT) {
+        $scope.update();
+      }
+    };
+    
     // Add a comment
-    $scope.pushText = function() {
+    $scope.pushText = function () {
       
       // Do not proceed if the user has not entered text
       if (!$scope.reply) {
@@ -324,7 +332,7 @@
       
       $scope.toggleDialog(false);
       
-      nodeService.format($scope.reply).then(function (formatted) {
+      return nodeService.format($scope.reply).then(function (formatted) {
         _formattedNode = formatted;
         return nodeService.push(formatted);
       }).then(function ($new) {
@@ -383,6 +391,38 @@
       });
     };
     
+    $scope.update = function () {
+      
+      // Copy the new text
+      var newText = angular.copy($scope.reply);
+      var origin = angular.copy($scope.node.origin);
+      
+      // Update the text of the existing node
+      $scope.node.text = newText;
+      
+      // Toggle the dialog
+      $scope.toggleDialog(false);
+      
+      // Save the change
+      return $scope.node.$save().then(function ($ref) {
+        // Save the origin node the exact same way
+        if (origin) {
+          var $originRef = nodeService.getByPath(origin);
+          return $originRef.$loaded(function () {
+            $originRef.text = newText;
+            return $originRef.$save();  
+          });
+        } else {
+          return;
+        }
+      }).then(function () {
+        resetDialog();
+        console.log('woo!');
+      }).catch(function (err) {
+        console.error(err);
+      })
+    };
+    
     // Navigate to a specific node
     $scope.goToNode = navigateToNode;
     
@@ -422,7 +462,10 @@
       children.css({'display': 'none'});
     };
     
-    $scope.toggleDialog = toggleDialog;
+    $scope.toggleDialog = function (force) {
+      $scope.mode = MODE.REPLY;
+      toggleDialog(force);
+    };
     
     $scope.toggleEdit = function (force) {
       $scope.mode = MODE.EDIT;
