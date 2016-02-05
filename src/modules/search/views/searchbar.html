@@ -4,10 +4,8 @@
     <md-input-container class="md-block">
       <label></label>
       <input ng-model="search" aria-label="Search for rooms" ng-class="{'solid': results.length > 0}" placeholder="Search for {{categoryReadable}}..."></input>
-      <!-- Display progress when searching -->      
-      <div class="loading-search" ng-show="searching">
-        <md-progress-circular class="md-progress-default" md-mode='indeterminate' md-diameter="20"></md-progress-circular>
-      </div>
+      <!-- Display progress when searching -->
+      <md-progress-circular class="md-progress-default loading-search" ng-show="searching" md-mode='indeterminate' md-diameter="16"></md-progress-circular>
     </md-input-container>
     
     <!-- Search Results here -->

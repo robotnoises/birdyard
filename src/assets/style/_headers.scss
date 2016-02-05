@@ -34,7 +34,7 @@
   }
   md-select {
     display: inline-block;
-    margin-left: 7px;
+    margin-left: 10px;
     width: 100%;
     min-width: 232px;
   }
@@ -48,9 +48,18 @@
     transition: color $dur_fade;
         
     span:not(.md-select-icon) {
-      border-top: 4px solid $co_white;
-      border-bottom: 4px solid $co_white;
-      // text-shadow: none;
+      
+      &:hover {
+        border-bottom: 4px solid rgba(255, 255, 255, 0.25);
+      }
+      
+      &:after {
+        font-size: 0.5em;
+        font-family: 'FontAwesome';
+        content: '\f0d7';
+        margin-left: 10px;
+        vertical-align: middle;
+      }
     }
   }
 }
