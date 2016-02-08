@@ -9,7 +9,7 @@
     </md-input-container>
     
     <!-- Search Results here -->
-    <div ng-if="results.length > 0" class="results md-whiteframe-4dp">
+    <div ng-if="results.length > 0" class="results md-whiteframe-1dp">
       <md-divider></md-divider>
       <md-list>
         <md-list-item ng-repeat="result in results" ng-click="goTo(result._source.nodeId, $event)">
