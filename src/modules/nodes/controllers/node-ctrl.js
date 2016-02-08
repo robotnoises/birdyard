@@ -328,7 +328,7 @@
       angular.element($window).bind('scroll', checkBottom);
       
       // Scroll to the bottom, plz
-      $timeout(scrollToBottom);
+      scrollToBottom(scrollToBottom);
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

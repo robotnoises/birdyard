@@ -249,6 +249,10 @@
   -moz-animation: fadein ease-in 500ms;
   animation: fadein ease-in 500ms;
   
+  -webkit-animation-delay: 300ms;
+  -moz-animation-delay: 300ms;
+  animation-delay: 300ms;
+  
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
