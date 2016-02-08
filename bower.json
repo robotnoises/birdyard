@@ -27,7 +27,6 @@
     "mockfirebase": "~0.11.0",
     "angular-mocks": "~1.4.8",
     "firebase-util": "~0.2.5",
-    "ngclipboard": "~1.1.0",
     "clipboard": "~1.5.5"
   },
   "resolutions": {
