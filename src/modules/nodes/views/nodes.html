@@ -37,8 +37,8 @@
       </i>
             
       <!-- Go up one level -->
-      <div layout="column" class="level-up fadey ghost bg-black" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
-        <i class="icon fa fa-arrow-up pointer" ng-click="goUp()"></i>
+      <div layout="column" class="level-up fadey ghost bg-black" ng-class="{'boo': loaded}">
+        <i class="icon fa fa-arrow-up pointer" ng-if="node.breadcrumb.length > 1" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
