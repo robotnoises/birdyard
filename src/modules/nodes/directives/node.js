@@ -88,7 +88,7 @@
         
         scope.favd = false;
         scope.favCount = scope.node.favCount || 0;
-        scope.linkToNode = DOMAIN + '#/n/' + scope.node.id; // Todo: let's be smarter with this
+        scope.linkToNode = DOMAIN + 'n/' + scope.node.id; // Todo: let's be smarter with this
         
         scope.fav = function () {
           

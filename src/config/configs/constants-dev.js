@@ -11,7 +11,7 @@
     .constant('FIREBASE', 'https://birdyard-dev.firebaseio.com/')
     
     // The domain
-    .constant('DOMAIN', 'http://localhost:8000/src/')
+    .constant('DOMAIN', 'http://localhost:8000/src/#/')
     
     // Keep the #
     .constant('HTML5MODE', false);
