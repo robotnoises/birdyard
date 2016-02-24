@@ -93,7 +93,7 @@
     </div>
     
     <!-- display the child nodes -->
-    <node node="child" select="selectChild" pause="pauseAutoScroll" class="node child fade-in shadow-flat" ng-repeat="child in $children"></node>
+    <node node="child" select="selectChild" pause="pauseAutoScroll" class="node child fade-in shadow-flat fadey-slow ghost" ng-class="{'boo': loaded}" ng-repeat="child in $children"></node>
     
     <!-- Show More -->
     <div class="nothing-here fadey ghost" ng-class="{'boo': $children.length === 0 && !showDialog && loaded}">
