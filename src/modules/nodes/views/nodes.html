@@ -37,8 +37,8 @@
       </i>
             
       <!-- Go up one level -->
-      <div layout="column" class="level-up fadey ghost bg-black" ng-show="node.breadcrumb.length > 1" ng-class="{'boo': loaded}">
-        <i class="icon fa fa-arrow-up pointer" ng-click="goUp()"></i>
+      <div layout="column" class="level-up fadey ghost bg-black" ng-class="{'boo': loaded}">
+        <i class="icon fa fa-arrow-up pointer" ng-if="node.breadcrumb.length > 1" ng-click="goUp()"></i>
       </div>
       
       <!-- Breadcrumb trail -->
@@ -93,7 +93,7 @@
     </div>
     
     <!-- display the child nodes -->
-    <node node="child" select="selectChild" pause="pauseAutoScroll" class="node child fadey-slow ghost shadow-flat" ng-class="{'boo': loaded}" ng-repeat="child in $children"></node>
+    <node node="child" select="selectChild" pause="pauseAutoScroll" class="node child fade-in shadow-flat" ng-repeat="child in $children"></node>
     
     <!-- Show More -->
     <div class="nothing-here fadey ghost" ng-class="{'boo': $children.length === 0 && !showDialog && loaded}">

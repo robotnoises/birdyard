@@ -10,6 +10,9 @@
     // The configured Firebase
     .constant('FIREBASE', 'https://birdyard.firebaseio.com/')
     
+    // The domain
+    .constant('DOMAIN', 'https://www.birdyard.co/')
+    
     // Get rid of the #
     .constant('HTML5MODE', true);
   

@@ -18,8 +18,7 @@
   angular.module('birdyard.nodes', [
     'ngRoute',
     'firebase',
-    'btford.markdown',
-    'ngclipboard'
+    'btford.markdown'
   ]);
   
   // Rooms

@@ -18,6 +18,7 @@
     'notificationService',
     '$mdDialog',
     '$mdToast',
+    'DOMAIN',
   
   function (
     $q,
@@ -32,7 +33,8 @@
     stashService,
     notificationService,
     $mdDialog,
-    $mdToast) {
+    $mdToast,
+    DOMAIN) {
     
     return {
       restrict: 'E',
@@ -86,7 +88,7 @@
         
         scope.favd = false;
         scope.favCount = scope.node.favCount || 0;
-        scope.linkToNode = 'https://birdyard.co/#/n/' + scope.node.id; // Todo: let's be smarter with this
+        scope.linkToNode = DOMAIN + 'n/' + scope.node.id; // Todo: let's be smarter with this
         
         scope.fav = function () {
           

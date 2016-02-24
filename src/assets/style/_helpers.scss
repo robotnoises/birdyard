@@ -237,3 +237,23 @@
 .fixed {
   position: fixed;
 }
+
+@-webkit-keyframes fadein {from { opacity: 0; } to { opacity: 1; }}
+@-moz-keyframes fadein {from { opacity: 0; } to { opacity: 1; }}
+@keyframes fadein {from { opacity: 0; } to { opacity: 1; }}
+
+.fade-in {
+  opacity: 0;
+  
+  -webkit-animation: fadein ease-in 500ms;
+  -moz-animation: fadein ease-in 500ms;
+  animation: fadein ease-in 500ms;
+  
+  // -webkit-animation-delay: 300ms;
+  // -moz-animation-delay: 300ms;
+  // animation-delay: 300ms;
+  
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
