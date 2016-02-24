@@ -245,9 +245,9 @@
 .boo.fade-in {
   opacity: 0;
   
-  -webkit-animation: fadein ease-in 500ms;
-  -moz-animation: fadein ease-in 500ms;
-  animation: fadein ease-in 500ms;
+  -webkit-animation: fadein ease-in 200ms;
+  -moz-animation: fadein ease-in 200ms;
+  animation: fadein ease-in 200ms;
   
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;

@@ -212,7 +212,9 @@
       }
     }
     
-    function checkBottom() {
+    function checkBottom(speed) {
+      
+      var _speed = speed || 0;
       
       $timeout(function() {
         
@@ -228,7 +230,7 @@
           // if we're not at the bottom & autoScroll is enabled, disable it.
           $scope.autoScroll = false;
         }
-      }, SPEED);
+      }, _speed);
     }
     
     function babySitter(snap) {
@@ -325,10 +327,16 @@
       
       // Bind scroll events to a handler that checks to see if the user has 
       // scrolled all the way to the bottom
-      angular.element($window).bind('scroll', checkBottom);
+      angular.element($window).bind('scroll', function () {
+        checkBottom(500);
+      });
       
       // Scroll to the bottom, plz
-      scrollToBottom(scrollToBottom);
+      scrollToBottom(function () {
+        $timeout(function () {
+          scrollToBottom();
+        }, 500);
+      });
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
