@@ -86,6 +86,12 @@ md-dialog {
   position: fixed;
 }
 
+md-option {
+  .md-text {
+    font-size: 24px;
+  }
+}
+
 md-sidenav {
   border-left: 4px solid rgba(0,0,0,0.35);
   width: 90%;
